@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+BUILD_BROKEN_DUP_RULES := true
+
 BOARD_VENDOR := oneplus
 
 VENDOR_PATH := device/oneplus/sm8150-common

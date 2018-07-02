@@ -185,6 +185,7 @@ PRODUCT_PACKAGES += \
     init.qti.ims.sh \
     init.qti.manifest_sku.sh \
     init.qti.qseecomd.sh \
+    init.recovery.qcom.rc \
     init.target.rc \
     kmemleak.sh \
     ueventd.rc \

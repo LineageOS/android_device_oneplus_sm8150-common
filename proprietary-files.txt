@@ -902,6 +902,10 @@ vendor/firmware/a640_zap.mdt
 vendor/firmware/leia_pfp_470.fw
 vendor/firmware/leia_pm4_470.fw
 
+# HotwordEnrollment
+-priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk
+-priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk
+
 # IFAA
 vendor/bin/hw/vendor.oneplus.hardware.ifaa@2.0-service
 vendor/etc/init/vendor.oneplus.hardware.ifaa@2.0-service.rc

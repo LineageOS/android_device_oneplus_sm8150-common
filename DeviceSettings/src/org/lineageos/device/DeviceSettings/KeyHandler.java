@@ -55,7 +55,7 @@ import com.android.internal.util.ArrayUtils;
 
 import org.lineageos.device.DeviceSettings.Constants;
 
-import vendor.oneplus.camera.CameraHIDL.V1_0.IOnePlusCameraProvider;
+import vendor.oneplus.hardware.camera.V1_0.IOnePlusCameraProvider;
 
 public class KeyHandler implements DeviceKeyHandler {
 

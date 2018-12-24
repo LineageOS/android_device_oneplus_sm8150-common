@@ -71,4 +71,8 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
 extract "${MY_DIR}/proprietary-files-vendor.txt" "${SRC_VENDOR}" \
         "${KANG}" --section "${SECTION}"
 
+COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
+
+sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/libwfdnative.so" "${COMMON_BLOB_ROOT}/lib/libwfdnative.so"
+
 "${MY_DIR}/setup-makefiles.sh"

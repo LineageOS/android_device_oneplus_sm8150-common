@@ -99,3 +99,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.product.device=guacamole \
 	vendor.product.manufacturer=oneplus \
 	ro.vendor.nfc.notify_tp=1 \
+	persist.dbg.volte_avail_ovr=1 \
+	persist.dbg.vt_avail_ovr=1 \
+	persist.dbg.wfc_avail_ovr=1

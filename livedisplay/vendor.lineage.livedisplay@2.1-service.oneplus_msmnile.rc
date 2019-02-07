@@ -17,6 +17,6 @@ on init
     chmod 0666 /sys/class/drm/card0-DSI-1/native_display_wide_color_mode
 
 service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.oneplus_msmnile
-    class hal
+    class late_start
     user system
     group system

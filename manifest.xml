@@ -711,6 +711,16 @@
         <fqname>@2.0::IPerf/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.seccam</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISecCam</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISecCam/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.qdutils_disp</name>
         <transport>hwbinder</transport>
         <version>1.0</version>

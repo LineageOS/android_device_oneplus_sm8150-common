@@ -67,6 +67,17 @@ TARGET_VENDOR_PROP += $(VENDOR_PATH)/vendor.prop
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    odm \
+    system \
+    vendor \
+    vbmeta
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 

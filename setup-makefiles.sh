@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=guacamole
+DEVICE_COMMON=sm8150-common
 VENDOR=oneplus
 INITIAL_COPYRIGHT_YEAR=2019
 
@@ -35,10 +35,10 @@ fi
 source "${HELPER}"
 
 # Initialize the helper for common
-setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" true
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true
 
 # Copyright headers and guards
-write_headers "guacamole"
+write_headers "guacamole guacamoleb guacamolec"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

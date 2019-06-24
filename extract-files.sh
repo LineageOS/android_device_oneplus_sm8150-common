@@ -17,7 +17,7 @@
 
 set -e
 
-DEVICE=guacamole
+DEVICE_COMMON=sm8150-common
 VENDOR=oneplus
 
 # Load extract_utils and do some sanity checks
@@ -63,7 +63,7 @@ if [ -z "${SRC}" ]; then
 fi
 
 # Initialize the helper for common device
-setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"

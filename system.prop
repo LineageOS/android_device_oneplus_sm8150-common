@@ -340,3 +340,4 @@ dalvik.vm.isa.arm.variant=cortex-a75
 dalvik.vm.isa.arm.features=default
 net.bt.name=Android
 dalvik.vm.stack-trace-dir=/data/anr
+

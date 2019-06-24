@@ -1,0 +1,26 @@
+# this file should import init.rc and then add some oem defined service
+
+#this service is a non-use service and just use to duplicate real console service
+service console /system/bin/xxx
+    class core
+    console
+    disabled
+    user root
+    group shell log
+    oneshot
+    seclabel u:r:shell:s0
+
+#this service is a non-use service and just use to duplicate real surfaceflinger service
+service surfaceflinger /system/bin/xxx
+    class core
+    oneshot
+    disabled
+
+service oemasserttip /system/bin/xxx
+     class main
+     user system
+     disabled
+
+service vendor.hwcomposer-2-2 /vendor/bin/hw/xxx
+    oneshot
+    disabled

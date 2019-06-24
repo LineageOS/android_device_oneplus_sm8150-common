@@ -39,33 +39,24 @@ CLEAN_VENDOR=true
 SECTION=
 KANG=
 
-while [ "${#}" -gt 0 ]; do
-    case "${1}" in
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"; shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
-    esac
-    shift
-done
+SRC=$1
+SRC_VENDOR=$2
 
 if [ -z "${SRC}" ]; then
     SRC="adb"
+fi
+
+if [ -z "${SRC_VENDOR}" ]; then
+    SRC_VENDOR="adb"
 fi
 
 # Initialize the helper for common device
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
+        "${KANG}" --section "${SECTION}"
+
+extract "${MY_DIR}/proprietary-files-vendor.txt" "${SRC_VENDOR}" \
         "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"

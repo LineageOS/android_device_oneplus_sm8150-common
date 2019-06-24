@@ -19,6 +19,7 @@ cc_binary {
     name: "android.hardware.light@2.0-service.oneplus_msmnile",
     init_rc: ["android.hardware.light@2.0-service.oneplus_msmnile.rc"],
     srcs: ["service.cpp", "Light.cpp"],
+    vendor: true,
     shared_libs: [
         "libbase",
         "libhardware",

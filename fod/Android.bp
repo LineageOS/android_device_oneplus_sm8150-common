@@ -4,6 +4,7 @@ cc_binary {
     name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile",
     init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile.rc"],
     srcs: ["FingerprintInscreen.cpp"],
+    vendor: true,
     shared_libs: [
         "libbase",
         "libhardware",

@@ -1712,3 +1712,6 @@ vendor/lib64/com.qualcomm.qti.uceservice@2.0.so
 vendor/lib64/libqti-iopd-client.so
 vendor/lib64/libSecureUILib.so
 
+# Wifi HALs (TODO: Figure out what funky stuff they have done and build OSS wifi HAL)
+vendor/lib64/libwifi-hal.so
+vendor/lib64/libwifi-hal-qcom.so

@@ -6,7 +6,7 @@
         compatibility_matrix.3.xml
         compatibility_matrix.device.xml
 -->
-<compatibility-matrix version="1.0" type="framework" level="3">
+<compatibility-matrix version="1.0" type="framework">
     <hal format="hidl" optional="true">
         <name>android.hardware.authsecret</name>
         <version>1.0</version>

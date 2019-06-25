@@ -360,8 +360,8 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Sensors
 PRODUCT_PACKAGES += \
-	android.hardware.sensors@1.0-impl \
-	android.hardware.sensors@1.0-service \
+	android.hardware.sensors@1.0-impl.oneplus_msmnile \
+	android.hardware.sensors@1.0-service.oneplus_msmnile \
 	libsensorndkbridge
 
 # Sensor HAL conf file

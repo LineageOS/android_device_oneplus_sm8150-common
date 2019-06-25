@@ -1,4 +1,5 @@
 PRODUCT_PROPERTY_OVERRIDES += \
+	ro.sf.lcd_density=411 \
 	ro.hardware.nfc_nci=nqx.default \
 	ro.hardware.keystore_desede=true \
 	persist.vendor.qcomsysd.enabled=1 \

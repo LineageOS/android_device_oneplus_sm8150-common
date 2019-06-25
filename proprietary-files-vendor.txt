@@ -315,7 +315,6 @@ vendor/etc/sound_trigger_mixer_paths_wcd9340_qrd.xml
 vendor/etc/dolby/dax-default.xml
 vendor/etc/libnfc-nxp_RF_suzhoutong.conf
 vendor/etc/18857_ftm.conf
-vendor/etc/audio/audio_policy_configuration.xml
 vendor/etc/fstab_nodata.qcom
 vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp

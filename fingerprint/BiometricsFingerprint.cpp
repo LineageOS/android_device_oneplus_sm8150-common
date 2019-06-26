@@ -215,6 +215,11 @@ IBiometricsFingerprint* BiometricsFingerprint::getInstance() {
 void setFpVendorProp(const char *fp_vendor) {
     property_set("persist.vendor.sys.fp.vendor", fp_vendor);
     property_set("ro.boot.fpsensor", fp_vendor);
+    if (strcmp(fp_vendor, "goodix") == 0) {
+        property_set("persist.vendor.oem.fp.version", "4");
+    } else {
+        property_set("persist.vendor.oem.fp.version", "5");
+    }
 }
 
 fingerprint_device_t* getDeviceForVendor(const char *class_name)

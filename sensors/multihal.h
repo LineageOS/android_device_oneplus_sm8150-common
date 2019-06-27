@@ -19,6 +19,8 @@
 #include <hardware/sensors.h>
 #include <hardware/hardware.h>
 
+#define SENSOR_TYPE_QTI_HARDWARE_LIGHT 33171030
+
 static const char* MULTI_HAL_CONFIG_FILE_PATH = "/vendor/etc/sensors/hals.conf";
 
 // Depracated because system partition HAL config file does not satisfy treble requirements.

@@ -33,6 +33,10 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on init
+    # permission for dt2w
+    chown system system /proc/touchpanel/gesture_dt2w
+    chmod 0660 /proc/touchpanel/gesture_dt2w
+
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
     write /dev/stune/schedtune.colocate 0

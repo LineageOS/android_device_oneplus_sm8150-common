@@ -145,6 +145,9 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_RIL_VARIANT := caf
 ENABLE_VENDOR_RIL_SERVICE := true
 
+# Power
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/gesture_dt2w"
+
 # Sepolicy: TBD
 
 # Recovery

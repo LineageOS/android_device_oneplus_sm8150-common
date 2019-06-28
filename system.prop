@@ -34,7 +34,6 @@ dev.pm.dyn_samplingrate=1
 
 #Enable virtual display.
 debug.sf.enable_hwc_vds=1
-vendor.display.enable_default_color_mode=0
 #ro.hdmi.enable=true
 #persist.speaker.prot.enable=false
 qcom.hw.aac.encoder=true

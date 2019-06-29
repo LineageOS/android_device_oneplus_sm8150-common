@@ -18,7 +18,7 @@
 #include "multihal.h"
 
 #define LOG_TAG "sensors_multihal"
-#define LOG_NDEBUG 0
+#define LOG_NDEBUG 1
 #include <cutils/log.h>
 #include <cutils/atomic.h>
 #include <cutils/properties.h>

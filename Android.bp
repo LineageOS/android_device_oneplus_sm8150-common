@@ -1,3 +1,6 @@
+soong_namespace {
+}
+
 subdirs = [
 	"lights", "interfaces", "fod", "tri-state-key", "fingerprint",
 ]

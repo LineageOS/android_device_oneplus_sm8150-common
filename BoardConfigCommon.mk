@@ -6,6 +6,7 @@
 
 BOARD_VENDOR := oneplus
 DEVICE_PATH_COMMON := device/oneplus/sm8150-common
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH_COMMON)
 
 # Architecture
 TARGET_ARCH := arm64

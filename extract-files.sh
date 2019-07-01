@@ -39,15 +39,27 @@ CLEAN_VENDOR=true
 SECTION=
 KANG=
 
-SRC=$1
-SRC_VENDOR=$2
+while [ "${#}" -gt 0 ]; do
+    case "${1}" in
+        -n | --no-cleanup )
+                CLEAN_VENDOR=false
+                ;;
+        -k | --kang )
+                KANG="--kang"
+                ;;
+        -s | --section )
+                SECTION="${2}"; shift
+                CLEAN_VENDOR=false
+                ;;
+        * )
+                SRC="${1}"
+                ;;
+    esac
+    shift
+done
 
 if [ -z "${SRC}" ]; then
     SRC="adb"
-fi
-
-if [ -z "${SRC_VENDOR}" ]; then
-    SRC_VENDOR="adb"
 fi
 
 # Initialize the helper for common device

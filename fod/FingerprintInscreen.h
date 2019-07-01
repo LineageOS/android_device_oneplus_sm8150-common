@@ -19,6 +19,8 @@ class FingerprintInscreen : public IFingerprintInscreen {
 	private:
 		sp<IVendorFingerprintExtensions> mVendorFpService;
 		sp<IOneplusDisplay> mVendorDisplayService;
+		std::mutex mCallbackLock;
+		sp<IFingerprintInscreenCallback> mCallback;
 
 	public:
 		FingerprintInscreen();
@@ -32,6 +34,7 @@ class FingerprintInscreen : public IFingerprintInscreen {
 		Return<void> setLongPressEnabled(bool enabled);
 		Return<int32_t> getDimAmount(int32_t cur_brightness);
 		Return<bool> shouldBoostBrightness();
+		Return<void> setCallback(const sp<IFingerprintInscreenCallback>& callback);
 
 };
 

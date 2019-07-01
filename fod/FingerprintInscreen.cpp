@@ -5,6 +5,8 @@
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
 #include <fstream>
+#include <poll.h>
+#include <thread>
 #include <unistd.h>
 
 #define OP_ENABLE_FP_LONGPRESS 3
@@ -19,6 +21,9 @@
 // This is not a typo by me. It's by oneplus.
 #define HBM_ENABLE_PATH "/sys/class/drm/card0-DSI-1/op_friginer_print_hbm"
 #define DIM_AMOUNT_PATH "/sys/class/drm/card0-DSI-1/dim_alpha"
+
+#define FP_IRQ_PATH_SILEAD "/sys/devices/platform/soc/soc:silead_fp/of_node/fp-gpio-irq"
+#define FP_IRQ_PATH_GOODIX "/sys/devices/platform/soc/soc:goodix_fp/of_node/fp-gpio-irq"
 
 using vendor::oneplus::fingerprint::extension::V1_0::IVendorFingerprintExtensions;
 using vendor::oneplus::hardware::display::V1_0::IOneplusDisplay;
@@ -63,6 +68,52 @@ int main() {
 FingerprintInscreen::FingerprintInscreen() {
 	this->mVendorFpService = IVendorFingerprintExtensions::getService();
 	this->mVendorDisplayService = IOneplusDisplay::getService();
+
+	std::thread([this] {
+		while (true) {
+			auto fd = open(FP_IRQ_PATH_SILEAD, O_RDONLY);
+			if (fd < 0) {
+				LOG(ERROR) << "Can't open " << FP_IRQ_PATH_SILEAD << "!";
+				fd = open(FP_IRQ_PATH_GOODIX, O_RDONLY);
+				if (fd < 0) {
+					LOG(ERROR) << "Can't open " << FP_IRQ_PATH_GOODIX << "!";
+					return;
+				}
+			}
+	
+			char value;
+			read(fd, &value, 1);
+			{
+				std::lock_guard<std::mutex> _lock(mCallbackLock);
+				if (mCallback != nullptr) {
+					switch (value) {
+						case '0': {
+							Return<void> ret = mCallback->onFingerUp();
+							if (!ret.isOk()) {
+								LOG(ERROR) << "FingerUp() error: " << ret.description();
+							}
+							break;
+						}
+						case '1': {
+							Return<void> ret = mCallback->onFingerDown();
+							if (!ret.isOk()) {
+								LOG(ERROR) << "FingerDown() error: " << ret.description();
+							}
+							break;
+						}
+					}
+				}
+			}
+
+			pollfd ufd{fd, POLLPRI | POLLERR, 0};
+
+			if (poll(&ufd, 1, -1) < 0) {
+				LOG(ERROR) << "Oops, poll() failed";
+				return;
+			}
+			close(fd);
+		}
+	}).detach();
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
@@ -130,4 +181,13 @@ Return<int32_t> FingerprintInscreen::getDimAmount(int32_t cur_brightness) {
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
 	return false;
+}
+
+Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
+	LOG(INFO) << __func__;
+	{
+		std::lock_guard<std::mutex> _lock(mCallbackLock);
+		mCallback = callback;
+	}
+	return Void();
 }

@@ -488,7 +488,4 @@
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
 
-    <!-- Enable system navigation keys. -->
-    <bool name="config_supportSystemNavigationKeys">true</bool>
-
 </resources>

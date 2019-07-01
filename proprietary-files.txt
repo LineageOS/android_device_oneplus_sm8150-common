@@ -118,7 +118,7 @@ lib64/libmmosal.so
 # NFC
 -app/NxpNfcNci/NxpNfcNci.apk|3f64ad4d8d03e05fdcbe44b9a97ba87aa7d33afc
 -app/NxpSecureElement/NxpSecureElement.apk|ae67e8df18dd40d77f65bbd2556821ef4b671dec
-etc/nfcee_access.xml
+etc/nfcee_access.xml|61a2dbaec0339b6c3c79b487a704d5dc6306b284
 etc/permissions/com.nxp.nfc.xml
 framework/com.nxp.nfc.jar|b10aa34b20571c2786ea4a003cca8e478daee0b0
 lib64/libnxpnfc_nci_jni.so|5b176f814f28a2bc6cc8d9af27b04e3360843803

@@ -2,7 +2,7 @@
 
 hidl_interface {
     name: "vendor.oneplus.fingerprint.extension@1.0",
-    root: "vendor",
+    root: "vendor.oneplus",
     srcs: [
         "types.hal",
         "IVendorFingerprintExtensions.hal",

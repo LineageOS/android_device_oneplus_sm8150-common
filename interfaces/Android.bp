@@ -1,6 +1,4 @@
 hidl_package_root {
-    name: "vendor",
-    path: "device/oneplus/sm8150-common/interfaces/vendor",
+    name: "vendor.oneplus",
+    path: "device/oneplus/sm8150-common/interfaces",
 }
-
-subdirs = [ "vendor" ]

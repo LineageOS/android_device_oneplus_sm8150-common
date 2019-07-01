@@ -33,10 +33,6 @@ lib64/vendor.qti.hardware.data.latency@1.0.so
 # DASH
 -sbin/dashd;rootfs|944b0e03ddc28185e313b1bc838f5305a0d27260
 
-# Display extensions (mostly for under-screen fingerprint scanner)
-lib/vendor.oneplus.hardware.display@1.0.so
-lib64/vendor.oneplus.hardware.display@1.0.so
-
 # Display postprocessing
 lib64/vendor.display.color@1.0.so
 
@@ -60,10 +56,6 @@ lib64/libdpmfdmgr.so
 lib64/libdpmframework.so
 lib64/libdpmtcm.so
 -priv-app/dpmserviceapp/dpmserviceapp.apk
-
-# Fingerprint extensions
-lib/vendor.oneplus.fingerprint.extension@1.0.so
-lib64/vendor.oneplus.fingerprint.extension@1.0.so
 
 # IMS
 -app/uceShimService/uceShimService.apk

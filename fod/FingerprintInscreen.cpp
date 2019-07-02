@@ -125,14 +125,18 @@ FingerprintInscreen::FingerprintInscreen() {
             auto msgId = *reinterpret_cast<int8_t *>(NLMSG_DATA(nlh));
 
             if (msgId == msgDown) {
-                Return<void> ret = mCallback->onFingerDown();
-                if (!ret.isOk()) {
-                    LOG(ERROR) << "FingerDown() error: " << ret.description();
+                if (mCallback != nullptr) {
+                    Return<void> ret = mCallback->onFingerDown();
+                    if (!ret.isOk()) {
+                        LOG(ERROR) << "FingerDown() error: " << ret.description();
+                    }
                 }
             } else if (msgId == msgUp) {
-                Return<void> ret = mCallback->onFingerUp();
-                if (!ret.isOk()) {
-                    LOG(ERROR) << "FingerUp() error: " << ret.description();
+                if (mCallback != nullptr) {
+                    Return<void> ret = mCallback->onFingerUp();
+                    if (!ret.isOk()) {
+                        LOG(ERROR) << "FingerUp() error: " << ret.description();
+                    }
                 }
             }
         }

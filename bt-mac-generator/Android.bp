@@ -1,0 +1,11 @@
+cc_binary {
+    name: "bt-mac-generator",
+    init_rc: ["bt-mac-generator.rc"],
+    srcs: ["bt_mac_generator.cpp"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "liblog",
+    ],
+}

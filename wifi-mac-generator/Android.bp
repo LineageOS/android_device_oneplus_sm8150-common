@@ -1,0 +1,11 @@
+cc_binary {
+    name: "wifi-mac-generator",
+    init_rc: ["wifi-mac-generator.rc"],
+    srcs: ["wifi_mac_generator.cpp"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "liblog",
+    ],
+}

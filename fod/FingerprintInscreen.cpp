@@ -21,6 +21,8 @@
 #include <hidl/HidlTransportSupport.h>
 #include <fstream>
 
+#define FINGERPRINT_ACQUIRED_VENDOR 6
+
 #define OP_ENABLE_FP_LONGPRESS 3
 #define OP_DISABLE_FP_LONGPRESS 4
 #define OP_RESUME_FP_ENROLL 8
@@ -123,8 +125,35 @@ Return<void> FingerprintInscreen::onHideFODView() {
     return Void();
 }
 
-Return<bool> FingerprintInscreen::shouldHandleError(int32_t error) {
-    return error != 8;
+Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t vendorCode) {
+    std::lock_guard<std::mutex> _lock(mCallbackLock);
+    if (mCallback == nullptr) {
+        return false;
+    }
+
+    if (acquiredInfo == FINGERPRINT_ACQUIRED_VENDOR) {
+        if (vendorCode == 0) {
+            Return<void> ret = mCallback->onFingerDown();
+            if (!ret.isOk()) {
+                LOG(ERROR) << "FingerDown() error: " << ret.description();
+            }
+            return true;
+        }
+
+        if (vendorCode == 1) {
+            Return<void> ret = mCallback->onFingerUp();
+            if (!ret.isOk()) {
+                LOG(ERROR) << "FingerUp() error: " << ret.description();
+            }
+            return true;
+        }
+    }
+
+    return false;
+}
+
+Return<bool> FingerprintInscreen::handleError(int32_t, int32_t) {
+    return false;
 }
 
 Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {

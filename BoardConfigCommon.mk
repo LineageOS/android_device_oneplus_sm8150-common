@@ -147,7 +147,7 @@ TARGET_RIL_VARIANT := caf
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Power
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/gesture_dt2w"
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Sepolicy: TBD
 

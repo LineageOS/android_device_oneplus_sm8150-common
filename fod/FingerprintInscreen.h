@@ -49,6 +49,9 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<int32_t> getDimAmount(int32_t cur_brightness) override;
     Return<bool> shouldBoostBrightness() override;
     Return<void> setCallback(const sp<IFingerprintInscreenCallback>& callback) override;
+    Return<int32_t> getPositionX() override;
+    Return<int32_t> getPositionY() override;
+    Return<int32_t> getSize() override;
 
   private:
     sp<IOneplusDisplay> mVendorDisplayService;

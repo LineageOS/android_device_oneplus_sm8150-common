@@ -1,4 +1,3 @@
-
 [AID_VENDOR_QTI_DIAG]
 value:2901
 
@@ -42,7 +41,7 @@ caps: NET_BIND_SERVICE
 mode: 0755
 user: AID_SYSTEM
 group: AID_RADIO
-caps: NET_BIND_SERVICE
+caps: NET_BIND_SERVICE WAKE_ALARM BLOCK_SUSPEND
 
 [vendor/bin/imsrcsd]
 mode: 0755
@@ -61,6 +60,12 @@ mode: 0755
 user:  AID_GPS
 group: AID_GPS
 caps: NET_BIND_SERVICE
+
+[vendor/bin/loc_launcher]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: SETUID SETGID
 
 [vendor/bin/xtwifi-client]
 mode: 0755

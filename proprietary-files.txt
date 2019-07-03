@@ -1,3 +1,6 @@
+#hax
+priv-app/MiuiSystemUI/MiuiSystemUI.apk
+
 # ANT+
 lib/com.qualcomm.qti.ant@1.0.so
 -lib/libantradio.so

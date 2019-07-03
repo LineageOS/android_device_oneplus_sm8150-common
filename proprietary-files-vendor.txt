@@ -1,3 +1,18 @@
+# GPS HAL
+vendor/lib64/hw/android.hardware.gnss@1.1-impl-qti.so
+vendor/lib/hw/android.hardware.gnss@1.1-impl-qti.so
+vendor/lib64/libgnss.so
+vendor/lib/libgnss.so
+vendor/lib64/libgnsspps.so
+vendor/lib/libgnsspps.so
+vendor/lib64/libloc_core.so
+vendor/lib/libloc_core.so
+vendor/lib64/liblocation_api.so
+vendor/lib/liblocation_api.so
+vendor/lib64/libgps.utils.so
+vendor/lib/libgps.utils.so
+
+# Misc (TODO: sort blobs)
 vendor/bin/iwlist
 vendor/bin/diag_uart_log
 vendor/bin/adsprpcd
@@ -599,7 +614,6 @@ vendor/lib/libOmxEvrcDec.so
 vendor/lib/libbt-vendor.so
 vendor/lib/libGPTEE_vendor.so
 vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libgnsspps.so
 vendor/lib/libcppf.so
 vendor/lib/vndk/libstagefright_omx.so
 vendor/lib/vndk/libstagefright_foundation.so
@@ -1175,7 +1189,6 @@ vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libbt-vendor.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libkeymasterdeviceutils.so
-vendor/lib64/libgnsspps.so
 vendor/lib64/libcppf.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/vendor.dolby.hardware.dms@1.0.so

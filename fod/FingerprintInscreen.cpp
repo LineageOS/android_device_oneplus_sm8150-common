@@ -44,8 +44,6 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
-using namespace std::chrono_literals;
-
 /*
  * Write value to path and close file.
  */
@@ -70,8 +68,6 @@ FingerprintInscreen::FingerprintInscreen() {
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
-    LOG(INFO) << __func__;
-
     this->mVendorFpService->updateStatus(OP_DISABLE_FP_LONGPRESS);
     this->mVendorFpService->updateStatus(OP_RESUME_FP_ENROLL);
 
@@ -79,16 +75,12 @@ Return<void> FingerprintInscreen::onStartEnroll() {
 }
 
 Return<void> FingerprintInscreen::onFinishEnroll() {
-    LOG(INFO) << __func__;
-
     this->mVendorFpService->updateStatus(OP_FINISH_FP_ENROLL);
 
     return Void();
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    LOG(INFO) << __func__;
-
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
     set(HBM_ENABLE_PATH, 1);
@@ -98,8 +90,6 @@ Return<void> FingerprintInscreen::onPress() {
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    LOG(INFO) << __func__;
-
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     set(HBM_ENABLE_PATH, 0);
@@ -109,14 +99,10 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    LOG(INFO) << __func__;
-
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    LOG(INFO) << __func__;
-
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
     set(HBM_ENABLE_PATH, 0);
@@ -164,8 +150,6 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
 }
 
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    LOG(INFO) << __func__;
-
     int dimAmount = get(DIM_AMOUNT_PATH, 0);
     LOG(INFO) << "dimAmount = " << dimAmount;
 
@@ -177,8 +161,6 @@ Return<bool> FingerprintInscreen::shouldBoostBrightness() {
 }
 
 Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallback>& callback) {
-    LOG(ERROR) << __func__;
-
     {
         std::lock_guard<std::mutex> _lock(mCallbackLock);
         mCallback = callback;

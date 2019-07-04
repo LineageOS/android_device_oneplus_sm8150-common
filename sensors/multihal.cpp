@@ -544,53 +544,6 @@ static void lazy_init_modules() {
     pthread_mutex_unlock(&init_modules_mutex);
 }
 
-/*
- * Fix the fields of the sensor
- * Replace vendor sensor types with standard ones
- */
-static void fix_sensor_fields(sensor_t& sensor) {
-    if (sensor.type == SENSOR_TYPE_QTI_HARDWARE_LIGHT) {
-        sensor.type = SENSOR_TYPE_LIGHT;
-        ALOGV("Replaced QTI Light sensor with standard light sensor");
-    }
-}
-
-/*
- * We use sRGB gamma to approximate the brightness of screen pixels
- * This would not be accurate; an accurate algorithm must take the
- * characteristics of both the screen and the light sensor into
- * consideration. However, this should be good enough for its purpose.
- * Source: <https://stackoverflow.com/a/13558570/4099197>
- */
-// sRGB luminance(Y) values
-const double rY = 0.212655;
-const double gY = 0.715158;
-const double bY = 0.072187;
-
-double inv_gam_sRGB(int ic) {
-    double c = ic / 255.0;
-    if (c <= 0.04045)
-        return c / 12.92;
-    else
-        return pow(((c + 0.055) / (1.055)), 2.4);
-}
-
-int gam_sRGB(double v) {
-    if (v <= 0.0031308)
-        v *= 12.92;
-    else
-        v = 1.055 * pow(v, 1.0 / 2.4) - 0.055;
-    return int(v * 255 + 0.5);
-}
-
-int gray(int r, int g, int b) {
-    return gam_sRGB(
-            rY * inv_gam_sRGB(r) +
-            gY * inv_gam_sRGB(g) +
-            bY * inv_gam_sRGB(b)
-    );
-}
-
 template <typename T>
 static T get(const std::string& path, const T& def) {
     std::ifstream file(path);
@@ -600,18 +553,28 @@ static T get(const std::string& path, const T& def) {
     return file.fail() ? def : result;
 }
 
-int max_brightness = -1;
-int full_white_reading = -1;
+int red_max_lux, green_max_lux, blue_max_lux, white_max_lux, max_brightness;
+int als_bias;
+
+/*
+ * Fix the fields of the sensor
+ * Replace vendor sensor types with standard ones
+ */
+static void fix_sensor_fields(sensor_t& sensor) {
+    if (sensor.type == SENSOR_TYPE_QTI_HARDWARE_LIGHT) {
+        sensor.type = SENSOR_TYPE_LIGHT;
+        ALOGV("Replaced QTI Light sensor with standard light sensor");
+        red_max_lux = get("/mnt/vendor/persist/engineermode/red_max_lux", 0);
+        green_max_lux = get("/mnt/vendor/persist/engineermode/green_max_lux", 0);
+        blue_max_lux = get("/mnt/vendor/persist/engineermode/blue_max_lux", 0);
+        white_max_lux = get("/mnt/vendor/persist/engineermode/white_max_lux", 0);
+        als_bias = get("/mnt/vendor/persist/engineermode/als_bias", 0);
+        max_brightness = get("/sys/class/backlight/panel0-backlight/max_brightness", 255);
+        ALOGV("max r = %d, max g = %d, max b = %d", red_max_lux, green_max_lux, blue_max_lux);
+    }
+}
 
 void light_sensor_correction(sensors_event_t *ev) {
-    if (max_brightness == -1) {
-        max_brightness = get("/sys/class/backlight/panel0-backlight/max_brightness", 255);
-    }
-    if (full_white_reading == -1) {
-        char prop[255];
-        property_get("persist.vendor.sensors.light.full_white_reading", prop, "255");
-        full_white_reading = atoi(prop);
-    }
     uint8_t *buffer = NULL;
     update_screen_buffer((void**) &buffer);
     uint8_t r = buffer[0];
@@ -619,10 +582,22 @@ void light_sensor_correction(sensors_event_t *ev) {
     uint8_t b = buffer[2];
     ALOGV("Screen Color Above Sensor: %d, %d, %d", r, g, b);
     ALOGV("Original reading: %f", ev->light);
-    float brightness = ((float) gray(r, g, b)) / (255.0f / (float) full_white_reading);
-    ALOGV("Estimated brightness of color: %f", brightness);
     int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
-    float correction = brightness * ((float) screen_brightness) / ((float) max_brightness);
+    float correction = 0.0f;
+    if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
+        uint8_t rgb_min = r;
+        if (g < rgb_min) rgb_min = g;
+        if (b < rgb_min) rgb_min = b;
+        correction += ((float) rgb_min) / 255.0f * ((float) white_max_lux);
+        r -= rgb_min;
+        g -= rgb_min;
+        b -= rgb_min;
+        correction += ((float) r) / 255.0f * ((float) red_max_lux);
+        correction += ((float) g) / 255.0f * ((float) green_max_lux);
+        correction += ((float) b) / 255.0f * ((float) blue_max_lux);
+        correction = correction * (((float) screen_brightness) / ((float) max_brightness));
+        correction += als_bias;
+    }
     ALOGV("Final correction: %f", correction);
     ev->light -= correction;
     if (ev->light < 0)

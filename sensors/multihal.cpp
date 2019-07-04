@@ -585,9 +585,7 @@ void light_sensor_correction(sensors_event_t *ev) {
     int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
     float correction = 0.0f;
     if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
-        uint8_t rgb_min = r;
-        if (g < rgb_min) rgb_min = g;
-        if (b < rgb_min) rgb_min = b;
+        uint8_t rgb_min = std::min({r, g, b});
         correction += ((float) rgb_min) / 255.0f * ((float) white_max_lux);
         r -= rgb_min;
         g -= rgb_min;

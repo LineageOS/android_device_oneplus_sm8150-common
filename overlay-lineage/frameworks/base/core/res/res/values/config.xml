@@ -18,6 +18,6 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- FOD fingerprint scanner -->
+    <!-- Whether to show a custom view for FOD -->
     <bool name="config_needCustomFODView">true</bool>
 </resources>

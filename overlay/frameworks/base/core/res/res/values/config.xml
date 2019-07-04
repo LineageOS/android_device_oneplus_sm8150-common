@@ -214,7 +214,7 @@
     <bool name="config_carrier_wfc_ims_available">true</bool>
 
     <!-- Screen brightness when dozing -->
-    <integer name="config_screenBrightnessDoze">17</integer>
+    <integer name="config_screenBrightnessDoze">27</integer>
 
     <!-- ComponentName of a dream to show whenever the system would otherwise have
          gone to sleep.  When the PowerManager is asked to go to sleep, it will instead

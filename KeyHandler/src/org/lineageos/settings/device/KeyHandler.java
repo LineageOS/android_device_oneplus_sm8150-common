@@ -16,17 +16,10 @@
 
 package org.lineageos.settings.device;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.AudioManager;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.WindowManager;
 
 import com.android.internal.os.DeviceKeyHandler;
 
@@ -37,9 +30,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_NORMAL = 601;
     private static final int MODE_VIBRATION = 602;
     private static final int MODE_SILENCE = 603;
-
-    // Camera motor press sensor key codes
-    private static final int KEY_F14 = 0x00b8;
 
     private final Context mContext;
     private final AudioManager mAudioManager;
@@ -65,13 +55,6 @@ public class KeyHandler implements DeviceKeyHandler {
             case MODE_SILENCE:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
                 break;
-            case KEY_F14:
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    new Handler(Looper.getMainLooper()).post(() -> {
-                        showCameraMotorPressWarning();
-                    });
-                }
-                break;
             default:
                 return event;
         }
@@ -86,36 +69,5 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         mVibrator.vibrate(50);
-    }
-
-    /*
-     * On OnePlus 7 Pro, alert the user to avoid pressing down the
-     * front-facing camera manually.
-     */
-    private void showCameraMotorPressWarning() {
-        // Go back to home to close all camera apps first
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(intent);
-
-        // Show the alert
-        Context packageContext;
-        try {
-            packageContext = mContext.createPackageContext("org.lineageos.settings.device", 0);
-        } catch (PackageManager.NameNotFoundException | SecurityException e) {
-            Log.e(TAG, Log.getStackTraceString(e));
-            return;
-        }
-        AlertDialog dialog = new AlertDialog.Builder(packageContext)
-                .setTitle(R.string.motor_press_title)
-                .setMessage(R.string.motor_press_message)
-                .setPositiveButton(R.string.motor_press_ok, (diag, which) -> {
-                    diag.dismiss();
-                })
-                .create();
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
     }
 }

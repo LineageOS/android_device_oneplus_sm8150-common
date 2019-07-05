@@ -116,14 +116,13 @@ lib/libOmxMux.so
 lib64/libmmosal.so
 
 # NFC
--app/NxpNfcNci/NxpNfcNci.apk|3f64ad4d8d03e05fdcbe44b9a97ba87aa7d33afc
--app/NxpSecureElement/NxpSecureElement.apk|ae67e8df18dd40d77f65bbd2556821ef4b671dec
+-app/NxpNfcNci/NxpNfcNci.apk|6efb84f0d4b16cddb3ea6b20f6815c78a6dc8f07
+-app/NxpSecureElement/NxpSecureElement.apk
 etc/nfcee_access.xml|61a2dbaec0339b6c3c79b487a704d5dc6306b284
 etc/permissions/com.nxp.nfc.xml
-framework/com.nxp.nfc.jar|b10aa34b20571c2786ea4a003cca8e478daee0b0
-lib64/libnxpnfc_nci_jni.so|5b176f814f28a2bc6cc8d9af27b04e3360843803
-lib64/libnxpnfc-nci.so|8d9dfc1fac93d41821db113f0da35ab8dca82155
-lib64/ese_spi_nxp.so|6c4fc83d456a60ff692abbddd65387c792287597
+framework/com.nxp.nfc.jar
+lib64/libnxpnfc_nci_jni.so
+lib64/libnxpnfc-nci.so
 
 # Perf
 lib/vendor.qti.hardware.iop@1.0.so

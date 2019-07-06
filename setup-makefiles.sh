@@ -42,7 +42,6 @@ write_headers "guacamole guacamoleb guacamolec"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-write_makefiles "${MY_DIR}/proprietary-files-vendor.txt" true
 
 # Finish
 write_footers

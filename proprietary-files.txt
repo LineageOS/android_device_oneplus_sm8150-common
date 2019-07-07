@@ -1713,7 +1713,6 @@ vendor/etc/init/vendor.qti.hardware.seccam@1.0-service-qti.rc
 vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc
 vendor/etc/18825_ftm.conf
-vendor/etc/media_codecs_google_video_le.xml
 vendor/etc/media_codecs_dolby_audio.xml
 vendor/etc/selinux/sepolicy_debug
 vendor/etc/system_properties.xml

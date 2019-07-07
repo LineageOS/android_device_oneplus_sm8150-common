@@ -31,6 +31,7 @@ on early-init
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_tfa9894 audio_wcd9360 audio_hdmi audio_machine_msmnile
     write /proc/sys/kernel/sched_boost 1
     symlink /data/tombstones /tombstones
+    start vendor.manifest-sku
 
 on init
     # permission for dt2w
@@ -361,6 +362,12 @@ on property:ro.boot.baseband=mdm
 
 on property:persist.vendor.oem.fp.version=6
     start qfp-daemon
+
+service vendor.manifest-sku /vendor/bin/init.qti.manifest_sku.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:vendor_init:s0
 
 #ifdef VENDOR_EDIT
 on shutdown

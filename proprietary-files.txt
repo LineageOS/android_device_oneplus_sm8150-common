@@ -1187,6 +1187,7 @@ framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/hw/qcrild
+vendor/bin/ipacm-diag
 vendor/bin/netmgrd
 vendor/bin/port-bridge
 vendor/bin/qrtr-cfg
@@ -1624,7 +1625,6 @@ vendor/bin/terminate_sniffer.sh
 vendor/bin/mm-audio-ftm
 vendor/bin/diag_callback_sample
 vendor/bin/sscrpcd
-vendor/bin/ipacm-diag
 vendor/bin/btnvtool
 vendor/bin/sec_nvm
 vendor/bin/pktlogconf

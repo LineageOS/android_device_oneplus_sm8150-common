@@ -1694,7 +1694,6 @@ vendor/app/Rftoolkit/lib/arm64/librftoolkit.so
 vendor/app/Rftoolkit/lib/arm64/liboddi.so
 -vendor/app/com.qualcomm.qti.improvetouch.service/com.qualcomm.qti.improvetouch.service.apk
 vendor/etc/ftm_test_config
-vendor/etc/sound_trigger_mixer_paths_wcd9340_qrd.xml
 vendor/etc/dolby/dax-default.xml
 vendor/etc/18857_ftm.conf
 vendor/etc/fstab_nodata.qcom
@@ -1727,7 +1726,6 @@ vendor/etc/18821_ftm.conf
 vendor/etc/vpp/tunings.txt
 vendor/etc/oneplus_ftm_test_dulspk.wav
 vendor/etc/18827_ftm.conf
-vendor/etc/sound_trigger_mixer_paths_wcd9340.xml
 vendor/etc/hdr_config.cfg
 vendor/etc/audio_effects.conf
 vendor/etc/18831_ftm.conf

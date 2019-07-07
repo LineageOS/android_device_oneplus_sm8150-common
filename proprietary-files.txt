@@ -1734,8 +1734,6 @@ vendor/etc/hdr_config.cfg
 vendor/etc/18831_ftm.conf
 vendor/etc/ftm_test.png
 vendor/etc/ArmHDCP_QTI_Android.cfg
-vendor/etc/seccomp_policy/mediacodec.policy
-vendor/etc/seccomp_policy/mediaextractor.policy
 vendor/etc/hbtp/loader.cfg
 vendor/etc/hbtp/qtc800h.bin
 vendor/etc/hbtp/hbtpcfg_sdm855_801s_4k.dat

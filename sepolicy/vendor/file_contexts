@@ -1,3 +1,7 @@
+# Data files
+/data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0
+/data/vendor/oemnvitems/4678_1    u:object_r:wifi_nv_data_file:s0
+
 # Files in rootfs
 /op1(/.*)?    u:object_r:op1_file:s0
 /op2(/.*)?    u:object_r:op2_file:s0

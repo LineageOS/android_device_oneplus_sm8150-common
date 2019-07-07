@@ -922,6 +922,7 @@ vendor/lib/libOmxVdec.so
 vendor/lib/libOmxVenc.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
+vendor/lib/libOmxWmaDec.so
 vendor/lib/libplatformconfig.so
 vendor/lib/libstagefright_soft_qtiflacdec.so
 vendor/lib/libstagefrighthw.so
@@ -965,6 +966,7 @@ vendor/lib64/libOmxSwVencMpeg4.so
 vendor/lib64/libOmxVdec.so
 vendor/lib64/libOmxVenc.so
 vendor/lib64/libOmxVpp.so
+vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libplatformconfig.so
 vendor/lib64/libstagefright_soft_qtiflacdec.so
 vendor/lib64/libstagefrighthw.so
@@ -1740,7 +1742,6 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/libvppimmotion.so
 vendor/lib/lib_oneplus_watermark.so
 vendor/lib/libfastcvdsp_stub.so
-vendor/lib/libOmxWmaDec.so
 vendor/lib/libnpu.so
 vendor/lib/vendor.qti.hardware.factory@1.0.so
 vendor/lib/vendor.qti.hardware.cvp@1.0.so
@@ -1821,7 +1822,6 @@ vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/libvppimmotion.so
 vendor/lib64/lib_oneplus_watermark.so
 vendor/lib64/libfastcvdsp_stub.so
-vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libnpu.so
 vendor/lib64/libnanopb.so
 vendor/lib64/vendor.qti.hardware.factory@1.0.so

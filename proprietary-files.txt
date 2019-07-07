@@ -723,6 +723,10 @@ vendor/lib64/libsl_fp_prepro.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
+# FM
+vendor/lib/vendor.qti.hardware.fm@1.0.so
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
+
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
@@ -1617,7 +1621,6 @@ vendor/bin/dump_sniffer.sh
 vendor/bin/qca6234-service.sh
 vendor/bin/mm-vidc-omx-test
 vendor/bin/terminate_sniffer.sh
-vendor/bin/fm_qsoc_patches
 vendor/bin/mm-audio-ftm
 vendor/bin/diag_callback_sample
 vendor/bin/sscrpcd
@@ -1672,7 +1675,6 @@ vendor/bin/fstman
 vendor/bin/sigma_dut
 vendor/bin/ppd
 vendor/bin/diag_dci_sample
-vendor/bin/ftmdaemon
 vendor/bin/fmfactorytestserver
 vendor/bin/load_wlan_driver.sh
 vendor/bin/qmi_simple_ril_test
@@ -1757,7 +1759,6 @@ vendor/lib/libtime_genoff.so
 vendor/lib/libparam_vendor.so
 vendor/lib/libqsap_sdk.so
 vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/libvppimmotion.so
 vendor/lib/libfastcvdsp_stub.so
 vendor/lib/libnpu.so
@@ -1771,7 +1772,6 @@ vendor/lib/libhdrdynamic.so
 vendor/lib/libops.so
 vendor/lib/libdapparamstorage.so
 vendor/lib/libpvr.so
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.factory@1.0-impl.so
 vendor/lib/hw/awinic.haptic.effect.so
@@ -1828,7 +1828,6 @@ vendor/lib64/libqsap_sdk.so
 vendor/lib64/libminui_vendor.so
 vendor/lib64/libgrallocutils.so
 vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/libvppimmotion.so
 vendor/lib64/libfastcvdsp_stub.so
 vendor/lib64/libnpu.so
@@ -1845,7 +1844,6 @@ vendor/lib64/libdapparamstorage.so
 vendor/lib64/liboddi.so
 vendor/lib64/libpvr.so
 vendor/lib64/hw/vendor.qti.hardware.mlshal@1.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.factory@1.0-impl.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.mlshal@1.0.so

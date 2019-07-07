@@ -1,0 +1,6 @@
+# HwBinder IPC from client to server, and callbacks
+binder_call(hal_rpmb_client, hal_rpmb_server)
+binder_call(hal_rpmb_server, hal_rpmb_client)
+
+add_hwservice(hal_rpmb_server, hal_rpmb_hwservice)
+allow hal_rpmb_client hal_rpmb_hwservice:hwservice_manager find;

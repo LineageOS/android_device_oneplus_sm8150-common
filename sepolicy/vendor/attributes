@@ -1,0 +1,28 @@
+# HALs
+attribute hal_cameraHIDL;
+attribute hal_cameraHIDL_client;
+attribute hal_cameraHIDL_server;
+
+attribute hal_display;
+attribute hal_display_client;
+attribute hal_display_server;
+
+attribute hal_dms;
+attribute hal_dms_client;
+attribute hal_dms_server;
+
+attribute hal_hdcpkey;
+attribute hal_hdcpkey_client;
+attribute hal_hdcpkey_server;
+
+attribute hal_ifaa;
+attribute hal_ifaa_client;
+attribute hal_ifaa_server;
+
+attribute hal_param;
+attribute hal_param_client;
+attribute hal_param_server;
+
+attribute hal_rpmb;
+attribute hal_rpmb_client;
+attribute hal_rpmb_server;

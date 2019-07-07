@@ -1,21 +1,11 @@
-# Data files
-/data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0
-/data/vendor/oemnvitems/4678_1    u:object_r:wifi_nv_data_file:s0
-
-# Files in rootfs
-/op1(/.*)?    u:object_r:op1_file:s0
-/op2(/.*)?    u:object_r:op2_file:s0
-
-# Files in sysfs
-/sys/devices/platform/soc/soc:fingerprint_detect/sensor_version    u:object_r:sysfs_fpc:s0
-/sys/devices/platform/vendor/vendor:motor_pl(/.*)?                 u:object_r:sysfs_motor:s0
-/sys/elliptic/engine/calibration_v2                                u:object_r:sysfs_audio:s0
-/sys/project_info(/.*)?                                            u:object_r:sysfs_project_info:s0
-
 # Binaries
 /(vendor|system/vendor)/bin/bt-mac-generator      u:object_r:bt_mac_generator_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi_mac_generator_exec:s0
+
+# Data files
+/data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0
+/data/vendor/oemnvitems/4678_1    u:object_r:wifi_nv_data_file:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_msmnile    u:object_r:hal_fingerprint_default_exec:s0
@@ -31,3 +21,13 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                               u:object_r:hal_param_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.rpmb@1\.0-service                                u:object_r:hal_rpmb_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.wifi@1\.0-service                                u:object_r:hal_wifi_default_exec:s0
+
+# Root files
+/op1(/.*)?    u:object_r:op1_file:s0
+/op2(/.*)?    u:object_r:op2_file:s0
+
+# Sys files
+/sys/devices/platform/soc/soc:fingerprint_detect/sensor_version    u:object_r:sysfs_fpc:s0
+/sys/devices/platform/vendor/vendor:motor_pl(/.*)?                 u:object_r:sysfs_motor:s0
+/sys/elliptic/engine/calibration_v2                                u:object_r:sysfs_audio:s0
+/sys/project_info(/.*)?                                            u:object_r:sysfs_project_info:s0

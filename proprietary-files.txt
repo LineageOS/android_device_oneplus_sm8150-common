@@ -1405,6 +1405,15 @@ vendor/lib64/libthermalclient.so
 vendor/bin/time_daemon
 vendor/lib64/libtime_genoff.so
 
+# Touchscreen firmware
+vendor/firmware/tp/FW_18821_ST_ALIX.img
+vendor/firmware/tp/FW_18821_SY761.bin
+vendor/firmware/tp/FW_18821_SY761_NEW.bin
+vendor/firmware/tp/FW_18857_S3706.img
+vendor/firmware/tp/LIMIT_18821_ST_ALIX.csv
+vendor/firmware/tp/LIMIT_18821_SY761.img
+vendor/firmware/tp/LIMIT_18821_SY761_NEW.img
+
 # Trusted User Interface
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
@@ -1647,13 +1656,6 @@ vendor/firmware/cppf.b05
 vendor/firmware/cppf.b06
 vendor/firmware/cppf.b07
 vendor/firmware/cppf.mdt
-vendor/firmware/tp/FW_18821_ST_ALIX.img
-vendor/firmware/tp/FW_18821_SY761.bin
-vendor/firmware/tp/FW_18821_SY761_NEW.bin
-vendor/firmware/tp/FW_18857_S3706.img
-vendor/firmware/tp/LIMIT_18821_ST_ALIX.csv
-vendor/firmware/tp/LIMIT_18821_SY761.img
-vendor/firmware/tp/LIMIT_18821_SY761_NEW.img
 vendor/firmware/widevine.b00
 vendor/firmware/widevine.b01
 vendor/firmware/widevine.b02

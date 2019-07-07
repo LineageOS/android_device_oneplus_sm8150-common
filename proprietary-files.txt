@@ -1692,7 +1692,6 @@ vendor/lib/camera/com.qti.sensor.imx481.so
 vendor/lib/libsns_device_mode_stub.so
 vendor/lib/libmorpho_image_refiner.so
 vendor/lib/librilqmiservices.so
-vendor/lib/librmnetctl.so
 vendor/lib/libhbtpclient.so
 vendor/lib/libcamera_nn_stub.so
 vendor/lib/libsns_fastRPC_util.so
@@ -1916,7 +1915,6 @@ vendor/lib64/camera/com.qti.sensor.imx481.so
 vendor/lib64/libsns_device_mode_stub.so
 vendor/lib64/libmorpho_image_refiner.so
 vendor/lib64/libst_relighting.so
-vendor/lib64/librmnetctl.so
 vendor/lib64/libhbtpclient.so
 vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libsns_fastRPC_util.so

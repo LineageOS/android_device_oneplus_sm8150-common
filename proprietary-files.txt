@@ -1508,7 +1508,6 @@ vendor/bin/hw/vendor.oneplus.hardware.motorcontrol@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.display@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.param@1.0-service
 vendor/bin/hw/vendor.oneplus.faceunlock.hal@1.0-service
-vendor/bin/hw/android.hardware.secure_element@1.0-service
 vendor/bin/hw/vendor.qti.hardware.seccam@1.0-service-qti
 vendor/bin/hw/vendor.oneplus.hardware.hdcpkey@1.0-service
 vendor/bin/hw/vendor.oneplus.engnative.engineer@1.0-service
@@ -1576,7 +1575,6 @@ vendor/firmware/aw8697_rtp.bin
 vendor/firmware/aw8697_rtp_lighthouse.bin
 vendor/firmware/aw8697_rtp_silk.bin
 vendor/firmware/awinic_haptic_params.bin
-vendor/firmware/CAMERA_ICP.elf
 vendor/firmware/cppf.b00
 vendor/firmware/cppf.b01
 vendor/firmware/cppf.b02
@@ -1685,7 +1683,6 @@ vendor/etc/init/vendor.oneplus.hardware.rpmb@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.seccam@1.0-service-qti.rc
 vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc
-vendor/etc/init/android.hardware.secure_element@1.0-service.rc
 vendor/etc/18825_ftm.conf
 vendor/etc/media_codecs_google_video_le.xml
 vendor/etc/media_codecs_dolby_audio.xml

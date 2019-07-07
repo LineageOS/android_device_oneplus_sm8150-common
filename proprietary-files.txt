@@ -1731,7 +1731,6 @@ vendor/etc/vpp/tunings.txt
 vendor/etc/oneplus_ftm_test_dulspk.wav
 vendor/etc/18827_ftm.conf
 vendor/etc/hdr_config.cfg
-vendor/etc/audio_effects.conf
 vendor/etc/18831_ftm.conf
 vendor/etc/ftm_test.png
 vendor/etc/ArmHDCP_QTI_Android.cfg

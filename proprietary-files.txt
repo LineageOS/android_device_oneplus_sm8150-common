@@ -1242,6 +1242,7 @@ vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
 vendor/bin/imsrcsd
+vendor/lib/vendor.qti.imsrtpservice@1.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so
@@ -1267,6 +1268,7 @@ vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
+vendor/lib64/vendor.qti.imsrtpservice@1.0.so
 
 # Sensors
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
@@ -1777,7 +1779,6 @@ vendor/lib/libstagefright_soft_ddpdec.so
 vendor/lib/libdpmqmihal.so
 vendor/lib/libspl.so
 vendor/lib/libcvpcpuRev_skel.so
-vendor/lib/vendor.qti.imsrtpservice@1.0.so
 vendor/lib/libhbtpclient.so
 vendor/lib/sensors.hal.tof.so
 vendor/lib/librecovery_updater_msm.so

@@ -1178,7 +1178,9 @@ vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
 vendor/etc/data/netmgr_config.xml
 vendor/etc/init/qcrild.rc
+vendor/lib/lib_remote_simlock.so
 vendor/lib/libmdmdetect.so
+vendor/lib64/lib_remote_simlock.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/liblqe.so
@@ -1764,7 +1766,6 @@ vendor/lib/libops.so
 vendor/lib/libdapparamstorage.so
 vendor/lib/libpvr.so
 vendor/lib/libtriplecam_optical_zoom_control.so
-vendor/lib/lib_remote_simlock.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.factory@1.0-impl.so
@@ -1845,7 +1846,6 @@ vendor/lib64/libdapparamstorage.so
 vendor/lib64/liboddi.so
 vendor/lib64/libpvr.so
 vendor/lib64/libtriplecam_optical_zoom_control.so
-vendor/lib64/lib_remote_simlock.so
 vendor/lib64/hw/vendor.qti.hardware.mlshal@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.factory@1.0-impl.so

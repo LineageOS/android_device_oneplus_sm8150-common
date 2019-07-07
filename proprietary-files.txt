@@ -254,6 +254,7 @@ vendor/lib/libswregistrationalgo.so
 vendor/lib/libswvdec.so
 vendor/lib/libvideoutils.so
 vendor/lib/libvidhance.so
+vendor/lib/sensors.hal.tof.so
 vendor/lib/vendor.oneplus.camera.CameraHIDL@1.0.so
 vendor/lib64/camera/com.qti.sensor.gc5035.so
 vendor/lib64/camera/com.qti.sensor.imx371.so
@@ -364,6 +365,7 @@ vendor/lib64/libSuperSensorProcessorCWrapper.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libvidhance.so
+vendor/lib64/sensors.hal.tof.so
 vendor/lib64/vendor.oneplus.camera.CameraHIDL@1.0.so
 
 # Camera firmware
@@ -1788,7 +1790,6 @@ vendor/lib/libdpmqmihal.so
 vendor/lib/libspl.so
 vendor/lib/libcvpcpuRev_skel.so
 vendor/lib/libhbtpclient.so
-vendor/lib/sensors.hal.tof.so
 vendor/lib/librecovery_updater_msm.so
 vendor/lib/libhdcp1prov.so
 vendor/lib/libhdrdynamicootf.so
@@ -1873,7 +1874,6 @@ vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/vendor.oneplus.hardware.hdcpkey@1.0.so
 vendor/lib64/libst_relighting.so
 vendor/lib64/libhbtpclient.so
-vendor/lib64/sensors.hal.tof.so
 vendor/lib64/librecovery_updater_msm.so
 vendor/lib64/libhdcp1prov.so
 vendor/lib64/libhdrdynamicootf.so

@@ -737,11 +737,9 @@ vendor/etc/libnfc-nxp_wuhantong.conf
 vendor/etc/libnfc-nxp_yangchengtong.conf
 vendor/etc/libnfc-nxp_zhengzhoubus.conf
 vendor/etc/permissions/com.nxp.mifare.xml
-vendor/lib/hw/android.hardware.nfc@1.0-impl.so
 vendor/lib/libp61-jcop-kit.so
 vendor/lib/libpn553_fw.so
 vendor/lib64/ese_spi_nxp.so
-vendor/lib64/hw/android.hardware.nfc@1.0-impl.so
 vendor/lib64/libp61-jcop-kit.so
 vendor/lib64/nfc_nci_nxp.so
 vendor/lib64/vendor.nxp.nxpese@1.0.so

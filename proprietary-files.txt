@@ -113,6 +113,10 @@ vendor/lib64/soundfx/libshoebox.so
 vendor/lib64/soundfx/libswdap.so
 vendor/lib64/soundfx/libvolumelistener.so
 
+# Audio amplifier firmware
+vendor/firmware/tfa98xx.cnt
+vendor/firmware/tfa98xx_11811.cnt
+
 # Bluetooth
 vendor/bin/hci_qcomm_init
 vendor/bin/wcnss_filter
@@ -1640,8 +1644,6 @@ vendor/firmware/ring_piano.bin
 vendor/firmware/ring_pyxis.bin
 vendor/firmware/ring_T-Jingle.bin
 vendor/firmware/shuntai24k_rtp.bin
-vendor/firmware/tfa98xx.cnt
-vendor/firmware/tfa98xx_11811.cnt
 vendor/firmware/tp/FW_18821_ST_ALIX.img
 vendor/firmware/tp/FW_18821_SY761.bin
 vendor/firmware/tp/FW_18821_SY761_NEW.bin

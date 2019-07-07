@@ -219,6 +219,7 @@ vendor/lib/camera/fdconfigvideo.bin
 vendor/lib/camera/fdconfigvideolite.bin
 vendor/lib/hw/camera.qcom.so
 vendor/lib/hw/com.qti.chi.override.so
+vendor/lib/lib_oneplus_watermark.so
 vendor/lib/libarcsoft_beautyshot.so
 vendor/lib/libarcsoft_distortion_correction.so
 vendor/lib/libarcsoft_dualcam_bokeh_api.so
@@ -235,6 +236,7 @@ vendor/lib/libcamxstatscore.so
 vendor/lib/libcamxswprocessalgo.so
 vendor/lib/libcamxtintlessalgo.so
 vendor/lib/libcom.qti.chinodeutils.so
+vendor/lib/libcvface_api.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmorpho_image_refiner.so
@@ -252,6 +254,9 @@ vendor/lib/libSuperSensorProcessor.so
 vendor/lib/libSuperSensorProcessorCWrapper.so
 vendor/lib/libswregistrationalgo.so
 vendor/lib/libswvdec.so
+vendor/lib/libtriplecam_image_optical_zoom.so
+vendor/lib/libtriplecam_optical_zoom_control.so
+vendor/lib/libtriplecam_video_optical_zoom.so
 vendor/lib/libvideoutils.so
 vendor/lib/libvidhance.so
 vendor/lib/sensors.hal.tof.so
@@ -326,6 +331,7 @@ vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
+vendor/lib64/lib_oneplus_watermark.so
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_dualcam_bokeh_api.so
@@ -347,6 +353,7 @@ vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
 vendor/lib64/libcom.qti.chinodeutils.so
+vendor/lib64/libcvface_api.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmorpho_image_refiner.so
@@ -358,12 +365,17 @@ vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libSonyIMX471RmscLibrary.so
+vendor/lib64/libst_relighting.so
+vendor/lib64/libstblur_capture_api.so
 vendor/lib64/libSuperSensor.so
 vendor/lib64/libSuperSensorFallback.so
 vendor/lib64/libSuperSensorProcessor.so
 vendor/lib64/libSuperSensorProcessorCWrapper.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
+vendor/lib64/libtriplecam_image_optical_zoom.so
+vendor/lib64/libtriplecam_optical_zoom_control.so
+vendor/lib64/libtriplecam_video_optical_zoom.so
 vendor/lib64/libvidhance.so
 vendor/lib64/sensors.hal.tof.so
 vendor/lib64/vendor.oneplus.camera.CameraHIDL@1.0.so
@@ -1730,7 +1742,6 @@ vendor/etc/hbtp/hbtpcfg_sdm855_801s_4k.dat
 vendor/etc/hbtp/qtc801s.bin
 vendor/etc/hbtp/hbtpcfg_hdk855_800h_qhd.dat
 vendor/lib/libhbtpfrmwk.so
-vendor/lib/libtriplecam_image_optical_zoom.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/lib/libstagefrightdolby.so
 vendor/lib/libwapi_cert.so
@@ -1752,7 +1763,6 @@ vendor/lib/libqsap_sdk.so
 vendor/lib/libsysmon_cdsp_skel.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib/libvppimmotion.so
-vendor/lib/lib_oneplus_watermark.so
 vendor/lib/libfastcvdsp_stub.so
 vendor/lib/libnpu.so
 vendor/lib/vendor.qti.hardware.factory@1.0.so
@@ -1765,14 +1775,12 @@ vendor/lib/libhdrdynamic.so
 vendor/lib/libops.so
 vendor/lib/libdapparamstorage.so
 vendor/lib/libpvr.so
-vendor/lib/libtriplecam_optical_zoom_control.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.factory@1.0-impl.so
 vendor/lib/hw/awinic.haptic.effect.so
 vendor/lib/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
-vendor/lib/libcvface_api.so
 vendor/lib/vendor.qti.hardware.seccam@1.0.so
 vendor/lib/libcvp.so
 vendor/lib/libsi.so
@@ -1785,7 +1793,6 @@ vendor/lib/libcert_parse.wpa_s.so
 vendor/lib/libmulawdec.so
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib/libfastrpc_utf_stub.so
-vendor/lib/libtriplecam_video_optical_zoom.so
 vendor/lib/libstagefright_soft_ddpdec.so
 vendor/lib/libdpmqmihal.so
 vendor/lib/libspl.so
@@ -1798,7 +1805,6 @@ vendor/lib/libstreamparser.so
 vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib/vendor.oneplus.hardware.param@1.0.so
 vendor/lib64/libhbtpfrmwk.so
-vendor/lib64/libtriplecam_image_optical_zoom.so
 vendor/lib64/libhvx_proxy_stub.so
 vendor/lib64/libreffeature.so
 vendor/lib64/libstagefrightdolby.so
@@ -1830,7 +1836,6 @@ vendor/lib64/libgrallocutils.so
 vendor/lib64/libsysmon_cdsp_skel.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/libvppimmotion.so
-vendor/lib64/lib_oneplus_watermark.so
 vendor/lib64/libfastcvdsp_stub.so
 vendor/lib64/libnpu.so
 vendor/lib64/libnanopb.so
@@ -1845,12 +1850,10 @@ vendor/lib64/libops.so
 vendor/lib64/libdapparamstorage.so
 vendor/lib64/liboddi.so
 vendor/lib64/libpvr.so
-vendor/lib64/libtriplecam_optical_zoom_control.so
 vendor/lib64/hw/vendor.qti.hardware.mlshal@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.factory@1.0-impl.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
-vendor/lib64/libcvface_api.so
 vendor/lib64/vendor.qti.hardware.mlshal@1.0.so
 vendor/lib64/libtinycompress.so
 vendor/lib64/vendor.qti.hardware.seccam@1.0.so
@@ -1859,7 +1862,6 @@ vendor/lib64/libarm_proxy_skel.so
 vendor/lib64/libsi.so
 vendor/lib64/libSubSystemShutdown.so
 vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
-vendor/lib64/libstblur_capture_api.so
 vendor/lib64/liboemaids_vendor.so
 vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
@@ -1868,11 +1870,9 @@ vendor/lib64/libmulawdec.so
 vendor/lib64/vendor.oneplus.engnative.engineer@1.0.so
 vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib64/libfastrpc_utf_stub.so
-vendor/lib64/libtriplecam_video_optical_zoom.so
 vendor/lib64/libspl.so
 vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/vendor.oneplus.hardware.hdcpkey@1.0.so
-vendor/lib64/libst_relighting.so
 vendor/lib64/libhbtpclient.so
 vendor/lib64/librecovery_updater_msm.so
 vendor/lib64/libhdcp1prov.so

@@ -3,7 +3,9 @@
 /op2(/.*)?    u:object_r:op2_file:s0
 
 # Binaries
+/(vendor|system/vendor)/bin/bt-mac-generator      u:object_r:bt_mac_generator_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
+/(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi_mac_generator_exec:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_msmnile    u:object_r:hal_fingerprint_default_exec:s0

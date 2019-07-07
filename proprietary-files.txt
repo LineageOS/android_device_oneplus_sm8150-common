@@ -962,7 +962,10 @@ vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libplatformconfig.so
+vendor/lib/libstagefright_soft_ac4dec.so
+vendor/lib/libstagefright_soft_ddpdec.so
 vendor/lib/libstagefright_soft_qtiflacdec.so
+vendor/lib/libstagefrightdolby.so
 vendor/lib/libstagefrighthw.so
 vendor/lib/libvppclient.so
 vendor/lib/libvpphvx.so
@@ -1007,6 +1010,7 @@ vendor/lib64/libOmxVpp.so
 vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libplatformconfig.so
 vendor/lib64/libstagefright_soft_qtiflacdec.so
+vendor/lib64/libstagefrightdolby.so
 vendor/lib64/libstagefrighthw.so
 vendor/lib64/libvppclient.so
 vendor/lib64/libvpphvx.so
@@ -1740,12 +1744,10 @@ vendor/etc/hbtp/qtc801s.bin
 vendor/etc/hbtp/hbtpcfg_hdk855_800h_qhd.dat
 vendor/lib/libhbtpfrmwk.so
 vendor/lib/vendor.qti.hardware.alarm@1.0.so
-vendor/lib/libstagefrightdolby.so
 vendor/lib/libwapi_cert.so
 vendor/lib/libbt-vendor.so
 vendor/lib/vendor.dolby.hardware.dms@1.0.so
 vendor/lib/libhdcp2p2prov.so
-vendor/lib/libstagefright_soft_ac4dec.so
 vendor/lib/libcvp_common.so
 vendor/lib/libDxHdcp.so
 vendor/lib/liblistenjni.so
@@ -1790,7 +1792,6 @@ vendor/lib/libcert_parse.wpa_s.so
 vendor/lib/libmulawdec.so
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib/libfastrpc_utf_stub.so
-vendor/lib/libstagefright_soft_ddpdec.so
 vendor/lib/libdpmqmihal.so
 vendor/lib/libspl.so
 vendor/lib/libcvpcpuRev_skel.so
@@ -1804,7 +1805,6 @@ vendor/lib/vendor.oneplus.hardware.param@1.0.so
 vendor/lib64/libhbtpfrmwk.so
 vendor/lib64/libhvx_proxy_stub.so
 vendor/lib64/libreffeature.so
-vendor/lib64/libstagefrightdolby.so
 vendor/lib64/vendor.oneplus.hardware.motorcontrol@1.0.so
 vendor/lib64/libwapi_cert.so
 vendor/lib64/libbt-vendor.so

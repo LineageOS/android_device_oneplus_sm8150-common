@@ -1352,6 +1352,7 @@ vendor/etc/sensors/config/sx9324_0.json
 vendor/etc/sensors/config/sx932x_0.json
 vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/config/tmd3702.json
+vendor/etc/sensors/sns_reg_config
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib/libsensorcal.so
 vendor/lib/libsensorslog.so
@@ -1706,7 +1707,6 @@ vendor/etc/sdr_config.cfg
 vendor/etc/ftm_test_config_qrd
 vendor/etc/oneplus_ftm_test_max.wav
 vendor/etc/oneplus_ftm_test_nxp.wav
-vendor/etc/sensors/sns_reg_config
 vendor/etc/gpfspath_oem_config.xml
 vendor/etc/18821_ftm.conf
 vendor/etc/vpp/tunings.txt

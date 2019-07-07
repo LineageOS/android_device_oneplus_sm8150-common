@@ -1193,7 +1193,6 @@ vendor/bin/fmfactorytest
 vendor/bin/iwpriv
 vendor/bin/mdm_helper
 vendor/bin/diag_klog
-vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/bin/cnss_diag
 vendor/bin/mlid
 vendor/bin/OPNetlinkService
@@ -1479,7 +1478,6 @@ vendor/lib/vendor.dolby.hardware.dms@1.0.so
 vendor/lib/libhdcp2p2prov.so
 vendor/lib/liblowi_client.so
 vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/vendor.qti.hardware.radio.qtiradio@2.0.so
 vendor/lib/libgui_vendor.so
 vendor/lib/vendor.oneplus.camera.CameraHIDL@1.0.so
 vendor/lib/libcvp_common.so
@@ -1502,7 +1500,6 @@ vendor/lib/libizat_core.so
 vendor/lib/libqcrilFramework.so
 vendor/lib/libqcmaputils.so
 vendor/lib/libdiagjni.so
-vendor/lib/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib/libpdmapper.so
 vendor/lib/libsnsapi.so
 vendor/lib/libpdnotifier.so
@@ -1511,7 +1508,6 @@ vendor/lib/libvl53l1_daemon.so
 vendor/lib/libvpphcp.so
 vendor/lib/libnetmgr_nr_fusion.so
 vendor/lib/libtime_genoff.so
-vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib/libarcsoft_hdrplus_hvx_stub.so
 vendor/lib/libparam_vendor.so
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
@@ -1523,7 +1519,6 @@ vendor/lib/libvppimmotion.so
 vendor/lib/libgf_ud_hal.so
 vendor/lib/lib_oneplus_watermark.so
 vendor/lib/libSuperSensorFallback.so
-vendor/lib/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib/libSonyIMX471RmscLibrary.so
 vendor/lib/libnetmgr_common.so
 vendor/lib/libfastcvdsp_stub.so
@@ -1533,7 +1528,6 @@ vendor/lib/libdataitems.so
 vendor/lib/libnpu.so
 vendor/lib/libarcsoft_dualcam_refocus_left.so
 vendor/lib/libizat_client_api.so
-vendor/lib/vendor.qti.hardware.radio.qtiradio@2.1.so
 vendor/lib/vendor.qti.hardware.factory@1.0.so
 vendor/lib/libloc_api_v02.so
 vendor/lib/libslimclient.so
@@ -1558,30 +1552,24 @@ vendor/lib/libops.so
 vendor/lib/libdapparamstorage.so
 vendor/lib/libpvr.so
 vendor/lib/libtriplecam_optical_zoom_control.so
-vendor/lib/vendor.qti.hardware.radio.qtiradio@1.0.so
 vendor/lib/lib_remote_simlock.so
 vendor/lib/libswregistrationalgo.so
-vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
-vendor/lib/vendor.qti.hardware.radio.uim@1.0.so
 vendor/lib/fp_hal_extension.so
 vendor/lib/libsl_fp_impl.so
 vendor/lib/libsl_fp_nosec.so
 vendor/lib/vendor.qti.hardware.data.connection@1.0.so
-vendor/lib/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib/hw/camera.qcom.so
 vendor/lib/hw/silead.fod.msmnile.so
 vendor/lib/hw/com.qti.chi.override.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib/hw/goodix.fod.msmnile.so
-vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.factory@1.0-impl.so
 vendor/lib/hw/awinic.haptic.effect.so
 vendor/lib/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib/libcamxtintlessalgo.so
 vendor/lib/qcrild_librilutils.so
-vendor/lib/vendor.qti.hardware.radio.lpa@1.0.so
 vendor/lib/vendor.oneplus.fingerprint.extension@1.0.so
 vendor/lib/libcvface_api.so
 vendor/lib/vendor.qti.hardware.seccam@1.0.so
@@ -1696,8 +1684,6 @@ vendor/lib/libhdcp1prov.so
 vendor/lib/libhdrdynamicootf.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libopcamera_native_modules.so
-vendor/lib/vendor.qti.hardware.soter@1.0.so
-vendor/lib/vendor.qti.hardware.radio.uim@1.1.so
 vendor/lib/libstreamparser.so
 vendor/lib/libnlnetmgr.so
 vendor/lib/libmpbase.so

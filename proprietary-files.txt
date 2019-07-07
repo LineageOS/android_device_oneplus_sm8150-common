@@ -1724,7 +1724,6 @@ vendor/lib/libbt-vendor.so
 vendor/lib/vendor.dolby.hardware.dms@1.0.so
 vendor/lib/libhdcp2p2prov.so
 vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/libgui_vendor.so
 vendor/lib/libcvp_common.so
 vendor/lib/libDxHdcp.so
 vendor/lib/liblistenjni.so

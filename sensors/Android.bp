@@ -12,7 +12,7 @@ cc_library_static {
         "libutils",
         "libdl",
         "libhardware",
-        "libgui",
+        "libgui_vendor",
         "libui",
     ],
     export_include_dirs: ["."],
@@ -37,7 +37,7 @@ cc_library_shared {
         "libhidlbase",
         "libhidltransport",
         "android.hardware.sensors@1.0",
-        "libgui",
+        "libgui_vendor",
         "libui",
     ],
     static_libs: [

@@ -1403,6 +1403,20 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
+# WiFi
+vendor/bin/cnss-daemon
+vendor/bin/hw/vendor.oneplus.hardware.wifi@1.0-service
+vendor/etc/init/vendor.oneplus.hardware.wifi@1.0-service.rc
+vendor/etc/wifi/fstman.ini
+vendor/etc/wifi/icm.conf
+vendor/etc/wifi/sar-vendor-cmd.xml
+vendor/etc/wifi/WCNSS_qcom_cfg_cta.ini
+vendor/etc/wifi/wpa_supplicant_overlay_aging.conf
+vendor/lib64/vendor.oneplus.hardware.wifi@1.0.so
+vendor/lib64/vendor.oneplus.hardware.wifi@1.1.so
+vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
+vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
+
 # WiFi Display
 bin/wfdservice
 etc/init/wfdservice.rc
@@ -1491,7 +1505,6 @@ vendor/bin/hw/vendor.oneplus.hardware.ifaa@2.0-service
 vendor/bin/hw/vendor.dolby.hardware.dms@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.rpmb@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.motorcontrol@1.0-service
-vendor/bin/hw/vendor.oneplus.hardware.wifi@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.display@1.0-service
 vendor/bin/hw/vendor.oneplus.hardware.param@1.0-service
 vendor/bin/hw/vendor.oneplus.faceunlock.hal@1.0-service
@@ -1506,7 +1519,6 @@ vendor/bin/qmi-framework-tests/qmi_test_mt_client_init_instance
 vendor/bin/PktRspTest
 vendor/bin/ssr_setup
 vendor/bin/spectraltool
-vendor/bin/cnss-daemon
 vendor/bin/mdm_helper_proxy
 vendor/bin/adpl
 vendor/bin/fstman
@@ -1674,7 +1686,6 @@ vendor/etc/init/vendor.qti.hardware.seccam@1.0-service-qti.rc
 vendor/etc/init/vendor.dolby.hardware.dms@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc
 vendor/etc/init/android.hardware.secure_element@1.0-service.rc
-vendor/etc/init/vendor.oneplus.hardware.wifi@1.0-service.rc
 vendor/etc/18825_ftm.conf
 vendor/etc/media_codecs_google_video_le.xml
 vendor/etc/media_codecs_dolby_audio.xml
@@ -1690,11 +1701,6 @@ vendor/etc/sensors/sns_reg_config
 vendor/etc/gpfspath_oem_config.xml
 vendor/etc/18821_ftm.conf
 vendor/etc/vpp/tunings.txt
-vendor/etc/wifi/wpa_supplicant_overlay_aging.conf
-vendor/etc/wifi/sar-vendor-cmd.xml
-vendor/etc/wifi/WCNSS_qcom_cfg_cta.ini
-vendor/etc/wifi/fstman.ini
-vendor/etc/wifi/icm.conf
 vendor/etc/oneplus_ftm_test_dulspk.wav
 vendor/etc/18827_ftm.conf
 vendor/etc/sound_trigger_mixer_paths_wcd9340.xml
@@ -1802,14 +1808,12 @@ vendor/lib64/libDxHdcp.so
 vendor/lib64/ls_client.so
 vendor/lib64/liblistenjni.so
 vendor/lib64/libsubsystem_control.so
-vendor/lib64/vendor.oneplus.hardware.wifi@1.1.so
 vendor/lib64/vendor.oneplus.hardware.drmkey@1.0.so
 vendor/lib64/libdlbdsservice.so
 vendor/lib64/libdiagjni.so
 vendor/lib64/libqcbor.so
 vendor/lib64/libvl53l1_daemon.so
 vendor/lib64/libvpphcp.so
-vendor/lib64/vendor.oneplus.hardware.wifi@1.0.so
 vendor/lib64/vendor.oneplus.faceunlock.hal@1.0.so
 vendor/lib64/libparam_vendor.so
 vendor/lib64/libqsap_sdk.so
@@ -1828,7 +1832,6 @@ vendor/lib64/vendor.oneplus.hardware.rpmb@1.0.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 vendor/lib64/libhbtpdsp.so
 vendor/lib64/libcvp_stub.so
-vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
 vendor/lib64/libspcom.so
 vendor/lib64/libhdrdynamic.so
 vendor/lib64/libops.so
@@ -1851,7 +1854,6 @@ vendor/lib64/libsi.so
 vendor/lib64/libSubSystemShutdown.so
 vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0-service.so
 vendor/lib64/libstblur_capture_api.so
-vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
 vendor/lib64/liboemaids_vendor.so
 vendor/lib64/vendor.qti.hardware.improvetouch.touchcompanion@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so

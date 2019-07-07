@@ -1747,7 +1747,6 @@ vendor/lib/libdiagjni.so
 vendor/lib/libqcbor.so
 vendor/lib/libvl53l1_daemon.so
 vendor/lib/libvpphcp.so
-vendor/lib/libtime_genoff.so
 vendor/lib/libparam_vendor.so
 vendor/lib/libqsap_sdk.so
 vendor/lib/libsysmon_cdsp_skel.so

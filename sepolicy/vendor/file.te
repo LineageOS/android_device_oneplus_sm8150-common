@@ -1,2 +1,8 @@
+# rootfs
 type op1_file, file_type;
 type op2_file, file_type;
+
+# sysfs
+type sysfs_fpc, sysfs_type, fs_type;
+type sysfs_motor, sysfs_type, fs_type;
+type sysfs_project_info, sysfs_type, fs_type;

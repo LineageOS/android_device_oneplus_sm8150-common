@@ -1,0 +1,2 @@
+type dash_device, dev_type;
+type fingerprintd_device, dev_type;

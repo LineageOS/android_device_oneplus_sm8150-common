@@ -1249,6 +1249,7 @@ vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
 -app/uceShimService/uceShimService.apk
 etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
+etc/permissions/com.qualcomm.qti.imscmservice.xml
 framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
 framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
 lib/com.qualcomm.qti.imscmservice@1.0.so

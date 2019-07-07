@@ -574,6 +574,7 @@ vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
 # Listen
+vendor/lib/hw/sound_trigger.primary.msmnile.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
@@ -582,6 +583,8 @@ vendor/lib/libgcs-ipc.so
 vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
 vendor/lib/liblistensoundmodel2.so
+vendor/lib/libsmwrapper.so
+vendor/lib64/hw/sound_trigger.primary.msmnile.so
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libgcs-calwrapper.so
@@ -1526,7 +1529,6 @@ vendor/lib/libnetmgr_nr_fusion.so
 vendor/lib/libtime_genoff.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 vendor/lib/libarcsoft_hdrplus_hvx_stub.so
-vendor/lib/libsmwrapper.so
 vendor/lib/libparam_vendor.so
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib/libqsap_sdk.so
@@ -1596,7 +1598,6 @@ vendor/lib/hw/vendor.qti.gnss@2.1-impl.so
 vendor/lib/hw/silead.fod.msmnile.so
 vendor/lib/hw/android.hardware.light@2.0-impl.so
 vendor/lib/hw/com.qti.chi.override.so
-vendor/lib/hw/sound_trigger.primary.msmnile.so
 vendor/lib/hw/power.qcom.so
 vendor/lib/hw/android.hardware.boot@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
@@ -1843,7 +1844,6 @@ vendor/lib64/hw/silead.fod.msmnile.so
 vendor/lib64/hw/android.hardware.light@2.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.mlshal@1.0-impl.so
 vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/hw/sound_trigger.primary.msmnile.so
 vendor/lib64/hw/power.qcom.so
 vendor/lib64/hw/android.hardware.boot@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so

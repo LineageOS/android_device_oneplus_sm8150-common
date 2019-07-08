@@ -4,3 +4,6 @@ allow hal_camera_default persist_camera_file:file create_file_perms;
 
 # Properties
 set_prop(hal_camera_default, vendor_camera_prop)
+
+# Range device
+allow hal_camera_default ranging_device:chr_file rw_file_perms;

@@ -7,13 +7,14 @@
 /data/vendor/oemnvitems/4678_1    u:object_r:wifi_nv_data_file:s0
 
 # Devices
-/dev/dash         u:object_r:dash_device:s0
-/dev/elliptic0    u:object_r:sensors_device:s0
-/dev/elliptic1    u:object_r:sensors_device:s0
-/dev/goodix_fp    u:object_r:fingerprintd_device:s0
-/dev/p73          u:object_r:nfc_device:s0
-/dev/param        u:object_r:param_device:s0
-/dev/silead_fp    u:object_r:fingerprintd_device:s0
+/dev/dash                 u:object_r:dash_device:s0
+/dev/elliptic0            u:object_r:sensors_device:s0
+/dev/elliptic1            u:object_r:sensors_device:s0
+/dev/goodix_fp            u:object_r:fingerprintd_device:s0
+/dev/p73                  u:object_r:nfc_device:s0
+/dev/param                u:object_r:param_device:s0
+/dev/silead_fp            u:object_r:fingerprintd_device:s0
+/dev/stmvl53l1_ranging    u:object_r:ranging_device:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_msmnile           u:object_r:hal_fingerprint_default_exec:s0

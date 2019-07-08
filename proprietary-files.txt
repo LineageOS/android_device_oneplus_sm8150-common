@@ -1274,7 +1274,7 @@ vendor/etc/init/qcrild.rc
 vendor/etc/init/vendor.oneplus.hardware.param@1.0-service.rc
 vendor/lib/lib_remote_simlock.so
 vendor/lib/libmdmdetect.so
-vendor/lib/libparam_vendor.so (oneplus param?)
+vendor/lib/libparam_vendor.so
 vendor/lib/vendor.oneplus.hardware.param@1.0.so
 vendor/lib64/lib_remote_simlock.so
 vendor/lib64/libconfigdb.so

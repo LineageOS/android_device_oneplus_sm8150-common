@@ -10,6 +10,7 @@ type proc_touchpanel, fs_type, proc_type;
 type proc_ultrasound, fs_type, proc_type;
 
 # sysfs
+type sysfs_fod, sysfs_type, fs_type;
 type sysfs_fpc, sysfs_type, fs_type;
 type sysfs_fsc, sysfs_type, fs_type;
 type sysfs_project_info, sysfs_type, fs_type;

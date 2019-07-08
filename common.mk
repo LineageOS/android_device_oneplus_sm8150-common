@@ -141,7 +141,6 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    bt-mac-generator \
     libbthost_if
 
 # Camera

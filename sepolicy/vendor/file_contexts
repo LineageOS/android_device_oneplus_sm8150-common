@@ -1,5 +1,4 @@
 # Binaries
-/(vendor|system/vendor)/bin/bt-mac-generator      u:object_r:bt_mac_generator_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi_mac_generator_exec:s0
 

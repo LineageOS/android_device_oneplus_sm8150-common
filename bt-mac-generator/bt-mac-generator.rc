@@ -1,9 +1,0 @@
-service vendor.bt-mac-generator /vendor/bin/bt-mac-generator
-    class main
-    user bluetooth
-    group bluetooth
-    oneshot
-    disabled
-
-on post-fs-data
-    start vendor.bt-mac-generator

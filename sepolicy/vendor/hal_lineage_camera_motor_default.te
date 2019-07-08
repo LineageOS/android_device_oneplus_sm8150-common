@@ -1,0 +1,3 @@
+# Allow hal_lineage_camera_motor_default to read and write to sysfs_motor
+allow hal_lineage_camera_motor_default sysfs_motor:dir search;
+allow hal_lineage_camera_motor_default sysfs_motor:file rw_file_perms;

@@ -8,3 +8,7 @@ allow camera_helper_app app_api_service:service_manager find;
 # Allow camera_helper_app read and write /data/data subdirectory
 allow camera_helper_app system_app_data_file:dir create_dir_perms;
 allow camera_helper_app system_app_data_file:{ file lnk_file } create_file_perms;
+
+# Allow camera_helper_app to read and write to sysfs_motor
+allow camera_helper_app sysfs_motor:dir search;
+allow camera_helper_app sysfs_motor:file rw_file_perms;

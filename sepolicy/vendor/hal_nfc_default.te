@@ -1,0 +1,3 @@
+# Allow hal_nfc_default to read and write to proc_touchpanel
+allow hal_nfc_default proc_touchpanel:dir search;
+allow hal_nfc_default proc_touchpanel:file rw_file_perms;

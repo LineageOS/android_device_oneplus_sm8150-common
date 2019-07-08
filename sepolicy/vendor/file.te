@@ -7,6 +7,7 @@ type proc_touchpanel, fs_type, proc_type;
 
 # sysfs
 type sysfs_fpc, sysfs_type, fs_type;
+type sysfs_fsc, sysfs_type, fs_type;
 type sysfs_motor, sysfs_type, fs_type;
 type sysfs_project_info, sysfs_type, fs_type;
 

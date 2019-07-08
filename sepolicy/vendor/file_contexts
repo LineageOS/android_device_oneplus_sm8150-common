@@ -1,6 +1,6 @@
 # Binaries
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
-/(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi_mac_generator_exec:s0
+/(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi-mac-generator_exec:s0
 
 # Data files
 /data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0

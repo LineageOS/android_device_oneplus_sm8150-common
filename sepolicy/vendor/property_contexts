@@ -1,0 +1,3 @@
+# Camera
+vendor.camera.        u:object_r:vendor_camera_prop:s0
+camera.OPpictureId    u:object_r:vendor_camera_prop:s0

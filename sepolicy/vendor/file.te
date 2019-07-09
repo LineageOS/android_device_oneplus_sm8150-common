@@ -7,6 +7,7 @@ type persist_camera_file, file_type;
 
 # proc
 type proc_touchpanel, fs_type, proc_type;
+type proc_ultrasound, fs_type, proc_type;
 
 # sysfs
 type sysfs_fpc, sysfs_type, fs_type;

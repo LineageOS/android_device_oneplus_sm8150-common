@@ -2,3 +2,6 @@ type vl53l1_daemon_main, domain;
 type vl53l1_daemon_main_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(vl53l1_daemon_main)
+
+# Allow vl53l1_daemon_main to read and write to sysfs_vl53l1
+allow vl53l1_daemon_main sysfs_vl53l1:file rw_file_perms;

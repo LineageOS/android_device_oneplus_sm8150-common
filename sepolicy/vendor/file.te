@@ -13,6 +13,7 @@ type proc_ultrasound, fs_type, proc_type;
 type sysfs_fpc, sysfs_type, fs_type;
 type sysfs_fsc, sysfs_type, fs_type;
 type sysfs_project_info, sysfs_type, fs_type;
+type sysfs_vl53l1, sysfs_type, fs_type;
 
 # data
 type wifi_nv_data_file, file_type, data_file_type;

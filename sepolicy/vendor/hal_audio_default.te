@@ -1,0 +1,5 @@
+# Allow binder communication with hal_sensors_default
+binder_call(hal_audio_default, hal_sensors_default)
+
+# Allow hal_audio_default to find hal_sensors_hwservice
+allow hal_audio_default hal_sensors_hwservice:hwservice_manager find;

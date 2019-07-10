@@ -36,6 +36,7 @@
 # Persist files
 /mnt/vendor/persist/camera(/.*)?                     u:object_r:persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?    u:object_r:persist_camera_file:s0
+/mnt/vendor/persist/engineermode(/.*)?               u:object_r:persist_engineer_file:s0
 
 # Root files
 /op1(/.*)?    u:object_r:op1_file:s0

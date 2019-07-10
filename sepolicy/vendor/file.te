@@ -3,6 +3,7 @@ type wifi_nv_data_file, file_type, data_file_type;
 
 # persist
 type persist_camera_file, file_type;
+type persist_engineer_file, file_type;
 
 # proc
 type proc_sensor, fs_type, proc_type;

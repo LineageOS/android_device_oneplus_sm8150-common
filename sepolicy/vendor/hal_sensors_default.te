@@ -4,6 +4,12 @@ binder_call(hal_sensors_default, hal_audio_default)
 # Allow hal_sensors_default to find hal_audio_hwservice
 allow hal_sensors_default hal_audio_hwservice:hwservice_manager find;
 
+# Allow hal_sensors_default to find hal_graphics_allocator_hwservice
+allow hal_sensors_default hal_graphics_allocator_hwservice:hwservice_manager find;
+
+# Allow hal_sensors_default to find hal_graphics_mapper_hwservice
+allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
+
 # Allow hal_sensors_default to read files in mnt_vendor_file
 r_dir_file(hal_sensors_default, mnt_vendor_file)
 
@@ -21,3 +27,9 @@ allow hal_sensors_default proc_touchpanel:file rw_file_perms;
 # Allow hal_sensors_default to read and write to proc_ultrasound
 allow hal_sensors_default proc_ultrasound:dir search;
 allow hal_sensors_default proc_ultrasound:file rw_file_perms;
+
+# Allow hal_sensors_default to read graphics sysfs nodes
+r_dir_file(hal_sensors_default, sysfs_graphics)
+
+# Allow hal_sensors_default to read motor sysfs nodes
+r_dir_file(hal_sensors_default, sysfs_motor)

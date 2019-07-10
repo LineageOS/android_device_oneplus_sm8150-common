@@ -9,6 +9,9 @@ persist.vendor.oem.fp    u:object_r:vendor_fingerprint_prop:s0
 # NFC
 ro.vendor.nfc.notify_tp    u:object_r:vendor_nfc_prop:s0
 
+# RF version
+ro.boot.rf_version    u:object_r:exported_default_prop:s0
+
 # Sensors
 persist.vendor.debug.sensors.hal                 u:object_r:vendor_sensors_prop:s0
 persist.vendor.naruto.light.support              u:object_r:vendor_sensors_prop:s0

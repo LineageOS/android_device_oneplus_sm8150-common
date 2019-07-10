@@ -1,0 +1,8 @@
+# Allow hal_graphics_composer_default to call hal_sensors_default via binder
+binder_call(hal_graphics_composer_default, hal_sensors_default)
+
+# Allow hal_graphics_composer_default to find hal_sensors_hwservice
+allow hal_graphics_composer_default hal_sensors_hwservice:hwservice_manager find;
+
+# Allow hal_graphics_composer_default to read the motor sysfs nodes
+r_dir_file(hal_graphics_composer_default, sysfs_motor)

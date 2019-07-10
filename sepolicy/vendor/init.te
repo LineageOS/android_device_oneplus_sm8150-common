@@ -3,3 +3,6 @@ allow init { op1_file op2_file }:filesystem { mount relabelfrom relabelto };
 
 # Allow init to mount on op1_file, op2_file
 allow init { op1_file op2_file }:dir mounton;
+
+# Allow to contextmount op1_file
+allow op1_file self:filesystem associate;

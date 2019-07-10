@@ -18,3 +18,7 @@ allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 # Allow hal_fingerprint_default to read and write to proc_touchpanel
 allow hal_fingerprint_default proc_touchpanel:dir search;
 allow hal_fingerprint_default proc_touchpanel:file rw_file_perms;
+
+# Allow hal_fingerprint_default access to sysfs nodes
+allow hal_fingerprint_default sysfs_fod:file rw_file_perms;
+allow hal_fingerprint_default sysfs_aod:file r_file_perms;

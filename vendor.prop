@@ -169,6 +169,9 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 # Incremental FS
 ro.incremental.enable=yes
 
+# Media
+debug.stagefright.c2inputsurface=-1
+
 # Netflix
 ro.netflix.bsp_rev=Q855-16947-1
 

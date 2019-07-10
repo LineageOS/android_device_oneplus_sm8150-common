@@ -2,6 +2,9 @@
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi-mac-generator_exec:s0
 
+# Block devices
+/dev/block/platform/soc/1d84000\.ufshc/by-name/param    u:object_r:param_block_device:s0
+
 # Data files
 /data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0
 /data/vendor/oemnvitems/4678_1    u:object_r:wifi_nv_data_file:s0

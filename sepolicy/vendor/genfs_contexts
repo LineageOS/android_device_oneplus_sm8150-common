@@ -1,3 +1,4 @@
+genfscon proc /sensor u:object_r:proc_sensor:s0
 genfscon proc /touchpanel u:object_r:proc_touchpanel:s0
 genfscon proc /ultrasound u:object_r:proc_ultrasound:s0
 genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-005a/leds/vibrator u:object_r:sysfs_vibrator:s0

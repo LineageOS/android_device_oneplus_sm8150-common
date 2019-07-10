@@ -42,8 +42,9 @@
 /mnt/vendor/persist/engineermode(/.*)?               u:object_r:persist_engineer_file:s0
 
 # Root files
-/op1(/.*)?    u:object_r:op1_file:s0
-/op2(/.*)?    u:object_r:op2_file:s0
+/op1(/.*)?     u:object_r:op1_file:s0
+/op2(/.*)?     u:object_r:op2_file:s0
+/sbin/dashd    u:object_r:dashd_exec:s0
 
 # Sys files
 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version    u:object_r:sysfs_fpc:s0

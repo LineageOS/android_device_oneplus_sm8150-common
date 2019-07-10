@@ -26,3 +26,7 @@ attribute hal_param_server;
 attribute hal_rpmb;
 attribute hal_rpmb_client;
 attribute hal_rpmb_server;
+
+attribute hal_wiredse;
+attribute hal_wiredse_client;
+attribute hal_wiredse_server;

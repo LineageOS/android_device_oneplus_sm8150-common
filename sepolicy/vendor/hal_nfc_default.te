@@ -8,3 +8,6 @@ allow hal_nfc_default proc_touchpanel:file rw_file_perms;
 # Allow hal_nfc_default to read, write and create files in nfc_vendor_data_file
 allow hal_nfc_default nfc_vendor_data_file:dir search;
 allow hal_nfc_default nfc_vendor_data_file:file create_file_perms;
+
+# Allow hal_nfc_default to get vendor_nfc_prop
+get_prop(hal_nfc_default, vendor_nfc_prop)

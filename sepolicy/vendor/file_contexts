@@ -48,3 +48,6 @@
 /sys/module/fsc(/.*)?                                              u:object_r:sysfs_fsc:s0
 /sys/module/stmvl53l1(/.*)?                                        u:object_r:sysfs_vl53l1:s0
 /sys/project_info(/.*)?                                            u:object_r:sysfs_project_info:s0
+
+# Vendor files
+/vendor/usr/keylayout(/.*)?    u:object_r:keylayout_file:s0

@@ -1,6 +1,9 @@
 # Binder calls to hal_cameraHIDL
 binder_call(hal_camera_default, hal_cameraHIDL)
 
+# Allow hal_camera_default to find hal_cameraHIDL_hwservice
+allow hal_camera_default hal_cameraHIDL_hwservice:hwservice_manager find;
+
 # Persist files
 allow hal_camera_default persist_camera_file:dir w_dir_perms;
 allow hal_camera_default persist_camera_file:file create_file_perms;

@@ -1,0 +1,2 @@
+# Allow rmt_storage to read and write to oem_block_device
+allow rmt_storage oem_block_device:blk_file rw_file_perms;

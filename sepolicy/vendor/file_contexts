@@ -3,7 +3,9 @@
 /(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi-mac-generator_exec:s0
 
 # Block devices
-/dev/block/platform/soc/1d84000\.ufshc/by-name/param    u:object_r:param_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_dycnvbk    u:object_r:oem_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_stanvbk    u:object_r:oem_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/param          u:object_r:param_block_device:s0
 
 # Data files
 /data/vendor/oemnvitems/4678_0    u:object_r:wifi_nv_data_file:s0

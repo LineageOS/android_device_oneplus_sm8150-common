@@ -1,0 +1,2 @@
+# Allow sensors to get vendor_sensors_prop
+get_prop(sensors, vendor_sensors_prop)

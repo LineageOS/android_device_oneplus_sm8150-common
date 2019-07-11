@@ -1,0 +1,5 @@
+# Allow qti_init_shell to write to sysfs_fsc
+allow qti_init_shell sysfs_fsc:file w_file_perms;
+
+# Allow qti_init_shell to write to sysfs_scsi_host
+allow qti_init_shell sysfs_scsi_host:file w_file_perms;

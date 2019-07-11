@@ -3,3 +3,6 @@ allow qti_init_shell sysfs_fsc:file w_file_perms;
 
 # Allow qti_init_shell to write to sysfs_scsi_host
 allow qti_init_shell sysfs_scsi_host:file w_file_perms;
+
+# Allow qti_init_shell to get vendor_memplus_prop
+get_prop(qti_init_shell, vendor_memplus_prop)

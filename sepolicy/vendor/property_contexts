@@ -6,6 +6,9 @@ camera.OPpictureId    u:object_r:vendor_camera_prop:s0
 persist.vendor.sys.fp    u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.oem.fp    u:object_r:vendor_fingerprint_prop:s0
 
+# Memplus
+persist.vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
+
 # NFC
 ro.vendor.nfc.notify_tp    u:object_r:vendor_nfc_prop:s0
 

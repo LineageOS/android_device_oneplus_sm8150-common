@@ -61,6 +61,7 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
 # Treble
 BOARD_VNDK_VERSION := current
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"

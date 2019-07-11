@@ -1,5 +1,16 @@
+typeattribute hal_sensors_default binder_in_vendor_violators;
+
+# Allow hal_sensors_default to use binder service
+binder_use(hal_sensors_default)
+
 # Allow binder communication with hal_audio_default
 binder_call(hal_sensors_default, hal_audio_default)
+
+# Allow binder communication with hal_graphics_allocator_default
+binder_call(hal_sensors_default, hal_graphics_allocator_default)
+
+# Allow binder communication with surfaceflinger
+binder_call(hal_sensors_default, surfaceflinger)
 
 # Allow hal_sensors_default to find hal_audio_hwservice
 allow hal_sensors_default hal_audio_hwservice:hwservice_manager find;
@@ -10,11 +21,17 @@ allow hal_sensors_default hal_graphics_allocator_hwservice:hwservice_manager fin
 # Allow hal_sensors_default to find hal_graphics_mapper_hwservice
 allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
 
+# Allow hal_sensors_default to find surfaceflinger_service
+allow hal_sensors_default surfaceflinger_service:service_manager find;
+
 # Allow hal_sensors_default to read files in mnt_vendor_file
 r_dir_file(hal_sensors_default, mnt_vendor_file)
 
 # Allow hal_sensors_default to read files in sysfs_graphics
 r_dir_file(hal_sensors_default, sysfs_graphics)
+
+# Allow hal_sensors_default to read and write to gpu_device
+allow hal_sensors_default gpu_device:chr_file rw_file_perms;
 
 # Allow hal_sensors_default to read and write persist_engineer_file
 allow hal_sensors_default persist_engineer_file:dir rw_dir_perms;

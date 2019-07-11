@@ -49,7 +49,6 @@ on property:persist.vendor.oem.dump=1
     write /sys/kernel/dload/dload_mode full
     write /sys/kernel/dload/emmc_dload 0
     write /proc/otrace_on 7978
-    write /proc/restart_level_all 1
     write /proc/sys/kernel/printk "4 6 1 7"
 
 on property:persist.vendor.oem.dump=0
@@ -57,7 +56,6 @@ on property:persist.vendor.oem.dump=0
     write /sys/kernel/dload/dload_mode mini
     write /sys/kernel/dload/emmc_dload 1
     write /proc/otrace_on 0
-    write /proc/restart_level_all 0
     write /proc/sys/kernel/printk "1 6 1 7"
 
 on property:sys.oem.aging_test=1

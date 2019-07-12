@@ -144,7 +144,10 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USES_MKE2FS := true
 
 # Power
+TARGET_RPM_MASTER_STAT := "/d/rpmh/master_stats"
+TARGET_RPM_STAT := "/d/rpmh/stats"
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
 
 # Recovery
 BOARD_USES_RECOVERY_AS_BOOT := true

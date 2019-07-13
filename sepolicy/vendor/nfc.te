@@ -1,2 +1,5 @@
 # Allow nfc to find hal_wiredse_hwservice
 allow nfc hal_wiredse_hwservice:hwservice_manager find;
+
+# Allow nfc to get vendor_nfc_prop
+get_prop(nfc, vendor_nfc_prop)

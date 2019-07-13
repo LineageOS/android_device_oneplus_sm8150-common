@@ -4,5 +4,8 @@ allow init { op1_file op2_file }:filesystem { mount relabelfrom relabelto };
 # Allow init to mount on op1_file, op2_file
 allow init { op1_file op2_file }:dir mounton;
 
-# Allow to contextmount op1_file
+# Allow init to contextmount op1_file
 allow op1_file self:filesystem associate;
+
+# Allow init to create vl53l1_socket
+allow init vl53l1_socket:sock_file create_file_perms;

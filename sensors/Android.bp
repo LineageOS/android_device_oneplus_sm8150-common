@@ -1,4 +1,4 @@
-cc_library_static {
+oneplus_msmnile_sensors_hal_library_static {
     name: "multihal-oneplus-msmnile",
     vendor: true,
     srcs: [

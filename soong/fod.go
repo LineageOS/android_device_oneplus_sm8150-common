@@ -1,4 +1,4 @@
-package fod
+package msmnile
 
 import (
     "android/soong/android"
@@ -6,7 +6,7 @@ import (
     "strings"
 )
 
-func deviceFlags(ctx android.BaseContext) []string {
+func fodFlags(ctx android.BaseContext) []string {
     var cflags []string
 
     var config = ctx.AConfig().VendorConfig("ONEPLUS_MSMNILE_FOD")
@@ -28,7 +28,7 @@ func fodHalBinary(ctx android.LoadHookContext) {
     }
 
     p := &props{}
-    p.Target.Android.Cflags = deviceFlags(ctx)
+    p.Target.Android.Cflags = fodFlags(ctx)
     ctx.AppendProperties(p)
 }
 
@@ -39,6 +39,3 @@ func fodHalBinaryFactory() android.Module {
     return newMod
 }
 
-func init() {
-    android.RegisterModuleType("oneplus_msmnile_fod_hal_binary", fodHalBinaryFactory)
-}

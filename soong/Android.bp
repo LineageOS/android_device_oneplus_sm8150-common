@@ -1,5 +1,5 @@
 bootstrap_go_package {
-    name: "soong-fod-hal-binary",
+    name: "soong-oneplus-msmnile-plugins",
     pkgPath: "device/oneplus/sm8150-common",
     deps: [
         "blueprint",
@@ -11,6 +11,9 @@ bootstrap_go_package {
     ],
     srcs: [
         "fod.go",
+        "sensors.go",
+        "main.go",
     ],
     pluginFor: ["soong_build"],
 }
+

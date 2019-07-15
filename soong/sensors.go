@@ -38,4 +38,3 @@ func sensorsHalLibraryFactory() android.Module {
     android.AddLoadHook(newMod, sensorsHalLibrary)
     return newMod
 }
-

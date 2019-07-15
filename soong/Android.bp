@@ -16,4 +16,3 @@ bootstrap_go_package {
     ],
     pluginFor: ["soong_build"],
 }
-

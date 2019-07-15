@@ -38,4 +38,3 @@ func fodHalBinaryFactory() android.Module {
     android.AddLoadHook(newMod, fodHalBinary)
     return newMod
 }
-

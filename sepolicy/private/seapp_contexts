@@ -1,1 +1,1 @@
-user=system seinfo=platform name=org.lineageos.camera_helper domain=camera_helper_app type=system_app_data_file
+user=system seinfo=platform name=org.lineageos.camerahelper domain=camera_helper_app type=system_app_data_file

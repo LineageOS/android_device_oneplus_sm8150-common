@@ -6,6 +6,9 @@ init_daemon_domain(hal_param_default)
 
 allow hal_param_default self:qipcrtr_socket create_socket_perms_no_ioctl;
 
+# Allow hal_param_default search in block_device
+allow hal_param_default block_device:dir search;
+
 # Allow hal_param_default to read and write to param_block_device
 allow hal_param_default param_block_device:blk_file rw_file_perms;
 

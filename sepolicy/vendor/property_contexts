@@ -32,6 +32,8 @@ ro.boot.prmec    u:object_r:exported_default_prop:s0
 ro.boot.rf_version    u:object_r:exported_default_prop:s0
 
 # RIL
+persist.vendor.diag.max.num     u:object_r:exported_radio_prop:s0
+persist.vendor.diag.max.size    u:object_r:exported_radio_prop:s0
 ro.ril.supportLTE               u:object_r:radio_prop:s0
 vendor.oem.bt.addr              u:object_r:vendor_radio_prop:s0
 vendor.oem.device.imeicache1    u:object_r:vendor_radio_prop:s0

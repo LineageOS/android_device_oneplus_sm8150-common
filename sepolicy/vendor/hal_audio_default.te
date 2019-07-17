@@ -3,3 +3,6 @@ binder_call(hal_audio_default, hal_sensors_default)
 
 # Allow hal_audio_default to find hal_sensors_hwservice
 allow hal_audio_default hal_sensors_hwservice:hwservice_manager find;
+
+# Allow hal_audio_default to read files in mnt_vendor_file
+r_dir_file(hal_audio_default, mnt_vendor_file)

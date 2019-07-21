@@ -276,7 +276,6 @@ vendor/lib/libvideoutils.so
 vendor/lib/libvidhance.so
 vendor/lib/libvl53l1_daemon.so
 vendor/lib/sensors.hal.tof.so
-vendor/lib/vendor.oneplus.camera.CameraHIDL@1.0.so
 vendor/lib64/camera/com.qti.sensor.gc5035.so
 vendor/lib64/camera/com.qti.sensor.imx371.so
 vendor/lib64/camera/com.qti.sensor.imx471.so
@@ -395,7 +394,6 @@ vendor/lib64/libtriplecam_video_optical_zoom.so
 vendor/lib64/libvidhance.so
 vendor/lib64/libvl53l1_daemon.so
 vendor/lib64/sensors.hal.tof.so
-vendor/lib64/vendor.oneplus.camera.CameraHIDL@1.0.so
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
@@ -737,7 +735,6 @@ vendor/lib/libsl_fp_impl_util.so
 vendor/lib/libsl_fp_nosec.so
 vendor/lib/libsl_fp_prepro.so
 vendor/lib/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
-vendor/lib/vendor.oneplus.fingerprint.extension@1.0.so
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/fp_hal_extension.so
 vendor/lib64/hw/goodix.fod.msmnile.so

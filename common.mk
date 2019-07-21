@@ -149,7 +149,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     libxml2 \
-    Snap
+    Snap \
+    vendor.oneplus.camera.CameraHIDL@1.0.vendor
 
 # CNE
 PRODUCT_PACKAGES += \
@@ -222,7 +223,8 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.oneplus_msmnile \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile \
+    vendor.oneplus.fingerprint.extension@1.0.vendor
 
 # For config.fs
 PRODUCT_PACKAGES += \

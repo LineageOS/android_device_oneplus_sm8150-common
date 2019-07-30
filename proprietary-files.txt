@@ -1476,8 +1476,8 @@ vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Vibrator
-vendor/lib/hw/vibrator.default.so
-vendor/lib64/hw/vibrator.default.so
+vendor/lib/hw/vibrator.default.so:vendor/lib/hw/vibrator.msmnile.so
+vendor/lib64/hw/vibrator.default.so:vendor/lib64/hw/vibrator.msmnile.so
 
 # Vibrator firmware
 vendor/firmware/alarm_breeze.bin

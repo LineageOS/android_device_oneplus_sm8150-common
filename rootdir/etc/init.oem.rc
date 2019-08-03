@@ -470,6 +470,7 @@ on post-fs
     chown system audio /sys/class/leds/vibrator/rtp
     chown system audio /sys/class/leds/vibrator/haptic_audio_tp_time
     chown system system /sys/class/leds/vibrator/loop
+    chown system system /sys/class/leds/vibrator/ignore_store
     chown system system /sys/class/leds/vibrator/osc_cali
     chown system system /sys/class/leds/vibrator/haptic_osc_data
     chown system system /sys/class/leds/vibrator/ram_test

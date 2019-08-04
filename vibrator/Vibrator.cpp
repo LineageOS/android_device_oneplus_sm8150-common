@@ -65,17 +65,17 @@ static constexpr int32_t WAVEFORM_CLICK_EFFECT_MS = 0;
 
 // Use effect #2 in the waveform library for TICK effect
 static constexpr auto WAVEFORM_TICK_EFFECT_SEQ = { "0 1", "1 0" };
-static constexpr auto WAVEFORM_TICK_EFFECT_CTRL_LOOPS = { "1 0x0"};
+static constexpr auto WAVEFORM_TICK_EFFECT_CTRL_LOOPS = { "1 0x0", "0 0x0" };
 static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 0;
 
 // Use effect #3 in the waveform library for DOUBLE_CLICK effect
 static constexpr auto WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ = { "0 1" };
-static constexpr auto WAVEFORM_DOUBLE_CLICK_EFFECT_CTRL_LOOPS = { "0 0x0", "1 0x0" };
+static constexpr auto WAVEFORM_DOUBLE_CLICK_EFFECT_CTRL_LOOPS = { "0 0x0", "1 0x0", "0 0x0" };
 static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_MS = 10;
 
 // Use effect #4 in the waveform library for HEAVY_CLICK effect
 static constexpr auto WAVEFORM_HEAVY_CLICK_EFFECT_SEQ = { "0 0", "1 0" };
-static constexpr auto WAVEFORM_HEAVY_CLICK_EFFECT_CTRL_LOOPS = { "1 0x1" };
+static constexpr auto WAVEFORM_HEAVY_CLICK_EFFECT_CTRL_LOOPS = { "1 0x1", "0 0x0" };
 static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 10;
 
 // Use effect #5 in the waveform library for POP effect

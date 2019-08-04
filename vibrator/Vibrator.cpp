@@ -218,8 +218,6 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
                 set(CTRL_LOOP_PATH, ctrlLoop);
             }
         }
-
-        set(ACTIVATE_PATH, 0);
     };
 
     Status status = Status::OK;

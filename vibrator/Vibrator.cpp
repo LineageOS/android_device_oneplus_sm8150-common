@@ -25,7 +25,6 @@
 #include <cmath>
 #include <fstream>
 #include <iostream>
-#include <optional>
 
 // Refer to non existing
 // kernel documentation on the detail usages for ABIs below
@@ -58,31 +57,47 @@ static constexpr uint8_t GAIN = 128;
 static constexpr uint8_t LOOP_MODE_OPEN = 1;
 static constexpr uint8_t VMAX = 9;
 
-// Use effect #1 in the waveform library for CLICK effect
-static constexpr auto WAVEFORM_CLICK_EFFECT_SEQ = { "0 1", "1 0" };
-static constexpr auto WAVEFORM_CLICK_EFFECT_CTRL_LOOPS = { "0 0x0" };
-static constexpr int32_t WAVEFORM_CLICK_EFFECT_MS = 0;
-
-// Use effect #2 in the waveform library for TICK effect
-static constexpr auto WAVEFORM_TICK_EFFECT_SEQ = { "0 1", "1 0" };
-static constexpr auto WAVEFORM_TICK_EFFECT_CTRL_LOOPS = { "1 0x0", "0 0x0" };
-static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 0;
-
-// Use effect #3 in the waveform library for DOUBLE_CLICK effect
-static constexpr auto WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ = { "0 1" };
-static constexpr auto WAVEFORM_DOUBLE_CLICK_EFFECT_CTRL_LOOPS = { "0 0x0", "1 0x0", "0 0x0" };
-static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_MS = 10;
-
-// Use effect #4 in the waveform library for HEAVY_CLICK effect
-static constexpr auto WAVEFORM_HEAVY_CLICK_EFFECT_SEQ = { "0 0", "1 0" };
-static constexpr auto WAVEFORM_HEAVY_CLICK_EFFECT_CTRL_LOOPS = { "1 0x1", "0 0x0" };
-static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 10;
-
-// Use effect #5 in the waveform library for POP effect
-static constexpr uint32_t WAVEFORM_POP_EFFECT_MS = 5;
-
-// Use effect #6 in the waveform library for THUD effect
-static constexpr uint32_t WAVEFORM_THUD_EFFECT_MS = 10;
+// Effects
+static const AwEffect WAVEFORM_CLICK_EFFECT {
+    .sequences = std::vector<std::string>({ "0 1", "1 0" }),
+    .ctrlLoops = std::vector<std::string>({ "0 0x0" }),
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 0
+};
+static const AwEffect WAVEFORM_TICK_EFFECT {
+    .sequences = std::vector<std::string>({ "0 1", "1 0" }),
+    .ctrlLoops = std::vector<std::string>({ "1 0x0", "0 0x0" }),
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 0
+};
+static const AwEffect WAVEFORM_DOUBLE_CLICK_EFFECT {
+    .sequences = std::vector<std::string>({ "0 1" }),
+    .ctrlLoops = std::vector<std::string>({ "0 0x0", "1 0x0", "0 0x0" }),
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 10
+};
+static const AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
+    .sequences = std::vector<std::string>({ "0 1", "1 0" }),
+    .ctrlLoops = std::vector<std::string>({ "1 0x1", "0 0x0" }),
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 10
+};
+static const AwEffect WAVEFORM_POP_EFFECT {
+    .duration = 0,
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 5
+};
+static const AwEffect WAVEFORM_THUD_EFFECT {
+    .duration = 0,
+    .vmax = VMAX,
+    .gain = GAIN,
+    .timeMS = 10
+};
 
 namespace android {
 namespace hardware {
@@ -188,36 +203,35 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         }
     };
 
-    const auto setEffect = [](
-            const std::optional<std::initializer_list<const char *>>& sequences,
-            const std::optional<std::initializer_list<const char *>>& ctrlLoops,
-            std::optional<int> duration, std::optional<uint8_t> vmax, std::optional<uint8_t> gain) {
+    const auto setEffect = [](const AwEffect& effect, uint32_t& timeMS) {
         set(ACTIVATE_PATH, 0);
         set(IGNORE_STORE_PATH, 0);
 
-        if (duration.has_value()) {
-            set(DURATION_PATH, *duration);
+        if (effect.duration.has_value()) {
+            set(DURATION_PATH, *effect.duration);
         }
 
-        if (vmax.has_value()) {
-            set(VMAX_PATH, *vmax);
+        if (effect.vmax.has_value()) {
+            set(VMAX_PATH, *effect.vmax);
         }
 
-        if (gain.has_value()) {
-            set(GAIN_PATH, *gain);
+        if (effect.gain.has_value()) {
+            set(GAIN_PATH, *effect.gain);
         }
 
-        if (sequences.has_value()) {
-            for (const auto& sequence : *sequences) {
+        if (effect.sequences.has_value()) {
+            for (const auto& sequence : *effect.sequences) {
                 set(SEQ_PATH, sequence);
             }
         }
 
-        if (ctrlLoops.has_value()) {
-            for (const auto& ctrlLoop : *ctrlLoops) {
+        if (effect.ctrlLoops.has_value()) {
+            for (const auto& ctrlLoop : *effect.ctrlLoops) {
                 set(CTRL_LOOP_PATH, ctrlLoop);
             }
         }
+
+        timeMS = effect.timeMS;
     };
 
     Status status = Status::OK;
@@ -225,36 +239,28 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
 
     switch (effect) {
         case Effect::CLICK:
-            setEffect(WAVEFORM_CLICK_EFFECT_SEQ, WAVEFORM_CLICK_EFFECT_CTRL_LOOPS, {}, VMAX, GAIN);
+            setEffect(WAVEFORM_CLICK_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_CLICK_EFFECT_MS;
             break;
         case Effect::DOUBLE_CLICK:
-            setEffect(WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ, WAVEFORM_DOUBLE_CLICK_EFFECT_CTRL_LOOPS,
-                    {}, VMAX, GAIN);
+            setEffect(WAVEFORM_DOUBLE_CLICK_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_DOUBLE_CLICK_EFFECT_MS;
             break;
         case Effect::TICK:
-            setEffect(WAVEFORM_TICK_EFFECT_SEQ, WAVEFORM_TICK_EFFECT_CTRL_LOOPS, {}, VMAX, GAIN);
+            setEffect(WAVEFORM_TICK_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_TICK_EFFECT_MS;
             break;
         case Effect::HEAVY_CLICK:
-            setEffect(WAVEFORM_HEAVY_CLICK_EFFECT_SEQ, WAVEFORM_HEAVY_CLICK_EFFECT_CTRL_LOOPS,
-                    {}, VMAX, GAIN);
+            setEffect(WAVEFORM_HEAVY_CLICK_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_HEAVY_CLICK_EFFECT_MS;
             break;
         case Effect::POP:
-            setEffect({}, {}, 0, VMAX, GAIN);
+            setEffect(WAVEFORM_POP_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_POP_EFFECT_MS;
             break;
         case Effect::THUD:
-            setEffect({}, {}, 0, VMAX, GAIN);
+            setEffect(WAVEFORM_THUD_EFFECT, timeMS);
             mShouldSetBrightness = true;
-            timeMS = WAVEFORM_THUD_EFFECT_MS;
             break;
         default:
             _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);

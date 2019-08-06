@@ -18,6 +18,21 @@
 
 #include <android/hardware/vibrator/1.2/IVibrator.h>
 
+#include <optional>
+
+namespace {
+
+typedef struct {
+    std::optional<std::vector<std::string>> sequences;
+    std::optional<std::vector<std::string>> ctrlLoops;
+    std::optional<int> duration;
+    std::optional<uint8_t> vmax;
+    std::optional<uint8_t> gain;
+    int timeMS{};
+} AwEffect;
+
+}  // anonymous namespace
+
 namespace android {
 namespace hardware {
 namespace vibrator {

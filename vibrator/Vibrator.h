@@ -24,7 +24,7 @@ namespace {
 
 typedef struct {
     std::optional<std::vector<std::string>> sequences;
-    std::optional<std::vector<std::string>> ctrlLoops;
+    std::optional<std::vector<std::string>> loops;
     std::optional<int> duration;
     std::optional<uint8_t> vmax;
     std::optional<uint8_t> gain;

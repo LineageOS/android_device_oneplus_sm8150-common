@@ -30,7 +30,7 @@
 // kernel documentation on the detail usages for ABIs below
 static constexpr char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
 static constexpr char BRIGHTNESS_PATH[] = "/sys/class/leds/vibrator/brightness";
-static constexpr char CTRL_LOOP_PATH[] = "/sys/class/leds/vibrator/loop";
+static constexpr char LOOP_PATH[] = "/sys/class/leds/vibrator/loop";
 static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
 static constexpr char GAIN_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char IGNORE_STORE_PATH[] = "/sys/class/leds/vibrator/ignore_store";
@@ -60,28 +60,28 @@ static constexpr uint8_t VMAX = 9;
 // Effects
 static const AwEffect WAVEFORM_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0 1", "1 0" }),
-    .ctrlLoops = std::vector<std::string>({ "0 0x0" }),
+    .loops = std::vector<std::string>({ "0 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
 static const AwEffect WAVEFORM_TICK_EFFECT {
     .sequences = std::vector<std::string>({ "0 1", "1 0" }),
-    .ctrlLoops = std::vector<std::string>({ "1 0x0", "0 0x0" }),
+    .loops = std::vector<std::string>({ "1 0x0", "0 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
 static const AwEffect WAVEFORM_DOUBLE_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0 1" }),
-    .ctrlLoops = std::vector<std::string>({ "0 0x0", "1 0x0", "0 0x0" }),
+    .loops = std::vector<std::string>({ "0 0x0", "1 0x0", "0 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
 };
 static const AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0 1", "1 0" }),
-    .ctrlLoops = std::vector<std::string>({ "1 0x1", "0 0x0" }),
+    .loops = std::vector<std::string>({ "1 0x1", "0 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
@@ -127,7 +127,7 @@ Vibrator::Vibrator() {
 }
 
 Return<Status> Vibrator::on(uint32_t timeoutMs, bool isWaveform) {
-    set(CTRL_LOOP_PATH, LOOP_MODE_OPEN);
+    set(LOOP_PATH, LOOP_MODE_OPEN);
     set(DURATION_PATH, timeoutMs);
 
     if (isWaveform) {
@@ -225,9 +225,9 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
             }
         }
 
-        if (effect.ctrlLoops.has_value()) {
-            for (const auto& ctrlLoop : *effect.ctrlLoops) {
-                set(CTRL_LOOP_PATH, ctrlLoop);
+        if (effect.loops.has_value()) {
+            for (const auto& loop : *effect.loops) {
+                set(LOOP_PATH, loop);
             }
         }
 

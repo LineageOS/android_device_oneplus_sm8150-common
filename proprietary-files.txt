@@ -509,6 +509,7 @@ vendor/etc/sdr_config.cfg
 vendor/lib/hw/hwcomposer.msmnile.so
 vendor/lib/libdisplayqos.so
 vendor/lib/libdpps.so
+vendor/lib/libsdedrm.so
 vendor/lib/libsdm-colormgr-algo.so
 -vendor/lib/libsdm-disp-vndapis.so
 vendor/lib/libsdmcore.so
@@ -516,6 +517,7 @@ vendor/lib/libsdmextension.so
 vendor/lib64/hw/hwcomposer.msmnile.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdpps.so
+vendor/lib64/libsdedrm.so
 vendor/lib64/libsdm-colormgr-algo.so
 -vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmcore.so
@@ -581,6 +583,7 @@ vendor/etc/gpfspath_oem_config.xml
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 vendor/etc/init/vendor.oneplus.hardware.drmkey@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.hdcpkey@1.0-service.rc
+vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libbase64.so
 vendor/lib/libcpion.so
 vendor/lib/libcppf.so
@@ -595,7 +598,6 @@ vendor/lib/libqisl.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librmp.so
 vendor/lib/librpmb.so
-vendor/lib/libsdedrm.so
 vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libSecureUILib.so
@@ -603,7 +605,7 @@ vendor/lib/libspl.so
 vendor/lib/libssd.so
 vendor/lib/libStDrvInt.so
 vendor/lib/libtzdrmgenprov.so
-vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
 vendor/lib64/libcppf.so
@@ -618,7 +620,6 @@ vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librmp.so
 vendor/lib64/librpmb.so
-vendor/lib64/libsdedrm.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libSecureUILib.so
@@ -627,7 +628,6 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/libwvhidl.so
-vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/vendor.oneplus.hardware.drmkey@1.0.so
 vendor/lib64/vendor.oneplus.hardware.hdcpkey@1.0.so
 

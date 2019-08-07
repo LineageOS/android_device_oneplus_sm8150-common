@@ -41,8 +41,8 @@ static constexpr char STATE_PATH[] = "/sys/class/leds/vibrator/state";
 static constexpr char VMAX_PATH[] = "/sys/class/leds/vibrator/vmax";
 
 // General constants
-static constexpr uint8_t GAIN = 128;
-static constexpr uint8_t VMAX = 9;
+static constexpr char GAIN[] = "0x80";
+static constexpr char VMAX[] = "0x09";
 
 // Effects
 static const AwEffect WAVEFORM_CLICK_EFFECT {

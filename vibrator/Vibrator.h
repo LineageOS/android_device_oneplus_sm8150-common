@@ -25,7 +25,6 @@ namespace {
 typedef struct {
     std::optional<std::vector<std::string>> sequences;
     std::optional<std::vector<std::string>> loops;
-    std::optional<int> duration;
     std::optional<uint8_t> vmax;
     std::optional<uint8_t> gain;
     int timeMS{};
@@ -61,10 +60,7 @@ class Vibrator : public IVibrator {
     Return<void> perform_1_2(Effect effect, EffectStrength strength, perform_cb _hidl_cb) override;
 
   private:
-    Return<Status> on(uint32_t timeoutMs, bool isWaveform);
     Return<void> performEffect(Effect effect, EffectStrength strength, perform_cb _hidl_cb);
-
-    bool mShouldSetBrightness{};
 };
 
 }  // namespace implementation

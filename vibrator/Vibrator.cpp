@@ -35,62 +35,49 @@ static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
 static constexpr char GAIN_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char IGNORE_STORE_PATH[] = "/sys/class/leds/vibrator/ignore_store";
 static constexpr char LP_TRIGGER_PATH[] = "/sys/class/leds/vibrator/haptic_audio";
-static constexpr char LRA_WAVE_SHAPE_PATH[] = "/sys/class/leds/vibrator/lra_resistance";
-static constexpr char MODE_PATH[] = "/sys/class/leds/vibrator/activate_mode";
 static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char SEQ_PATH[] = "/sys/class/leds/vibrator/seq";
 static constexpr char VMAX_PATH[] = "/sys/class/leds/vibrator/vmax";
 
-// RTP mode
-static constexpr char RTP_MODE[] = "rtp";
-
-// Waveform mode
-static constexpr char WAVEFORM_MODE[] = "waveform";
-static constexpr uint8_t SQUARE_WAVE = 0;
-static constexpr uint8_t SINE_WAVE = 1;
-
 // General constants
 static constexpr uint8_t GAIN = 128;
-static constexpr uint8_t LOOP_MODE_OPEN = 1;
 static constexpr uint8_t VMAX = 9;
 
 // Effects
 static const AwEffect WAVEFORM_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x0 0x0" }),
+    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
 static const AwEffect WAVEFORM_TICK_EFFECT {
     .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x1 0x0", "0x0 0x0" }),
+    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
 static const AwEffect WAVEFORM_DOUBLE_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0x0 0x1" }),
-    .loops = std::vector<std::string>({ "0 0x0", "0x1 0x0", "0x0 0x0" }),
+    .loops = std::vector<std::string>({ "0x0 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
 };
 static const AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
     .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x1 0x1", "0x0 0x0" }),
+    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
 };
 static const AwEffect WAVEFORM_POP_EFFECT {
-    .duration = 0,
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 5
 };
 static const AwEffect WAVEFORM_THUD_EFFECT {
-    .duration = 0,
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
@@ -123,31 +110,10 @@ Vibrator::Vibrator() {
     set(LP_TRIGGER_PATH, 1);
 }
 
-Return<Status> Vibrator::on(uint32_t timeoutMs, bool isWaveform) {
-    set(LOOP_PATH, LOOP_MODE_OPEN);
-    set(DURATION_PATH, timeoutMs);
-
-    if (isWaveform) {
-        set(MODE_PATH, WAVEFORM_MODE);
-        set(LRA_WAVE_SHAPE_PATH, SINE_WAVE);
-    } else {
-        set(MODE_PATH, RTP_MODE);
-        set(LRA_WAVE_SHAPE_PATH, SQUARE_WAVE);
-    }
-
-    if (mShouldSetBrightness) {
-        set(BRIGHTNESS_PATH, 1);
-    } else {
-        set(BRIGHTNESS_PATH, 0);
-        set(ACTIVATE_PATH, 1);
-    }
-
-    return Status::OK;
-}
-
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
-    mShouldSetBrightness = false;
-    return on(timeoutMs, false /* isWaveform */);
+    set(DURATION_PATH, timeoutMs);
+    set(BRIGHTNESS_PATH, 1);
+    return Status::OK;
 }
 
 Return<Status> Vibrator::off()  {
@@ -196,10 +162,6 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         set(ACTIVATE_PATH, 0);
         set(IGNORE_STORE_PATH, 0);
 
-        if (effect.duration.has_value()) {
-            set(DURATION_PATH, *effect.duration);
-        }
-
         if (effect.vmax.has_value()) {
             set(VMAX_PATH, *effect.vmax);
         }
@@ -229,37 +191,29 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
     switch (effect) {
         case Effect::CLICK:
             setEffect(WAVEFORM_CLICK_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         case Effect::DOUBLE_CLICK:
             setEffect(WAVEFORM_DOUBLE_CLICK_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         case Effect::TICK:
             setEffect(WAVEFORM_TICK_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         case Effect::HEAVY_CLICK:
             setEffect(WAVEFORM_HEAVY_CLICK_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         case Effect::POP:
             setEffect(WAVEFORM_POP_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         case Effect::THUD:
             setEffect(WAVEFORM_THUD_EFFECT, timeMS);
-            mShouldSetBrightness = true;
             break;
         default:
             _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
-            mShouldSetBrightness = false;
             return Void();
     }
 
     set(SCALE_PATH, convertEffectStrength(strength));
-
-    on(timeMS, true /* isWaveform */);
+    on(timeMS);
 
     _hidl_cb(status, timeMS);
     return Void();

@@ -30,13 +30,14 @@
 // kernel documentation on the detail usages for ABIs below
 static constexpr char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
 static constexpr char BRIGHTNESS_PATH[] = "/sys/class/leds/vibrator/brightness";
-static constexpr char LOOP_PATH[] = "/sys/class/leds/vibrator/loop";
 static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
 static constexpr char GAIN_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char IGNORE_STORE_PATH[] = "/sys/class/leds/vibrator/ignore_store";
+static constexpr char LOOP_PATH[] = "/sys/class/leds/vibrator/loop";
 static constexpr char LP_TRIGGER_PATH[] = "/sys/class/leds/vibrator/haptic_audio";
 static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char SEQ_PATH[] = "/sys/class/leds/vibrator/seq";
+static constexpr char STATE_PATH[] = "/sys/class/leds/vibrator/state";
 static constexpr char VMAX_PATH[] = "/sys/class/leds/vibrator/vmax";
 
 // General constants
@@ -73,11 +74,13 @@ static const AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
     .timeMS = 10
 };
 static const AwEffect WAVEFORM_POP_EFFECT {
+    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 5
 };
 static const AwEffect WAVEFORM_THUD_EFFECT {
+    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
@@ -111,14 +114,14 @@ Vibrator::Vibrator() {
 }
 
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
+    set(STATE_PATH, 1);
     set(DURATION_PATH, timeoutMs);
-    set(BRIGHTNESS_PATH, 1);
+    set(ACTIVATE_PATH, 1);
     return Status::OK;
 }
 
 Return<Status> Vibrator::off()  {
     set(BRIGHTNESS_PATH, 0);
-    set(ACTIVATE_PATH, 0);
     return Status::OK;
 }
 
@@ -158,7 +161,7 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         }
     };
 
-    const auto setEffect = [](const AwEffect& effect, uint32_t& timeMS) {
+    const auto setEffect = [&](const AwEffect& effect, uint32_t& timeMS) {
         set(ACTIVATE_PATH, 0);
         set(IGNORE_STORE_PATH, 0);
 
@@ -181,6 +184,10 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
                 set(LOOP_PATH, loop);
             }
         }
+
+        set(SCALE_PATH, convertEffectStrength(strength));
+        set(DURATION_PATH, effect.timeMS);
+        set(BRIGHTNESS_PATH, 1);
 
         timeMS = effect.timeMS;
     };
@@ -211,9 +218,6 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
             _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
             return Void();
     }
-
-    set(SCALE_PATH, convertEffectStrength(strength));
-    on(timeMS);
 
     _hidl_cb(status, timeMS);
     return Void();

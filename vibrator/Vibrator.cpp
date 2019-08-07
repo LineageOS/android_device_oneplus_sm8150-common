@@ -37,15 +37,12 @@ static constexpr char IGNORE_STORE_PATH[] = "/sys/class/leds/vibrator/ignore_sto
 static constexpr char LP_TRIGGER_PATH[] = "/sys/class/leds/vibrator/haptic_audio";
 static constexpr char LRA_WAVE_SHAPE_PATH[] = "/sys/class/leds/vibrator/lra_resistance";
 static constexpr char MODE_PATH[] = "/sys/class/leds/vibrator/activate_mode";
-static constexpr char RTP_INPUT_PATH[] = "/sys/class/leds/vibrator/rtp";
 static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/gain";
 static constexpr char SEQ_PATH[] = "/sys/class/leds/vibrator/seq";
 static constexpr char VMAX_PATH[] = "/sys/class/leds/vibrator/vmax";
 
 // RTP mode
 static constexpr char RTP_MODE[] = "rtp";
-static constexpr uint8_t MAX_RTP_INPUT = 127;
-static constexpr uint8_t MIN_RTP_INPUT = 0;
 
 // Waveform mode
 static constexpr char WAVEFORM_MODE[] = "waveform";
@@ -160,19 +157,11 @@ Return<Status> Vibrator::off()  {
 }
 
 Return<bool> Vibrator::supportsAmplitudeControl()  {
-    return true;
+    return false;
 }
 
-Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
-    if (amplitude == 0) {
-        return Status::BAD_VALUE;
-    }
-
-    int32_t value = std::round((amplitude - 1) / 254.0 * (MAX_RTP_INPUT - MIN_RTP_INPUT) +
-           MIN_RTP_INPUT);
-    set(RTP_INPUT_PATH, value);
-
-    return Status::OK;
+Return<Status> Vibrator::setAmplitude(uint8_t) {
+    return Status::UNSUPPORTED_OPERATION;
 }
 
 Return<void> Vibrator::perform(V1_0::Effect effect, EffectStrength strength, perform_cb _hidl_cb) {

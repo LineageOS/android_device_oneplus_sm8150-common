@@ -23,10 +23,10 @@
 namespace {
 
 typedef struct {
-    std::optional<std::vector<std::string>> sequences;
-    std::optional<std::vector<std::string>> loops;
-    std::optional<std::string> vmax;
-    std::optional<std::string> gain;
+    std::optional<std::array<uint8_t, 8>> sequences;
+    std::optional<std::array<uint8_t, 8>> loops;
+    std::optional<std::string_view> vmax;
+    std::optional<std::string_view> gain;
     int timeMS{};
 } AwEffect;
 

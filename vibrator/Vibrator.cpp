@@ -24,6 +24,7 @@
 
 #include <cmath>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 
 // Refer to non existing
@@ -45,42 +46,42 @@ static constexpr char GAIN[] = "0x80";
 static constexpr char VMAX[] = "0x09";
 
 // Effects
-static const AwEffect WAVEFORM_CLICK_EFFECT {
-    .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
+static constexpr AwEffect WAVEFORM_CLICK_EFFECT {
+    .sequences = std::array<uint8_t, 8>({ 1, 0, 0, 0, 0, 0, 0, 0 }),
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
-static const AwEffect WAVEFORM_TICK_EFFECT {
-    .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
+static constexpr AwEffect WAVEFORM_TICK_EFFECT {
+    .sequences = std::array<uint8_t, 8>({ 1, 0, 0, 0, 0, 0, 0, 0 }),
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 0
 };
-static const AwEffect WAVEFORM_DOUBLE_CLICK_EFFECT {
-    .sequences = std::vector<std::string>({ "0x0 0x1" }),
-    .loops = std::vector<std::string>({ "0x0 0x0" }),
+static constexpr AwEffect WAVEFORM_DOUBLE_CLICK_EFFECT {
+    .sequences = std::array<uint8_t, 8>({ 1, 0, 0, 0, 0, 0, 0, 0 }),
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
 };
-static const AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
-    .sequences = std::vector<std::string>({ "0x0 0x1", "0x1 0x0" }),
-    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
+static constexpr AwEffect WAVEFORM_HEAVY_CLICK_EFFECT {
+    .sequences = std::array<uint8_t, 8>({ 1, 0, 0, 0, 0, 0, 0, 0 }),
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
 };
-static const AwEffect WAVEFORM_POP_EFFECT {
-    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
+static constexpr AwEffect WAVEFORM_POP_EFFECT {
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 5
 };
-static const AwEffect WAVEFORM_THUD_EFFECT {
-    .loops = std::vector<std::string>({ "0x0 0x0", "0x1 0x0" }),
+static constexpr AwEffect WAVEFORM_THUD_EFFECT {
+    .loops = std::array<uint8_t, 8>({ 0, 0, 0, 0, 0, 0, 0, 0 }),
     .vmax = VMAX,
     .gain = GAIN,
     .timeMS = 10
@@ -161,6 +162,12 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         }
     };
 
+    const auto uint8ToHexString = [](uint8_t v) -> std::string {
+        std::stringstream ss;
+        ss << std::hex << "0x" << std::setfill('0') << std::setw(2) << static_cast<int>(v);
+        return ss.str();
+    };
+
     const auto setEffect = [&](const AwEffect& effect, uint32_t& timeMS) {
         set(ACTIVATE_PATH, 0);
         set(IGNORE_STORE_PATH, 0);
@@ -174,14 +181,16 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength, per
         }
 
         if (effect.sequences.has_value()) {
-            for (const auto& sequence : *effect.sequences) {
-                set(SEQ_PATH, sequence);
+            for (size_t i = 0; i < effect.sequences->size(); i++) {
+                set(SEQ_PATH,
+                        uint8ToHexString(i) + " " + uint8ToHexString(effect.sequences->at(i)));
             }
         }
 
         if (effect.loops.has_value()) {
-            for (const auto& loop : *effect.loops) {
-                set(LOOP_PATH, loop);
+            for (size_t i = 0; i < effect.loops->size(); i++) {
+                set(LOOP_PATH,
+                        uint8ToHexString(i) + " " + uint8ToHexString(effect.loops->at(i)));
             }
         }
 

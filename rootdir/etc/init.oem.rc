@@ -533,9 +533,6 @@ on post-fs
     chmod 0660 /sys/class/leds/vibrator/haptic_audio
     mkdir /data/awinic 0770 system audio
 
-    /* create a empty file for wifi hal to write mac address */
-    write /mnt/vendor/persist/wlan_mac.bin ""
-    chown wifi wifi /mnt/vendor/persist/wlan_mac.bin
     mkdir /mnt/vendor/persist/engineermode
     chown system system /mnt/vendor/persist/engineermode
     mkdir /mnt/vendor/persist/camera 0777 system system

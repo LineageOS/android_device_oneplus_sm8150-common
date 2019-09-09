@@ -422,6 +422,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.0.vendor
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    device/oneplus/common
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages

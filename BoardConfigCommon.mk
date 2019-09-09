@@ -193,11 +193,6 @@ BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
 SOONG_CONFIG_NAMESPACES += ONEPLUS_MSMNILE_SENSORS
 SOONG_CONFIG_ONEPLUS_MSMNILE_SENSORS := ALS_POS_X ALS_POS_Y
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(VENDOR_PATH) \
-    device/oneplus/common
-
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag

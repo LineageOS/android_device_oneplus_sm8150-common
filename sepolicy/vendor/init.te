@@ -1,3 +1,6 @@
+# Allow init to transition to dashd domain
+domain_trans(init, rootfs, dashd)
+
 # Allow init to mount /op1, /op2 with op1_file, op2_file context
 allow init { op1_file op2_file }:filesystem { mount relabelfrom relabelto };
 

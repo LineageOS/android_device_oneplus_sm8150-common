@@ -48,7 +48,6 @@
 # Root files
 /op1(/.*)?     u:object_r:op1_file:s0
 /op2(/.*)?     u:object_r:op2_file:s0
-/sbin/dashd    u:object_r:dashd_exec:s0
 
 # Socket files
 /dev/socket/vl53l1_daemon    u:object_r:vl53l1_socket:s0

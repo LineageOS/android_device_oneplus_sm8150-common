@@ -1,56 +1,24 @@
-﻿##################################################################################
-### VENDOR_EDIT, OEM All rights reserved.
-###
-### File: - init.oem.rc
-### Author: jiangyonggao
-### all oem triger & init are here
-### ------------------------------- Revision History: ----------------------------
-### <author>                        <data>       <version>   <desc>
-### ------------------------------------------------------------------------------
-### jiangyg@PM                     2013-10-21                Create this file
-##################################################################################
-
-
-
-#erik.yang, 2015/3/20, add for property self-adaptive
-service self-init /vendor/bin/self-init
-    class core
-    user root
-    oneshot
-
 on post-fs-data
-    #NFC, ruanbanmao add for 15801 nfc. 2015/10/19
     mkdir /data/nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
-    mkdir /data/vendor/oemnvitems  0771 radio radio
-    #fingerint, changhua add for fp debug image usage,feature default off
+    mkdir /data/vendor/oemnvitems 0771 radio radio
     mkdir /data/fpc_images 0770 system system
     mkdir /data/fpc_images/verify 0770 system system
     mkdir /data/fpc_images/enroll 0770 system system
     mkdir /data/fpc 0770 system system
     mkdir /data/vendor_de/silead 0770 system system
     mkdir /mnt/vendor/persist/silead 0777 system system
-    mkdir /data/coredump  0777 system system
+    mkdir /data/coredump 0777 system system
     mkdir /data/theme 0775 system system
     mkdir /data/mdm 0775 system system
     mkdir /data/theme_storage 0775 system system
-    #mediaserver, lifei add for Watchdog monitoring mediaextractor process. 2017/08/11
     mkdir /mnt/vendor/persist/hdcp/media_dump 0770 mediaex mediadrm
     mkdir /data/reserve-lib 0775 system system
-    #ifdef VENDOR_EDIT
-    #KennethWang add for oem log
-    mkdir /data/oem_log  0770 system system
-    #endif /*VENDOR_EDIT*/
-#ifdef VENDOR_EDIT
-    mkdir /persist/hdcp  775 media mediadrm
-    mkdir /mnt/vendor/persist/hdcp  775 media mediadrm
-#endif /*VENDOR_EDIT*/
-    mkdir /data/vendor/misc/qsee/face/  0770 system system
-#ifdef VENDOR_EDIT
-    insmod /vendor/lib/modules/opchain.ko
-    insmod /vendor/lib/modules-aging/opchain.ko
-#endif
-#changhua add for fingerint
+    mkdir /data/oem_log 0770 system system
+    mkdir /persist/hdcp 775 media mediadrm
+    mkdir /mnt/vendor/persist/hdcp 775 media mediadrm
+    mkdir /data/vendor/misc/qsee/face/ 0770 system system
+
 on boot
     chmod 0664 /sys/devices/platform/soc/soc:fpc_fpc1020/irq
     chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/irq
@@ -217,8 +185,6 @@ on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:r
     setprop persist.sys.usb.config adb
 
 #ifdef VENDOR_EDIT
-#/*infi@bsp 2018/05/07 select WIRELESS_CONTROLLER_REMOTE_NDIS for
-# MAC/Ubuntu usb-tethering compatible*/
 on property:sys.boot_completed=1
     write /config/usb_gadget/g1/functions/gsi.rndis/rndis_class_id 1
 #endif
@@ -229,7 +195,6 @@ service qseeproxysd /system/vendor/bin/qseeproxysampledaemon
     group nfc
 
 #ifdef VENDOR_EDIT
-#/* Liyu.Tan, 2015.10.26, wifi ftm shell */
 service wififtmserver /vendor/bin/sh vendor/bin/wifi_ftm
     class late_start
     user root
@@ -317,7 +282,6 @@ on property:vendor.wlan.write.con_mode=*
 #endif /*VENDOR_EDIT*/
 
 #ifdef VENDOR_EDIT
-#/* zuoyonghua add nfc transmit  */
     chown system system /system/xbin/nfc_trasmit_start.sh
     chmod 0777  /system/xbin/nfc_trasmit_start.sh
     chown system system /system/xbin/nfc_trasmit_stop.sh
@@ -475,7 +439,6 @@ on post-fs
     chown system system /sys/class/leds/vibrator/haptic_osc_data
     chown system system /sys/class/leds/vibrator/ram_test
     chown system system /sys/class/leds/vibrator/ram_update
-    /* add for aging apk to set node */
     chown system system /sys/class/power_supply/battery/is_aging_test
 
     chown system system /sys/devices/platform/vendor/vendor\:motor_pl/change_speed
@@ -513,10 +476,8 @@ on post-fs
     chown system system /sys/devices/platform/vendor/vendor\:motor_pl/free_fall_irq_times
     chown system system /sys/module/lpm_levels/parameters/sleep_disabled
 
-    /*add by rio.zhao for can online config to close low power save strategy*/
     chown system system /sys/class/thermal/thermal_zone61/mode
 
-    /*Bob.Nill add 666 for VTS front camera*/
     chmod 666 /sys/devices/platform/vendor/vendor\:motor_pl/direction
     chmod 666 /sys/devices/platform/vendor/vendor\:motor_pl/enable
 
@@ -533,7 +494,6 @@ on post-fs
     chmod 0660 /sys/class/leds/vibrator/haptic_audio
     mkdir /data/awinic 0770 system audio
 
-    /* create a empty file for wifi hal to write mac address */
     write /mnt/vendor/persist/wlan_mac.bin ""
     chown wifi wifi /mnt/vendor/persist/wlan_mac.bin
     mkdir /mnt/vendor/persist/engineermode
@@ -568,6 +528,11 @@ on post-fs
     chmod 660 /mnt/vendor/persist/OPDiagnose/opdiagnosedata
     chown system system /mnt/vendor/persist/OPDiagnose/opdiagnosedata
 #endif
+
+service self-init /vendor/bin/self-init
+    class core
+    user root
+    oneshot
 
 #ifdef VENDOR_EDIT
 #niejianan@oneplus.framework , 2015/04/25, add for mmi charging test

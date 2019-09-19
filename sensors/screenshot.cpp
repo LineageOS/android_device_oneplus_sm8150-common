@@ -19,9 +19,10 @@ void update_screen_buffer(void **out) {
     clock_gettime(CLOCK_MONOTONIC, &now);
     if (now.tv_sec - last_screen_update >= SCREENSHOT_INTERVAL) {
         // Update Screenshot at most every second
-        ScreenshotClient::capture(SurfaceComposerClient::getBuiltInDisplay(0),
+        ScreenshotClient::capture(SurfaceComposerClient::getInternalDisplayToken(),
+                                    ui::Dataspace::V0_SRGB, ui::PixelFormat::RGBA_8888,
                                     Rect(ALS_POS_X, ALS_POS_Y, ALS_POS_X + 10, ALS_POS_Y + 10),
-                                    10, 10, 0, 65535, true, 0, &screen_buffer);
+                                    10, 10, true, 0, &screen_buffer);
         last_screen_update = now.tv_sec;
     }
     screen_buffer->lock(GraphicBuffer::USAGE_SW_READ_OFTEN, out);

@@ -19,6 +19,7 @@ oneplus_msmnile_sensors_hal_library_static {
     cflags: [
         "-Wall",
         "-Werror",
+        "-DNO_INPUT",
     ],
 }
 
@@ -43,6 +44,9 @@ cc_library_shared {
     static_libs: [
         "android.hardware.sensors@1.0-convert",
         "multihal-oneplus-msmnile",
+    ],
+    cflags: [
+        "-DNO_INPUT",
     ],
     local_include_dirs: ["include/sensors"],
 }

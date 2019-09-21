@@ -17,6 +17,12 @@
 
 set -e
 
+function replace_dependency() {
+    for arg in ${@:3}; do
+        patchelf --replace-needed $1 $2 $arg
+    done
+}
+
 DEVICE_COMMON=sm8150-common
 VENDOR=oneplus
 
@@ -73,5 +79,7 @@ COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
 sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/libwfdnative.so" "${COMMON_BLOB_ROOT}/lib/libwfdnative.so"
 sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/liblocationservice_jni.so"
 sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/libxt_native.so"
+
+replace_dependency "libcutils.so" "libprocessgroup.so" "${COMMON_BLOB_ROOT}/vendor/lib/libgps.utils.so" "${COMMON_BLOB_ROOT}/vendor/lib64/libgps.utils.so" "${COMMON_BLOB_ROOT}/vendor/lib/hw/audio.primary.msmnile.so" "${COMMON_BLOB_ROOT}/vendor/lib64/hw/audio.primary.msmnile.so"
 
 "${MY_DIR}/setup-makefiles.sh"

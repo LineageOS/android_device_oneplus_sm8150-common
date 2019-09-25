@@ -63,6 +63,7 @@ cc_binary {
         "libcutils",
         "libdl",
         "libbase",
+        "libbinder",
         "libutils",
         "libhidlbase",
         "libhidltransport",

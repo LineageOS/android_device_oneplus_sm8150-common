@@ -39,6 +39,35 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
+function blob_fixup() {
+    case "${1}" in
+    lib/libwfdnative.so)
+        sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    lib64/libwfdnative.so)
+        sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    lib64/liblocationservice_jni.so)
+        sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    lib64/libxt_native.so)
+        sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    vendor/lib/hw/audio.primary.msmnile.so)
+        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
+        ;;
+    vendor/lib/libgps.utils.so)
+        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
+        ;;
+    vendor/lib64/hw/audio.primary.msmnile.so)
+        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
+        ;;
+    vendor/lib64/libgps.utils.so)
+        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
+        ;;
+    esac
+}
+
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
@@ -75,11 +104,5 @@ extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
 
 COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
-
-sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/libwfdnative.so" "${COMMON_BLOB_ROOT}/lib/libwfdnative.so"
-sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/liblocationservice_jni.so"
-sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${COMMON_BLOB_ROOT}/lib64/libxt_native.so"
-
-replace_dependency "libcutils.so" "libprocessgroup.so" "${COMMON_BLOB_ROOT}/vendor/lib/libgps.utils.so" "${COMMON_BLOB_ROOT}/vendor/lib64/libgps.utils.so" "${COMMON_BLOB_ROOT}/vendor/lib/hw/audio.primary.msmnile.so" "${COMMON_BLOB_ROOT}/vendor/lib64/hw/audio.primary.msmnile.so"
 
 "${MY_DIR}/setup-makefiles.sh"

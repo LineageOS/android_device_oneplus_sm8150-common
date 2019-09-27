@@ -1,5 +1,9 @@
 typeattribute hal_sensors_default binder_in_vendor_violators;
 
+# Allow access to the HALs
+hal_client_domain(hal_sensors_default, hal_audio)
+hal_client_domain(hal_sensors_default, hal_graphics_allocator)
+
 # Allow hal_sensors_default to use binder service
 binder_use(hal_sensors_default)
 

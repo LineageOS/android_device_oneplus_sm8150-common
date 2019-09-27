@@ -25,6 +25,3 @@ type sysfs_fpc, sysfs_type, fs_type;
 type sysfs_fsc, sysfs_type, fs_type;
 type sysfs_project_info, sysfs_type, fs_type;
 type sysfs_vl53l1, sysfs_type, fs_type;
-
-# vendor
-type keylayout_file, file_type, vendor_file_type;

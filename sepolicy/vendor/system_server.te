@@ -1,2 +1,0 @@
-# Allow system_server to read keylayout_file
-r_dir_file(system_server, keylayout_file)

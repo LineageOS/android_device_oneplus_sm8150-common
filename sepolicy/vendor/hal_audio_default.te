@@ -1,3 +1,6 @@
+# Allow access to the HALs
+hal_client_domain(hal_audio_default, hal_sensors)
+
 # Allow binder communication with hal_sensors_default
 binder_call(hal_audio_default, hal_sensors_default)
 

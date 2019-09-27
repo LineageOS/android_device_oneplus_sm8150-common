@@ -1,0 +1,23 @@
+type hal_lineage_fod_sm8150, domain;
+hal_server_domain(hal_lineage_fod_sm8150, hal_lineage_fod)
+
+type hal_lineage_fod_sm8150_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_fod_sm8150)
+
+# Allow access to the HALs
+hal_client_domain(hal_lineage_fod_sm8150, hal_fingerprint)
+
+# Allow binder communication with hal_display_default
+binder_call(hal_lineage_fod_sm8150, hal_display_default)
+
+# Allow binder communication with hal_fingerprint_default
+binder_call(hal_lineage_fod_sm8150, hal_fingerprint_default)
+
+# Allow hal_lineage_fod_sm8150 to hal_display_hwservice
+allow hal_lineage_fod_sm8150 hal_display_hwservice:hwservice_manager find;
+
+# Allow hal_lineage_fod_sm8150 to hal_fingerprint_hwservice
+allow hal_lineage_fod_sm8150 hal_fingerprint_hwservice:hwservice_manager find;
+
+# Allow hal_lineage_fod_sm8150 to read and write to sysfs_fod
+allow hal_lineage_fod_sm8150 sysfs_fod:file rw_file_perms;

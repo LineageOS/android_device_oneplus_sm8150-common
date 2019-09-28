@@ -53,24 +53,6 @@ function blob_fixup() {
     lib64/libxt_native.so)
         sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
         ;;
-    vendor/lib/hw/audio.primary.msmnile.so)
-        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
-        ;;
-    vendor/lib/hw/camera.qcom.so)
-        sed -i "s/libc++.so/libcXD.so/g" "${2}"
-        ;;
-    vendor/lib/libgps.utils.so)
-        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
-        ;;
-    vendor/lib64/hw/audio.primary.msmnile.so)
-        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
-        ;;
-    vendor/lib64/hw/camera.qcom.so)
-        sed -i "s/libc++.so/libcXD.so/g" "${2}"
-        ;;
-    vendor/lib64/libgps.utils.so)
-        patchelf --replace-needed "libcutils.so" "libprocessgroup.so" "${2}"
-        ;;
     esac
 }
 

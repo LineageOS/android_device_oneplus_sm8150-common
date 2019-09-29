@@ -50,7 +50,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
-    vendor.qcom.bluetooth.soc=cherokee
+    vendor.qcom.bluetooth.soc=cherokee \
+    persist.bluetooth.bluetooth_audio_hal.disabled=true \
+    persist.bluetooth.a2dp_offload.disabled=true
 
 # Crypto
  PRODUCT_PROPERTY_OVERRIDES += \

@@ -687,18 +687,6 @@ service vendor.ipacm /system/vendor/bin/ipacm
     group radio inet
     disabled
 
-service vendor.dataqti /system/vendor/bin/qti
-    class main
-    user radio
-    group radio oem_2901 diag usb net_admin
-    disabled
-
-service vendor.dataadpl /system/vendor/bin/adpl
-    class main
-    user radio
-    group radio oem_2901 diag usb net_admin
-    disabled
-
 service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class early_hal
     user system

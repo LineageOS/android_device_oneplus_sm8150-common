@@ -1863,6 +1863,7 @@ lib64/libwfdclient.so
 lib64/libwfdnative.so
 -priv-app/WfdService/WfdService.apk
 vendor/bin/wifidisplayhalservice
+vendor/bin/wfdhdcphalservice
 vendor/etc/ArmHDCP_QTI_Android.cfg
 vendor/etc/DxHDCP.cfg
 vendor/etc/wfdconfig.xml
@@ -1874,6 +1875,7 @@ vendor/lib/libwfdcodecv4l2_proprietary.so
 vendor/lib/libwfdconfigutils_proprietary.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdhdcpcp.so
+vendor/lib/libwfdhdcpservice_proprietary.so
 vendor/lib/libwfdmmservice_proprietary.so
 vendor/lib/libwfdmodulehdcpsession.so
 vendor/lib/libwfdmminterface_proprietary.so

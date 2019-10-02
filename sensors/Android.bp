@@ -36,7 +36,6 @@ cc_library_shared {
         "libbase",
         "libutils",
         "libhidlbase",
-        "libhidltransport",
         "android.hardware.sensors@1.0",
         "libgui_vendor",
         "libui",
@@ -66,8 +65,6 @@ cc_binary {
         "libbinder",
         "libutils",
         "libhidlbase",
-        "libhidltransport",
-        "libhwbinder",
         "android.hardware.sensors@1.0",
     ],
     arch: {

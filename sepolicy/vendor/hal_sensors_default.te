@@ -37,6 +37,9 @@ r_dir_file(hal_sensors_default, sysfs_graphics)
 # Allow hal_sensors_default to read and write to gpu_device
 allow hal_sensors_default gpu_device:chr_file rw_file_perms;
 
+# Allow hal_sensors_default to read and write to ultrasound_device
+allow hal_sensors_default ultrasound_device:chr_file rw_file_perms;
+
 # Allow hal_sensors_default to read and write persist_engineer_file
 allow hal_sensors_default persist_engineer_file:dir rw_dir_perms;
 allow hal_sensors_default persist_engineer_file:file rw_file_perms;

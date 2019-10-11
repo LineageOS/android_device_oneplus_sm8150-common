@@ -3,4 +3,5 @@ type fingerprintd_device, dev_type;
 type oem_block_device, dev_type;
 type param_block_device, dev_type;
 type param_device, dev_type;
+type ultrasound_device, dev_type;
 type vl53l1_device, dev_type;

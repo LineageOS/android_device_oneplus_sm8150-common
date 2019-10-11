@@ -42,7 +42,8 @@
         <param enable_failure_detection="false" />
         <param support_device_switch="false" />
         <!-- Transition will only occur if execution_type="DYNAMIC" -->
-        <!-- VENDOR_EDIT modified by fred.li for SVA3.1 OEM Feature-->
+        <!-- VENDOR_EDIT  modified by fred.li for SVA3.1 OEM Feature-->
+        <!-- OP_FEATURE_MM_SVA-->
         <param transit_to_adsp_on_playback="true" />
         <param transit_to_adsp_on_battery_charging="true" />
         <!-- VENDOR_EDIT end-->
@@ -88,10 +89,7 @@
 
         <!-- adm_cfg_profile should match with the one defined under adm_config -->
         <!-- Set it to NONE if LSM directly connects to AFE -->
-        <!-- VENDOR_EDIT modified by fred.li for SVA3.1 OEM Barge-in Feature use fluence dmic-->
         <param adm_cfg_profile="FFECNS" />
-        <!--param adm_cfg_profile="FFECNS" /-->
-        <!-- VENDOR_EDIT end-->
         <!-- fluence_type: "FLUENCE", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
         <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
         <!-- is one of FLUENCE, FLUENCE_STEREO, FFECNS values          -->
@@ -101,10 +99,7 @@
         <!-- VENDOR_EDIT end-->
         <!-- wdsp_fluence_type: fluence disabled: "NONE" -->
         <!-- fluence enabled: "FLUENCE_DMIC", "FLUENCE_TMIC", "FLUENCE_QMIC" -->
-        <!-- VENDOR_EDIT modified by fred.li for SVA3.1 OEM Barge-in Feature use fluence dmic-->
         <param wdsp_fluence_type="NONE" />
-        <!--param wdsp_fluence_type="NONE" /-->
-        <!-- VENDOR_EDIT end-->
         <arm_ss_usecase>
             <!-- Options are "KEYWORD_DETECTION", "USER_VERIFICATION", "CUSTOM_DETECTION"  -->
             <param sm_detection_type= "KEYWORD_DETECTION" />
@@ -175,7 +170,7 @@
             <param execution_mode="ADSP" />
             <param app_type="2" /> <!-- app type used in ACDB -->
             <!--fred modified 20190104-->
-            <param in_channels="2"/> <!-- Module input channels -->
+            <param in_channels="1"/> <!-- Module input channels -->
             <param load_sound_model_ids="0x00012C1C, 0x00012C14" />
             <param unload_sound_model_ids="0x00012C1C, 0x00012C15" />
             <param confidence_levels_ids="0x00012C1C, 0x00012C07" />
@@ -209,6 +204,7 @@
         <!-- adm_cfg_profile should match with the one defined under adm_config -->
         <!-- Set it to NONE if LSM directly connects to AFE -->
         <!-- VENDOR_EDIT modified by fred.li for SVA3.1 OEM Barge-in Feature use fluence dmic-->
+        <!-- OP_FEATURE_MM_SVA-->
         <param adm_cfg_profile="FLUENCE" />
         <!--param adm_cfg_profile="NONE" /-->
         <!-- VENDOR_EDIT end-->  
@@ -219,6 +215,7 @@
         <!-- wdsp_fluence_type: fluence disabled: "NONE" -->
         <!-- fluence enabled: "FLUENCE_DMIC", "FLUENCE_TMIC", "FLUENCE_QMIC" -->
         <!-- VENDOR_EDIT modified by fred.li for SVA3.1 OEM Barge-in Feature use fluence dmic-->
+        <!-- OP_FEATURE_MM_SVA-->
         <param wdsp_fluence_type="FLUENCE" />
         <!--param wdsp_fluence_type="NONE" /-->
         <!-- VENDOR_EDIT end--> 
@@ -282,8 +279,9 @@
         <param wdsp_fluence_type="NONE" />
         <gcs_usecase>
             <param uid="0x3" />
-            <param acdb_devices="DEVICE_HANDSET_MIC_CPE, DEVICE_HEADSET_MIC_CPE" />
+            <param acdb_devices="DEVICE_HANDSET_MIC_CPE" />
             <!-- VENDOR_EDIT modified by fred.li for okgoogle OEM Feature-->
+            <!-- OP_FEATURE_MM_SVA-->
             <!--param load_sound_model_ids="0x18000001, 0x4, 0x18000100" />
             <param start_engine_ids="0x18000001, 0x4, 0x18000101" /-->
             <param load_sound_model_ids="0x18000001, 0x4, 0x00012C14" />
@@ -379,7 +377,7 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <!--fred modified 20190104-->
-        <param out_channels="2"/>
+        <param out_channels="1"/>
     </adm_config>
 
     <!-- backend_type tag defines backend type for each device -->

@@ -26,33 +26,26 @@ on oem_ftm
     chmod 0755  /vendor/bin/factory
     chown system system /vendor/bin/ptt_socket_app
     chmod 0755  /vendor/bin/ptt_socket_app
-
-on property:ro.vendor.factory.mode=ftm
-    start qcamerasvr
-    start qcom-sh
-    start self-init
-    start qmuxd
-    start factory
-    start ftm_power_config
-    start ril-daemon
-    start cnss-daemon
     write /sys/class/power_supply/battery/charging_enabled 0
-
-on property:ro.vendor.factory.mode=wlan
     start qcom-sh
-    start self-init
-    start qmuxd
+    start vendor.qmuxd
     start ptt_ffbm
     start ftm_power_config
-    start ril-daemon
     start cnss-daemon
-    write /sys/class/power_supply/battery/charging_enabled 0
+    start qcom-c_main-sh
+    write /dev/kmsg "factory boot mode is:${ro.vendor.factory.mode}"
+
+on property:ro.vendor.factory.mode=ftm
+    start factory
+
+on property:ro.vendor.factory.mode=ftm && property:ro.baseband=mdm
+    start vendor.mdm_launcher
+    
+on property:ro.vendor.factory.mode=wlan
+    start vendor.mdm_launcher
 
 on property:ro.vendor.factory.mode=rf
-    start qcom-sh
-    start self-init
-    start qcom-c_main-sh
-    start ftm_power_config
-    start cnss-daemon
     start vendor.mdm_launcher
-    write /sys/class/power_supply/battery/charging_enabled 0
+
+on property:ro.vendor.factory.mode=ftm && property:ro.boot.project_name=19861
+    insmod /vendor/lib/modules/qca_cld3_wlan.ko

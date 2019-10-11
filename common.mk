@@ -183,7 +183,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     coredump.sh \
     ftm_power_config.sh \
-    init.class_late.sh \
     init.class_main.sh \
     init.crda.sh \
     init.mdm.sh \
@@ -194,7 +193,6 @@ PRODUCT_PACKAGES += \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
     init.qcom.crashdata.sh \
-    init.qcom.debug.sh \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.factory.rc \
@@ -203,15 +201,10 @@ PRODUCT_PACKAGES += \
     init.qcom.sdio.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.test.rc \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.qti.can.sh \
-    init.qti.debug-msmnile.sh \
     init.qti.fm.sh \
     init.qti.ims.sh \
-    init.qti.manifest_sku.sh \
-    init.qti.qseecomd.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     kmemleak.sh \

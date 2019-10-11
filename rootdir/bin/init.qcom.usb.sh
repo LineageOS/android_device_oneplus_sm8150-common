@@ -29,17 +29,10 @@
 #
 
 # Set platform variables
-if [ -f /sys/devices/soc0/hw_platform ]; then
-    soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
-else
-    soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
-fi
-
-if [ -f /sys/devices/soc0/machine ]; then
-    soc_machine=`cat /sys/devices/soc0/machine` 2> /dev/null
-else
-    soc_machine=`cat /sys/devices/system/soc/soc0/machine` 2> /dev/null
-fi
+soc_hwplatform=`cat /sys/devices/soc0/hw_platform 2> /dev/null`
+soc_machine=`cat /sys/devices/soc0/machine 2> /dev/null`
+soc_machine=${soc_machine:0:2}
+soc_id=`cat /sys/devices/soc0/soc_id 2> /dev/null`
 
 #
 # Check ESOC for external modem
@@ -49,13 +42,6 @@ fi
 esoc_name=`cat /sys/bus/esoc/devices/esoc0/esoc_name 2> /dev/null`
 
 target=`getprop ro.board.platform`
-
-# soc_ids for 8937
-if [ -f /sys/devices/soc0/soc_id ]; then
-	soc_id=`cat /sys/devices/soc0/soc_id`
-else
-	soc_id=`cat /sys/devices/system/soc/soc0/id`
-fi
 
 if [ -f /sys/class/android_usb/f_mass_storage/lun/nofua ]; then
 	echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
@@ -83,9 +69,8 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 	              setprop persist.vendor.usb.config diag,adb
 	          ;;
                   *)
-		  soc_machine=${soc_machine:0:3}
 		  case "$soc_machine" in
-		    "SDA")
+		    "SA")
 	              setprop persist.vendor.usb.config diag,adb
 		    ;;
 		    *)
@@ -121,12 +106,9 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
 		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,adb
 		      ;;
 	              "sdm845" | "sdm710")
-#ifdef VENDOR_EDIT
-#2018/07/08 @bsp config diag+adb port in EVB debug
-		          setprop persist.vendor.usb.config diag,adb
-#endif
+		          setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,adb
 		      ;;
-	              "msmnile" | "sm6150")
+	              "msmnile" | "sm6150" | "trinket" | "lito")
 			  setprop persist.vendor.usb.config diag,serial_cdev,rmnet,dpl,qdss,adb
 		      ;;
 	              *)
@@ -142,23 +124,26 @@ if [ "$(getprop persist.vendor.usb.config)" == "" -a \
       fi
 fi
 
+# Start peripheral mode on primary USB controllers for Automotive platforms
+case "$soc_machine" in
+    "SA")
+	if [ -f /sys/bus/platform/devices/a600000.ssusb/mode ]; then
+	    default_mode=`cat /sys/bus/platform/devices/a600000.ssusb/mode`
+	    case "$default_mode" in
+		"none")
+		    echo peripheral > /sys/bus/platform/devices/a600000.ssusb/mode
+		;;
+	    esac
+	fi
+    ;;
+esac
+
 # set rndis transport to BAM2BAM_IPA for 8920 and 8940
 if [ "$target" == "msm8937" ]; then
 	if [ ! -d /config/usb_gadget ]; then
 	   case "$soc_id" in
 		"313" | "320")
 		   echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
-		;;
-		*)
-		;;
-	   esac
-	else
-	   case "$soc_id" in
-		"313" | "320")
-		   setprop vendor.usb.rndis.func.name "rndis_bam"
-		   setprop vendor.usb.rmnet.func.name "rmnet_bam"
-		   setprop vendor.usb.rmnet.inst.name "rmnet"
-		   setprop vendor.usb.dpl.inst.name "dpl"
 		;;
 		*)
 		;;
@@ -184,7 +169,7 @@ if [ -d /config/usb_gadget ]; then
 	echo "$product_string" > /config/usb_gadget/g1/strings/0x409/product
 
 	# ADB requires valid iSerialNumber; if ro.serialno is missing, use dummy
-	serialnumber=`cat /config/usb_gadget/g1/strings/0x409/serialnumber` 2> /dev/null
+	serialnumber=`cat /config/usb_gadget/g1/strings/0x409/serialnumber 2> /dev/null`
 	if [ "$serialnumber" == "" ]; then
 		serialno=1234567
 		echo $serialno > /config/usb_gadget/g1/strings/0x409/serialnumber
@@ -208,7 +193,7 @@ case "$soc_id" in
 esac
 
 #ifdef VENDOR_EDIT
-#david.liu@bsp, 20171114 Enable diag and adb for FTM
+#@BSP, 20171114 Enable diag and adb for FTM
 boot_mode=`getprop ro.boot.ftm_mode`
 echo "boot_mode: $boot_mode" > /dev/kmsg
 case "$boot_mode" in
@@ -284,3 +269,4 @@ case "$boot_mode" in
     echo "AFTER boot_mode: diag,adb" > /dev/kmsg
 esac
 #endif
+

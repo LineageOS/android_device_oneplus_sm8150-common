@@ -21,6 +21,6 @@ service oemasserttip /system/bin/xxx
      user system
      disabled
 
-service vendor.hwcomposer-2-2 /vendor/bin/hw/xxx
+service vendor.hwcomposer-2-3 /vendor/bin/hw/xxx
     oneshot
     disabled

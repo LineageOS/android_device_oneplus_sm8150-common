@@ -503,14 +503,6 @@ vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 -vendor/lib64/vendor.qti.hardware.capabilityconfigstore@1.0.so
 -vendor/lib64/libplatformconfig.so
 
-# Cryptfshw
-vendor/bin/hw/vendor.qti.hardware.cryptfshw@1.0-service-qti
-vendor/etc/init/vendor.qti.hardware.cryptfshw@1.0-service-qti.rc
-vendor/lib/libcryptfshwcommon.so
-vendor/lib/libcryptfshwhidl.so
-vendor/lib64/libcryptfshwcommon.so
-vendor/lib64/libcryptfshwhidl.so
-
 # CVP
 vendor/bin/hw/vendor.qti.hardware.cvp@1.0-service
 vendor/etc/init/vendor.qti.hardware.cvp@1.0-service.rc

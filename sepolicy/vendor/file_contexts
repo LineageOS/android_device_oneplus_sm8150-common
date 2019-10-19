@@ -21,6 +21,7 @@
 /dev/goodix_fp            u:object_r:fingerprintd_device:s0
 /dev/p73                  u:object_r:nfc_device:s0
 /dev/param                u:object_r:param_device:s0
+/dev/pn553                u:object_r:nfc_device:s0
 /dev/sensor_ultrasound    u:object_r:ultrasound_device:s0
 /dev/silead_fp            u:object_r:fingerprintd_device:s0
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0

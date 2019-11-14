@@ -61,7 +61,9 @@
 /dev/socket/vl53l1_daemon    u:object_r:vl53l1_socket:s0
 
 # Sys files
+/sys/bus/platform/devices/soc/soc:tri_state_key/hall_data_calib    u:object_r:sysfs_tri_state_key:s0
 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version    u:object_r:sysfs_fpc:s0
+/sys/devices/platform/soc/soc:tri_state_key/hall_data_calib        u:object_r:sysfs_tri_state_key:s0
 /sys/devices/platform/vendor/vendor:motor_pl(/.*)?                 u:object_r:sysfs_motor:s0
 /sys/elliptic/engine/calibration_v2                                u:object_r:sysfs_audio:s0
 /sys/module/fsc(/.*)?                                              u:object_r:sysfs_fsc:s0

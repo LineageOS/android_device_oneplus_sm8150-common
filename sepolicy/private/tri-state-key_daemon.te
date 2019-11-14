@@ -3,5 +3,13 @@ type tri-state-key_daemon_exec, exec_type, system_file_type, file_type;
 
 init_daemon_domain(tri-state-key_daemon)
 
+typeattribute tri-state-key_daemon system_writes_mnt_vendor_violators;
+
 allow tri-state-key_daemon uhid_device:chr_file rw_file_perms;
 allow tri-state-key_daemon self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+allow tri-state-key_daemon sysfs_tri_state_key:file w_file_perms;
+
+allow tri-state-key_daemon mnt_vendor_file:dir search;
+
+r_dir_file(tri-state-key_daemon, persist_engineer_file)

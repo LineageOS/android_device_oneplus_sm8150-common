@@ -66,6 +66,7 @@
 /sys/devices/platform/soc/soc:tri_state_key/hall_data_calib        u:object_r:sysfs_tri_state_key:s0
 /sys/devices/platform/vendor/vendor:motor_pl(/.*)?                 u:object_r:sysfs_motor:s0
 /sys/elliptic/engine/calibration_v2                                u:object_r:sysfs_audio:s0
+/sys/firmware/devicetree/base/model                                u:object_r:sysfs_dtb_model:s0
 /sys/module/fsc(/.*)?                                              u:object_r:sysfs_fsc:s0
 /sys/module/stmvl53l1(/.*)?                                        u:object_r:sysfs_vl53l1:s0
 /sys/project_info(/.*)?                                            u:object_r:sysfs_project_info:s0

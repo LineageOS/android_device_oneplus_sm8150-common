@@ -5,11 +5,14 @@ binder_call(hal_camera_default, hal_cameraHIDL)
 allow hal_camera_default hal_cameraHIDL_hwservice:hwservice_manager find;
 
 # Persist files
-allow hal_camera_default persist_camera_file:dir w_dir_perms;
-allow hal_camera_default persist_camera_file:file create_file_perms;
+allow hal_camera_default { mnt_vendor_file persist_camera_file }:dir w_dir_perms;
+allow hal_camera_default { mnt_vendor_file persist_camera_file }:file create_file_perms;
 
 # Range device
 allow hal_camera_default vl53l1_device:chr_file rw_file_perms;
+
+# Model detection
+allow hal_camera_default sysfs_dtb_model:file r_file_perms;
 
 # Properties
 set_prop(hal_camera_default, vendor_camera_prop)

@@ -133,6 +133,9 @@ on boot
     write /dev/cpuset/display/cpus 4-7
     # endif VENDOR_EDIT
 
+# make the selinux kernel policy world-readable
+    chmod 0444 /sys/fs/selinux/policy
+
 # Add a cpuset for the camera daemon
 # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon

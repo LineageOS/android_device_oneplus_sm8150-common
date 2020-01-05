@@ -83,7 +83,6 @@ ro.control_privapp_permissions=enforce
 # Radio
 DEVICE_PROVISIONED=1
 persist.data.iwlan.enable=true
-persist.radio.multisim.config=dsds
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
 persist.vendor.radio.5g_mode_pref=0

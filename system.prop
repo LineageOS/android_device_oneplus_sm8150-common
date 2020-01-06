@@ -82,17 +82,8 @@ ro.control_privapp_permissions=enforce
 
 # Radio
 DEVICE_PROVISIONED=1
-persist.data.iwlan.enable=true
-persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
-persist.vendor.radio.5g_mode_pref=0
-persist.vendor.radio.bar_fake_gcell=1
-persist.vendor.radio.data_con_rprt=1
-persist.vendor.radio.data_ltd_sys_ind=1
-persist.vendor.radio.force_on_dc=true
-persist.vendor.radio.ignore_dom_time=10
 ril.subscription.types=NV,RUIM
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_network=22,22
 ro.vendor.use_data_netmgrd=true
 telephony.lteOnCdmaDevice=1,1

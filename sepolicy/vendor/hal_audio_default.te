@@ -1,8 +1,14 @@
 # Allow access to the HALs
 hal_client_domain(hal_audio_default, hal_sensors)
 
+# Allow binder communication with hal_param_default
+binder_call(hal_audio_default, hal_param_default)
+
 # Allow binder communication with hal_sensors_default
 binder_call(hal_audio_default, hal_sensors_default)
+
+# Allow hal_audio_default to find hal_param_hwservice
+allow hal_audio_default hal_param_hwservice:hwservice_manager find;
 
 # Allow hal_audio_default to find hal_sensors_hwservice
 allow hal_audio_default hal_sensors_hwservice:hwservice_manager find;

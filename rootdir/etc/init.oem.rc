@@ -408,7 +408,7 @@ service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
     user root
     disabled
     oneshot
-    seclabel u:r:qti_init_shell:s0
+    seclabel u:r:vendor_qti_init_shell:s0
 
 service engineer_native /system/bin/engineer_native
     class main

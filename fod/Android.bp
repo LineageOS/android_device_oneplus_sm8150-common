@@ -29,7 +29,7 @@ oneplus_msmnile_fod_hal_binary {
         "libhwbinder",
         "libutils",
         "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
-        "vendor.oneplus.fingerprint.extension@1.0",
-        "vendor.oneplus.hardware.display@1.0",
+        "//device/oneplus/common:vendor.oneplus.fingerprint.extension@1.0",
+        "//device/oneplus/common:vendor.oneplus.hardware.display@1.0",
     ],
 }

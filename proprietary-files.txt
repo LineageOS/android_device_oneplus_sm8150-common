@@ -1696,7 +1696,6 @@ bin/wfdservice
 etc/init/wfdservice.rc
 vendor/etc/wfdconfig.xml
 etc/wfdconfigsink.xml
-framework/arm64/boot-WfdCommon.oat
 -framework/WfdCommon.jar
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/libmmparser_lite.so

@@ -8,6 +8,7 @@ bt.max.hfpclient.connections=1
 vendor.bluetooth.soc=cherokee
 
 # Camera
+persist.vendor.camera.privapp.list=com.oneplus.camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.oneplus.factorymode,com.oneplus.camera,com.oneplus.healthcheck
 
 # CNE

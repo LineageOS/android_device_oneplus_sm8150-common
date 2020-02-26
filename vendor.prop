@@ -83,6 +83,9 @@ vendor.display.enable_null_display=0
 # DRM
 drm.service.enabled=true
 
+# fastbootd
+ro.fastbootd.available=true
+
 # Fingerprint
 persist.vendor.qfp=true
 persist.vendor.qfp.enable_fd=1

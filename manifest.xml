@@ -69,6 +69,16 @@
         <fqname>@2.4::ICameraProvider/legacy/0</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.oneplus.camera.CameraMDMHIDL</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOnePlusCameraMDM</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IOnePlusCameraMDM/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.configstore</name>
         <transport>hwbinder</transport>
         <version>1.1</version>

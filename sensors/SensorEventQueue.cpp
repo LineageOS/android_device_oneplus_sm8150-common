@@ -16,8 +16,8 @@
 
 #include <hardware/sensors.h>
 #include <algorithm>
+#include <log/log.h>
 #include <pthread.h>
-#include <cutils/log.h>
 
 #include "SensorEventQueue.h"
 

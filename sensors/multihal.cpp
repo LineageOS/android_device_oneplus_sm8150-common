@@ -19,10 +19,10 @@
 
 #define LOG_TAG "sensors_multihal"
 #define LOG_NDEBUG 1
-#include <cutils/log.h>
 #include <cutils/atomic.h>
 #include <cutils/properties.h>
 #include <hardware/sensors.h>
+#include <log/log.h>
 
 #include <vector>
 #include <string>

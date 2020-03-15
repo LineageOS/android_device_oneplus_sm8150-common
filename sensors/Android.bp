@@ -24,12 +24,17 @@ oneplus_msmnile_sensors_hal_library_static {
 }
 
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl.oneplus_msmnile",
+    name: "android.hardware.sensors@2.0-impl.oneplus_msmnile",
     defaults: ["hidl_defaults"],
     proprietary: true,
     relative_install_path: "hw",
-    srcs: ["Sensors.cpp"],
+    srcs: [
+        "Sensor.cpp",
+        "Sensors.cpp",
+    ],
     shared_libs: [
+	"android.hardware.sensors@1.0",
+	"android.hardware.sensors@2.0",
         "liblog",
         "libcutils",
         "libhardware",
@@ -37,10 +42,12 @@ cc_library_shared {
         "libutils",
         "libhidlbase",
         "libhidltransport",
-        "android.hardware.sensors@1.0",
+	"libpower",
         "libgui_vendor",
+	"libfmq",
         "libui",
     ],
+
     static_libs: [
         "android.hardware.sensors@1.0-convert",
         "multihal-oneplus-msmnile",
@@ -52,12 +59,16 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "android.hardware.sensors@1.0-service.oneplus_msmnile",
+    name: "android.hardware.sensors@2.0-service.oneplus_msmnile",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
-    init_rc: ["android.hardware.sensors@1.0-service.oneplus_msmnile.rc"],
-    srcs: ["service.cpp"],
+    init_rc: ["android.hardware.sensors@2.0-service.oneplus_msmnile.rc"],
+    srcs: [
+        "Sensor.cpp",
+        "Sensors.cpp",
+        "service.cpp",
+    ],
     shared_libs: [
         "liblog",
         "libcutils",
@@ -68,7 +79,9 @@ cc_binary {
         "libhidlbase",
         "libhidltransport",
         "libhwbinder",
-        "android.hardware.sensors@1.0",
+	"libpower",
+	"libfmq",
+	"android.hardware.sensors@2.0",
     ],
     arch: {
         arm: {

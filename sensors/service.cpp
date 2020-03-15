@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.sensors@1.0-service"
+#define LOG_TAG "android.hardware.sensors@2.0-service"
 
-#include <android/hardware/sensors/1.0/ISensors.h>
-#include <hidl/LegacySupport.h>
-#ifdef ARCH_ARM_32
-#include <hwbinder/ProcessState.h>
-#endif
-#include <binder/ProcessState.h>
+#include <android/hardware/sensors/2.0/ISensors.h>
+#include <hidl/HidlTransportSupport.h>
+#include <log/log.h>
+#include <utils/StrongPointer.h>
+#include "Sensors.h"
 
-using android::hardware::sensors::V1_0::ISensors;
-using android::hardware::defaultPassthroughServiceImplementation;
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
+using android::hardware::sensors::V2_0::ISensors;
+using android::hardware::sensors::V2_0::implementation::Sensors;
 
-int main() {
-#ifdef ARCH_ARM_32
-    android::hardware::ProcessState::initWithMmapSize((size_t)8192);
-#endif
-    // We need to connect to SurfaceFlinger
-    android::ProcessState::initWithDriver("/dev/binder");
-    /* Sensors framework service needs at least two threads.
-     * One thread blocks on a "poll"
-     * The second thread is needed for all other HAL methods.
-     */
-    return defaultPassthroughServiceImplementation<ISensors>(2);
+int main(int /* argc */, char** /* argv */) {
+    configureRpcThreadpool(1, true);
+
+    android::sp<ISensors> sensors = new Sensors();
+    if (sensors->registerAsService() != ::android::OK) {
+        ALOGE("Failed to register Sensors HAL instance");
+        return -1;
+    }
+
+    joinRpcThreadpool();
+    return 1;  // joinRpcThreadpool shouldn't exit
 }

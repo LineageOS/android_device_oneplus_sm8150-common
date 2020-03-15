@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,346 +15,245 @@
  */
 
 #include "Sensors.h"
-#include "convert.h"
-#include "multihal.h"
 
-#include <android-base/logging.h>
-
-#include <sys/stat.h>
+#include <android/hardware/sensors/2.0/types.h>
+#include <log/log.h>
 
 namespace android {
 namespace hardware {
 namespace sensors {
-namespace V1_0 {
+namespace V2_0 {
 namespace implementation {
 
-/*
- * If a multi-hal configuration file exists in the proper location,
- * return true indicating we need to use multi-hal functionality.
- */
-static bool UseMultiHal() {
-    const std::string& name = MULTI_HAL_CONFIG_FILE_PATH;
-    struct stat buffer;
-    return (stat (name.c_str(), &buffer) == 0);
-}
+using ::android::hardware::sensors::V1_0::Event;
+using ::android::hardware::sensors::V1_0::OperationMode;
+using ::android::hardware::sensors::V1_0::RateLevel;
+using ::android::hardware::sensors::V1_0::Result;
+using ::android::hardware::sensors::V1_0::SharedMemInfo;
+using ::android::hardware::sensors::V2_0::SensorTimeout;
+using ::android::hardware::sensors::V2_0::WakeLockQueueFlagBits;
 
-static Result ResultFromStatus(status_t err) {
-    switch (err) {
-        case OK:
-            return Result::OK;
-        case PERMISSION_DENIED:
-            return Result::PERMISSION_DENIED;
-        case NO_MEMORY:
-            return Result::NO_MEMORY;
-        case BAD_VALUE:
-            return Result::BAD_VALUE;
-        default:
-            return Result::INVALID_OPERATION;
-    }
-}
+constexpr const char* kWakeLockName = "SensorsHAL_WAKEUP";
 
 Sensors::Sensors()
-    : mInitCheck(NO_INIT),
-      mSensorModule(nullptr),
-      mSensorDevice(nullptr) {
-    status_t err = OK;
-    if (UseMultiHal()) {
-        mSensorModule = ::get_multi_hal_module_info();
-    } else {
-        err = hw_get_module(
-            SENSORS_HARDWARE_MODULE_ID,
-            (hw_module_t const **)&mSensorModule);
-    }
-    if (mSensorModule == NULL) {
-        err = UNKNOWN_ERROR;
-    }
-
-    if (err != OK) {
-        LOG(ERROR) << "Couldn't load "
-                   << SENSORS_HARDWARE_MODULE_ID
-                   << " module ("
-                   << strerror(-err)
-                   << ")";
-
-        mInitCheck = err;
-        return;
-    }
-
-    err = sensors_open_1(&mSensorModule->common, &mSensorDevice);
-
-    if (err != OK) {
-        LOG(ERROR) << "Couldn't open device for module "
-                   << SENSORS_HARDWARE_MODULE_ID
-                   << " ("
-                   << strerror(-err)
-                   << ")";
-
-        mInitCheck = err;
-        return;
-    }
-
-    // Require all the old HAL APIs to be present except for injection, which
-    // is considered optional.
-    CHECK_GE(getHalDeviceVersion(), SENSORS_DEVICE_API_VERSION_1_3);
-
-    if (getHalDeviceVersion() == SENSORS_DEVICE_API_VERSION_1_4) {
-        if (mSensorDevice->inject_sensor_data == nullptr) {
-            LOG(ERROR) << "HAL specifies version 1.4, but does not implement inject_sensor_data()";
-        }
-        if (mSensorModule->set_operation_mode == nullptr) {
-            LOG(ERROR) << "HAL specifies version 1.4, but does not implement set_operation_mode()";
-        }
-    }
-
-    mInitCheck = OK;
+    : mEventQueueFlag(nullptr),
+      mNextHandle(1),
+      mOutstandingWakeUpEvents(0),
+      mReadWakeLockQueueRun(false),
+      mAutoReleaseWakeLockTime(0),
+      mHasWakeLock(false) {
+    AddSensor<AccelSensor>();
+    AddSensor<GyroSensor>();
+    AddSensor<AmbientTempSensor>();
+    AddSensor<DeviceTempSensor>();
+    AddSensor<PressureSensor>();
+    AddSensor<MagnetometerSensor>();
+    AddSensor<LightSensor>();
+    AddSensor<ProximitySensor>();
+    AddSensor<RelativeHumiditySensor>();
 }
 
-status_t Sensors::initCheck() const {
-    return mInitCheck;
+Sensors::~Sensors() {
+    deleteEventFlag();
+    mReadWakeLockQueueRun = false;
+    mWakeLockThread.join();
 }
 
+// Methods from ::android::hardware::sensors::V2_0::ISensors follow.
 Return<void> Sensors::getSensorsList(getSensorsList_cb _hidl_cb) {
-    sensor_t const *list;
-    size_t count = mSensorModule->get_sensors_list(mSensorModule, &list);
-
-    hidl_vec<SensorInfo> out;
-    out.resize(count);
-
-    for (size_t i = 0; i < count; ++i) {
-        const sensor_t *src = &list[i];
-        SensorInfo *dst = &out[i];
-
-        convertFromSensor(*src, dst);
+    std::vector<SensorInfo> sensors;
+    for (const auto& sensor : mSensors) {
+        sensors.push_back(sensor.second->getSensorInfo());
     }
 
-    _hidl_cb(out);
+    // Call the HIDL callback with the SensorInfo
+    _hidl_cb(sensors);
 
     return Void();
-}
-
-int Sensors::getHalDeviceVersion() const {
-    if (!mSensorDevice) {
-        return -1;
-    }
-
-    return mSensorDevice->common.version;
 }
 
 Return<Result> Sensors::setOperationMode(OperationMode mode) {
-    if (getHalDeviceVersion() < SENSORS_DEVICE_API_VERSION_1_4
-            || mSensorModule->set_operation_mode == nullptr) {
-        return Result::INVALID_OPERATION;
+    for (auto sensor : mSensors) {
+        sensor.second->setOperationMode(mode);
     }
-    return ResultFromStatus(mSensorModule->set_operation_mode((uint32_t)mode));
-}
-
-Return<Result> Sensors::activate(
-        int32_t sensor_handle, bool enabled) {
-    return ResultFromStatus(
-            mSensorDevice->activate(
-                reinterpret_cast<sensors_poll_device_t *>(mSensorDevice),
-                sensor_handle,
-                enabled));
-}
-
-Return<void> Sensors::poll(int32_t maxCount, poll_cb _hidl_cb) {
-
-    hidl_vec<Event> out;
-    hidl_vec<SensorInfo> dynamicSensorsAdded;
-
-    std::unique_ptr<sensors_event_t[]> data;
-    int err = android::NO_ERROR;
-
-    { // scope of reentry lock
-
-        // This enforces a single client, meaning that a maximum of one client can call poll().
-        // If this function is re-entred, it means that we are stuck in a state that may prevent
-        // the system from proceeding normally.
-        //
-        // Exit and let the system restart the sensor-hal-implementation hidl service.
-        //
-        // This function must not call _hidl_cb(...) or return until there is no risk of blocking.
-        std::unique_lock<std::mutex> lock(mPollLock, std::try_to_lock);
-        if(!lock.owns_lock()){
-            // cannot get the lock, hidl service will go into deadlock if it is not restarted.
-            // This is guaranteed to not trigger in passthrough mode.
-            LOG(ERROR) <<
-                    "ISensors::poll() re-entry. I do not know what to do except killing myself.";
-            ::exit(-1);
-        }
-
-        if (maxCount <= 0) {
-            err = android::BAD_VALUE;
-        } else {
-            int bufferSize = maxCount <= kPollMaxBufferSize ? maxCount : kPollMaxBufferSize;
-            data.reset(new sensors_event_t[bufferSize]);
-            err = mSensorDevice->poll(
-                    reinterpret_cast<sensors_poll_device_t *>(mSensorDevice),
-                    data.get(), bufferSize);
-        }
-    }
-
-    if (err < 0) {
-        _hidl_cb(ResultFromStatus(err), out, dynamicSensorsAdded);
-        return Void();
-    }
-
-    const size_t count = (size_t)err;
-
-    for (size_t i = 0; i < count; ++i) {
-        if (data[i].type != SENSOR_TYPE_DYNAMIC_SENSOR_META) {
-            continue;
-        }
-
-        const dynamic_sensor_meta_event_t *dyn = &data[i].dynamic_sensor_meta;
-
-        if (!dyn->connected) {
-            continue;
-        }
-
-        CHECK(dyn->sensor != nullptr);
-        CHECK_EQ(dyn->sensor->handle, dyn->handle);
-
-        SensorInfo info;
-        convertFromSensor(*dyn->sensor, &info);
-
-        size_t numDynamicSensors = dynamicSensorsAdded.size();
-        dynamicSensorsAdded.resize(numDynamicSensors + 1);
-        dynamicSensorsAdded[numDynamicSensors] = info;
-    }
-
-    out.resize(count);
-    convertFromSensorEvents(err, data.get(), &out);
-
-    _hidl_cb(Result::OK, out, dynamicSensorsAdded);
-
-    return Void();
-}
-
-Return<Result> Sensors::batch(
-        int32_t sensor_handle,
-        int64_t sampling_period_ns,
-        int64_t max_report_latency_ns) {
-    return ResultFromStatus(
-            mSensorDevice->batch(
-                mSensorDevice,
-                sensor_handle,
-                0, /*flags*/
-                sampling_period_ns,
-                max_report_latency_ns));
-}
-
-Return<Result> Sensors::flush(int32_t sensor_handle) {
-    return ResultFromStatus(mSensorDevice->flush(mSensorDevice, sensor_handle));
-}
-
-Return<Result> Sensors::injectSensorData(const Event& event) {
-    if (getHalDeviceVersion() < SENSORS_DEVICE_API_VERSION_1_4
-            || mSensorDevice->inject_sensor_data == nullptr) {
-        return Result::INVALID_OPERATION;
-    }
-
-    sensors_event_t out;
-    convertToSensorEvent(event, &out);
-
-    return ResultFromStatus(
-            mSensorDevice->inject_sensor_data(mSensorDevice, &out));
-}
-
-Return<void> Sensors::registerDirectChannel(
-        const SharedMemInfo& mem, registerDirectChannel_cb _hidl_cb) {
-    if (mSensorDevice->register_direct_channel == nullptr
-            || mSensorDevice->config_direct_report == nullptr) {
-        // HAL does not support
-        _hidl_cb(Result::INVALID_OPERATION, -1);
-        return Void();
-    }
-
-    sensors_direct_mem_t m;
-    if (!convertFromSharedMemInfo(mem, &m)) {
-      _hidl_cb(Result::BAD_VALUE, -1);
-      return Void();
-    }
-
-    int err = mSensorDevice->register_direct_channel(mSensorDevice, &m, -1);
-
-    if (err < 0) {
-        _hidl_cb(ResultFromStatus(err), -1);
-    } else {
-        int32_t channelHandle = static_cast<int32_t>(err);
-        _hidl_cb(Result::OK, channelHandle);
-    }
-    return Void();
-}
-
-Return<Result> Sensors::unregisterDirectChannel(int32_t channelHandle) {
-    if (mSensorDevice->register_direct_channel == nullptr
-            || mSensorDevice->config_direct_report == nullptr) {
-        // HAL does not support
-        return Result::INVALID_OPERATION;
-    }
-
-    mSensorDevice->register_direct_channel(mSensorDevice, nullptr, channelHandle);
-
     return Result::OK;
 }
 
-Return<void> Sensors::configDirectReport(
-        int32_t sensorHandle, int32_t channelHandle, RateLevel rate,
-        configDirectReport_cb _hidl_cb) {
-    if (mSensorDevice->register_direct_channel == nullptr
-            || mSensorDevice->config_direct_report == nullptr) {
-        // HAL does not support
-        _hidl_cb(Result::INVALID_OPERATION, -1);
-        return Void();
+Return<Result> Sensors::activate(int32_t sensorHandle, bool enabled) {
+    auto sensor = mSensors.find(sensorHandle);
+    if (sensor != mSensors.end()) {
+        sensor->second->activate(enabled);
+        return Result::OK;
+    }
+    return Result::BAD_VALUE;
+}
+
+Return<Result> Sensors::initialize(
+    const ::android::hardware::MQDescriptorSync<Event>& eventQueueDescriptor,
+    const ::android::hardware::MQDescriptorSync<uint32_t>& wakeLockDescriptor,
+    const sp<ISensorsCallback>& sensorsCallback) {
+    Result result = Result::OK;
+
+    // Ensure that all sensors are disabled
+    for (auto sensor : mSensors) {
+        sensor.second->activate(false /* enable */);
     }
 
-    sensors_direct_cfg_t cfg = {
-        .rate_level = convertFromRateLevel(rate)
-    };
-    if (cfg.rate_level < 0) {
-        _hidl_cb(Result::BAD_VALUE, -1);
-        return Void();
+    // Stop the Wake Lock thread if it is currently running
+    if (mReadWakeLockQueueRun.load()) {
+        mReadWakeLockQueueRun = false;
+        mWakeLockThread.join();
     }
 
-    int err = mSensorDevice->config_direct_report(mSensorDevice,
-            sensorHandle, channelHandle, &cfg);
+    // Save a reference to the callback
+    mCallback = sensorsCallback;
 
-    if (rate == RateLevel::STOP) {
-        _hidl_cb(ResultFromStatus(err), -1);
+    // Create the Event FMQ from the eventQueueDescriptor. Reset the read/write positions.
+    mEventQueue =
+        std::make_unique<EventMessageQueue>(eventQueueDescriptor, true /* resetPointers */);
+
+    // Ensure that any existing EventFlag is properly deleted
+    deleteEventFlag();
+
+    // Create the EventFlag that is used to signal to the framework that sensor events have been
+    // written to the Event FMQ
+    if (EventFlag::createEventFlag(mEventQueue->getEventFlagWord(), &mEventQueueFlag) != OK) {
+        result = Result::BAD_VALUE;
+    }
+
+    // Create the Wake Lock FMQ that is used by the framework to communicate whenever WAKE_UP
+    // events have been successfully read and handled by the framework.
+    mWakeLockQueue =
+        std::make_unique<WakeLockMessageQueue>(wakeLockDescriptor, true /* resetPointers */);
+
+    if (!mCallback || !mEventQueue || !mWakeLockQueue || mEventQueueFlag == nullptr) {
+        result = Result::BAD_VALUE;
+    }
+
+    // Start the thread to read events from the Wake Lock FMQ
+    mReadWakeLockQueueRun = true;
+    mWakeLockThread = std::thread(startReadWakeLockThread, this);
+
+    return result;
+}
+
+Return<Result> Sensors::batch(int32_t sensorHandle, int64_t samplingPeriodNs,
+                              int64_t /* maxReportLatencyNs */) {
+    auto sensor = mSensors.find(sensorHandle);
+    if (sensor != mSensors.end()) {
+        sensor->second->batch(samplingPeriodNs);
+        return Result::OK;
+    }
+    return Result::BAD_VALUE;
+}
+
+Return<Result> Sensors::flush(int32_t sensorHandle) {
+    auto sensor = mSensors.find(sensorHandle);
+    if (sensor != mSensors.end()) {
+        return sensor->second->flush();
+    }
+    return Result::BAD_VALUE;
+}
+
+Return<Result> Sensors::injectSensorData(const Event& event) {
+    auto sensor = mSensors.find(event.sensorHandle);
+    if (sensor != mSensors.end()) {
+        return sensor->second->injectEvent(event);
+    }
+
+    return Result::BAD_VALUE;
+}
+
+Return<void> Sensors::registerDirectChannel(const SharedMemInfo& /* mem */,
+                                            registerDirectChannel_cb _hidl_cb) {
+    _hidl_cb(Result::INVALID_OPERATION, -1 /* channelHandle */);
+    return Return<void>();
+}
+
+Return<Result> Sensors::unregisterDirectChannel(int32_t /* channelHandle */) {
+    return Result::INVALID_OPERATION;
+}
+
+Return<void> Sensors::configDirectReport(int32_t /* sensorHandle */, int32_t /* channelHandle */,
+                                         RateLevel /* rate */, configDirectReport_cb _hidl_cb) {
+    _hidl_cb(Result::INVALID_OPERATION, 0 /* reportToken */);
+    return Return<void>();
+}
+
+void Sensors::postEvents(const std::vector<Event>& events, bool wakeup) {
+    std::lock_guard<std::mutex> lock(mWriteLock);
+    if (mEventQueue->write(events.data(), events.size())) {
+        mEventQueueFlag->wake(static_cast<uint32_t>(EventQueueFlagBits::READ_AND_PROCESS));
+
+        if (wakeup) {
+            // Keep track of the number of outstanding WAKE_UP events in order to properly hold
+            // a wake lock until the framework has secured a wake lock
+            updateWakeLock(events.size(), 0 /* eventsHandled */);
+        }
+    }
+}
+
+void Sensors::updateWakeLock(int32_t eventsWritten, int32_t eventsHandled) {
+    std::lock_guard<std::mutex> lock(mWakeLockLock);
+    int32_t newVal = mOutstandingWakeUpEvents + eventsWritten - eventsHandled;
+    if (newVal < 0) {
+        mOutstandingWakeUpEvents = 0;
     } else {
-        _hidl_cb(err > 0 ? Result::OK : ResultFromStatus(err), err);
+        mOutstandingWakeUpEvents = newVal;
     }
-    return Void();
+
+    if (eventsWritten > 0) {
+        // Update the time at which the last WAKE_UP event was sent
+        mAutoReleaseWakeLockTime = ::android::uptimeMillis() +
+                                   static_cast<uint32_t>(SensorTimeout::WAKE_LOCK_SECONDS) * 1000;
+    }
+
+    if (!mHasWakeLock && mOutstandingWakeUpEvents > 0 &&
+        acquire_wake_lock(PARTIAL_WAKE_LOCK, kWakeLockName) == 0) {
+        mHasWakeLock = true;
+    } else if (mHasWakeLock) {
+        // Check if the wake lock should be released automatically if
+        // SensorTimeout::WAKE_LOCK_SECONDS has elapsed since the last WAKE_UP event was written to
+        // the Wake Lock FMQ.
+        if (::android::uptimeMillis() > mAutoReleaseWakeLockTime) {
+            ALOGD("No events read from wake lock FMQ for %d seconds, auto releasing wake lock",
+                  SensorTimeout::WAKE_LOCK_SECONDS);
+            mOutstandingWakeUpEvents = 0;
+        }
+
+        if (mOutstandingWakeUpEvents == 0 && release_wake_lock(kWakeLockName) == 0) {
+            mHasWakeLock = false;
+        }
+    }
 }
 
-// static
-void Sensors::convertFromSensorEvents(
-        size_t count,
-        const sensors_event_t *srcArray,
-        hidl_vec<Event> *dstVec) {
-    for (size_t i = 0; i < count; ++i) {
-        const sensors_event_t &src = srcArray[i];
-        Event *dst = &(*dstVec)[i];
+void Sensors::readWakeLockFMQ() {
+    while (mReadWakeLockQueueRun.load()) {
+        constexpr int64_t kReadTimeoutNs = 500 * 1000 * 1000;  // 500 ms
+        uint32_t eventsHandled = 0;
 
-        convertFromSensorEvent(src, dst);
+        // Read events from the Wake Lock FMQ. Timeout after a reasonable amount of time to ensure
+        // that any held wake lock is able to be released if it is held for too long.
+        mWakeLockQueue->readBlocking(&eventsHandled, 1 /* count */, 0 /* readNotification */,
+                                     static_cast<uint32_t>(WakeLockQueueFlagBits::DATA_WRITTEN),
+                                     kReadTimeoutNs);
+        updateWakeLock(0 /* eventsWritten */, eventsHandled);
     }
 }
 
-ISensors *HIDL_FETCH_ISensors(const char * /* hal */) {
-    Sensors *sensors = new Sensors;
-    if (sensors->initCheck() != OK) {
-        delete sensors;
-        sensors = nullptr;
+void Sensors::startReadWakeLockThread(Sensors* sensors) {
+    sensors->readWakeLockFMQ();
+}
 
-        return nullptr;
+void Sensors::deleteEventFlag() {
+    status_t status = EventFlag::deleteEventFlag(&mEventQueueFlag);
+    if (status != OK) {
+        ALOGI("Failed to delete event flag: %d", status);
     }
-
-    return sensors;
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V2_0
 }  // namespace sensors
 }  // namespace hardware
 }  // namespace android

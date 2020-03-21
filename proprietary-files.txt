@@ -495,14 +495,13 @@ vendor/lib64/vendor.qti.hardware.cvp@1.0-halimpl.so
 # Display
 -product/lib/libsdm-disp-apis.qti.so
 -product/lib64/libsdm-disp-apis.qti.so
--vendor/lib/libsdm-disp-vndapis.so
--vendor/lib64/libsdm-disp-vndapis.so
 vendor/bin/hw/vendor.oneplus.hardware.display@1.0-service
 vendor/bin/qdcmss
 vendor/etc/hdr_config.cfg
 vendor/etc/init/qdcmss.rc
 vendor/etc/init/vendor.oneplus.hardware.display@1.0-service.rc
 vendor/etc/sdr_config.cfg
+vendor/lib/hw/hwcomposer.msmnile.so
 vendor/lib/libdisplayqos.so
 vendor/lib/libdpps.so
 vendor/lib/libhdcp1prov.so
@@ -514,6 +513,7 @@ vendor/lib/libsdm-colormgr-algo.so
 vendor/lib/libsdmcore.so
 vendor/lib/libsdmextension.so
 vendor/lib/unnhal-acc-hta.so
+vendor/lib64/hw/hwcomposer.msmnile.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdpps.so
 vendor/lib64/libhdcp1prov.so

@@ -1,4 +1,5 @@
 # Binaries
+/system/bin/dashd                                 u:object_r:dashd_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main    u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator    u:object_r:wifi-mac-generator_exec:s0
 

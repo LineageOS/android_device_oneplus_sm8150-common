@@ -490,7 +490,7 @@ vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0-halimpl.so
 
 # DASH
--sbin/dashd;rootfs
+sbin/dashd:bin/dashd
 
 # Display
 -product/lib/libsdm-disp-apis.qti.so

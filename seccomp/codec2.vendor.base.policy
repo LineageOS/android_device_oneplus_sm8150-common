@@ -34,7 +34,7 @@ getrandom: 1
 # on ARM is statically loaded at 0xffff 0000. See
 # http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0211h/Babfeega.html
 # for more details.
-mremap: arg3 == 3
+mremap: arg3 == 3 || arg3 == MREMAP_MAYMOVE
 munmap: 1
 mprotect: 1
 madvise: 1

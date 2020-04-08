@@ -40,10 +40,8 @@ public final class Utils {
     protected static final String ALWAYS_ON_DISPLAY = "always_on_display";
 
     protected static final String CATEG_PICKUP_SENSOR = "pickup_sensor";
-    protected static final String CATEG_PROX_SENSOR = "proximity_sensor";
 
     protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up";
-    protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
 
     protected static void startService(Context context) {
         if (DEBUG) Log.d(TAG, "Starting service");
@@ -104,12 +102,8 @@ public final class Utils {
         return isGestureEnabled(context, GESTURE_PICK_UP_KEY);
     }
 
-    protected static boolean isPocketEnabled(Context context) {
-        return isGestureEnabled(context, GESTURE_POCKET_KEY);
-    }
-
     public static boolean areGesturesEnabled(Context context) {
-        return isPickUpEnabled(context) || isPocketEnabled(context);
+        return isPickUpEnabled(context);
     }
 
     protected static Sensor getSensor(SensorManager sm, String type) {

@@ -49,7 +49,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private SwitchPreference mAlwaysOnDisplayPreference;
 
     private SwitchPreference mPickUpPreference;
-    private SwitchPreference mPocketPreference;
 
     private Handler mHandler = new Handler();
 
@@ -74,23 +73,16 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
         PreferenceCategory pickupSensorCategory = (PreferenceCategory) getPreferenceScreen().
                 findPreference(Utils.CATEG_PICKUP_SENSOR);
-        PreferenceCategory proximitySensorCategory = (PreferenceCategory) getPreferenceScreen().
-                findPreference(Utils.CATEG_PROX_SENSOR);
 
         mPickUpPreference = (SwitchPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
         mPickUpPreference.setEnabled(dozeEnabled);
         mPickUpPreference.setOnPreferenceChangeListener(this);
-
-        mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
-        mPocketPreference.setEnabled(dozeEnabled);
-        mPocketPreference.setOnPreferenceChangeListener(this);
 
         // Hide AOD if not supported and set all its dependents otherwise
         if (!Utils.alwaysOnDisplayAvailable(getActivity())) {
             getPreferenceScreen().removePreference(mAlwaysOnDisplayPreference);
         } else {
             pickupSensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
-            proximitySensorCategory.setDependency(Utils.ALWAYS_ON_DISPLAY);
         }
     }
 
@@ -149,7 +141,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mAlwaysOnDisplayPreference.setEnabled(isChecked);
 
         mPickUpPreference.setEnabled(isChecked);
-        mPocketPreference.setEnabled(isChecked);
     }
 
     @Override

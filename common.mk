@@ -183,6 +183,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     coredump.sh \
     ftm_power_config.sh \
+    setup_logical.sh \
     init.class_main.sh \
     init.crda.sh \
     init.mdm.sh \

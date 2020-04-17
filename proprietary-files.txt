@@ -1,3 +1,5 @@
+# All unpinned blobs below are extracted from OnePlus7ProOxygen_21.P.26_OTA_026_all_2003222032_6893aca031668
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-service.rc

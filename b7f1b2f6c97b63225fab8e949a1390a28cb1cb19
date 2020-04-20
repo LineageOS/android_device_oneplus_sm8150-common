@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db14df1a_920dcc25",
+        "filename": "common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 20581
+      },
+      "writtenOn": "2020-04-20T10:14:05Z",
+      "side": 1,
+      "message": "I think you could replace +\u003d \\ with :\u003d and make everything in a single line to make it look better.",
+      "revId": "b7f1b2f6c97b63225fab8e949a1390a28cb1cb19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

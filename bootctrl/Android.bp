@@ -14,7 +14,7 @@
 // limitations under the License.
 //
 
-cc_library {
+oneplus_msmnile_bootctrl_library {
     name: "bootctrl.msmnile",
     defaults: ["bootctrl_hal_defaults"],
     static_libs: ["libgptutils.oneplus_msmnile"],

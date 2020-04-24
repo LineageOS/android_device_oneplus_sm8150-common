@@ -497,6 +497,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.wifi.supplicant@2.0.vendor \
     vendor.qti.hardware.wifi.supplicant@2.1.vendor \
     wifi-mac-generator \
+    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 

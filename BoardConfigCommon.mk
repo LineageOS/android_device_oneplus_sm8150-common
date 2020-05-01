@@ -58,7 +58,9 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
 TARGET_USES_QCOM_BSP := true
 
 # Properties
+TARGET_ODM_PROP += $(VENDOR_PATH)/odm.prop
 TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
+TARGET_VENDOR_PROP += $(VENDOR_PATH)/vendor.prop
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true

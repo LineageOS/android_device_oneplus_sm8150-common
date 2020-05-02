@@ -47,6 +47,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                      u:object_r:hal_param_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.rpmb@1\.0-service                                       u:object_r:hal_rpmb_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.wifi@1\.0-service                                       u:object_r:hal_wifi_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator@1\.2-service                                       u:object_r:hal_vibrator_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/camera(/.*)?                     u:object_r:persist_camera_file:s0

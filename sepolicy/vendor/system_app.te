@@ -1,0 +1,2 @@
+# allow system_app to interact with pasr hal
+hal_client_domain(system_app, hal_pasrmanager)

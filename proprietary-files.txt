@@ -666,7 +666,14 @@ vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
 # Fingerprint
+-vendor/app/QFingerprintService/QFingerprintService.apk
+vendor/bin/qfp-daemon
+vendor/etc/permissions/qti_fingerprint_interface.xml
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/libarm_proxy_skel.so
 vendor/lib64/libhvx_proxy_stub.so
+vendor/lib64/libqfp-service.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # FM
 vendor/lib/vendor.qti.hardware.fm@1.0.so

@@ -43,7 +43,7 @@ namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 /*
@@ -86,7 +86,6 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 Return<void> FingerprintInscreen::onPress() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-    set(HBM_ENABLE_PATH, 1);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
@@ -95,7 +94,6 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -111,7 +109,6 @@ Return<void> FingerprintInscreen::onHideFODView() {
     this->mFodCircleVisible = false;
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -158,10 +155,17 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
 Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
     int dimAmount = get(DIM_AMOUNT_PATH, 0);
     int hbmMode = get(HBM_MODE_PATH, 0);
+    int retry = 0;
 
     // Always return 42 for hbm mode(670)
     if (hbmMode == 5) {
         dimAmount = 42;
+    }
+
+    // To avoid race condition between light hal and fod
+    while (dimAmount == 255 && retry < 10000) {
+        dimAmount = get(DIM_AMOUNT_PATH, 0);
+        retry++;
     }
 
     LOG(INFO) << "dimAmount = " << dimAmount;
@@ -194,8 +198,25 @@ Return<int32_t> FingerprintInscreen::getSize() {
     return FOD_SIZE;
 }
 
+Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
+    return 0;
+}
+
+Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
+    return 0;
+}
+
+Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
+    return true;
+}
+
+Return<void> FingerprintInscreen::switchHbm(bool enabled) {
+    set(HBM_ENABLE_PATH, enabled ? 1 : 0);
+    return Void();
+}
+
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics

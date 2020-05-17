@@ -59,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "d19f96c6_5d54fa5a",
+        "filename": "fod/FingerprintInscreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 13131
+      },
+      "writtenOn": "2020-05-17T12:07:24Z",
+      "side": 1,
+      "message": "return true;",
+      "revId": "dd09b97bbf6d269b4968c0a0821ef459ef468c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b24439c9_3a39d2ab",
         "filename": "fod/FingerprintInscreen.cpp",
         "patchSetId": 1

@@ -86,7 +86,6 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 Return<void> FingerprintInscreen::onPress() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 2);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 1);
-    set(HBM_ENABLE_PATH, 1);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 1);
 
     return Void();
@@ -95,7 +94,6 @@ Return<void> FingerprintInscreen::onPress() {
 Return<void> FingerprintInscreen::onRelease() {
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -111,7 +109,6 @@ Return<void> FingerprintInscreen::onHideFODView() {
     this->mFodCircleVisible = false;
     this->mVendorDisplayService->setMode(OP_DISPLAY_AOD_MODE, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_SET_DIM, 0);
-    set(HBM_ENABLE_PATH, 0);
     this->mVendorDisplayService->setMode(OP_DISPLAY_NOTIFY_PRESS, 0);
 
     return Void();
@@ -195,18 +192,20 @@ Return<int32_t> FingerprintInscreen::getSize() {
 }
 
 Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
-    return 0;
+    return 50;
 }
 
 Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
-    return 0;
+    return 250;
 }
 
 Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
-    return false;
+    return true;
 }
 
-Return<void> FingerprintInscreen::switchHbm(bool) {
+Return<void> FingerprintInscreen::switchHbm(bool enabled) {
+    set(HBM_ENABLE_PATH, enabled ? 1 : 0);
+
     return Void();
 }
 

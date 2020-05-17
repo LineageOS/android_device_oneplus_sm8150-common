@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9d03760_9214d11b",
+        "filename": "fod/FingerprintInscreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 13131
+      },
+      "writtenOn": "2020-05-17T12:01:40Z",
+      "side": 1,
+      "message": "//set(HBM_ENABLE_PATH, 1);",
+      "revId": "dd09b97bbf6d269b4968c0a0821ef459ef468c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aa97979_95399454",
+        "filename": "fod/FingerprintInscreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 13131
+      },
+      "writtenOn": "2020-05-17T12:01:40Z",
+      "side": 1,
+      "message": "//set(HBM_ENABLE_PATH, 0);",
+      "revId": "dd09b97bbf6d269b4968c0a0821ef459ef468c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01eafb1e_cb516f58",
+        "filename": "fod/FingerprintInscreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 13131
+      },
+      "writtenOn": "2020-05-17T12:01:40Z",
+      "side": 1,
+      "message": "// set(HBM_ENABLE_PATH, 0);",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "dd09b97bbf6d269b4968c0a0821ef459ef468c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b24439c9_3a39d2ab",
+        "filename": "fod/FingerprintInscreen.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 13131
+      },
+      "writtenOn": "2020-05-17T12:01:40Z",
+      "side": 1,
+      "message": "if (enabled) {\n       set(HBM_ENABLE_PATH, 1);\n    } else {\n       set(HBM_ENABLE_PATH, 0);\n    }",
+      "revId": "dd09b97bbf6d269b4968c0a0821ef459ef468c02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

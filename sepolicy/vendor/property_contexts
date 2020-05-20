@@ -12,6 +12,9 @@ persist.vendor.color.matrix    u:object_r:vendor_display_prop:s0
 # FTM mode
 ro.boot.ftm_mode    u:object_r:exported_default_prop:s0
 
+# LiveDisplay
+vendor.display.mode            u:object_r:vendor_display_prop:s0
+
 # Memplus
 persist.vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
 

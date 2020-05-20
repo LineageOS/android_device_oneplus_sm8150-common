@@ -30,17 +30,14 @@ namespace implementation {
 
 #define PROPERTY_VENDOR_DISPLAY_MODE "vendor.display.mode"
 
-static const std::string kModeBasePath = "/sys/devices/virtual/graphics/fb0/";
+static const std::string kModeBasePath = "/sys/class/drm/card0-DSI-1/";
 static constexpr const char* kDefaultPath = "/data/vendor/display/default_display_mode";
 
 const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
     {0, {"Standard", "default"}},
-    {1, {"Adaptive", "adaption_mode"}},
-    {2, {"Adobe RGB", "adobe_rgb"}},
-    {3, {"DCI P3", "dci_p3"}},
-    {4, {"Night", "night_mode"}},
-    {5, {"OnePlus", "oneplus_mode"}},
-    {6, {"sRGB", "srgb"}},
+    {1, {"DCI P3", "native_display_p3_mode"}},
+    {2, {"Wide Color", "native_display_wide_color_mode"}},
+    {3, {"sRGB", "native_display_srgb_color_mode"}},
 };
 
 DisplayModes::DisplayModes() : mDefaultModeId(0) {

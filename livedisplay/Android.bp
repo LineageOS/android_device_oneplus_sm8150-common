@@ -19,6 +19,7 @@ cc_defaults {
     srcs: [
         "DisplayModes.cpp",
         "PictureAdjustment.cpp",
+        "SunlightEnhancement.cpp",
         "service.cpp",
     ],
     shared_libs: [

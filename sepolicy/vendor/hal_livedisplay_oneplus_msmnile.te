@@ -19,6 +19,7 @@ binder_call(hal_livedisplay_oneplus_msmnile, hal_graphics_composer_default)
 # Allow LiveDisplay to write to DisplayMode nodes
 allow hal_livedisplay_oneplus_msmnile sysfs_graphics:dir { r_dir_perms };
 allow hal_livedisplay_oneplus_msmnile sysfs_livedisplay_tuneable:file { rw_file_perms };
+allow hal_livedisplay_oneplus_msmnile sysfs_fod:file { rw_file_perms };
 
 # Allow LiveDisplay to store files under /data/vendor/display and access them
 allow hal_livedisplay_oneplus_msmnile display_vendor_data_file:dir { rw_dir_perms };

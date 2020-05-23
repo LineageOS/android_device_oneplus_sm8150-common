@@ -25,6 +25,3 @@ allow hal_fingerprint_default sysfs_aod:file r_file_perms;
 
 # Allow hal_fingerprint_default to get vendor_adsprpc_prop
 get_prop(hal_fingerprint_default, vendor_adsprpc_prop)
-
-# Allow hal_fingerprint_default to set vendor_fingerprint_prop
-set_prop(hal_fingerprint_default, vendor_fingerprint_prop)

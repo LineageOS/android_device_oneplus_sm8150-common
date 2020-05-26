@@ -59,10 +59,80 @@ static T get(const std::string& path, const T& def) {
     return file.fail() ? def : result;
 }
 
+#define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
+
+struct ba {
+    std::uint32_t brightness;
+    std::uint32_t alpha;
+};
+
+struct ba brightness_alpha_lut_1[] = {
+    {0, 0xff},
+    {1, 0xf1},
+    {2, 0xec},
+    {4, 0xeb},
+    {5, 0xea},
+    {6, 0xe8},
+    {10, 0xe4},
+    {20, 0xdc},
+    {30, 0xd4},
+    {45, 0xcc},
+    {70, 0xbe},
+    {100, 0xb3},
+    {150, 0xa6},
+    {227, 0x90},
+    {300, 0x83},
+    {400, 0x70},
+    {500, 0x60},
+    {600, 0x53},
+    {800, 0x3c},
+    {1023, 0x22},
+    {2000, 0x83},
+};
+
+struct ba brightness_alpha_lut[21] = {};
+
+static int interpolate(int x, int xa, int xb, int ya, int yb) {
+    int bf, factor, plus;
+    int sub = 0;
+
+    bf = 2 * (yb - ya) * (x - xa) / (xb - xa);
+    factor = bf / 2;
+    plus = bf % 2;
+    if ((xa - xb) && (yb - ya))
+        sub = 2 * (x - xa) * (x - xb) / (yb - ya) / (xa - xb);
+
+    return ya + factor + plus + sub;
+}
+
+int brightness_to_alpha(int brightness) {
+    int level = ARRAY_SIZE(brightness_alpha_lut);
+    int i = 0;
+
+    for (i = 0; i < ARRAY_SIZE(brightness_alpha_lut); i++){
+        if (brightness_alpha_lut[i].brightness >= brightness)
+            break;
+    }
+
+    if (i == 0)
+        return brightness_alpha_lut[0].alpha;
+    else if (i == level)
+        return brightness_alpha_lut[level - 1].alpha;
+
+    return interpolate(brightness,
+            brightness_alpha_lut[i-1].brightness,
+            brightness_alpha_lut[i].brightness,
+            brightness_alpha_lut[i-1].alpha,
+            brightness_alpha_lut[i].alpha);
+}
+
 FingerprintInscreen::FingerprintInscreen() {
+    int i;
     this->mFodCircleVisible = false;
     this->mVendorFpService = IVendorFingerprintExtensions::getService();
     this->mVendorDisplayService = IOneplusDisplay::getService();
+    for (i = 0; i < 21; i++)
+        brightness_alpha_lut[i] = brightness_alpha_lut_1[i];
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
@@ -143,8 +213,13 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool enabled) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
-    return 0;
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
+    int realBrightness = brightness * 1023 / 255;
+    int dimAmount = (brightness_to_alpha(realBrightness) * 70) / 100;
+
+    LOG(INFO) << "dimAmount = " << dimAmount;
+
+    return dimAmount;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {

@@ -360,6 +360,16 @@
         <fqname>@1.0::IdpmQmi/dpmQmiService</fqname>
     </hal>
     <hal format="hidl">
+        <name>com.qualcomm.qti.imscmservice</name>
+        <transport>hwbinder</transport>
+        <version>2.2</version>
+        <interface>
+            <name>IImsCmService</name>
+            <instance>qti.ims.connectionmanagerservice</instance>
+        </interface>
+        <fqname>@2.2::IImsCmService/qti.ims.connectionmanagerservice</fqname>
+    </hal>
+    <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
         <transport>hwbinder</transport>
         <version>2.1</version>

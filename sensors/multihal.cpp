@@ -597,9 +597,9 @@ void light_sensor_correction(sensors_event_t *ev) {
         correction += als_bias;
     }
     ALOGV("Final correction: %f", correction);
-    ev->light -= correction;
-    if (ev->light < 0)
-        ev->light = 0;
+    // Do not apply correction if < 0, prevent unstable adaptive brightness
+    if (ev->light - correction >= 0)
+        ev->light -= correction;
     free_screen_buffer();
 }
 

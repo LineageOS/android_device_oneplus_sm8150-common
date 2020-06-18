@@ -16,12 +16,13 @@
 
 #define LOG_TAG "LineageHW-DisplayModesService"
 
-#include <android-base/properties.h>
+#include "DisplayModes.h"
+
 #include <android-base/logging.h>
+#include <android-base/properties.h>
+
 #include <fstream>
 #include <string_view>
-
-#include "DisplayModes.h"
 
 namespace vendor {
 namespace lineage {
@@ -34,10 +35,10 @@ static const std::string kModeBasePath = "/sys/class/drm/card0-DSI-1/";
 static const std::string kDefaultPath = "/data/vendor/display/default_display_mode";
 
 const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
-    {0, {"Standard", "default"}},
-    {1, {"DCI P3", "native_display_p3_mode"}},
-    {2, {"Wide Color", "native_display_wide_color_mode"}},
-    {3, {"sRGB", "native_display_srgb_color_mode"}},
+        {0, {"Standard", "default"}},
+        {1, {"DCI P3", "native_display_p3_mode"}},
+        {2, {"Wide Color", "native_display_wide_color_mode"}},
+        {3, {"sRGB", "native_display_srgb_color_mode"}},
 };
 
 DisplayModes::DisplayModes() : mDefaultModeId(0) {

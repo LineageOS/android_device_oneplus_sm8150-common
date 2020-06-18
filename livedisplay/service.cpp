@@ -66,14 +66,14 @@ int main() {
     }
 
     disp_api_init =
-        reinterpret_cast<int32_t (*)(uint64_t*, uint32_t)>(dlsym(libHandle, "disp_api_init"));
+            reinterpret_cast<int32_t (*)(uint64_t*, uint32_t)>(dlsym(libHandle, "disp_api_init"));
     if (disp_api_init == nullptr) {
         LOG(ERROR) << "Can not get disp_api_init from " << SDM_DISP_LIB << " (" << dlerror() << ")";
         goto shutdown;
     }
 
     disp_api_deinit =
-        reinterpret_cast<int32_t (*)(uint64_t, uint32_t)>(dlsym(libHandle, "disp_api_deinit"));
+            reinterpret_cast<int32_t (*)(uint64_t, uint32_t)>(dlsym(libHandle, "disp_api_deinit"));
     if (disp_api_deinit == nullptr) {
         LOG(ERROR) << "Can not get disp_api_deinit from " << SDM_DISP_LIB << " (" << dlerror()
                    << ")";
@@ -96,16 +96,16 @@ int main() {
     // PictureAdjustment
     pa = new PictureAdjustment(libHandle, cookie);
     if (pa == nullptr) {
-        LOG(ERROR)
-            << "Can not create an instance of LiveDisplay HAL PictureAdjustment Iface, exiting.";
+        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL PictureAdjustment Iface, "
+                      "exiting.";
         goto shutdown;
     }
 
     // SunlightEnhancement
     se = new SunlightEnhancement();
     if (se == nullptr) {
-        LOG(ERROR)
-            << "Can not create an instance of LiveDisplay HAL SunlightEnhancement Iface, exiting.";
+        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL SunlightEnhancement Iface, "
+                      "exiting.";
         goto shutdown;
     }
 
@@ -140,8 +140,9 @@ int main() {
     if (se->isSupported()) {
         status = se->registerAsService();
         if (status != OK) {
-            LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
-                       << status << ")";
+            LOG(ERROR)
+                    << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
+                    << status << ")";
             goto shutdown;
         }
     }

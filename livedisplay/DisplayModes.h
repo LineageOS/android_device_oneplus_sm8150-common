@@ -20,6 +20,7 @@
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <vendor/lineage/livedisplay/2.0/IDisplayModes.h>
+
 #include <map>
 
 namespace vendor {
@@ -28,9 +29,9 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
+using ::android::sp;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::sp;
 
 class DisplayModes : public IDisplayModes {
   public:

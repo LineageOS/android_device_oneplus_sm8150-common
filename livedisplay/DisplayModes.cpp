@@ -16,12 +16,13 @@
 
 #define LOG_TAG "LineageHW-DisplayModesService"
 
-#include <android-base/properties.h>
+#include "DisplayModes.h"
+
 #include <android-base/logging.h>
+#include <android-base/properties.h>
+
 #include <fstream>
 #include <string_view>
-
-#include "DisplayModes.h"
 
 namespace vendor {
 namespace lineage {

@@ -44,7 +44,7 @@ class PictureAdjustment : public IPictureAdjustment {
     Return<void> getPictureAdjustment(getPictureAdjustment_cb _hidl_cb) override;
     Return<void> getDefaultPictureAdjustment(getDefaultPictureAdjustment_cb _hidl_cb) override;
     Return<bool> setPictureAdjustment(
-            const ::vendor::lineage::livedisplay::V2_0::HSIC& hsic) override;
+        const ::vendor::lineage::livedisplay::V2_0::HSIC& hsic) override;
 
     static void updateDefaultPictureAdjustment();
 

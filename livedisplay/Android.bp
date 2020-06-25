@@ -17,8 +17,9 @@ cc_defaults {
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
+        ":vendor.lineage.livedisplay@2.0-sdm-pa",
+        ":vendor.lineage.livedisplay@2.0-sdm-utils",
         "DisplayModes.cpp",
-        "PictureAdjustment.cpp",
         "SunlightEnhancement.cpp",
         "service.cpp",
     ],
@@ -31,6 +32,9 @@ cc_defaults {
         "libhidltransport",
         "libutils",
         "vendor.lineage.livedisplay@2.0",
+    ],
+    header_libs: [
+        "vendor.lineage.livedisplay@2.0-sdm-headers",
     ],
 }
 

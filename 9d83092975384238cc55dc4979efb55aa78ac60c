@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71c8d542_fb5f6652",
+        "filename": "livedisplay/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2020-06-26T04:07:43Z",
+      "side": 1,
+      "message": "https://google.github.io/styleguide/cppguide.html#Local_Variables\n\ngoogle discourages initialization separate from declaration",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "9d83092975384238cc55dc4979efb55aa78ac60c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5be7a0c_f653bad5",
+        "filename": "livedisplay/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 10258
+      },
+      "writtenOn": "2020-06-26T04:07:43Z",
+      "side": 1,
+      "message": "new operator in c++ never returns a nullptr, it\u0027ll throw std::bad_alloc or just terminate your program when -fno-exceptions in case of errors, that\u0027s why I nuked all null checks in the common repo",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "9d83092975384238cc55dc4979efb55aa78ac60c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

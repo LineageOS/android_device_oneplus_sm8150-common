@@ -143,7 +143,6 @@ persist.dbg.wfc_avail_ovr=1
 ro.hardware.keystore_desede=true
 
 # Media
-debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 
 # NFC

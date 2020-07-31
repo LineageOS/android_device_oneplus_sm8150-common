@@ -11,7 +11,6 @@ bootstrap_go_package {
     ],
     srcs: [
         "fod.go",
-        "sensors.go",
         "main.go",
     ],
     pluginFor: ["soong_build"],

@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from OnePlus7ProOxygen_21.P.26_OTA_026_all_2003222032_6893aca031668
+# All unpinned blobs below are extracted from OnePlus7ProOxygen_21.P.28_OTA_028_all_2007240027_b336a0d372f0008
 
 # ADSP
 vendor/bin/adsprpcd
@@ -144,6 +144,10 @@ product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # Camera
+lib/vendor.oneplus.camera.CameraHIDL@1.0.so:vendor/lib/vendor.oneplus.camera.CameraHIDL@1.0.so
+lib/vendor.oneplus.camera.CameraMDMHIDL@1.0.so:vendor/lib/vendor.oneplus.camera.CameraMDMHIDL@1.0.so
+lib64/vendor.oneplus.camera.CameraHIDL@1.0.so:vendor/lib64/vendor.oneplus.camera.CameraHIDL@1.0.so
+lib64/vendor.oneplus.camera.CameraMDMHIDL@1.0.so:vendor/lib64/vendor.oneplus.camera.CameraMDMHIDL@1.0.so
 vendor/bin/hw/vendor.oneplus.camera.CameraHIDL@1.0-service
 vendor/bin/vl53l1_daemon_main
 vendor/etc/camera/arccali.bin

@@ -96,8 +96,6 @@ on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
-    mount_reserve ext4 loop@/data/reserve/reserve.img /system/reserve ro context=u:object_r:system_file:s0
-    mount_india ext4 loop@/data/india/india.img /system/india ro context=u:object_r:system_file:s0
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
@@ -110,20 +108,6 @@ on post-fs-data
 
 on early-boot
     start vendor.sensors
-
-on boot
-    overlay_oneplus overlay overlay /product/app lowerdir=/mnt/vendor/oneplus/app:/product/app,context=u:object_r:system_file:s0
-    overlay_oneplus overlay overlay /product/priv-app lowerdir=/mnt/vendor/oneplus/priv-app:/product/priv-app,context=u:object_r:system_file:s0
-    overlay_oneplus overlay overlay /product/framework lowerdir=/mnt/vendor/oneplus/framework:/product/framework,context=u:object_r:system_file:s0
-    overlay_oneplus overlay overlay /product/media lowerdir=/mnt/vendor/oneplus/media:/product/media,context=u:object_r:system_file:s0
-    overlay_oneplus overlay overlay /product/lib64 lowerdir=/mnt/vendor/oneplus/lib64:/product/lib64,context=u:object_r:system_lib_file:s0
-    overlay_oneplus overlay overlay /product/lib lowerdir=/mnt/vendor/oneplus/lib:/product/lib,context=u:object_r:system_lib_file:s0
-    overlay_oneplus overlay overlay /vendor/overlay lowerdir=/mnt/vendor/oneplus/overlay:/vendor/overlay,context=u:object_r:vendor_overlay_file:s0
-    overlay_oneplus overlay overlay /system/reserve lowerdir=/mnt/vendor/oneplus/reserve:/system/reserve,context=u:object_r:system_file:s0
-    mount overlay overlay /product/app lowerdir=/system/india/app:/product/app,context=u:object_r:system_file:s0
-    mount overlay overlay /product/priv-app lowerdir=/system/india/priv-app:/product/priv-app,context=u:object_r:system_file:s0
-    mount overlay overlay /system/reserve lowerdir=/system/india/reserve:/system/reserve,context=u:object_r:system_file:s0
-    mount overlay overlay /vendor/overlay lowerdir=/system/india/overlay:/vendor/overlay,context=u:object_r:vendor_overlay_file:s0
 
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7

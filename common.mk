@@ -511,6 +511,3 @@ PRODUCT_COPY_FILES += \
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon

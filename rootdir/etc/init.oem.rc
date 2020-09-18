@@ -236,13 +236,13 @@ on property:sys.boot_completed=1
     setprop debug.boot_completed 1 
 #endif /*VENDOR_EDIT*/
 
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=auto
+on property:sys.boot_completed=1 && property:persist.vendor.usb.config=none && property:ro.boot.type=auto
     setprop persist.sys.usb.config adb
 
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=debug
+on property:sys.boot_completed=1 && property:persist.vendor.usb.config=none && property:ro.boot.type=debug
     setprop persist.sys.usb.config adb
 
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=sdebug
+on property:sys.boot_completed=1 && property:persist.vendor.usb.config=none && property:ro.boot.type=sdebug
     setprop persist.sys.usb.config adb
 
 #ifdef VENDOR_EDIT
@@ -403,7 +403,6 @@ service oneplus.engineer-1-0 /vendor/bin/hw/vendor.oneplus.engnative.engineer@1.
     class main
     user system
     group system
-    interface vendor.oneplus.engnative.engineer@1.0::IEngineer default
 
 service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
     user root

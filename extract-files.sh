@@ -38,6 +38,14 @@ function blob_fixup() {
     lib64/libwfdnative.so)
         sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
         ;;
+    product/lib/libdpmframework.so)
+        patchelf --replace-needed "libcutils.so" "libcutils-v29.so" "${2}"
+        patchelf --add-needed "libcutils.so" "${2}"
+        ;;
+    product/lib64/libdpmframework.so)
+        patchelf --replace-needed "libcutils.so" "libcutils-v29.so" "${2}"
+        patchelf --add-needed "libcutils.so" "${2}"
+        ;;
     esac
 }
 

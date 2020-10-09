@@ -1045,7 +1045,7 @@ vendor/lib64/libhexagon_nn_stub.so
 etc/nfcee_access.xml
 etc/permissions/com.nxp.nfc.xml
 framework/com.nxp.nfc.jar
-lib64/libnxpnfc-nci.so
+lib64/libnxpnfc-nci.so|ecbd274d2bb19552137b437360049b88395ebba0
 lib64/libnxpnfc_nci_jni.so
 vendor/bin/hw/android.hardware.nfc@1.2-service
 vendor/bin/hw/android.hardware.secure_element@1.1-service

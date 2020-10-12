@@ -31,7 +31,7 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_msmnile           u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.oneplus_msmnile                             u:object_r:hal_light_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.1-service-qti                                 u:object_r:hal_neuralnetworks_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.1-service-qti                                 u:object_r:vendor_hal_neuralnetworks_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.1-service                                     u:object_r:hal_secure_element_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.oneplus_msmnile                           u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@1\.0-service                                          u:object_r:hal_dms_default_exec:s0
@@ -40,7 +40,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus_msmnile                               u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.camera\.CameraHIDL@1\.0-service                                   u:object_r:hal_cameraHIDL_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.display@1\.0-service                                    u:object_r:hal_display_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.drmkey@1\.0-service                                     u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.drmkey@1\.0-service                                     u:object_r:vendor_hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                                    u:object_r:hal_hdcpkey_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.ifaa@2\.0-service                                       u:object_r:hal_ifaa_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                      u:object_r:hal_param_default_exec:s0
@@ -64,7 +64,7 @@
 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version    u:object_r:sysfs_fpc:s0
 /sys/devices/platform/soc/soc:tri_state_key/hall_data_calib        u:object_r:sysfs_tri_state_key:s0
 /sys/devices/platform/vendor/vendor:motor_pl(/.*)?                 u:object_r:sysfs_motor:s0
-/sys/elliptic/engine/calibration_v2                                u:object_r:sysfs_audio:s0
+/sys/elliptic/engine/calibration_v2                                u:object_r:vendor_sysfs_audio:s0
 /sys/firmware/devicetree/base/model                                u:object_r:sysfs_dtb_model:s0
 /sys/module/fsc(/.*)?                                              u:object_r:sysfs_fsc:s0
 /sys/module/stmvl53l1(/.*)?                                        u:object_r:sysfs_vl53l1:s0

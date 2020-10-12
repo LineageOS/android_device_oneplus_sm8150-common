@@ -1,0 +1,2 @@
+# Allow vendor_rmt_storage to read and write to oem_block_device
+allow vendor_rmt_storage oem_block_device:blk_file rw_file_perms;

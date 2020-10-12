@@ -205,7 +205,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.target.rc \
     kmemleak.sh \
-    ueventd.rc \
+    ueventd.qcom.rc \
     vendor.oem_ftm.rc \
     vendor.oem_ftm_svc_disable.rc
 

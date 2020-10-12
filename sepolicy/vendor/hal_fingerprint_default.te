@@ -3,14 +3,14 @@ allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 # Allow binder communication with hal_perf_default
 binder_call(hal_fingerprint_default, hal_perf_default)
 
-# Allow hal_fingerprint_default to find hal_perf_hwservice
-allow hal_fingerprint_default hal_perf_hwservice:hwservice_manager find;
+# Allow hal_fingerprint_default to find vendor_hal_perf_hwservice
+allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
 
 # Allow hal_fingerprint_default to read and write to fingerprintd_device
 allow hal_fingerprint_default fingerprintd_device:chr_file rw_file_perms;
 
-# Allow hal_fingerprint_default to read and write to qdsp_device
-allow hal_fingerprint_default qdsp_device:chr_file rw_file_perms;
+# Allow hal_fingerprint_default to read and write to vendor_qdsp_device
+allow hal_fingerprint_default vendor_qdsp_device:chr_file rw_file_perms;
 
 # Allow hal_fingerprint_default to read and write to tee_device
 allow hal_fingerprint_default tee_device:chr_file rw_file_perms;

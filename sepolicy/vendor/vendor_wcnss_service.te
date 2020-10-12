@@ -1,0 +1,2 @@
+# Allow vendor_wcnss_service to read files in sysfs_project_info
+r_dir_file(vendor_wcnss_service, sysfs_project_info)

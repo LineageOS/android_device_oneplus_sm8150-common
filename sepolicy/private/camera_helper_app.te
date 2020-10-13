@@ -5,6 +5,9 @@ app_domain(camera_helper_app)
 # Allow camera_helper_app to find app_api_service
 allow camera_helper_app app_api_service:service_manager find;
 
+# Allow camera_helper_app to find cameraserver_service
+allow camera_helper_app cameraserver_service:service_manager find;
+
 # Allow camera_helper_app read and write /data/data subdirectory
 allow camera_helper_app system_app_data_file:dir create_dir_perms;
 allow camera_helper_app system_app_data_file:{ file lnk_file } create_file_perms;
@@ -12,3 +15,9 @@ allow camera_helper_app system_app_data_file:{ file lnk_file } create_file_perms
 # Allow camera_helper_app to read and write to sysfs_motor
 allow camera_helper_app sysfs_motor:dir search;
 allow camera_helper_app sysfs_motor:file rw_file_perms;
+
+# Allow camera_helper_app to search in mnt_vendor_file
+allow camera_helper_app mnt_vendor_file:dir search;
+
+# Allow camera_helper_app to read persist_engineer_file
+r_dir_file(camera_helper_app, persist_engineer_file)

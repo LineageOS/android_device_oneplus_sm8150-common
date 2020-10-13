@@ -46,6 +46,12 @@ function blob_fixup() {
         patchelf --replace-needed "libcutils.so" "libcutils-v29.so" "${2}"
         patchelf --add-needed "libcutils.so" "${2}"
         ;;
+    vendor/lib/hw/camera.qcom.so)
+        sed -i "s/libhidltransport.so/qtimutex.so\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    vendor/lib64/hw/camera.qcom.so)
+        sed -i "s/libhidltransport.so/qtimutex.so\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
     esac
 }
 

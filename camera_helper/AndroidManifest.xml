@@ -23,9 +23,12 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="org.lineageos.camerahelper.FallSensorService"
+        <service android:name="org.lineageos.camerahelper.CameraMotorService"
                  android:permission="OnePlusCameraHelperService">
         </service>
 
+        <service android:name="org.lineageos.camerahelper.FallSensorService"
+                 android:permission="OnePlusCameraHelperService">
+        </service>
     </application>
 </manifest>

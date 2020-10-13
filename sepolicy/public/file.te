@@ -1,2 +1,5 @@
+# persist
+type persist_engineer_file, file_type;
+
 # sysfs
 type sysfs_motor, sysfs_type, fs_type;

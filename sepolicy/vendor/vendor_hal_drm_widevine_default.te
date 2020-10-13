@@ -1,2 +1,2 @@
-# Allow vendor_hal_drm_widevine to add hal_drmkey_hwservice
-allow vendor_hal_drm_widevine hal_drmkey_hwservice:hwservice_manager add;
+# Allow vendor_hal_drm_widevine to add, find hal_drmkey_hwservice
+allow vendor_hal_drm_widevine hal_drmkey_hwservice:hwservice_manager { add find };

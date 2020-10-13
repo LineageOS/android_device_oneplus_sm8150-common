@@ -44,6 +44,12 @@ function blob_fixup() {
     product/lib64/libdpmframework.so)
         sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
         ;;
+    vendor/lib/hw/camera.qcom.so)
+        sed -i "s/libhidltransport.so/qtimutex.so\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
+    vendor/lib64/hw/camera.qcom.so)
+        sed -i "s/libhidltransport.so/qtimutex.so\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+        ;;
     esac
 }
 

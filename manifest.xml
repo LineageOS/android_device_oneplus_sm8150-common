@@ -480,6 +480,16 @@
         <fqname>@1.0::IOneplusHdcpKey/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.oneplus.hardware.ifaa</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IOneplusIfaa</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IOneplusIfaa/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.oneplus.hardware.param</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -990,6 +1000,15 @@
         <version>1.0</version>
         <interface>
             <name>ITouchscreenGesture</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.lineage.trust</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IUsbRestrict</name>
             <instance>default</instance>
         </interface>
     </hal>

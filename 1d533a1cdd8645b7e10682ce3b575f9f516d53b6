@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6cf399f_bbd9e304",
+        "filename": "extract-files.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2020-10-14T12:27:57Z",
+      "side": 1,
+      "message": "can\u0027t the whole thing be replaced by\n`    product/lib/libdpmframework.so | product/lib64/libdpmframework.so)\n        patchelf --add-needed \"libcutils.so-v29\" \"${2}\"\n        ;;`\nreplacing cutils derp with vndk29 and adding vndk30 one as dep back seems a bit redundant, plus you can have multiple libs in there anyways",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "1d533a1cdd8645b7e10682ce3b575f9f516d53b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

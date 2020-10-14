@@ -22,6 +22,30 @@
       "revId": "1d533a1cdd8645b7e10682ce3b575f9f516d53b6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "399de729_51891720",
+        "filename": "extract-files.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-14T12:29:06Z",
+      "side": 1,
+      "message": "go ahead, try it out.",
+      "parentUuid": "c6cf399f_bbd9e304",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "1d533a1cdd8645b7e10682ce3b575f9f516d53b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

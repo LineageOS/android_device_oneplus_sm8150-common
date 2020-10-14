@@ -70,6 +70,30 @@
       "revId": "1d533a1cdd8645b7e10682ce3b575f9f516d53b6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aecca997_82c73323",
+        "filename": "extract-files.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-14T12:50:12Z",
+      "side": 1,
+      "message": "I switched away from patchelf but the reason it was that way is due to how Android\u0027s linker loads dependencies. Basically --add-needed always adds dependency on top thus it\u0027d shadow v30 libcutils.so symbols since linker loads everything in DT_NEEDED order.",
+      "parentUuid": "f80d99f6_1d95802d",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 10
+      },
+      "revId": "1d533a1cdd8645b7e10682ce3b575f9f516d53b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

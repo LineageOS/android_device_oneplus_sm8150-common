@@ -145,9 +145,6 @@ DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 ODM_MANIFEST_FILES := $(VENDOR_PATH)/manifest-qva.xml
 
-# Keystore
-TARGET_PROVIDES_KEYMASTER := true
-
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 

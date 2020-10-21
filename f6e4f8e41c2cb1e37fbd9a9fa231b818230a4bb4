@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cec59a7c_3f25cd4f",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-10-21T16:02:45Z",
+      "side": 1,
+      "message": "apparently true by def, will revisit soon~",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "f6e4f8e41c2cb1e37fbd9a9fa231b818230a4bb4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

@@ -18,6 +18,7 @@ cc_binary {
     defaults: ["hidl_defaults"],
     name: "android.hardware.vibrator@1.2-service.oneplus_msmnile",
     init_rc: ["android.hardware.vibrator@1.2-service.oneplus_msmnile.rc"],
+    vintf_fragments: ["android.hardware.vibrator@1.2-service.oneplus_msmnile.xml"],
     srcs: ["service.cpp", "Vibrator.cpp"],
     vendor: true,
     cpp_std: "experimental",

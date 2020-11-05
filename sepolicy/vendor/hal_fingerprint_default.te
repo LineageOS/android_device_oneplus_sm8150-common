@@ -15,6 +15,9 @@ allow hal_fingerprint_default qdsp_device:chr_file rw_file_perms;
 # Allow hal_fingerprint_default to read and write to tee_device
 allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 
+# Allow hal_fingerprint_default to read and write to xdsp_device
+allow hal_fingerprint_default xdsp_device:chr_file rw_file_perms;
+
 # Allow hal_fingerprint_default to read and write to proc_touchpanel
 allow hal_fingerprint_default proc_touchpanel:dir search;
 allow hal_fingerprint_default proc_touchpanel:file rw_file_perms;

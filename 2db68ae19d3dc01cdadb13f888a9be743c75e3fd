@@ -34,6 +34,24 @@
       "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "296d81a6_7c3297e6",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 25
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 21011
+      },
+      "writtenOn": "2020-11-09T21:20:37Z",
+      "side": 0,
+      "message": "It leads to DRM crashing, but I am using 17.1 display HAL, if it even matters.",
+      "parentUuid": "46eebb3e_ff12e0ed",
+      "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

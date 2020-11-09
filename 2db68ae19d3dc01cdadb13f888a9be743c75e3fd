@@ -52,6 +52,24 @@
       "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d0481c7_4882b2ab",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 25
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-11-09T21:29:04Z",
+      "side": 0,
+      "message": "I guess so, my local tree only has vendor/bin/wifidisplayhalservice removed but drm works just fine.",
+      "parentUuid": "296d81a6_7c3297e6",
+      "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

@@ -16,6 +16,24 @@
       "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46eebb3e_ff12e0ed",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 25
+      },
+      "lineNbr": 1716,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2020-11-09T21:09:55Z",
+      "side": 0,
+      "message": "it was incompatible with new display hal but doesn\u0027t really matter since wfd didn\u0027t even work to begin with.",
+      "parentUuid": "3b981474_305a4a1f",
+      "revId": "2db68ae19d3dc01cdadb13f888a9be743c75e3fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

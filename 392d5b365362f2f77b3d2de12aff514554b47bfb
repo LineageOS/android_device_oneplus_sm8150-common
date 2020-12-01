@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4359ea96_fbb7e6c8",
+        "filename": "rootdir/etc/init.qcom.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-12-01T11:44:04Z",
+      "side": 0,
+      "message": "There\u0027s a caf commit for this one, iirc.",
+      "revId": "392d5b365362f2f77b3d2de12aff514554b47bfb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

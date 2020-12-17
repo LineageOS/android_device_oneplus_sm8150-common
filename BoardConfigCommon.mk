@@ -100,6 +100,37 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := BRAND_SHOW_FLAG=oneplus TARGET_PRODUCT=msmnile
 TARGET_KERNEL_CONFIG := lineage_sm8150_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
+# Kernel modules - Audio
+TARGET_MODULE_ALIASES += \
+    adsp_loader_dlkm.ko:audio_adsp_loader.ko \
+    apr_dlkm.ko:audio_apr.ko \
+    audio_extend_dlkm.ko:audio_extend.ko \
+    hdmi_dlkm.ko:audio_hdmi.ko \
+    machine_dlkm.ko:audio_machine_msmnile.ko \
+    mbhc_dlkm.ko:audio_mbhc.ko \
+    native_dlkm.ko:audio_native.ko \
+    pinctrl_wcd_dlkm.ko:audio_pinctrl_wcd.ko \
+    platform_dlkm.ko:audio_platform.ko \
+    q6_dlkm.ko:audio_q6.ko \
+    q6_notifier_dlkm.ko:audio_q6_notifier.ko \
+    q6_pdr_dlkm.ko:audio_q6_pdr.ko \
+    stub_dlkm.ko:audio_stub.ko \
+    swr_ctrl_dlkm.ko:audio_swr_ctrl.ko \
+    swr_dlkm.ko:audio_swr.ko \
+    tfa9894_dlkm.ko:audio_tfa9894.ko \
+    usf_dlkm.ko:audio_usf.ko \
+    wcd_core_dlkm.ko:audio_wcd_core.ko \
+    wcd_spi_dlkm.ko:audio_wcd_spi.ko \
+    wcd934x_dlkm.ko:audio_wcd934x.ko \
+    wcd9360_dlkm.ko:audio_wcd9360.ko \
+    wcd9xxx_dlkm.ko:audio_wcd9xxx.ko \
+    wglink_dlkm.ko:audio_wglink.ko \
+    wsa881x_dlkm.ko:audio_wsa881x.ko
+
+# Kernel modules - WLAN
+TARGET_MODULE_ALIASES += \
+    wlan.ko:qca_cld3_wlan.ko
+
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/mmi_charging_enable
 

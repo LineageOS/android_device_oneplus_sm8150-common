@@ -473,7 +473,7 @@ setprop ro.vendor.ril.mbn_copy_completed 1
 
 oemdump=`getprop persist.vendor.oem.dump`
 oemssrdump=`getprop persist.vendor.oem.ssrdump`
-buildtype=`getprop ro.vendor.build.release_type`
+buildtype=`getprop ro.vendor.build.type`
 default_dump=`getprop ro.vendor.default.dump.enable`
 if [ "$oemdump" == "" ] && [ "$oemssrdump" == "" ]; then
     if [ "$default_dump" == "true" ]; then
@@ -481,7 +481,7 @@ if [ "$oemdump" == "" ] && [ "$oemssrdump" == "" ]; then
         setprop persist.vendor.oem.ssrdump 0
     else
         case "$buildtype" in
-            "release" | "cta")
+            "release" | "userdebug" | "cta")
                setprop persist.vendor.oem.dump 0
                setprop persist.vendor.oem.ssrdump 0
                ;;

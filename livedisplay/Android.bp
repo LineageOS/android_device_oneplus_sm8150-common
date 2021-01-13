@@ -40,6 +40,7 @@ cc_defaults {
 cc_binary {
     name: "vendor.lineage.livedisplay@2.0-service.oneplus_msmnile",
     init_rc: ["vendor.lineage.livedisplay@2.0-service.oneplus_msmnile.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay@2.0-service.oneplus_msmnile.xml"],
     defaults: ["livedisplay_oneplus_msmnile"],
     proprietary: true,
 }

@@ -18,6 +18,7 @@ oneplus_msmnile_fod_hal_binary {
     defaults: ["hidl_defaults"],
     name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile",
     init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile.rc"],
+    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.oneplus_msmnile.xml"],
     srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     vendor: true,
     shared_libs: [

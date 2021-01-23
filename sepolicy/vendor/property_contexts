@@ -15,6 +15,9 @@ ro.fastbootd.available                 u:object_r:exported_default_prop:s0
 # FTM mode
 ro.boot.ftm_mode    u:object_r:exported_default_prop:s0
 
+# Graphics
+ro.gfx.driver.1    u:object_r:exported3_default_prop:s0
+
 # LiveDisplay
 vendor.display.mode            u:object_r:vendor_display_prop:s0
 

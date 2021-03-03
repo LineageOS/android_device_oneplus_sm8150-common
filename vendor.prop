@@ -65,6 +65,10 @@ persist.vendor.camera.privapp.list=com.oneplus.factorymode,com.oneplus.camera,co
 ro.vendor.camera.res.fmq.size=1048576
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.oneplus.factorymode,com.oneplus.camera,com.oneplus.healthcheck
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SM8150
+
 # Crypto
 ro.crypto.allow_encrypt_override=true
 ro.crypto.volume.filenames_mode=aes-256-cts

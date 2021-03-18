@@ -48,6 +48,7 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<bool> handleError(int32_t error, int32_t vendorCode) override;
     Return<void> setLongPressEnabled(bool enabled) override;
     Return<int32_t> getDimAmount(int32_t cur_brightness) override;
+    Return<int32_t> getDimAlpha(int32_t cur_brightness) override;
     Return<bool> shouldBoostBrightness() override;
     Return<void> setCallback(const sp<IFingerprintInscreenCallback>& callback) override;
     Return<int32_t> getPositionX() override;
@@ -56,7 +57,6 @@ class FingerprintInscreen : public IFingerprintInscreen {
 
   private:
     bool mFodCircleVisible;
-    bool mIsEnrolling;
 
     sp<IOneplusDisplay> mVendorDisplayService;
     sp<IVendorFingerprintExtensions> mVendorFpService;

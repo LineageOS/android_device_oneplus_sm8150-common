@@ -69,6 +69,8 @@
     <ctl name="EC BUF MUX INP" value="ZERO" />
     <ctl name="ADC MUX1" value="DMIC" />
     <ctl name="DMIC MUX1" value="ZERO" />
+    <!-- #ifdef VENDOR_EDIT begin porting from sm8150Q -->
+    <ctl name="AIF3_CAP Mixer SLIM TX4" value="0"/>
     <ctl name="AIF3_CAP Mixer SLIM TX3" value="0"/>
     <ctl name="AIF3_CAP Mixer SLIM TX2" value="0" />
     <ctl name="AIF3_CAP Mixer SLIM TX1" value="0" />
@@ -77,6 +79,8 @@
     <ctl name="CDC_IF TX1 MUX" value="ZERO" />
     <ctl name="CDC_IF TX2 MUX" value="ZERO" />
     <ctl name="CDC_IF TX3 MUX" value="ZERO" />
+    <ctl name="CDC_IF TX4 MUX" value="ZERO" />
+    <!--endif-->
     <ctl name="ADC MUX0" value="AMIC" />
     <ctl name="ADC MUX1" value="AMIC" />
     <ctl name="ADC MUX2" value="AMIC" />
@@ -85,12 +89,12 @@
     <ctl name="DMIC MUX1" value="ZERO" />
     <ctl name="DMIC MUX2" value="ZERO" />
     <ctl name="DMIC MUX3" value="ZERO" />
+    <!-- #ifdef VENDOR_EDIT begin porting from sm8150Q -->
+    <ctl name="AMIC MUX0" value="ZERO" />
+    <ctl name="AMIC MUX2" value="ZERO" />
+    <ctl name="AMIC MUX4" value="ZERO" />
     <ctl name="IIR0 INP0 MUX" value="ZERO" />
-    <ctl name= "ADC MUX0" value="AMIC" />
-    <ctl name= "ADC MUX1" value="AMIC" />
-    <ctl name= "ADC MUX2" value="AMIC" />
-    <ctl name= "DMIC MUX0" value="ZERO" />
-    <ctl name= "DMIC MUX2" value="ZERO" />
+    <!--#endif-->
     <ctl name= "WDMA3 PORT0 MUX" value="RX_MIX_TX0" />
     <ctl name= "WDMA3 PORT1 MUX" value="RX_MIX_TX1" />
     <ctl name= "WDMA3 PORT2 MUX" value="RX_MIX_TX2" />
@@ -359,11 +363,11 @@
         <!-- modified by fred.li for 2 mic adc3 is primary mic SVA ADSP effect20181219-->
         <!-- OP_FEATURE_MM_SVA-->
         <!--ctl name="AIF3_CAP Mixer SLIM TX0" value="1" /-->
-        <ctl name="AIF3_CAP Mixer SLIM TX2" value="1" />
+        <ctl name="AIF3_CAP Mixer SLIM TX4" value="1" />
         <ctl name="SLIM_1_TX Channels" value="One" />
-        <ctl name="CDC_IF TX2 MUX" value="DEC2" />
-        <ctl name="ADC MUX2" value="AMIC" />
-        <ctl name="AMIC MUX2" value="ADC1" />
+        <ctl name="CDC_IF TX4 MUX" value="DEC4" />
+        <ctl name="ADC MUX4" value="AMIC" />
+        <ctl name="AMIC MUX4" value="ADC1" />
         <ctl name="ADC1 Volume" value="4" />
         <!--ctl name="CDC_IF TX0 MUX" value="DEC0" />
         <ctl name="ADC MUX0" value="AMIC" />

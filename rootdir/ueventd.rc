@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2015, 2017-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2015, 2017-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -28,10 +28,11 @@
 # Firmware directory Path
 # Below macro will be read by uevent and path will
 # be added to search path for firmware loading
-firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
+firmware_directories /vendor/firmware_mnt/image/
 
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0660   system     oem_2901
+/dev/mhi_*_pipe_4         0660   system     system
 
 /dev/genlock              0666   system     system
 /dev/wlan                 0660   wifi       wifi
@@ -40,6 +41,7 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
 /dev/ion                  0664   system     system
+/dev/membuf               0664   system     system
 /dev/rtc0                 0660   system     system
 /dev/smd0                 0660   system     system
 /dev/smd4                 0660   system     system
@@ -56,6 +58,10 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /dev/ipa_odl_ctl          0660   radio      radio
 /dev/ipa_adpl             0660   system     oem_2905
 /dev/synx_device          0660   root       camera
+/dev/hab                  0666   system     system
+
+#permissions for UFS RPMB BSG device node
+/dev/0:0:0:49476          0600   system     system
 
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
@@ -133,13 +139,17 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /dev/seemplog             0660   system     system
 /dev/pft                  0660   system     drmrpc
 /dev/spcom                0660   system     system
+/dev/spss_utils           0660   system     system
 /dev/sp_kernel            0660   system     system
+/dev/sp_nvm               0660   system     system
 /dev/sp_ssr               0660   system     system
 /dev/sp_keymaster         0660   system     system
+/dev/sp_keymaster_ssr     0660   system     system
 /dev/sec_nvm_*            0660   system     system
 /dev/cryptoapp            0660   system     system
 /dev/spdaemon_ssr         0660   system     system
-/dev/iuicc                0660   system     system
+/dev/spu_hal_ssr          0660   system     system
+/dev/iuicc*               0660   system     system
 /dev/gemini0              0660   system     camera
 /dev/jpeg0                0660   system     camera
 /dev/jpeg1                0660   system     camera
@@ -172,7 +182,10 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /dev/wcnss_ctrl           0660   system     system
 /sys/devices/soc/a000000.qcom,wcnss-wlan/net/wlan0/queues/rx-* rps_cpus           0660   system     system
 /sys/devices/soc/a000000.qcom,wcnss-wlan/net/p2p0/queues/rx-* rps_cpus            0660   system     system
+/sys/devices/platform/soc/18800000.qcom,icnss/net/wlan*/queues/rx-* rps_cpus      0660   system     system
+/sys/devices/platform/soc/1c00000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan*/queues/rx-* rps_cpus      0660   system     system
 /dev/spidev0.0            0660   system     audio
+/dev/i2c-7                0660   system     audio
 /dev/msm_camera/*         0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
@@ -271,6 +284,9 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /sys/devices/platform/soc/a84000.i2c/i2c-2/2-0020/input/input*  secure_touch          0440 system drmrpc
 /sys/devices/platform/soc/a84000.i2c/i2c-2/2-0020/input/input*  secure_touch_enable   0660 system drmrpc
 
+# GNSS Device premissions
+/dev/gnss_sirf             0660   gps     gps
+
 # laser sensor access
 /sys/devices/virtual/input/input*                   enable_ps_sensor 0660  system   input
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
@@ -344,12 +360,15 @@ firmware_directories /vendor/firmware_mnt/image/ /vendor/firmware/
 /sys/class/leds/red      delay_on     0640    system    system
 /sys/class/leds/red      delay_off    0640    system    system
 /sys/class/leds/red      breath       0640    system    system
+/sys/class/leds/red      trigger      0640    system    system
 /sys/class/leds/green    delay_on     0640    system    system
 /sys/class/leds/green    delay_off    0640    system    system
 /sys/class/leds/green    breath       0640    system    system
+/sys/class/leds/green    trigger      0640    system    system
 /sys/class/leds/blue     delay_on     0640    system    system
 /sys/class/leds/blue     delay_off    0640    system    system
 /sys/class/leds/blue     breath       0640    system    system
+/sys/class/leds/blue     trigger      0640    system    system
 
 # NPU device
 /dev/msm_npu             0644   system     system

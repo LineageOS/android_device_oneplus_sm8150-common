@@ -466,6 +466,11 @@ on post-fs-data
     chmod 0666 /data/vendor/camera_update/reservetuningbin6
 #endif
 
+    chown system system /sys/devices/platform/vendor/vendor:motor_pl/enable
+    chown system system /sys/devices/platform/vendor/vendor:motor_pl/hall_calibration
+    chown system system /sys/devices/platform/vendor/vendor:motor_pl/direction
+    chown system system /sys/devices/platform/vendor/vendor:motor_pl/position
+
 # add for SMT test enters WLAN FTM test in non-signaling
 service wififtmserver /vendor/bin/sh vendor/bin/wifi_ftm
     class late_start

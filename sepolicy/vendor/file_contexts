@@ -1,5 +1,5 @@
 # Binaries
-/system/bin/dashd                                   u:object_r:dashd_exec:s0
+/(vendor|system/vendor)/bin/dashd                   u:object_r:dashd_exec:s0
 /(vendor|system/vendor)/bin/tri-state-key_daemon    u:object_r:tri-state-key_daemon_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main      u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wifi-mac-generator      u:object_r:wifi-mac-generator_exec:s0
@@ -31,19 +31,14 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.oneplus_msmnile           u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.1-service-qti                                 u:object_r:vendor_hal_neuralnetworks_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.secure_element@1\.1-service                                     u:object_r:hal_secure_element_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@1\.0-service                                          u:object_r:hal_dms_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.oneplus_msmnile    u:object_r:hal_lineage_fod_sm8150_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.oneplus_msmnile                         u:object_r:hal_livedisplay_oneplus_msmnile_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.oneplus_msmnile                               u:object_r:hal_lineage_touch_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.camera\.CameraHIDL@1\.0-service                                   u:object_r:hal_cameraHIDL_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.camera@1\.0-service                                     u:object_r:hal_cameraHIDL_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.CameraMDMHIDL@1\.0-service                              u:object_r:hal_cameraHIDL_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.display@1\.0-service                                    u:object_r:hal_display_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.drmkey@1\.0-service                                     u:object_r:vendor_hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                                    u:object_r:hal_hdcpkey_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.ifaa@2\.0-service                                       u:object_r:hal_ifaa_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                      u:object_r:hal_param_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.rpmb@1\.0-service                                       u:object_r:hal_rpmb_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.wifi@1\.0-service                                       u:object_r:hal_wifi_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/camera(/.*)?                     u:object_r:persist_camera_file:s0

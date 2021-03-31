@@ -16,7 +16,7 @@ ro.boot.ftm_mode    u:object_r:exported_default_prop:s0
 vendor.display.mode            u:object_r:vendor_display_prop:s0
 
 # Memplus
-persist.vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
+vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
 
 # NFC
 persist.vendor.nfc.        u:object_r:vendor_nfc_prop:s0

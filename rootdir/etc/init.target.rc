@@ -1,4 +1,4 @@
-# Copyright (c) 2013-2019, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -26,6 +26,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
+
 
 # kevin@system, 2019/06/08, add carrier rc
 import /vendor/etc/init/hw/init.oem.carrier.rc
@@ -61,33 +62,42 @@ on fs
     chmod 0666 /dev/audio_ultrasound
     chmod 0666 /dev/sensor_ultrasound
 
-    #ifdef VENDOR_EDIT
-    mount ext4 /dev/block/bootdevice/by-name/op1 /op1 ro barrier=1 discard context=u:object_r:op1_file:s0
-    mount ext4 /dev/block/bootdevice/by-name/op2 /op2 noatime nosuid nodev barrier=1
-    chown system system /op2
-    #endif
     # bin.zhong@ASTI, 2019/6/17, add for smartboost
     chown system system /sys/module/smartboost_core/parameters/page_cache_reside_switch
     # ken.lin@ASTI, 2019/6/21, add for fsc
     chown system system /sys/module/fsc/parameters/enable
     chmod 0664 /sys/module/fsc/parameters/enable
 
+    #miao.guom@system Bug35643 mkdir and mount op2
+    mkdir /mnt/vendor/op2 0660 system system
+    mount ext4 /dev/block/bootdevice/by-name/op2 /mnt/vendor/op2 noatime nosuid nodev barrier=1
+
+    #yumei.su@system Bug55987 mkdir rbr_log
+    mkdir /mnt/vendor/op2/rbr_log 0770 system system
+
+    #yumei.su@system Bug35643 mkdir and mount op1
+    mkdir /mnt/vendor/op1 0660 system system
+    mount ext4 /dev/block/bootdevice/by-name/op1 /mnt/vendor/op1 noatime nosuid nodev barrier=1
+    mkdir /mnt/vendor/oneplus 0660 system system
+
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-    mkdir /op2/recovery 0770 root system
-
-    #ifdef VENDOR_EDIT
-    #start vendor.spdaemon
-    #start vendor.sec_nvm
-    #endif
+    #miao.guom@system Bug35643 mkdir recovery
+    # mkdir /op2/recovery 0770 root system
+    mkdir /mnt/vendor/op2/recovery 0770 root system
+    # ifdef vendor_edit remove SPU
+    # start vendor.spdaemon
+    # start vendor.sec_nvm
+    # endif vendor_edit
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
-    # mount_reserve ext4 loop@/data/reserve/reserve.img /system/reserve ro context=u:object_r:system_file:s0
+    mount_reserve ext4 loop@/data/reserve/reserve.img /system/reserve ro context=u:object_r:system_file:s0
+    mount_india ext4 loop@/data/india/india.img /system/india ro context=u:object_r:system_file:s0
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
@@ -96,31 +106,25 @@ on post-fs-data
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /data/vendor/tloc 0700 system drmrpc
     mkdir /data/vendor/nnhal 0700 system system
 
 on early-boot
     start vendor.sensors
 
 on boot
-    # overlay_oneplus overlay overlay /product/app lowerdir=/oneplus/app:/product/app,context=u:object_r:system_file:s0
-    # overlay_oneplus overlay overlay /product/priv-app lowerdir=/oneplus/priv-app:/product/priv-app,context=u:object_r:system_file:s0
-    # overlay_oneplus overlay overlay /product/etc lowerdir=/oneplus/etc:/product/etc,context=u:object_r:system_file:s0
-    # overlay_oneplus overlay overlay /product/framework lowerdir=/oneplus/framework:/product/framework,context=u:object_r:system_file:s0
-    # overlay_oneplus overlay overlay /product/media lowerdir=/oneplus/media:/product/media,context=u:object_r:system_file:s0
-    # overlay_oneplus overlay overlay /product/lib64 lowerdir=/oneplus/lib64:/product/lib64,context=u:object_r:system_lib_file:s0
-    # overlay_oneplus overlay overlay /product/lib lowerdir=/oneplus/lib:/product/lib,context=u:object_r:system_lib_file:s0
-    # overlay_oneplus overlay overlay /vendor/overlay lowerdir=/oneplus/overlay:/vendor/overlay,context=u:object_r:vendor_overlay_file:s0
-    # overlay_oneplus overlay overlay /system/reserve lowerdir=/oneplus/reserve:/system/reserve,context=u:object_r:system_file:s0
-    # mount_india ext4 loop@/data/india/india.img /system/india ro context=u:object_r:system_file:s0
-    # overlay_india overlay overlay /product/app lowerdir=/system/india/app:/product/app,context=u:object_r:system_file:s0
-    # overlay_india overlay overlay /product/priv-app lowerdir=/system/india/priv-app:/product/priv-app,context=u:object_r:system_file:s0
-    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0048/tp_fw_update 0
-    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0049/tp_fw_update 0
-#18857
-    write /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0020/tp_fw_update 0
-#18865
-    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0020/tp_fw_update 0
+    overlay_oneplus overlay overlay /product/app lowerdir=/mnt/vendor/oneplus/app:/product/app,context=u:object_r:system_file:s0
+    overlay_oneplus overlay overlay /product/priv-app lowerdir=/mnt/vendor/oneplus/priv-app:/product/priv-app,context=u:object_r:system_file:s0
+    overlay_oneplus overlay overlay /product/framework lowerdir=/mnt/vendor/oneplus/framework:/product/framework,context=u:object_r:system_file:s0
+    overlay_oneplus overlay overlay /product/media lowerdir=/mnt/vendor/oneplus/media:/product/media,context=u:object_r:system_file:s0
+    overlay_oneplus overlay overlay /product/lib64 lowerdir=/mnt/vendor/oneplus/lib64:/product/lib64,context=u:object_r:system_lib_file:s0
+    overlay_oneplus overlay overlay /product/lib lowerdir=/mnt/vendor/oneplus/lib:/product/lib,context=u:object_r:system_lib_file:s0
+    overlay_oneplus overlay overlay /vendor/overlay lowerdir=/mnt/vendor/oneplus/overlay:/vendor/overlay,context=u:object_r:vendor_overlay_file:s0
+    overlay_oneplus overlay overlay /system/reserve lowerdir=/mnt/vendor/oneplus/reserve:/system/reserve,context=u:object_r:system_file:s0
+    mount overlay overlay /product/app lowerdir=/system/india/app:/product/app,context=u:object_r:system_file:s0
+    mount overlay overlay /product/priv-app lowerdir=/system/india/priv-app:/product/priv-app,context=u:object_r:system_file:s0
+    mount overlay overlay /system/reserve lowerdir=/system/india/reserve:/system/reserve,context=u:object_r:system_file:s0
+    mount overlay overlay /vendor/overlay lowerdir=/system/india/overlay:/vendor/overlay,context=u:object_r:vendor_overlay_file:s0
+
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
@@ -144,10 +148,6 @@ on boot
     # chris.gao@SYSTEM, 2019/3/2, [GCE-9966] Optimize surfaceflinger
     write /dev/cpuset/display/cpus 4-7
     # endif VENDOR_EDIT
-
-    # lynn.guo@Multimedia, 2019/05/15, Add support for HBM mode
-    chown system system /sys/class/drm/card0-DSI-1/hbm_brightness
-    chmod 0644 /sys/class/drm/card0-DSI-1/hbm_brightness
 
 # Add a cpuset for the camera daemon
 # We want all cores for camera
@@ -179,6 +179,7 @@ on boot
     chmod 0666 /sys/class/drm/card0-DSI-1/notify_fppress
     chmod 0666 /sys/class/drm/card0-DSI-1/dim_alpha
     chmod 0666 /sys/class/drm/card0-DSI-1/notify_dim
+    chmod 0666 /sys/class/drm/card0-DSI-1/notify_aod
     chmod 0666 /sys/class/drm/card0-DSI-1/force_screenfp
     chmod 0666 /sys/class/drm/card0-DSI-1/native_display_p3_mode
     chmod 0666 /sys/class/drm/card0-DSI-1/native_display_wide_color_mode
@@ -193,6 +194,7 @@ on boot
     chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
     chmod 0666 /sys/class/drm/card0-DSI-1/dp_en
     chmod 0666 /sys/class/drm/card0-DSI-1/dimming_speed
+    chmod 0666 /sys/bus/platform/devices/vendor:infrared_pl/infrared_power_enable
 #liuhaituo@MM.Audio, 2019/6/17, add for dump audio related codec
     chmod 0644 /d/regmap/tavil-slim-pgd/registers
     chmod 0644 /d/regmap/0-0034/registers
@@ -202,11 +204,6 @@ on boot
     restorecon /sys/kernel/debug/regmap/0-0035/registers
     restorecon /sys/kernel/debug/regmap/0-0042/registers
     restorecon /sys/kernel/debug/regmap/tavil-slim-pgd/registers
-
-    # Reduce default vibrator gain from 0x80 to 0x55,
-    # also allow gain customization via persistent property
-    write /sys/class/leds/vibrator/gain ${persist.vendor.vib.gain:-0x55}
-
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
@@ -223,13 +220,13 @@ on property:vendor.usb.controller=*
 on property:wlan.driver.status=ok
     start load_wlan_driver
 
-on property:vendor.load.ftm.wlan.driver=ok
-    start load_wlan_driver
-
 service load_wlan_driver /vendor/bin/sh /vendor/bin/load_wlan_driver.sh
     class main
     disabled
     oneshot
+
+on property:vendor.load.ftm.wlan.driver=ok
+    start load_wlan_driver
 
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
@@ -261,10 +258,16 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
-service vendor.qseecomd /vendor/bin/qseecomd
+service vendor.spdaemon /vendor/bin/spdaemon
     class core
-    user root
-    group root
+    user system
+    group system
+    shutdown critical
+
+service vendor.sec_nvm /vendor/bin/sec_nvm
+    class core
+    user system
+    group system
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
@@ -279,7 +282,8 @@ service vendor.thermal-engine /vendor/bin/thermal-engine
 service vendor.lowi /vendor/bin/sscrpcd
    class core
    user system
-   group system
+   group system wakelock
+   capabilities BLOCK_SUSPEND
 
 service vendor.mdm_helper /vendor/bin/mdm_helper
     class core
@@ -308,13 +312,20 @@ service vendor.energy-awareness /vendor/bin/energy-awareness
     group system
     oneshot
 
-#service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-#    class main
-#    user root
-#    group system wakelock
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
 
-#service vendor.tlocd /vendor/bin/tloc_daemon
-#    class late_start
-#    user system
-#    group drmrpc gps net_raw
+on property:vendor.dcvs.prop=1
+   start dcvs-sh
 
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled

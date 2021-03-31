@@ -6,3 +6,6 @@ allow vendor_qti_init_shell vendor_sysfs_scsi_host:file w_file_perms;
 
 # Allow vendor_qti_init_shell to get vendor_memplus_prop
 get_prop(vendor_qti_init_shell, vendor_memplus_prop)
+
+# Allow vendor_qti_init_shell to get vendor_oem_dump_prop
+set_prop(vendor_qti_init_shell, vendor_oem_dump_prop)

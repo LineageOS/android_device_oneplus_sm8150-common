@@ -16,13 +16,20 @@ ro.boot.ftm_mode    u:object_r:exported_default_prop:s0
 vendor.display.mode            u:object_r:vendor_display_prop:s0
 
 # Memplus
-persist.vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
+vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
 
 # NFC
 persist.vendor.nfc.        u:object_r:vendor_nfc_prop:s0
 persist.vendor.oem.nfc.    u:object_r:vendor_nfc_prop:s0
 ro.vendor.nfc.notify_tp    u:object_r:vendor_nfc_prop:s0
 vendor.oem.nfc.            u:object_r:vendor_nfc_prop:s0
+
+# OEM dump
+persist.vendor.enable.powerkey.dump    u:object_r:vendor_oem_dump_prop:s0
+persist.vendor.oem.defaultdump         u:object_r:vendor_oem_dump_prop:s0
+persist.vendor.oem.dump                u:object_r:vendor_oem_dump_prop:s0
+persist.vendor.oem.ssrdump             u:object_r:vendor_oem_dump_prop:s0
+persist.vendor.oem.twice.modemdump     u:object_r:vendor_oem_dump_prop:s0
 
 # Param
 ro.boot.prmec    u:object_r:exported_default_prop:s0

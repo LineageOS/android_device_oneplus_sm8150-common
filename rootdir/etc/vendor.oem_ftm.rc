@@ -1,5 +1,5 @@
 on post-fs-data
-    chmod 0666 /dev/block/sda4
+    chmod 0666 /dev/block/sda6
     chmod 0666 /dev/param
 
 service wcnss-service-f /system/bin/wcnss_service -f
@@ -34,18 +34,7 @@ on oem_ftm
     start cnss-daemon
     start qcom-c_main-sh
     write /dev/kmsg "factory boot mode is:${ro.vendor.factory.mode}"
+    start vendor.mdm_launcher
 
 on property:ro.vendor.factory.mode=ftm
     start factory
-
-on property:ro.vendor.factory.mode=ftm && property:ro.baseband=mdm
-    start vendor.mdm_launcher
-    
-on property:ro.vendor.factory.mode=wlan
-    start vendor.mdm_launcher
-
-on property:ro.vendor.factory.mode=rf
-    start vendor.mdm_launcher
-
-on property:ro.vendor.factory.mode=ftm && property:ro.boot.project_name=19861
-    insmod /vendor/lib/modules/qca_cld3_wlan.ko

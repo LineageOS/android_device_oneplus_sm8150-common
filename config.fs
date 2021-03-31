@@ -16,6 +16,12 @@ value:2905
 [AID_VENDOR_QRTR]
 value:2906
 
+[AID_VENDOR_THERMAL]
+value:2907
+
+[AID_VENDOR_FASTRPC]
+value:2908
+
 [bt_firmware/]
 mode: 0771
 user: AID_SYSTEM
@@ -154,6 +160,12 @@ user: AID_RADIO
 group: AID_RADIO
 caps: NET_BIND_SERVICE
 
+[vendor/bin/imsdaemon]
+mode: 0755
+user: AID_RADIO
+group: AID_RADIO
+caps: NET_BIND_SERVICE WAKE_ALARM BLOCK_SUSPEND
+
 [vendor/bin/imsdatadaemon]
 mode: 0755
 user: AID_RADIO
@@ -212,10 +224,4 @@ caps: NET_BIND_SERVICE WAKE_ALARM BLOCK_SUSPEND
 mode: 0771
 user: AID_SYSTEM
 group: AID_SYSTEM
-caps: 0
-
-[vendor/lib/modules-aging/*]
-mode: 0644
-user: AID_ROOT
-group: AID_ROOT
 caps: 0

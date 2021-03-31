@@ -13,6 +13,7 @@ type proc_ultrasound, fs_type, proc_type;
 # rootfs
 type op1_file, file_type;
 type op2_file, file_type;
+type opf_file, file_type;
 
 # sockets
 type vl53l1_socket, file_type;

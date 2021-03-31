@@ -1,4 +1,4 @@
-##################################################################################
+#################################################################################
 ### VENDOR_EDIT, OEM All rights reserved.
 ###
 ### File: - init.oem.rc
@@ -9,506 +9,44 @@
 ### ------------------------------------------------------------------------------
 ### jiangyg@PM                     2013-10-21                Create this file
 ##################################################################################
+#Load WLAN driver
 
+import /vendor/etc/init/hw/init.cust.rc
 
+on property:wlan.driver.status=ok
+    start load_wlan_driver
 
-#erik.yang, 2015/3/20, add for property self-adaptive
-service self-init /vendor/bin/self-init
-    class core
-    user root
+service load_wlan_driver /vendor/bin/sh /vendor/bin/load_wlan_driver
+    class main
+    disabled
     oneshot
 
-on post-fs-data
-    #NFC, ruanbanmao add for 15801 nfc. 2015/10/19
-    mkdir /data/nfc
-    mkdir /data/vendor/nfc 0770 nfc nfc
-    mkdir /data/vendor/oemnvitems  0771 radio radio
-    #fingerint, changhua add for fp debug image usage,feature default off
-    mkdir /data/fpc_images 0770 system system
-    mkdir /data/fpc_images/verify 0770 system system
-    mkdir /data/fpc_images/enroll 0770 system system
-    mkdir /data/fpc 0770 system system
-    mkdir /data/vendor_de/silead 0770 system system
-    mkdir /mnt/vendor/persist/silead 0777 system system
-    mkdir /data/coredump  0777 system system
-    mkdir /data/theme 0775 system system
-    mkdir /data/mdm 0775 system system
-    mkdir /data/theme_storage 0775 system system
-    #mediaserver, lifei add for Watchdog monitoring mediaextractor process. 2017/08/11
-    mkdir /mnt/vendor/persist/hdcp/media_dump 0770 mediaex mediadrm
-    mkdir /data/reserve-lib 0775 system system
-    #ifdef VENDOR_EDIT
-    #KennethWang add for oem log
-    mkdir /data/oem_log  0770 system system
-    #endif /*VENDOR_EDIT*/
-#ifdef VENDOR_EDIT
-    mkdir /mnt/vendor/persist/hdcp  775 media mediadrm
-    restorecon /mnt/vendor/persist/hdcp
-#endif /*VENDOR_EDIT*/
-    mkdir /data/vendor/misc/qsee/face/  0770 system system
-#ifdef VENDOR_EDIT
-    insmod /vendor/lib/modules/opchain.ko
-    insmod /vendor/lib/modules-aging/opchain.ko
-    chown system system /sys/module/houston/parameters/fps_boost
-    chown system system /sys/module/houston/parameters/fps_data_sync
-    chown system system /sys/module/houston/parameters/perf_ready
-    chown system system /sys/module/houston/parameters/ais_enable
-    chown system system /sys/module/houston/parameters/sample_rate_ms
-    chown system system /sys/module/houston/parameters/ht_enable
-    chown system system /sys/module/houston/parameters/fps_boost_enable
-    chown system system /sys/module/houston/parameters/reset
-    chown system system /dev/ht_ctl
-    chown system system /dev/cc_ctl
-    chown system system /proc/cc_ctl
-#endif
-#changhua add for fingerint
-on boot
-    chmod 0664 /sys/devices/platform/soc/soc:fpc_fpc1020/irq
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/irq
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/report_home
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/report_home
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/report_key
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/report_key
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/update_info
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/update_info
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/screen_state
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/screen_state
-    chmod 0660 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
-    chown system system /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/hw_reset
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/hw_reset
-    chmod 0660 /sys/devices/platform/soc/soc:fpc_fpc1020/wakeup_enable
-    chown system system /sys/devices/platform/soc/soc:fpc_fpc1020/wakeup_enable
-    chmod 0664 /sys/devices/platform/soc/a90000.i2c/i2c-4/4-0020/fp_irq
-    chown system system /sys/devices/platform/soc/a90000.i2c/i2c-4/4-0020/fp_irq
-    chmod 0666 /proc/touchpanel/touch_hold
-    chown system system /proc/touchpanel/touch_hold
-    chmod 0664 sys/devices/platform/soc/soc:goodix_fp/screen_state
-    chown system system sys/devices/platform/soc/soc:goodix_fp/screen_state
-    chmod 0664 /sys/devices/platform/soc/soc:silead_fp/screen_state
-    chown system system /sys/devices/platform/soc/soc:silead_fp/screen_state
-    chmod 0666 /dev/qseecom
-    #liuyan 2017/7/27 add for goodix fp
-    chmod 0666 /dev/goodix_fp
-    chmod 0666 /dev/silead_fp
-    chown system system /dev/silead_fp
-    #NFC, ruanbanmao add for 15801 nfc. 2015/10/19
-    setprop ro.nfc.port "I2C"
-    chmod 0666 /dev/nq-nci
-    chown nfc nfc /dev/nq-nci
-    chmod 0666 /dev/pn553
-    chown nfc nfc /dev/pn553
-    chmod 0666 /dev/p73
-    chown secure_element secure_element /dev/p73
-    #brandon.zeng@connectivity, 2019/06/27, add for TP interface with Nfc
-    chmod 0666 /proc/touchpanel/nxd_detect
-    chown nfc nfc /proc/touchpanel/nxd_detect
-    # chmod 0666 /sys/class/drm/card0-DSI-1/ffc_state
-    chmod 0666 /dev/dash/
-    restorecon  /dev/dash
-    #felix 2019/05/16 add for qsee_log tz_log
-    chmod 0666 /proc/tzdbg/qsee_log
-    chmod 0666 /proc/tzdbg/tz_log
+on charger
+    setprop persist.vendor.oem.dump 0
+    setprop persist.vendor.oem.ssrdump 0
+    start oemlogkit
+
+#@bsp, 2019/08/22 Add dash charging
+service dashd /vendor/bin/dashd
+    class core
+    critical
+    seclabel u:r:dashd:s0
+    group root system
+
+#bsp, 2020/01/04 Add wireless charge
+service wlchgd /vendor/bin/wlchgd
+    class main
+    disabled
+    seclabel u:r:wlchgd:s0
+    group root system
+
+on fs
+    mount ext4 /dev/block/bootdevice/by-name/op1 /mnt/vendor/op1 ro barrier=1 discard context=u:object_r:op1_file:s0
     #yankelong add
     chown system system /sys/class/leds/vibrator/haptic_audio_ai_input
     chown system system /sys/class/leds/vibrator/haptic_audio_tp_input
     chown system system /sys/class/leds/vibrator/haptic_audio_tp_size
-
- #ifdef VENDOR_EDIT
-    #wulaibin@bsp , 2015/11/18, Modify for RGB light support
-    chown system system /sys/class/leds/red/pause_lo
-    chown system system /sys/class/leds/blue/pause_lo
-    chown system system /sys/class/leds/green/pause_lo
-
-    chown system system /sys/class/leds/red/pause_hi
-    chown system system /sys/class/leds/blue/pause_hi
-    chown system system /sys/class/leds/green/pause_hi
-
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/blue/blink
-    chown system system /sys/class/leds/green/blink
-
-    chown system system /proc/touchpanel/gesture_enable
-    chown system system /proc/touchpanel/gesture_switch
-    chown system system /proc/touchpanel/key_switch
-    chown system system /proc/touchpanel/key_disable
-    chown system system /proc/touchpanel/tpedge_limit_enable
-    chown system system /proc/touchpanel/tp_debug_log
-    chmod 0644 /proc/touchpanel/tp_debug_log
-
-    #shankai@bsp , 2017/12/29, Modify for rf_cable support
-    chown system system /proc/rf_cable_config
-    chown system system /proc/rf_factory_mode
-
- #endif /*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-#dujie@MM.Audio, 2019/4/29, Configure ultrasound permissions
-    chown system system /dev/elliptic0
-    chmod 0644 /dev/elliptic0
-    chown system system /dev/elliptic1
-    chmod 0644 /dev/elliptic1
-#endif
-
-#ifdef VENDOR_EDIT
-    # camera. enable mobicat
-    setprop persist.camera.mobicat 2
-    setprop persist.camera.stats.debugexif 3080192
-    # camera. enable mobicat
-#endif
-
-#ifdef VENDOR_EDIT
-    chown system system /sys/class/leds/led:torch_0/brightness
-    chmod 666 /sys/class/leds/led:torch_0/brightness
-    chown system system /sys/class/leds/led:torch_1/brightness
-    chmod 666 /sys/class/leds/led:torch_1/brightness
-    chown system system /sys/class/leds/led:switch_0/brightness
-    chmod 666 /sys/class/leds/led:switch_0/brightness
-    chown system system /sys/class/leds/led:switch_1/brightness
-    chmod 666 /sys/class/leds/led:switch_1/brightness
-    chown system system /sys/class/leds/led:switch_2/brightness
-    chmod 666 /sys/class/leds/led:switch_2/brightness
-#endif
-
-#wujialong , 2015/10/22, Add for RGB light support
-    chown system system /sys/class/leds/red/ramp_step_ms
-    chown system system /sys/class/leds/blue/ramp_step_ms
-    chown system system /sys/class/leds/green/ramp_step_ms
-    chown system system /sys/class/leds/red/duty_pcts
-    chown system system /sys/class/leds/blue/duty_pcts
-    chown system system /sys/class/leds/green/duty_pcts
-    chmod 660 /sys/class/leds/red/ramp_step_ms
-    chmod 660 /sys/class/leds/green/ramp_step_ms
-    chmod 660 /sys/class/leds/blue/ramp_step_ms
-    chmod 660 /sys/class/leds/red/duty_pcts
-    chmod 660 /sys/class/leds/green/duty_pcts
-    chmod 660 /sys/class/leds/blue/duty_pcts
-    chmod 666 /sys/class/leds/red/brightness
-    chmod 666 /sys/class/leds/green/brightness
-    chmod 666 /sys/class/leds/blue/brightness
-
-#ifdef VENDOR_EDIT
-#quentin.lin@oneplus.com 2019/01/07 add for tp and ultrasound proximity,
-    chmod 666 dev/input/event4
-    chmod 666 dev/input/event7
-    chmod 666 dev/input/event9
-    chmod 666 dev/input/event11
-#endif /*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-#quentin.lin@oneplus.com 2018/11/07 add to open qxdm log
-    setprop persist.vendor.sensors.diag_buffer_mode false
-#endif /*VENDOR_EDIT*/
-
-
-#ifdef VENDOR_EDIT
-# @bsp, 2019/6/21 add to disable HVDCP
-    setprop persist.vendor.hvdcp_opti.disallowed 1
-#endif /*VENDOR_EDIT*/
-
-# Setup coredump mechanism
-    chmod 0755 /system/bin/coredump.sh
-    write /proc/sys/kernel/core_pattern |/system/bin/coredump.sh\ %p\ %u\ %t
-
-#ifdef VENDOR_EDIT
-#/* Liyu.Tan, 2015.10.26, wifi test bin */
-    chown system system /vendor/bin/pktlogconf
-    chmod 0777  /vendor/bin/pktlogconf
-    chown system system /vendor/bin/iwpriv
-    chmod 0777  /vendor/bin/iwpriv
-    chown system system /vendor/bin/iwlist
-    chmod 0777  /vendor/bin/iwlist
-    chown system system /vendor/bin/tcpdump
-    chmod 0777  /vendor/bin/tcpdump
-
-# Set TCP MTU probing to automatic
-    write /proc/sys/net/ipv4/tcp_mtu_probing 1
-#endif /*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-#joseph.huang@oneplus.com, 2018/06/01, add for oiface feature
-    mkdir /data/oiface 0700 system system
-#endif
-
-#ifdef VENDOR_EDIT
-#quentin.lin@oneplus.com 2019/04/17 add for GCEB-4434
-on property:sys.boot_completed=1
-    setprop debug.boot_completed 1 
-#endif /*VENDOR_EDIT*/
-
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=auto
-    setprop persist.sys.usb.config adb
-
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=debug
-    setprop persist.sys.usb.config adb
-
-on property:sys.boot_completed=1 && persist.vendor.usb.config=none && property:ro.boot.type=sdebug
-    setprop persist.sys.usb.config adb
-
-#ifdef VENDOR_EDIT
-#/*infi@bsp 2018/05/07 select WIRELESS_CONTROLLER_REMOTE_NDIS for
-# MAC/Ubuntu usb-tethering compatible*/
-on property:sys.boot_completed=1
-    write /config/usb_gadget/g1/functions/gsi.rndis/rndis_class_id 1
-#endif
-
-#ifdef VENDOR_EDIT
-#kim@bsp 2019/09/09 add to fix apsd wrong issue when boot with dash connected
-on property:sys.boot_completed=1
-    write /sys/module/smb5_lib/parameters/sys_boot_complete 1
-#endif
-
-service qseeproxysd /system/vendor/bin/qseeproxysampledaemon
-    class core
-    user system
-    group nfc
-
-#ifdef VENDOR_EDIT
-#/* Liyu.Tan, 2015.10.26, wifi ftm shell */
-service wififtmserver /vendor/bin/sh vendor/bin/wifi_ftm
-    class late_start
-    user root
-    group root
-    disabled
-    #oneshot
-    #seclabel u:r:ftmdaemon:s0
-
-on property:vendor.wlan.ftm.up=1
-    start wififtmserver
-on init
-    mount tmpfs none /sys/fs/cgroup mode=0750,uid=0,gid=1000
-    mkdir /sys/fs/cgroup/freezer 0750 root system
-    mount cgroup none /sys/fs/cgroup/freezer  freezer
-    chmod 777 /sys/fs/cgroup/freezer
-
-    mkdir /sys/fs/cgroup/net_cls
-    chmod 777 /sys/fs/cgroup/net_cls
-    mount cgroup  none /sys/fs/cgroup/net_cls net_cls
-    chmod 777 /sys/fs/cgroup/net_cls/tasks
-    mkdir /sys/fs/cgroup/net_cls/background 0777
-    chmod 777 /sys/fs/cgroup/net_cls/background/tasks
-
-
-on charger && property:ro.debuggable=1
-    setprop persist.sys.usb.config adb
-    setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
-
-#ifdef VENDOR_EDIT
-on charger && property:ro.boot.type=auto
-    setprop persist.sys.usb.config adb
-    setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
-
-on charger && property:ro.boot.type=sdebug
-    setprop persist.sys.usb.config adb
-    setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
-#endif
-
-#ifdef VENDOR_EDIT
-on property:ro.boot.adb=true
-    write /dev/kmsg "ro.boot.adb=true, set adb port"
-    setprop persist.sys.usb.config adb
-    setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
-#endif
-
-#ifdef VENDOR_EDIT
-service ftmdaemon /system/vendor/bin/ftmdaemon -n
-    class late_start
-    user root
-    group wifi root system oem_2901
-    disabled
-    oneshot
-    seclabel u:r:ftmdaemon:s0
-
-on property:vendor.wlan.ftm.daemon=on
-    start ftmdaemon
-
-on property:vendor.wlan.ftm.daemon=off
-    stop ftmdaemon
-
-on property:vendor.wlan.write.con_mode=*
-    write /sys/module/wlan/parameters/con_mode ${vendor.wlan.write.con_mode}
-#endif /*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-#liuhuisheng@framework add for enginerr app for sys/class selinux recon
-    restorecon /sys/class/leds/keyboard-backlight/brightness
-    restorecon /sys/class/leds/button-backlight/brightness
-    restorecon /sys/class/leds/red/brightness
-    restorecon /sys/class/leds/green/brightness
-    restorecon /sys/class/leds/blue/brightness
-    restorecon /sys/class/leds/red/blink
-    restorecon /sys/class/leds/green/blink
-    restorecon /sys/class/leds/blue/blink
-#endif /*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-#/* zuoyonghua add nfc transmit  */
-    chown system system /system/xbin/nfc_trasmit_start.sh
-    chmod 0777  /system/xbin/nfc_trasmit_start.sh
-    chown system system /system/xbin/nfc_trasmit_stop.sh
-    chmod 0777  /system/xbin/nfc_trasmit_stop.sh
-    chown system system system/xbin/pnx
-    chmod 0777  system/xbin/pnx
-
-service nfctransmitstart /system/bin/sh /system/xbin/nfc_trasmit_start.sh
-    class late_start
-    user nfc
-    group nfc
-    disabled
-    oneshot
-
-service nfctransmitstop /system/bin/sh /system/xbin/nfc_trasmit_stop.sh
-    class late_start
-    user nfc
-    group nfc
-    disabled
-    oneshot
-
-on property:nfc.transmit.start=1
-    start nfctransmitstart
-
-on property:nfc.transmit.start=0
-    stop nfctransmitstart
-
-on property:nfc.transmit.stop=1
-    start nfctransmitstop
-
-on property:nfc.transmit.stop=0
-    stop nfctransmitstop
-
-#endif /*VENDOR_EDIT*/
-
-service OPNetlinkService /vendor/bin/OPNetlinkService
-    class core
-    user system
-    group system
-    oneshot
-
-on charger
-    start OPNetlinkService
-
-#ifdef VENDOR_EDIT
-#added by wuaijun@system
-service deleteXml /system/bin/rm data/system/packages.xml
-    class core
-    disabled
-    oneshot
-    seclabel u:r:logserver:s0
-
-service oneplus.engineer-1-0 /vendor/bin/hw/vendor.oneplus.engnative.engineer@1.0-service
-    class main
-    user system
-    group system
-    interface vendor.oneplus.engnative.engineer@1.0::IEngineer default
-
-service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
-    user root
-    disabled
-    oneshot
-    seclabel u:r:qti_init_shell:s0
-
-service engineer_native /system/bin/engineer_native
-    class main
-    user root
-    group system sdcard_r sdcard_rw
-
-
-service wifisocket /system/bin/diag_socket_log -a 181.157.1.200 -p 2500 -r 10000 -c 1
-    user root
-    group root system oem_2901
-    disabled
-    oneshot
-    seclabel u:r:logserver:s0
-
-service wifisocket-mdm /system/bin/diag_socket_log -a 181.157.1.200 -p 2500 -r 10000 -c 2
-    user root
-    group root system oem_2901
-    disabled
-    oneshot
-    seclabel u:r:logserver:s0
-
-service wifisocket-stop /system/bin/diag_socket_log -k
-    user root
-    group root system oem_2901
-    disabled
-    oneshot
-    seclabel u:r:logserver:s0
-
-service wifisocket-mdm-stop /system/bin/diag_socket_log -k
-    user root
-    group root system oem_2901
-    disabled
-    oneshot
-    seclabel u:r:logserver:s0
-
-service oemsysd /vendor/bin/oem-system-daemon
-    class main
-    user root
-    group root system oem_2901
-    disabled
-    seclabel u:r:ftmdaemon:s0
-
-on property:vendor.service.wifi.socket.enable=1
-    start oemsysd
-    start wifisocket
-
-on property:vendor.service.wifi.socket.enable=0
-    stop oemsysd
-    start wifisocket-stop
-
-on property:vendor.service.wifi.socket.mdm.enable=1
-    start oemsysd
-    start wifisocket-mdm
-
-on property:vendor.service.wifi.socket.mdm.enable=0
-    stop oemsysd
-    start wifisocket-mdm-stop
-
-on property:persist.vendor.memplus.enable=*
-    start memplus_config
-
-service vl53l1_daemon_main /vendor/bin/vl53l1_daemon_main
-    class late_start
-    user system
-    group system
-    socket vl53l1_daemon stream 660 system system
-
-on post-fs
-    chown system system /proc/ship_mode
-    chown system system /proc/qti_haptic
-    chown system system /proc/qti_haptic_rf
-    chown system system /dev/param
-    chown system system /dev/block/mmcblk0p21
-    chmod 660 /dev/block/mmcblk0p21
-    chown system system /sys/class/timed_output/vibrator/vmax
-    chown system system /sys/class/timed_output/vibrator/wf_s0
-    chown system system /sys/class/timed_output/vibrator/wf_s1
-    chown system system /sys/class/timed_output/vibrator/wf_s2
-    chown system system /sys/class/timed_output/vibrator/wf_s3
-    chown system system /sys/class/timed_output/vibrator/wf_s4
-    chown system system /sys/class/timed_output/vibrator/wf_s5
-    chown system system /sys/class/timed_output/vibrator/wf_s6
-    chown system system /sys/class/timed_output/vibrator/wf_s7
-    chown system system /sys/class/timed_output/vibrator/wf_update
-    chown system system /sys/class/timed_output/vibrator/wf_rep
-    chown system system /sys/class/timed_output/vibrator/wf_s_rep
-    chown system system /sys/devices/soc/c179000.i2c/i2c-5/5-0020/tp_grip_ctrl
-    chown system log /sys/fs/pstore/console-ramoops-0
-    chmod 0440 /sys/fs/pstore/console-ramoops-0
-    chown system system /sys/class/kgsl/kgsl-3d0/min_pwrlevel
-    chown system system /sys/module/param_read_write/parameters/normal_reboot_count
-    chown system system /sys/module/param_read_write/parameters/abnormal_reboot_count
-    chown system system /sys/module/param_read_write/parameters/update_count
-    chown system system /sys/module/param_read_write/parameters/fastboot_count
-    chown system system /sys/class/power_supply/bms/set_allow_read_extern_fg_iic
-    chown system system /persist/sensors/registry/registry/tmd3725_platform.rgb.rfac_cal
-    chmod 660 /persist/sensors/registry/registry/tmd3725_platform.rgb.rfac_cal
-    chown system system /persist/sensors/registry/registry/tmd3725_platform.als.afac_cal
-    chmod 660 /persist/sensors/registry/registry/tmd3725_platform.als.afac_cal
+    chown audioserver audioserver /sys/class/leds/vibrator/register
     chown system system /sys/class/leds/vibrator/vmax_mv
     chmod 660 /sys/class/leds/vibrator/vmax_mv
     chmod 660 /sys/class/leds/vibrator/rtp
@@ -516,6 +54,7 @@ on post-fs
     chmod 644 /sys/class/leds/vibrator/haptic_osc_data
     chmod 660 /sys/class/leds/vibrator/ram_test
     chmod 644 /sys/class/leds/vibrator/ram_update
+    chmod 644 /sys/class/leds/vibrator/f0_cali_data
     chown system system /sys/class/leds/vibrator/activate
     chown system system /sys/class/leds/vibrator/brightness
     chown system system /sys/class/leds/vibrator/duration
@@ -535,276 +74,717 @@ on post-fs
     chown system system /sys/class/leds/vibrator/haptic_osc_data
     chown system system /sys/class/leds/vibrator/ram_test
     chown system system /sys/class/leds/vibrator/ram_update
-#    /* add for aging apk to set node */
-    chown system system /sys/class/power_supply/battery/is_aging_test
-
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/change_speed
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/config
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/direction
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/driver_override
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/enable
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_calibration
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_data
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_detect_switch
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_irq_count
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_reg
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/manual2auto_switch
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/modalias
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/mode
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/motor_test
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/move_state
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/position
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/speed
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/speed_change_switch
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/sw_switch
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/uevent
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_up_max
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/force_move
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/noise_test
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/slow_down_speed
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/motor_slow_down_speed
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/step_count
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/stall
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/deltad_range
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/stall_steps
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/begin_stop_detect_percent
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/factory_mode
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/infrared_shut_down_state
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/free_fall_irq_times
-    chown system system /sys/devices/platform/vendor/vendor\:motor_pl/hall_sensitive
-
+    chown system system /sys/class/leds/vibrator/f0_cali_data
+#ifdef VENDOR_EDIT
+#    /* 20200330 david shih */
+    chown system system /sys/module/proc/parameters/dbg_buf
+#endif
+    chown system system /sys/class/leds/vibrator/cali
     chown system system /sys/module/lpm_levels/parameters/sleep_disabled
-
-    chown system system /sys/class/thermal/thermal_zone61/mode
-#    /*Bob.Nill add 666 for VTS front camera*/
-    chmod 666 /sys/devices/platform/vendor/vendor\:motor_pl/direction
-    chmod 666 /sys/devices/platform/vendor/vendor\:motor_pl/enable
-
-#   quentin.lin@BSP, 2019/06/09, add for infrared power control
-    chmod 666 /sys/devices/platform/vendor/vendor\:infrared_pl/infrared_power_enable
-    chmod 666 /sys/devices/platform/vendor/vendor\:infrared_pl/infrared_shut_down_state
-    chmod 666 /sys/devices/platform/vendor/vendor\:infrared_pl/infrared_shut_down_state2
-
-    chown system system /sys/bus/platform/devices/soc/soc\:tri_state_key/hall_data_calib
     restorecon /sys/class/leds/vibrator/activate
     restorecon /sys/class/leds/vibrator/brightness
     restorecon /sys/class/leds/vibrator/duration
     restorecon /sys/class/leds/vibrator/state
-
 #change ownership and premission for awinic haptic shock with music
-    chown system audio /dev/aw8697_haptic
-    chmod 0660 /dev/aw8697_haptic
-    chown system audio /sys/class/leds/vibrator/haptic_audio
-    chmod 0660 /sys/class/leds/vibrator/haptic_audio
-    mkdir /data/awinic 0770 system audio
+    chown audioserver audioserver /dev/awinic_haptic
+    chown audioserver audioserver /sys/class/leds/vibrator/haptic_audio
+    chown audioserver audioserver /sys/class/leds/vibrator/gun_type
+    chown audioserver audioserver /sys/class/leds/vibrator/bullet_nr
+    chmod 777 /sys/class/leds/vibrator/gun_type
+    chmod 777 /sys/class/leds/vibrator/bullet_nr
+    chmod 777 /sys/class/leds/vibrator/register
+#    /* add for aging apk to set node */
+    chown system system /sys/class/power_supply/battery/is_aging_test
+    chown system system /sys/class/power_supply/battery/dump_reg
 
-#    /* create a empty file for wifi hal to write mac address */
-    write /mnt/vendor/persist/wlan_mac.bin ""
-    chown wifi wifi /mnt/vendor/persist/wlan_mac.bin
-    mkdir /mnt/vendor/persist/engineermode
-    chown system system /mnt/vendor/persist/engineermode
+#add for tri_state_key
+    chown system system /sys/bus/platform/devices/soc/soc\:tri_state_key/hall_data_calib
+    chown system system /sys/bus/platform/devices/soc/soc\:tri_state_key/hall_set_value
+
+#add for tp firmware update
+    write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-004b/tp_fw_update 0
+    write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-0048/tp_fw_update 0
+    write /sys/devices/platform/soc/984000.i2c/i2c-4/4-005d/tp_fw_update 0
+    write /sys/devices/platform/soc/984000.i2c/i2c-4/4-0048/tp_fw_update 0
+    write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-005d/tp_fw_update 0
+    write /sys/devices/platform/soc/880000.spi/spi_master/spi0/spi0.0/tp_fw_update 0
+
+#add for tp debug log & to set node gesture_enable
+    chown system system /proc/touchpanel/tp_debug_log
+    chown system system /proc/touchpanel/gesture_enable
+    chown system system /proc/touchpanel/gesture_switch
+    chown system system /proc/touchpanel/tpedge_limit_enable
+    chown system system /proc/touchpanel/tp_switch_dead_zone
+    chown system system /proc/touchpanel/tp_switch_corner_dead_l_zone
+    chown system system /proc/touchpanel/tp_switch_corner_dead_p_zone
+    chown system system /proc/touchpanel/touch_apk
+    chown system system /proc/touchpanel/get_device_temperature
+#   /* add for wireless charge */
+    chown system system /proc/wireless/enable_tx
+    chown system system /proc/wireless/enable_rx
+    chown system system /proc/wireless/epp_or_bpp
+    chown system system /proc/wireless/current_out
+    chown system system /proc/wireless/rx_voltage
+    chown system system /proc/wireless/charge_pump_en
+    chown system system /proc/wireless/deviated
+    chown system system /proc/wireless/quiet_mode
+    chown system system /proc/wireless/fast_skin_threld
+
+    chown system system /proc/enhance_dash
+
+# rayboo.lin@bsp, 2020/09/09 add for simCard holder detect
+    chmod 0666 /proc/simholder/sim_holder_detect
+    chown system system /proc/simholder/sim_holder_detect
+
+#ifdef VENDOR_EDIT
+#uma.mahesh@Imaging 2020/4/8 add for factory item
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chmod 666 /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chmod 666 /sys/class/leds/led:torch_1/brightness
+    chown system system /sys/class/leds/led:switch_0/brightness
+    chmod 666 /sys/class/leds/led:switch_0/brightness
+    chown system system /sys/class/leds/led:switch_1/brightness
+    chmod 666 /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/leds/led:switch_2/brightness
+    chmod 666 /sys/class/leds/led:switch_2/brightness
+    chown system system /sys/class/leds/led:torch_2/brightness
+    chmod 666 /sys/class/leds/led:torch_2/brightness
+    chown system system /sys/class/leds/led:switch_3/brightness
+    chmod 666 /sys/class/leds/led:switch_3/brightness
     mkdir /mnt/vendor/persist/camera 0777 system system
-    mkdir /mnt/vendor/persist/dual_camera_calibration 0777 system system
-    chmod 777 /mnt/vendor/persist/dual_camera_calibration/calibrationOutput_uw.bin
-    chmod 777 /mnt/vendor/persist/dual_camera_calibration/calibrationOutput_wt.bin
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/msm/mpss/server_check.txt
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/msm/mpss
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/msm/adsp
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/msm/slpi
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/msm
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/apq/gnss
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/apq
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/mdm
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/mdm/adsp
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/mdm/mpss
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/mdm/slpi
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/mdm/tn
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/shared
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs/shared/server_info.txt
-    chown vendor_rfs vendor_rfs /mnt/vendor/persist/rfs
+#add for laser
     chown system system /dev/stmvl53l1_ranging
     chmod 0666 /dev/stmvl53l1_ranging
     start vl53l1_daemon_main
-#endif /*VENDOR_EDIT*/
+#add for ams-tof
+    chown system system /sys/kernel/tof_control/app0/capture
+    chmod 666 /sys/kernel/tof_control/app0/capture
+    chown system system /sys/kernel/tof_control/app0/app0_get_fac_calib
+    chmod 666 /sys/kernel/tof_control/app0/app0_get_fac_calib
+    chown system system /sys/kernel/tof_control/app0/app0_get_distance
+    chmod 666 /sys/kernel/tof_control/app0/app0_get_distance
+    chown system system /sys/kernel/tof_control/app0/app0_read_peak_crosstalk
+    chmod 666 /sys/kernel/tof_control/app0/app0_read_peak_crosstalk
+    chown system system /sys/kernel/tof_control/app0/period
+    chmod 666 /sys/kernel/tof_control/app0/period
+    chown system system /sys/kernel/tof_control/app0/iterations
+    chmod 666 /sys/kernel/tof_control/app0/iterations
+    chown system system /sys/kernel/tof_control/app0/alg_setting
+    chmod 666 /sys/kernel/tof_control/app0/alg_setting
+    chown system system /sys/kernel/tof_control/app0/app0_clk_iterations
+    chmod 666 /sys/kernel/tof_control/app0/app0_clk_iterations
+    chown system system /sys/kernel/tof_control/chip_enable
+    chmod 666 /sys/kernel/tof_control/chip_enable
+    chown system system /sys/kernel/tof_control/app0/app0_clk_trim_set
+    chmod 666 /sys/kernel/tof_control/app0/app0_clk_trim_set
+    chown system system /sys/kernel/tof_control/app0/app0_apply_fac_calib
+    chmod 666 /sys/kernel/tof_control/app0/app0_apply_fac_calib
+    chown system system /sys/kernel/tof_control/driver_debug
+    chmod 666 /sys/kernel/tof_control/driver_debug
+#add for ois debug
+    chown system system /sys/kernel/ois_control/dump_registers
+    chmod 666 /sys/kernel/ois_control/dump_registers
+#endif
+
+#   Power@bsp, 2020/2/27, add for thermal
+    chown system system /dev/msm_thermal
+    chown system system /dev/skin_thermal
+    chown system system /dev/modem_skin_thermal
+    chown system system /dev/mmw0_thermal
+    chown system system /dev/mmw1_thermal
+    chown system system /dev/mmw2_thermal
+    chmod 0664 /dev/msm_thermal
+    chmod 0664 /dev/skin_thermal
+    chmod 0664 /dev/modem_skin_thermal
+    chmod 0664 /dev/mmw0_thermal
+    chmod 0664 /dev/mmw1_thermal
+    chmod 0664 /dev/mmw2_thermal
+
 #ifdef VENDOR_EDIT
-#danny.xiao@framework, 20169/02/26, modified for POOS-3698
+#if OP_FEATURE_MM_ADSP_MINIDUMP == 1
+#   zhangrun@MM, 2020/09/12, implement to collect adsp minidump
+    chmod 664 /dev/ramdump_adsp
+#endif
+
+#ifdef VENDOR_EDIT
+#   BSP add for display  2020/04/17 @Leo_BSP
+    chmod 0666 /sys/class/drm/card0-DSI-1/hbm
+    chmod 0666 /sys/class/drm/card0-DSI-1/hbm_brightness
+    chmod 0666 /sys/class/backlight/panel0-backlight/brightness
+#endif
+#	display add 2018/10/19  @lichao_display
+	chmod 0666 /sys/class/drm/card0-DSI-1/SRGB
+	chmod 0666 /sys/class/drm/card0-DSI-1/DCI_P3
+	chmod 0666 /sys/class/drm/card0-DSI-1/aod
+	chmod 0666 /sys/class/drm/card0-DSI-1/night_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/panel_serial_number
+	chmod 0666 /sys/class/drm/card0-DSI-1/oneplus_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/adaption_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/notify_fppress
+	chmod 0666 /sys/class/drm/card0-DSI-1/dim_alpha
+	chmod 0666 /sys/class/drm/card0-DSI-1/notify_dim
+	chmod 0666 /sys/class/drm/card0-DSI-1/force_screenfp
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_p3_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_wide_color_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_srgb_color_mode
+	chmod 0666 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dynamic_dsi_clock
+	chown radio radio /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dynamic_dsi_clock
+	chown radio radio /proc/force_reset
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_loading_effect_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_customer_srgb_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/native_display_customer_p3_mode
+	chmod 0666 /sys/class/drm/card0-DSI-1/dimlayer_bl_en
+	chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
+
+#   ken.lin@ASTI, 2019/6/21, add for fsc
+    chown system system /sys/module/fsc/parameters/enable
+    chmod 0664 /sys/module/fsc/parameters/enable
+
+on boot
+#ifdef VENDOR_EDIT
+    chmod 0666 /dev/goodix_fp
+    chmod 0660 /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
+    chown system system /sys/devices/platform/soc/soc:fingerprint_detect/sensor_version
+    chmod 0666 /proc/touchpanel/touch_hold
+    chown system system /proc/touchpanel/touch_hold
+    chmod 0664 sys/devices/platform/soc/soc:goodix_fp/screen_state
+    chown system system sys/devices/platform/soc/soc:goodix_fp/screen_state
+    chmod 0666 /dev/qseecom
+#endif
+    setprop ro.nfc.port "I2C"
+    chmod 0666 /dev/pn553
+    chown nfc nfc /dev/pn553
+    chmod 0666 /dev/p73
+    chown secure_element secure_element /dev/p73
+#Leo@BSP 2020/04/17 add for qsee_log tz_log
+    chmod 0666 /proc/tzdbg/qsee_log
+    chmod 0666 /proc/tzdbg/tz_log
+#Norman@Connectivity 2020/04/24 add for default country code
+    setprop ro.boot.wificountrycode 00
+
+#Brandon@Conn 2020/07/24 add for default uicc support
+    setprop persist.vendor.radio.uicc_se_enabled true
+
+#martin.li@BSP, 2019/12/03,support for EngineeringMode tool start
+   chown system system /proc/rf_cable_config
+   chown system system /proc/rf_factory_mode
+#martin.li@BSP, 2019/12/03,support for EngineeringMode tool end
+#ifdef VENDOR_EDIT
+#Set TCP MTU probing to automatic
+   write /proc/sys/net/ipv4/tcp_mtu_probing 1
+#endif /*VENDOR_EDIT*/
+
+#ifdef VENDOR_EDIT
+#tempest.chen@BSP 2020/12/07 add for light sensor and ultrasound proximity
+    chmod 666 /dev/input/event1
+    chmod 666 /dev/input/event2
+    chmod 666 /dev/input/event8
+    chmod 666 /dev/input/event10
+#endif /*VENDOR_EDIT*/
+
+on init
+    setprop vendor.boot.verifiedbootstate ${ro.boot.verifiedbootstate}
+    setprop vendor.boot.hw_version ${ro.boot.hw_version}
+
+    #@bsp, 2019/08/22 Add dash charging
+    chown system system /dev/dash
+    chmod 0664 /dev/dash
+    #restorecon /dev/dash
+    chown system system /dev/wlchg
+    chmod 0664 /dev/wlchg
+    #restorecon /dev/wlchg
+
+on post-fs
+#ifdef VENDOR_EDIT
+#oscar.wei@SYSTEM, 2019/10/02, [AN-604] opdiagnose porting, create folder and binary file.
     mkdir /mnt/vendor/persist/OPDiagnose 0770 system system
     chmod 660 /mnt/vendor/persist/OPDiagnose/opdiagnosedata
     chown system system /mnt/vendor/persist/OPDiagnose/opdiagnosedata
 #endif
-    chmod 0666 /sys/module/qpnp_smb5/parameters/usb_connector_temp
+    chmod 0664 /sys/module/qpnp_smb5/parameters/usb_connector_temp
     chown system system /sys/module/qpnp_smb5/parameters/usb_connector_temp
-    chmod 0666 /sys/module/qpnp_smb5/parameters/disable_connector_protect
+    chmod 0664 /sys/module/qpnp_smb5/parameters/disable_connector_protect
     chown system system /sys/module/qpnp_smb5/parameters/disable_connector_protect
-    chmod 0666 /sys/module/qpnp_smb5/parameters/usb_interval_temp
+    chmod 0664 /sys/module/qpnp_smb5/parameters/usb_interval_temp
     chown system system /sys/module/qpnp_smb5/parameters/usb_interval_temp
-    chmod 0666 /sys/module/qpnp_smb5/parameters/call_on
-    chown system system /sys/module/qpnp_smb5/parameters/call_on
+    chmod 0664 /sys/module/qpnp_smb5/parameters/call_on
+    chown radio radio /sys/module/qpnp_smb5/parameters/call_on
+    chmod 0666 /sys/module/qpnp_smb5/parameters/video_call_on
+    chown system system /sys/module/qpnp_smb5/parameters/video_call_on
+    chown system system /proc/skin_temp_thrd/fastchg_thd
+    chown system system /proc/skin_temp_thrd/fastchg_lcdoff_thd
+    chown system system /proc/skin_temp_thrd/norchg_thd
+    chown system system /proc/skin_temp_thrd/norchg_lcdoff_thd
+#ifdef VENDOR_EDIT
+#brandon.zeng@Conn,2020/05/08. add for nfc pnscr tool
+    chown system system /vendor/bin/nfc_trasmit_start.sh
+    chmod 0777  /vendor/bin/nfc_trasmit_start.sh
+    chown system system /vendor/bin/nfc_trasmit_stop.sh
+    chmod 0777  /vendor/bin/nfc_trasmit_stop.sh
+    chown system system vendor/bin/pnscr
+    chmod 0777  vendor/bin/pnscr
+#endif
 
 #ifdef VENDOR_EDIT
-#niejianan@oneplus.framework , 2015/04/25, add for mmi charging test
-on property:sys.fastcharger=true
-    write /sys/class/power_supply/battery/charging_enabled 1
+#   /* create a empty file for wifi hal to write mac address */
+    mkdir /mnt/vendor/persist/qca6390 0770 wifi wifi
+    write /mnt/vendor/persist/qca6390/wlan_mac.bin ""
+    chown wifi wifi /mnt/vendor/persist/qca6390/wlan_mac.bin
+    copy /vendor/etc/wifi/qca6390/WCNSS_qcom_cfg.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+    chown wifi wifi /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+#   /*create a empty file for wifi single point calibration*/
+    mkdir /mnt/vendor/persist/copy 0770 wifi wifi
+#   /* create a empty file for wifi hal to write qca6490 mac address */
+    write /mnt/vendor/persist/wlan_mac.bin ""
+    chown wifi wifi /mnt/vendor/persist/wlan_mac.bin
+#   /* Implement the function of forced Chain0/1 insmod WCNSS_qcom_cfg.ini */
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+    chown wifi wifi /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+#endif
 
-on property:sys.fastcharger=false
-    write /sys/class/power_supply/battery/charging_enabled 0
+#ifdef VENDOR_EDIT
+#henry.cao@system, add for engineermode
+    mkdir /mnt/vendor/persist/engineermode  0777 system system
+#endif
+    chown system system /proc/ship_mode
+    chown system system /dev/param
+
+#ifdef VENDOR_EDIT
+#create path for NV items
+
+#ifdef VENDOR_EDIT
+#ken.chenxm@SYSTEM, 2019/10/10, add for [OSP-3172] charging optimizated
+    chown system system /sys/class/power_supply/battery/op_disable_charge
+    chmod 660 /sys/class/power_supply/battery/op_disable_charge
+    chown system system /sys/class/power_supply/bms/battery_h
+    chmod 660 /sys/class/power_supply/bms/battery_h
+#endif
+#ifdef VENDOR_EDIT
+#randle.liu@optimization, 2020/04/24, [OSP-6116] avoid waking up when wireless charging disconnects
+    chown system system /sys/class/power_supply/wireless/icon_delay
+    chmod 660 /sys/class/power_supply/wireless/icon_delay
+#endif
+#jay.fa@OPTI, 2020/08/12, add for [OPTI-42] hypnus
+    chown root system /sys/class/thermal/cooling_device0/cur_state
+    chown root system /sys/class/thermal/cooling_device1/cur_state
+    chown root system /sys/class/thermal/cooling_device2/cur_state
+    chown root system /sys/class/kgsl/kgsl-3d0/max_pwrlevel
+    chown root system /sys/class/kgsl/kgsl-3d0/min_pwrlevel
+    chown root system /sys/class/thermal/cooling_device14/cur_state
+    chmod 660 /sys/class/thermal/cooling_device0/cur_state
+    chmod 660 /sys/class/thermal/cooling_device1/cur_state
+    chmod 660 /sys/class/thermal/cooling_device2/cur_state
+    chmod 660 /sys/class/kgsl/kgsl-3d0/max_pwrlevel
+    chmod 660 /sys/class/kgsl/kgsl-3d0/min_pwrlevel
+    chmod 660 /sys/class/thermal/cooling_device14/cur_state
+
+on post-fs-data
+    mkdir /data/vendor/oemnvitems 0771 radio radio
+    #brandon.zeng@Conn,2020/08/11. move data path to post-fs-data
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    # Ted.Lin@ASTI 2019/06/12 add for CONFIG_HOUSTON
+    chown system system /sys/module/houston/parameters/fps_boost
+    chown system system /sys/module/houston/parameters/fps_data_sync
+    chown system system /sys/module/houston/parameters/perf_ready
+    chown system system /sys/module/houston/parameters/ais_enable
+    chown system system /sys/module/houston/parameters/sample_rate_ms
+    chown system system /sys/module/houston/parameters/ht_enable
+    chown system system /sys/module/houston/parameters/fps_boost_enable
+    chown system system /sys/module/houston/parameters/fps_boost_strategy
+    chown system system /sys/module/houston/parameters/tb_ctl
+    chown system system /sys/module/houston/parameters/tb_enable
+    chown system system /sys/module/houston/parameters/reset
+    chown system system /sys/module/houston/parameters/hwui_boost_enable
+    chown system system /sys/module/houston/parameters/fuse_boost
+    chown system system /dev/ht_ctl
+    chown system system /sys/module/pccore/parameters/params
+    chown system system /sys/module/tpd/parameters/tpd_enable
+    chown system system /sys/module/tpd/parameters/tpd_cmds
+    chown system system /sys/module/tpd/parameters/tpd_id
+    chown system system /sys/module/tpd/parameters/tpd_dynamic
+    chown system system /sys/module/fuse/parameters/shortcircuit
+    chown system system /sys/module/fuse/parameters/sct_mode
+    # Jacky.Ho@OPTI 2020/09/23 add for [OSP-8617]
+    chown system system /sys/module/houston/parameters/game_fps_pid
+    chown system system /sys/module/houston/parameters/game_info
+    # fps stabilizer
+    chown system system /sys/module/houston/parameters/efps_max
+    chown system system /sys/module/houston/parameters/fps_boost_strategy
+    chown system system /sys/module/houston/parameters/egl_buf
+    chown system system /sys/module/houston/parameters/ht_online_config_update
+    # Jacky.Ho@OPTI 2020/09/30 add for [OPTI-85]
+    chown system system /sys/module/tpp/parameters/tpp_on
+    chown system system /sys/module/tpp/parameters/strategy
+
+# Ted.Lin@ASTI 2019/06/12 add for CONFIG_CONTROL_CENTER
+    chown system system /dev/cc_ctl
+    chown system system /proc/cc_ctl
+
 #endif /* VENDOR_EDIT */
 
+# rock.lin@OPTI 2020/06/11 add for CONFIG_RATP
+    chown system system /sys/module/ratp/parameters/ratp_enable
+
 #ifdef VENDOR_EDIT
-#kenshen@framework, 2017/09/18, align AOSP other OEMs
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
-    class main
+# TomCheng@Core ,2020/06/22, HDCP provision key feature
+    mkdir /mnt/vendor/persist/hdcp/media_dump 0770 mediaex mediadrm
+    mkdir /mnt/vendor/persist/hdcp  775 media mediadrm
+    restorecon /mnt/vendor/persist/hdcp
+#endif
+
+# ifdef VENDOR_EDIT
+# denzel.chen@performance, 2020/05/12, add for OPBRITN-3462
+    chmod 664 /sys/module/memplus_core/parameters/memory_plus_wake_memex
+    chown system system /sys/module/memplus_core/parameters/memory_plus_wake_memex
+# endif
+
+    # neil.sun@Connectivity, 2020/08/12, add for wifi minidump
+    mkdir /data/vendor/ramdump/wifi 0770 system system
+
+#if OP_FEATURE_MM_ADSP_MINIDUMP == 1
+# zhangrun@MM, 2020/09/12, implement to collect adsp minidump
+    mkdir /data/vendor/ramdump/adsp 0770 system system
+# endif
+
+#ifdef VENDOR_EDIT online ISP tuning
+    mkdir /data/vendor/camera_update 0777 camera camera
+    write /data/vendor/camera_update/reservetuningbin0 ""
+    write /data/vendor/camera_update/reservetuningbin1 ""
+    write /data/vendor/camera_update/reservetuningbin2 ""
+    write /data/vendor/camera_update/reservetuningbin3 ""
+    write /data/vendor/camera_update/reservetuningbin4 ""
+    write /data/vendor/camera_update/reservetuningbin5 ""
+    write /data/vendor/camera_update/reservetuningbin6 ""
+
+    chmod 0666 /data/vendor/camera_update/reservetuningbin0
+    chmod 0666 /data/vendor/camera_update/reservetuningbin1
+    chmod 0666 /data/vendor/camera_update/reservetuningbin2
+    chmod 0666 /data/vendor/camera_update/reservetuningbin3
+    chmod 0666 /data/vendor/camera_update/reservetuningbin4
+    chmod 0666 /data/vendor/camera_update/reservetuningbin5
+    chmod 0666 /data/vendor/camera_update/reservetuningbin6
+#endif
+
+# add for SMT test enters WLAN FTM test in non-signaling
+service wififtmserver /vendor/bin/sh vendor/bin/wifi_ftm
+    class late_start
+    user root
+    group root
     disabled
     oneshot
-#endif
 
-#ifdef VENDOR_EDIT
-#lifei@oneplus.media, 2016/02/14,  add service for CTS and engineer app
-service oem_audio_device /system/bin/chcon u:object_r:oem_audio_device:s0 /dev/snd
-    class late_start
-    oneshot
-#endif
+on property:vendor.wlan.ftm.up=1
+    start wififtmserver
 
-#ifdef VENDOR_EDIT
-#davidliu@bsp 2017/04/14 Add OTG switch
-on property:persist.sys.oem.otg_support=true
-    write /sys/class/power_supply/usb/otg_switch 1
-on property:persist.sys.oem.otg_support=false
-    write /sys/class/power_supply/usb/otg_switch 0
-
-on property:sys.boot_completed=1
-    write /sys/module/smb_lib/parameters/sys_boot_complete 1
-#joseph.huang@oneplus.com, 20180424, add for OnePlusPerfManager
-    chown system system /sys/module/lpm_levels/parameters/cluster_prediction
-    chmod 0666 /sys/module/lpm_levels/parameters/cluster_prediction
-#endif
-
-#william.su add for ulsound
-        restorecon /sys/elliptic/engine/calibration_v2
-
-#ifdef VENDOR_EDIT
-#xiaoxiaohuan@OnePlus.MultiMediaService,2016/09/05
-#Add smartadjust daemon to control BATTERY,BALANCED and PERFORMANCE modes.
-service smartadjust /system/bin/smartadjust
-    class core
-    critical
-    socket smartadjust seqpacket 0660 system system
-    seclabel u:r:smartadjust:s0
-#endif/*VENDOR_EDIT*/
-
-#ifdef VENDOR_EDIT
-# liuyan 2016/7/22, add ifaadaemon
-service ifaadaemon /vendor/bin/ifaadaemon
-class late_start
-user system
-group system
-#endif
-
-#ifdef VENDOR_EDIT
-service remosaic_deamon /vendor/bin/remosaic_daemon
-    class late_start
-    user camera
-#endif
-
-#ifdef VENDOR_EDIT
-service filebuilderd /system/bin/filebuilderd
-    class core
+on property:persist.vendor.oem.wifi.chain=1
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_setchain.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_setchain.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+    start service_setChain
+on property:persist.vendor.oem.wifi.chain=2
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_setchain.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_setchain.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+    start service_setChain
+on property:persist.vendor.oem.wifi.chain=0
+    copy /vendor/etc/wifi/qca6390/WCNSS_qcom_cfg.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+    start service_setChain
+on property:persist.vendor.oem.wifi.chain=3
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_roam.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
+    copy /vendor/etc/wifi/WCNSS_qcom_cfg_roam.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini
+service service_setChain  /vendor/bin/sh /vendor/bin/wifi_setChain ${persist.vendor.oem.wifi.chain}
+    class main
     user root
     group root system
     disabled
     oneshot
-    seclabel u:r:vold:s0
+
+on property:persist.vendor.oem.wifi.txenable=1
+    start service_wifi_txEnable
+
+service service_wifi_txEnable  /vendor/bin/sh /vendor/bin/wifi_txEnable
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on init
+    mkdir /dev/op_cgroup 0750 root system
+    mount tmpfs none /dev/op_cgroup mode=0750,uid=0,gid=1000
+    mkdir /dev/op_cgroup/freezer 0750 root system
+    mount cgroup none /dev/op_cgroup/freezer  freezer
+    chmod 777 /dev/op_cgroup/freezer
+#ifdef VENDOR_EDIT
+    setprop persist.vendor.mdm_helper.fail_action cold_reset,s3_reset,panic
 #endif
 
+# alex.huang@Connectivity, 2020/04/29, Porting *#8019# function
 #ifdef VENDOR_EDIT
-service tcpdump-service /vendor/bin/tcpdump -i any -p -s 0 -w /sdcard/oem_log/tcpdump.pcap
+service wifisocket-mdm /system_ext/bin/diag_system_socket_log -a 181.157.1.200 -p 2500 -r 10000 -c 2
     user root
+    group root system oem_2901
     disabled
     oneshot
     seclabel u:r:logserver:s0
 
-on property:net.tcpdump.enable=true
-    start tcpdump-service
+service wifisocket-mdm-stop /system_ext/bin/diag_system_socket_log -k
+    user root
+    group root system oem_2901
+    disabled
+    oneshot
+    seclabel u:r:logserver:s0
 
-on property:net.tcpdump.enable=false
-    stop tcpdump-service
+service oemsysd /vendor/bin/oem-system-daemon
+    class main
+    user root
+    group root system oem_2901
+    disabled
+    seclabel u:r:ftmdaemon:s0
+
+on property:vendor.service.wifi.socket.mdm.enable=1
+    start oemsysd
+    start wifisocket-mdm
+
+on property:vendor.service.wifi.socket.mdm.enable=0
+    stop oemsysd
+    start wifisocket-mdm-stop
+
+service wifisocket /vendor/bin/diag_socket_log -a 181.157.1.200 -p 2500 -r 10000 -c 1
+    user root
+    group root system oem_2901
+    disabled
+    oneshot
+
+service wifisocket-stop /vendor/bin/diag_socket_log -k
+    user root
+    group root system oem_2901
+    disabled
+    oneshot
+
+on property:vendor.service.wifi.socket.enable=1
+    start oemsysd
+
+on property:vendor.service.wifi.socket.enable=0
+    stop oemsysd
+
+service wifisocket-lahaina /vendor/bin/diag_socket_log -a 181.157.1.200 -p 2500 -r 10000 -c 1
+    user root
+    group root system oem_2901
+    disabled
+    oneshot
+
+service wifisocket-lahaina-stop /vendor/bin/diag_socket_log -k
+    user root
+    group root system oem_2901
+    disabled
+    oneshot
+
+on property:vendor.service.wifi.socket.lahaina.enable=0
+    stop oemsysd
+
+on property:vendor.service.wifi.socket.lahaina.enable=1
+    start oemsysd
+
+#endif
+
+service ftmdaemon /system/vendor/bin/ftmdaemon -n
+    class late_start
+    user root
+    group wifi root system oem_2901
+    disabled
+    oneshot
+    seclabel u:r:ftmdaemon:s0
+
+service wifi_ftm_up /vendor/bin/sh /vendor/bin/wifi_ftm_up
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+
+service reload_wlan_driver /vendor/bin/sh /vendor/bin/reload_wlan_driver
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+#ifdef VENDOR_EDIT
+#yuquan.fei@Connectivity, 2020/05/06, porting wlan logs functions
+service stop_pktlog /system/vendor/bin/stoppktlog
+    class main
+    user system
+    group system wifi inet net_admin sdcard_rw media_rw diag
+    disabled
+    oneshot
+#endif
+
+# denzel.chen@performance, 2020/05/12, add for OPBRITN-3462
+# system server cannot write to /proc/sys files,
+# and chown/chmod does not work for /proc/sys/ entries.
+# So proxy writes through init.
+on property:sys.sysctl.watermark_boost_factor=*
+    write /proc/sys/vm/watermark_boost_factor ${sys.sysctl.watermark_boost_factor}
+
+#ifdef VENDOR_EDIT
+on property:vendor.wlan.ftm.daemon=on
+    start wifi_ftm_up
+    start ftmdaemon
+
+on property:vendor.wlan.ftm.daemon=off
+    stop ftmdaemon
+    start reload_wlan_driver
+
+on property:vendor.wlan.write.con_mode=*
+   write /sys/module/wlan/parameters/con_mode ${vendor.wlan.write.con_mode}
+
+#ifdef VENDOR_EDIT
+#binson.xu@oneplus.com, 2019/02/17, add for write alikey
+service mvalikey /system/bin/cp -rp /sdcard/.lii   /mnt/vendor/op2/
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:vold:s0
+
+service rmalikey /system/bin/rm -r /mnt/vendor/op2/.lii
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:vold:s0
+
+service chownalikey /system/bin/chown -R system.system  /mnt/vendor/op2/.lii
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:vold:s0
+
+#len.nie@bsp, 2020/11/04. add for dump fingerprint data
+on property:gf.debug.dump_path=*
+    mkdir /sdcard/Android/data/gf_file 0755 system ext_data_rw
+
+#endif
+
+# ken.lin@ASTI, 2019/6/21, add for memplus
+service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
+    user root
+    disabled
+    oneshot
+    seclabel u:r:vendor_qti_init_shell:s0
+
+on property:persist.vendor.memplus.enable=*
+    start memplus_config
+
+on property:persist.sys.memplus.swappiness=*
+    write /proc/sys/vm/swappiness ${persist.sys.memplus.swappiness}
+on property:persist.sys.memplus.direct_swappiness=*
+    write /proc/sys/vm/direct_swappiness ${persist.sys.memplus.direct_swappiness}
+
+#ifdef VENDOR_EDIT
+#brandon.zeng@Conn,2020/05/08. add for nfc pnscr tool
+service nfctransmitstart /vendor/bin/sh /vendor/bin/nfc_trasmit_start.sh
+    class late_start
+    user nfc
+    group nfc
+    disabled
+    oneshot
+
+service nfctransmitstop /vendor/bin/sh /vendor/bin/nfc_trasmit_stop.sh
+    class late_start
+    user nfc
+    group nfc
+    disabled
+    oneshot
+
+on property:vendor.nfc.transmit.start=1
+    start nfctransmitstart
+
+on property:vendor.nfc.transmit.start=0
+    stop nfctransmitstart
+
+on property:vendor.nfc.transmit.stop=1
+    start nfctransmitstop
+
+on property:vendor.nfc.transmit.stop=0
+    stop nfctransmitstop
 #endif
 
 #ifdef VENDOR_EDIT
-#[O][PREF-185] liuyaxin, 20180104, add for game mode Network boost
-    chown root system /system/xbin/gamemode_networkboost_disable.sh
-    chmod 0777  /system/xbin/gamemode_networkboost_disable.sh
-    chown root system /system/xbin/gamemode_networkboost_init.sh
-    chmod 0777  /system/xbin/gamemode_networkboost_init.sh
-    chown root system /system/xbin/gamemode_networkboost_enable.sh
-    chmod 0777  /system/xbin/gamemode_networkboost_enable.sh
+on property:sys.usb.config=diag,adb && property:sys.usb.configfs=1
+    start wifitestdiag
 
-service networkboost_disable /system/xbin/gamemode_networkboost_disable.sh
+service wifitestdiag /vendor/bin/wifi_diag
+    class main
     user root
-    group root
+    group root system oem_2901
     disabled
-    oneshot
-
-service networkboost_init /system/xbin/gamemode_networkboost_init.sh
-    user root
-    group root
-    disabled
-    oneshot
-
-service networkboost_enable /system/xbin/gamemode_networkboost_enable.sh
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:persist.sys.gamemode.wifiboost=0
-    start networkboost_disable
-
-on property:persist.sys.gamemode.wifiboost=1
-    start networkboost_init
-
-on property:persist.sys.gamemode.wifiboost=2
-    start networkboost_enable
+    seclabel u:r:ftmdaemon:s0
 #endif
 
 #ifdef VENDOR_EDIT
-#huangyu@oneplus.framework, 2017/12/15, add opdiagnose service
-service opdiagnose /system/bin/OPDiagnoseservice
+service vl53l1_daemon_main /vendor/bin/vl53l1_daemon_main
+    class late_start
+    user system
+    group system
+    socket vl53l1_daemon stream 660 system system
+#endif
+
+#oscar.wei@SYSTEM, 2019/10/02, [AN-604] opdiagnose porting : create opdiagnose service
+service opdiagnose /system_ext/bin/OPDiagnoseservice
     class core
     user root
     group system
+
+service opdiagdatacopy /system_ext/bin/OPDiagdataCopy
+    class core
+    user root
+    group system everybody
+    oneshot
+    disabled
+
+on property:vendor.copy.opdiagnose.data=1
+    start opdiagdatacopy
+
+service copy_qxdm_log /system_ext/bin/OPDiagdataCopy -q ${copy.qxdm.log}
+    class core
+    user root
+    group system everybody
+    oneshot
+    disabled
 #endif
 
 #ifdef VENDOR_EDIT
-#joseph.huang@oneplus.com, 2018/06/01, add for oiface
-service oiface /system/bin/oiface
-    class core
-    user system
-    group system readproc
-    capabilities SYS_NICE
-    disabled
-
-on property:sys.boot_completed=1 && property:persist.sys.oiface.enable=0
-    stop oiface
-
-on property:sys.boot_completed=1 && property:persist.sys.oiface.enable=1
-    start oiface
-
-on property:sys.boot_completed=1 && property:persist.sys.oiface.enable=2
-    start oiface
+#kim@bsp 2019/10/25 add to fix apsd wrong issue when boot with dash connected
+on property:sys.boot_completed=1
+    write /sys/module/smb5_lib/parameters/sys_boot_complete 1
+#@bsp Add OTG switch
+on property:persist.sys.oem.otg_support=true
+    write /sys/class/power_supply/usb/otg_switch 1
+on property:persist.sys.oem.otg_support=false
+    write /sys/class/power_supply/usb/otg_switch 0
 #endif
+
+on property:vendor.sys.op.game=1
+    write  /proc/sys/kernel/sched_skip_affinity 1
+
+on property:vendor.sys.op.game=0
+    write  /proc/sys/kernel/sched_skip_affinity 0
 
 #ifdef VENDOR_EDIT
 on property:vendor.wlan.sniffer.enabled=1
     start launch_sniffer
+    setprop vendor.wlan.sniffer.status 1
 
 on property:vendor.wlan.sniffer.enabled=0
     stop launch_sniffer
     start terminate_sniffer
 
-service launch_sniffer /vendor/bin/sh /vendor/bin/launch_sniffer.sh
+service launch_sniffer /vendor/bin/sh /vendor/bin/launch_sniffer.sh ${vendor.wlan.sniffer.iface} ${vendor.wlan.sniffer.channel} ${vendor.wlan.sniffer.bandwidth}
     class main
     user root
     group root
@@ -818,94 +798,10 @@ service terminate_sniffer /vendor/bin/sh /vendor/bin/terminate_sniffer.sh
     disabled
     oneshot
 #endif
+
 #ifdef VENDOR_EDIT
-#danny.xiao@framework, 2019/01/07, add for copy opdiagnose data to sdcard
-service OPDiagdataCopy /system/bin/OPDiagdataCopy
-    class core
-    user root
-    group system
-    oneshot
-    disabled
-
-on property:vendor.copy.opdiagnose.data=1
-    start OPDiagdataCopy
-#endif
-
-# ifdef VENDOR_EDIT
-# narci.gu@SYSTEM, 2018/7/23, [AN-709] Add for keymaster key
-service KmInstallKeybox18821 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7Pro_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64/hw
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox18831 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OP7ProTMO_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64/hw
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox18827 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OP7ProNR_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox18857 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox18865 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7T_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox19801 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7TPro_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox19863 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7TTMO_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service KmInstallKeybox19861 /vendor/bin/KmInstallKeybox /op2/.lii/keyboxes_ciphered.xml OnePlus7TProNR_Key_Attest_00 true
-    class core
-    setenv LD_LIBRARY_PATH /vendor/lib64
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:keybox_oem:s0
-
-service keyboxxml /system/bin/mv /sdcard/.lii /op2/
+# TomCheng@Core ,2020/06/22, HDCP provision key feature
+service mvhdcpkey /system/bin/mv /sdcard/hdcpkey /mnt/vendor/op2/hdcpkey
     class core
     user root
     group root
@@ -913,16 +809,7 @@ service keyboxxml /system/bin/mv /sdcard/.lii /op2/
     oneshot
     seclabel u:r:vold:s0
 
-service rmkeyboxxml /system/bin/rm -rf /op2/.lii
-    class core
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:vold:s0
-# endif
-#ifdef VENDOR_EDIT
-service mvhdcpkey /system/bin/mv /sdcard/hdcpkey /op2/hdcpkey
+service rmhdcpkey /system/bin/rm /mnt/vendor/op2/hdcpkey
     class core
     user root
     group root
@@ -930,17 +817,7 @@ service mvhdcpkey /system/bin/mv /sdcard/hdcpkey /op2/hdcpkey
     oneshot
     seclabel u:r:vold:s0
 
-service rmhdcpkey /system/bin/rm /op2/hdcpkey
-    class core
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:vold:s0
-#endif
-#ifdef VENDOR_EDIT
-#binson.xu@oneplus.com, 2019/02/17, add for write alikey
-service mvalikey /system/bin/cp -r /sdcard/.lii   /op2/
+service chmodhdcpkey /system/bin/chmod 777 /mnt/vendor/op2/hdcpkey
     class core
     user root
     group root
@@ -948,17 +825,7 @@ service mvalikey /system/bin/cp -r /sdcard/.lii   /op2/
     oneshot
     seclabel u:r:vold:s0
 
-service rmalikey /system/bin/rm -r /op2/.lii
-    class core
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:vold:s0
-#endif
-#ifdef VENDOR_EDIT
-#tom.cheng@oneplus.com, 2019/03/20, add DisplayPort HDCP service
-service dphdcp2p2prov /vendor/bin/hdcp2p2prov /op2/dphdcp2key /op2/DPS_hdcp2
+service dphdcp2p2prov /vendor/bin/hdcp2p2prov /mnt/vendor/op2/dphdcp2key /mnt/vendor/op2/DPS_hdcp2
     class core
     setenv LD_LIBRARY_PATH /vendor/lib64
     user root
@@ -976,7 +843,7 @@ service verifydphdcp2p2prov /vendor/bin/hdcp2p2prov -verify
     oneshot
     seclabel u:r:vendor_init:s0
 
-service mvdphdcp2key /system/bin/mv /sdcard/dphdcp2key /op2/dphdcp2key
+service mvdphdcp2key /system/bin/mv /sdcard/dphdcp2key /mnt/vendor/op2/dphdcp2key
     class core
     user root
     group root
@@ -984,7 +851,7 @@ service mvdphdcp2key /system/bin/mv /sdcard/dphdcp2key /op2/dphdcp2key
     oneshot
     seclabel u:r:vold:s0
 
-service rmdphdcp2key /system/bin/rm /op2/dphdcp2key
+service rmdphdcp2key /system/bin/rm /mnt/vendor/op2/dphdcp2key
     class core
     user root
     group root
@@ -992,7 +859,7 @@ service rmdphdcp2key /system/bin/rm /op2/dphdcp2key
     oneshot
     seclabel u:r:vold:s0
 
-service mvdpshdcp2 /system/bin/mv /sdcard/DPS_hdcp2 /op2/DPS_hdcp2
+service mvdpshdcp2 /system/bin/mv /sdcard/DPS_hdcp2 /mnt/vendor/op2/DPS_hdcp2
     class core
     user root
     group root
@@ -1000,7 +867,7 @@ service mvdpshdcp2 /system/bin/mv /sdcard/DPS_hdcp2 /op2/DPS_hdcp2
     oneshot
     seclabel u:r:vold:s0
 
-service rmdpshdcp2 /system/bin/rm /op2/DPS_hdcp2
+service rmdpshdcp2 /system/bin/rm /mnt/vendor/op2/DPS_hdcp2
     class core
     user root
     group root
@@ -1009,134 +876,152 @@ service rmdpshdcp2 /system/bin/rm /op2/DPS_hdcp2
     seclabel u:r:vold:s0
 #endif
 
-#ifdef VENDOR_EDIT
-#bingham.fang@Connectivity, 2019/05/07, porting wlan logs functions
-service stop_pktlog /system/vendor/bin/stoppktlog
-    class main
+on property:vendor.sys.op.disable_ufstw=1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/tw_enable 0
+
+on property:vendor.sys.op.disable_ufstw=0
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/tw_enable 1
+
+service filebuilderd /system_ext/bin/filebuilderd
+    class core
+    user root
+    group root system
+    disabled
+    oneshot
+    seclabel u:r:vold:s0
+
+on property:sys.boot_completed=1 && property:persist.sys.ufs_hpb_disable=1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufshpb_lu0/release 171
+
+on property:sys.boot_completed=1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/tw_enable 1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_enable 1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_during_hibern_enter 1
+
+# ifdef VENDOR_EDIT
+# narci.gu@SYSTEM, 2018/7/23, [AN-709] Add for keymaster key
+service KmInstallKeybox19805 /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus8T_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
     user system
-    group system wifi inet net_admin sdcard_rw media_rw diag
+    group root
     disabled
     oneshot
-#endif
-on property:sys.usb.config=diag,adb && property:sys.usb.configfs=1
-    start wifitestdiag
+    seclabel u:r:keybox_oem:s0
 
-service wifitestdiag /vendor/bin/wifi_diag
-    class main
-    user root
-    group root system oem_2901
+service KmInstallKeybox20809 /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus8TTMO_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    seclabel u:r:ftmdaemon:s0
-
-on property:persist.vendor.oem.dump=1 && property:persist.vendor.oem.ssrdump=0
-    write /sys/module/msm_poweroff/parameters/download_mode 1
-    write /sys/kernel/dload/dload_mode full
-    write /sys/kernel/dload/emmc_dload 0
-    write /proc/otrace_on 7978
-    write /proc/sys/kernel/printk "4 6 1 7"
-
-on property:persist.vendor.oem.dump=0 && property:persist.vendor.oem.ssrdump=0
-    write /sys/module/msm_poweroff/parameters/download_mode 1
-    write /sys/kernel/dload/dload_mode mini
-    write /sys/kernel/dload/emmc_dload 1
-    write /proc/otrace_on 0
-    write /proc/sys/kernel/printk "1 6 1 7"
-
-on property:persist.vendor.oem.dump=0 && property:persist.vendor.oem.ssrdump=1
-    write /sys/module/msm_poweroff/parameters/download_mode 1
-    write /sys/kernel/dload/dload_mode full
-    write /sys/kernel/dload/emmc_dload 0
-    write /proc/otrace_on 7978
-    write /proc/sys/kernel/printk "4 6 1 7"
-
-# lynn.guo@Multimedia, 2019/07/01, Add for automatic brightness log
-on property:persist.vendor.brightness.debug=1
-    start enable_auto_brightness_log
-
-on property:persist.vendor.brightness.debug=0
-    start disable_auto_brightness_log
-
-service enable_auto_brightness_log /system/bin/auto_brightness_log.sh enable
-    disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service disable_auto_brightness_log /system/bin/auto_brightness_log.sh disable
+# ifdef VENDOR_EDIT
+# yanamadala.ragini@SYSTEM, 2018/7/23, [AVICII-2558] Add for keymaster key
+service KmInstallKeybox20801 /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml Nord_Key_Attest_00 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
+# endif
 
-# simon.miao@Multimedia, 2019/07/13, Add for gamut mapping
-on property:vendor.sys.color.mode=0
-    start notify_srgb_color_mode
-
-on property:vendor.sys.color.mode=1
-    start notify_p3_color_mode
-
-on property:vendor.sys.color.mode=2
-    start notify_hdr_color_mode
-
-on property:vendor.sys.color.mode=3
-    start notify_native_color_mode
-
-on property:vendor.sys.hardware.decoding=1
-    start notify_video_state_on
-
-on property:vendor.sys.hardware.decoding=0
-    start notify_video_state_off
-
-on property:vendor.sys.blacklist.layer=0
-    start notify_blacklist_layer_off
-
-on property:vendor.sys.blacklist.layer=1
-    start notify_blacklist_layer_on
-
-service notify_srgb_color_mode /system/bin/notify_color_mode.sh srgb
+# v-huanouyang@SYSTEM, 2020/10/22 [TFS-20170] Update Google key box for check on Lemonadev
+service KmInstallKeyboxLemonadev /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus9VZW_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service notify_p3_color_mode /system/bin/notify_color_mode.sh p3
+# v-huanouyang@SYSTEM, 2020/10/22 [TFS-20170] Update Google key box for check on Lemonadet
+service KmInstallKeyboxLemonadet /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus9TMO_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service notify_hdr_color_mode /system/bin/notify_color_mode.sh hdr
+# v-huanouyang@SYSTEM, 2020/10/22 [TFS-20170] Update Google key box for check on Lemonade
+service KmInstallKeyboxLemonade /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus9_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service notify_native_color_mode /system/bin/notify_color_mode.sh native
+# v-huanouyang@SYSTEM, 2020/10/22 [TFS-20170] Update Google key box for check on Lemonadep
+service KmInstallKeyboxLemonadep /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus9Pro_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service notify_video_state_on /system/bin/notify_color_mode.sh play
+# v-huanouyang@SYSTEM, 2020/10/22 [TFS-20170] Update Google key box for check on Lemonadept
+service KmInstallKeyboxLemonadept /vendor/bin/KmInstallKeybox /mnt/vendor/op2/.lii/keyboxes_ciphered.xml OnePlus9ProTMO_Key_Attest_0 true
+    class core
+    setenv LD_LIBRARY_PATH /vendor/lib64/hw
+    user system
+    group root
     disabled
-    user root
-    group root system
     oneshot
+    seclabel u:r:keybox_oem:s0
 
-service notify_video_state_off /system/bin/notify_color_mode.sh stop
-    disabled
+service keyboxxml /system/bin/mv /sdcard/.lii /mnt/vendor/op2/
+    class core
     user root
-    group root system
+    group root
+    disabled
     oneshot
+    seclabel u:r:vold:s0
 
-service notify_blacklist_layer_off /system/bin/notify_color_mode.sh allow_video_mode
-    disabled
+service rmkeyboxxml /system/bin/rm -rf /mnt/vendor/op2/.lii
+    class core
     user root
-    group root system
+    group root
+    disabled
     oneshot
+    seclabel u:r:vold:s0
 
-service notify_blacklist_layer_on /system/bin/notify_color_mode.sh forbid_video_mode
-    disabled
+service chmodkeyboxxmldir /system/bin/chmod 777 -R /mnt/vendor/op2/.lii
+    class core
     user root
-    group root system
+    group root
+    disabled
     oneshot
+    seclabel u:r:vold:s0
+# endif
+
+#alden.zhang@OPTI, 2020/7/18. [OSP-8064], add for IOLIMIT
+on property:persist.sys.iolimiter.enable=true
+    write /proc/iolimit_enable 1
+    write /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl Y
+    chown system system /sys/module/oneplus_healthinfo
+    chown system system /sys/module/oneplus_healthinfo/parameters
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_h_ms
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_l_ms
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_read_thresh
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_write_thresh
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_sample_time
+    chown system system /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl
+    chown system system /proc/iolimit_enable
+
+#huangwen.chen#OPTI, 2020/9/16, [OPTI-43], add for zram writeback
+on property:persist.vendor.oem.dump=0
+    setprop persist.vendor.zwriteback.backup 0
+
+on property:persist.vendor.oem.dump=1
+    setprop persist.vendor.zwriteback.backup 1

@@ -15,6 +15,7 @@
  */
 
 #include <android/hardware/sensors/2.0/ISensors.h>
+#include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 #include <log/log.h>
 #include <utils/StrongPointer.h>
@@ -26,6 +27,8 @@ using android::hardware::sensors::V2_0::ISensors;
 using android::hardware::sensors::V2_1::implementation::HalProxyV2_0;
 
 int main(int /* argc */, char** /* argv */) {
+    android::ProcessState::initWithDriver("/dev/binder");
+
     configureRpcThreadpool(1, true);
 
     android::sp<ISensors> halProxy = new HalProxyV2_0();

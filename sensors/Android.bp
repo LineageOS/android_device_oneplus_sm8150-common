@@ -22,6 +22,7 @@ cc_binary {
     vendor: true,
     relative_install_path: "hw",
     srcs: [
+        "AlsCorrection.cpp",
         "HalProxy.cpp",
         "HalProxyCallback.cpp",
         "service.cpp",
@@ -46,5 +47,26 @@ cc_binary {
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
+    ],
+    local_include_dirs: [
+        "include",
+    ],
+}
+
+oneplus_msmnile_sensors_hal_binary {
+    name: "als_correction_service.oneplus_msmnile",
+    stem: "als_correction_service",
+    init_rc: ["als_correction_service.rc"],
+    srcs: [
+        "als_correction_service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libgui",
+        "libui",
+        "libutils",
+    ],
+    cflags: [
+        "-DNO_INPUT",
     ],
 }

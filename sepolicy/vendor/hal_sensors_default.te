@@ -1,38 +1,17 @@
-typeattribute hal_sensors_default binder_in_vendor_violators;
-
 # Allow access to the HALs
 hal_client_domain(hal_sensors_default, hal_audio)
-hal_client_domain(hal_sensors_default, hal_graphics_allocator)
-
-# Allow hal_sensors_default to use binder service
-binder_use(hal_sensors_default)
 
 # Allow binder communication with hal_audio_default
 binder_call(hal_sensors_default, hal_audio_default)
 
-# Allow binder communication with hal_graphics_allocator_default
-binder_call(hal_sensors_default, hal_graphics_allocator_default)
-
-# Allow binder communication with surfaceflinger
-binder_call(hal_sensors_default, surfaceflinger)
-
 # Allow hal_sensors_default to find hal_audio_hwservice
 allow hal_sensors_default hal_audio_hwservice:hwservice_manager find;
-
-# Allow hal_sensors_default to find hal_graphics_allocator_hwservice
-allow hal_sensors_default hal_graphics_allocator_hwservice:hwservice_manager find;
-
-# Allow hal_sensors_default to find hal_graphics_mapper_hwservice
-allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
-
-# Allow hal_sensors_default to find surfaceflinger_service
-allow hal_sensors_default surfaceflinger_service:service_manager find;
 
 # Allow hal_sensors_default to read files in mnt_vendor_file
 r_dir_file(hal_sensors_default, mnt_vendor_file)
 
-# Allow hal_sensors_default to read files in sysfs_graphics
-r_dir_file(hal_sensors_default, sysfs_graphics)
+# Allow hal_sensors_default to send SIGUSR1 to als_correction_service
+allow hal_sensors_default als_correction_service:process signal;
 
 # Allow hal_sensors_default to read and write to gpu_device
 allow hal_sensors_default gpu_device:chr_file rw_file_perms;
@@ -69,3 +48,6 @@ r_dir_file(hal_sensors_default, sysfs_graphics)
 
 # Allow hal_sensors_default to get vendor_sensors_prop
 get_prop(hal_sensors_default, vendor_sensors_prop)
+
+# Allow hal_sensors_default to get vendor_sensors_als_prop
+get_prop(hal_sensors_default, vendor_sensors_als_prop)

@@ -17,7 +17,7 @@ func sensorsFlags(ctx android.BaseContext) []string {
     return cflags
 }
 
-func sensorsHalLibrary(ctx android.LoadHookContext) {
+func sensorsHalBinary(ctx android.LoadHookContext) {
     type props struct {
         Target struct {
             Android struct {
@@ -31,10 +31,9 @@ func sensorsHalLibrary(ctx android.LoadHookContext) {
     ctx.AppendProperties(p)
 }
 
-func sensorsHalLibraryFactory() android.Module {
-    module, library := cc.NewLibrary(android.HostAndDeviceSupported)
-    library.BuildOnlyStatic()
+func sensorsHalBinaryFactory() android.Module {
+    module, _ := cc.NewBinary(android.HostAndDeviceSupported)
     newMod := module.Init()
-    android.AddLoadHook(newMod, sensorsHalLibrary)
+    android.AddLoadHook(newMod, sensorsHalBinary)
     return newMod
 }

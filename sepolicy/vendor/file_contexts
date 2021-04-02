@@ -42,14 +42,14 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                                    u:object_r:hal_hdcpkey_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                      u:object_r:hal_param_default_exec:s0
 
+# OP1, OP2 files
+/mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
+/mnt/vendor/op2(/.*)?    u:object_r:op2_file:s0
+
 # Persist files
 /mnt/vendor/persist/camera(/.*)?                     u:object_r:persist_camera_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?    u:object_r:persist_camera_file:s0
 /mnt/vendor/persist/engineermode(/.*)?               u:object_r:persist_engineer_file:s0
-
-# Root files
-/op1(/.*)?            u:object_r:op1_file:s0
-/op2(/.*)?            u:object_r:op2_file:s0
 
 # Socket files
 /dev/socket/vl53l1_daemon    u:object_r:vl53l1_socket:s0

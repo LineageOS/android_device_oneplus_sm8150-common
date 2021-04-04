@@ -29,21 +29,6 @@ persist.vendor.dpm.feature=9
 # GPS
 persist.vendor.overlay.izat.optin=rro
 
-# ro.location properties below are used in conjunction
-# with NLP_MODE setting in /vendor/etc/izat.conf
-# either as the main network provider or as a fallback
-# provider depending on NLP_MODE that is set
-# These properties are optional and will not cause
-# issues if not set to existing packages.
-# ro.location.osnlp.package sets the name of default
-# OS sepecific network location provider package to use
-# ro.location.osnlp.region.package is set to the name
-# of the alternative network location provider package
-# to be used for a particular region where the default
-# network location provider is not functional
-ro.location.osnlp.package=com.google.android.gms
-ro.location.osnlp.region.package=
-
 # Graphics
 debug.sf.enable_hwc_vds=1
 vendor.display.enable_rotator_ui=1

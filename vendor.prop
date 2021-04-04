@@ -4,16 +4,17 @@ aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
 af.fast_track_multiplier=2
 audio.deep_buffer.media=true
-audio.offload.video=true
 persist.vendor.audio.fluence.speaker=true
 persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=true
+persist.vendor.audio.hac.enable=false
 persist.vendor.audio.ras.enabled=false
 persist.vendor.audio.voicecall.speaker.stereo=true
-ro.af.client_heap_size_kbyte=7168
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
+ro.audio.monitorRotation=true
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=7
-ro.audio.monitorRotation=true
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 vendor.audio.adm.buffering.ms=2
@@ -37,6 +38,7 @@ vendor.audio.safx.pbe.enabled=true
 vendor.audio.tunnel.encode=false
 vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
+vendor.audio.volume.headset.gain.depcal=true
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
@@ -57,6 +59,9 @@ persist.vendor.qcom.bluetooth.scram.enabled=true
 persist.vendor.qcom.bluetooth.soc=cherokee
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
+
+# Camera
+ro.vendor.camera.res.fmq.size=1048576
 
 # Crypto
 ro.crypto.allow_encrypt_override=true
@@ -86,6 +91,9 @@ vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.enable_null_display=0
 
+# DPM
+persist.vendor.dpmhalservice.enable=1
+
 # DRM
 drm.service.enabled=true
 
@@ -111,7 +119,9 @@ debug.mdpcomp.logs=0
 debug.sf.hw=0
 debug.sf.latch_unsignaled=1
 persist.demo.hdmirotationlock=false
+persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.msmnile.api30
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
@@ -129,10 +139,10 @@ ro.hardware.keystore_desede=true
 # NFC
 ro.camera.notify_nfc=1
 ro.hardware.nfc_nci=nqx.default
-ro.vendor.nfc.notify_tp=1
 
 # PASR
-vendor.power.pasr.enabled=true
+vendor.pasr.activemode.enabled=true
+vendor.power.pasr.enabled=false
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so

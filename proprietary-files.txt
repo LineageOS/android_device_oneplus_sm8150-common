@@ -974,11 +974,9 @@ vendor/firmware/awinic_haptic_gun_params.bin
 vendor/firmware/awinic_haptic_params.bin
 vendor/firmware/notif_allusion.bin
 vendor/firmware/notif_amiable.bin
-vendor/firmware/notif_Ardour.bin
 vendor/firmware/notif_blare.bin
 vendor/firmware/notif_blissful.bin
 vendor/firmware/notif_cheerful.bin
-vendor/firmware/notif_Chic.bin
 vendor/firmware/notif_comely.bin
 vendor/firmware/notif_cozy.bin
 vendor/firmware/notif_ding.bin
@@ -1018,7 +1016,6 @@ vendor/firmware/ring_innocence.bin
 vendor/firmware/ring_journey.bin
 vendor/firmware/ring_joyous.bin
 vendor/firmware/ring_marimba.bin
-vendor/firmware/ring_McLarn.bin
 vendor/firmware/ring_old_telephone.bin
 vendor/firmware/ring_oneplus_tune.bin
 vendor/firmware/ring_oneplus_tune_rhythm.bin

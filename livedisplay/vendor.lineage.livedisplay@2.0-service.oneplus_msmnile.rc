@@ -1,4 +1,4 @@
-on post-fs-data
+on init
     chown system graphics /sys/class/drm/card0-DSI-1/DCI_P3
     chown system graphics /sys/class/drm/card0-DSI-1/hbm
     chown system graphics /sys/class/drm/card0-DSI-1/night_mode
@@ -15,7 +15,7 @@ on post-fs-data
     chmod 0666 /sys/class/drm/card0-DSI-1/native_display_wide_color_mode
 
 service vendor.livedisplay-hal-2-0 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.oneplus_msmnile
-    class late_start
+    class hal
     user system
     group system
 

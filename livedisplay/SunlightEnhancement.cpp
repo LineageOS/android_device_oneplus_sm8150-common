@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "LineageHW-SunlightEnhancementService"
+#define LOG_TAG "SunlightEnhancementService"
 
 #include "SunlightEnhancement.h"
-
 #include <android-base/logging.h>
-
 #include <fstream>
 
 namespace vendor {
@@ -28,11 +26,8 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
-static constexpr const char* kHbmPath = "/sys/class/drm/card0-DSI-1/hbm";
-
-bool SunlightEnhancement::isSupported() {
-    return true;
-}
+static constexpr const char* kHbmPath =
+    "/sys/class/drm/card0-DSI-1/hbm";
 
 Return<bool> SunlightEnhancement::isEnabled() {
     std::ifstream file(kHbmPath);

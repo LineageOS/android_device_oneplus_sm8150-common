@@ -19,8 +19,10 @@ cc_binary {
     vintf_fragments: ["vendor.lineage.touch@1.0-service.oneplus_msmnile.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-    srcs: ["service.cpp", "TouchscreenGesture.cpp"],
-    vendor: true,
+    srcs: [
+        "TouchscreenGesture.cpp",
+        "service.cpp",
+    ],
     shared_libs: [
         "libbase",
         "libbinder",
@@ -28,4 +30,5 @@ cc_binary {
         "libutils",
         "vendor.lineage.touch@1.0",
     ],
+    proprietary: true,
 }

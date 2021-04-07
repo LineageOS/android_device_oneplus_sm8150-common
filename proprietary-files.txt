@@ -1030,7 +1030,6 @@ vendor/firmware/ring_T-Jingle.bin
 vendor/firmware/shuntai24k_rtp.bin
 vendor/firmware/wentai24k_rtp.bin
 
-
 # VPP
 vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml

@@ -189,10 +189,6 @@ PRODUCT_PACKAGES += \
     vendor.oem_ftm.rc \
     vendor.oem_ftm_svc_disable.rc
 
-# Cryptfshw
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0.vendor
-
 # Component overrides
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml

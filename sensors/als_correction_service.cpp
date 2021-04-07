@@ -76,7 +76,7 @@ int main() {
     SetProperty("vendor.sensors.als_correction.pid", std::to_string(getpid()));
 
     while (true) {
-        sleep(1);
+        pause();
     }
 
     return 0;

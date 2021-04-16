@@ -282,6 +282,7 @@ on boot
     chmod 666 /dev/input/event8
     chmod 666 /dev/input/event9
     chmod 666 /dev/input/event10
+    chmod 666 /dev/input/event11
 #endif /*VENDOR_EDIT*/
 
 on init

@@ -89,6 +89,9 @@ on init
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
+    # Vibrator
+    chown system system /sys/devices/platform/soc/89c000.i2c/i2c-2/2-005a/leds/vibrator/level
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -144,6 +147,10 @@ on boot
     chown system system sys/devices/platform/soc/soc:goodix_fp/screen_state
     chmod 0666 /dev/qseecom
     chmod 0666 /dev/goodix_fp
+
+    # Graphics
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm
+    chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm
 
     chown system system /sys/devices/platform/vendor/vendor:infrared_pl/infrared_power_enable
     chmod 0666 /sys/devices/platform/vendor/vendor:infrared_pl/infrared_power_enable                #for infrared proximity sensor

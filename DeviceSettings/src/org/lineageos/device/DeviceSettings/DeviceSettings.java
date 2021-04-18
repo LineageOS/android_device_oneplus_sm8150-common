@@ -46,9 +46,14 @@ public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String KEY_HBM_SWITCH = "hbm";
+    public static final String KEY_HBM_AUTOBRIGHTNESS_SWITCH = "hbm_autobrightness";
+    public static final String KEY_HBM_AUTOBRIGHTNESS_THRESHOLD = "hbm_autobrightness_threshould";
 
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
 
+    private static TwoStatePreference mHBMModeSwitch;
+    private static TwoStatePreference mHBMAutobrightnessSwitch;
     private ListPreference mTopKeyPref;
     private ListPreference mMiddleKeyPref;
     private ListPreference mBottomKeyPref;
@@ -73,6 +78,16 @@ public class DeviceSettings extends PreferenceFragment
         mBottomKeyPref = (ListPreference) findPreference(Constants.NOTIF_SLIDER_BOTTOM_KEY);
         mBottomKeyPref.setValueIndex(Constants.getPreferenceInt(getContext(), Constants.NOTIF_SLIDER_BOTTOM_KEY));
         mBottomKeyPref.setOnPreferenceChangeListener(this);
+
+        mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
+        mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
+        mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch());
+
+        mHBMAutobrightnessSwitch = (TwoStatePreference) findPreference(KEY_HBM_AUTOBRIGHTNESS_SWITCH);
+        mHBMAutobrightnessSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_HBM_AUTOBRIGHTNESS_SWITCH, false));
+        mHBMAutobrightnessSwitch.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -86,8 +101,18 @@ public class DeviceSettings extends PreferenceFragment
         } else if (preference == mBottomKeyPref) {
             Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
             return true;
+        } else if (preference == mHBMAutobrightnessSwitch) {
+            Boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_HBM_AUTOBRIGHTNESS_SWITCH, enabled).commit();
+            Utils.enableService(getContext());
+            return true;
         }
         return false;
+    }
+
+    public static boolean isHBMAutobrightnessEnabled(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_HBM_AUTOBRIGHTNESS_SWITCH, false);
     }
 
     @Override

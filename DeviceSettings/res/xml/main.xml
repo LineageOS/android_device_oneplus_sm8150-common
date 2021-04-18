@@ -12,6 +12,29 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
+        android:key="graphics"
+        android:title="@string/display_title">
+
+        <SwitchPreference
+            android:key="hbm"
+            android:summary="@string/hbm_mode_summary"
+            android:icon="@drawable/rr_hbm_icon"
+            android:title="@string/hbm_mode_title" />
+
+        <SwitchPreference
+            android:key="hbm_autobrightness"
+            android:summary="@string/hbm_autobrightness_summary"
+            android:icon="@drawable/rr_hbm_icon"
+            android:title="@string/hbm_autobrightness_title" />
+
+        <org.lineageos.device.DeviceSettings.HBMAutobrightnessThresholdPreference
+            android:key="hbm_autobrightness_threshould"
+            android:title="@string/hbm_autobrightness_threshold_title"
+            android:icon="@drawable/rr_hbm_icon"
+            android:summary="@string/hbm_autobrightness_threshold_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="slider"
         android:title="@string/notification_slider_category_title">
 

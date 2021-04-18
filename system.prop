@@ -44,7 +44,7 @@ ro.hwui.texture_cache_flushrate=0.4
 ro.hwui.texture_cache_size=72
 
 # IO Prefetcher
-vendor.iop.enable_uxe=0
+vendor.iop.enable_uxe=1
 
 # Media
 av.offload.enable=true

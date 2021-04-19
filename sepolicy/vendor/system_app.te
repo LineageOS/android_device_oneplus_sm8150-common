@@ -1,0 +1,5 @@
+# Allow system_app to read and write to sysfs_vibrator
+allow system_app sysfs_vibrator:file rw_file_perms;
+
+# Allow system_app to read directories and attributes of sysfs_vibrator
+allow system_app sysfs_vibrator:dir r_dir_perms;

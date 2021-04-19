@@ -1,0 +1,1 @@
+allow untrusted_app virtual_ab_prop:file { getattr map open read };

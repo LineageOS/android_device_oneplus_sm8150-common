@@ -1,0 +1,4 @@
+# Allow showing fast charge status on LS
+allow system_server vendor_sysfs_battery_supply:file { getattr open read };
+
+allow system_server { proc_sensor proc_ultrasound proc_touchpanel }:dir search;

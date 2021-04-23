@@ -151,10 +151,7 @@ TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Power
-TARGET_RPM_MASTER_STAT := "/d/rpmh/master_stats"
-TARGET_RPM_STAT := "/d/rpmh/stats"
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
-TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true

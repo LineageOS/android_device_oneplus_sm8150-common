@@ -247,10 +247,6 @@ PRODUCT_PACKAGES += \
     vendor.oneplus.fingerprint.extension@1.0.vendor \
     vendor.oneplus.hardware.display@1.0.vendor
 
-# For config.fs
-PRODUCT_PACKAGES += \
-    fs_config_files
-
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \

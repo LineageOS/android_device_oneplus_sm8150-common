@@ -21,6 +21,3 @@ allow hal_livedisplay_oneplus_msmnile sysfs_livedisplay_tuneable:file rw_file_pe
 # Allow hal_livedisplay_oneplus_msmnile to store files under /data/vendor/display and access them
 allow hal_livedisplay_oneplus_msmnile display_vendor_data_file:dir rw_dir_perms;
 allow hal_livedisplay_oneplus_msmnile display_vendor_data_file:file create_file_perms;
-
-# Allow hal_livedisplay_oneplus_msmnile to set vendor display prop
-set_prop(hal_livedisplay_oneplus_msmnile, vendor_display_prop)

@@ -42,6 +42,3 @@ vendor.audio.feature.usb_offload_burst_mode.enable=true
 vendor.audio.feature.usb_offload_sidetone_volume.enable=false
 vendor.audio.feature.vbat.enable=true
 vendor.audio.feature.wsa.enable=false
-
-# Gboard
-ro.com.google.ime.kb_pad_port_b=1

@@ -29,6 +29,9 @@ persist.vendor.dpm.feature=9
 # GPS
 persist.vendor.overlay.izat.optin=rro
 
+# GBoard Spacing
+ro.com.google.ime.kb_pad_port_b=1
+
 # Graphics
 debug.sf.enable_hwc_vds=1
 vendor.display.enable_rotator_ui=1

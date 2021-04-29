@@ -11,9 +11,6 @@ vendor.bluetooth.soc=cherokee
 persist.vendor.bt.a2dp.aac_whitelist=false
 ro.bluetooth.library_name=libbluetooth_qti.so
 
-# Camera
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.oneplus.factorymode,com.oneplus.camera,com.oneplus.healthcheck
-
 # Charger
 ro.charger.enable_suspend=true
 

@@ -22,6 +22,30 @@
       "revId": "cbafb285da1a1d3ff866f98f4ac3b6e774d45757",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3549000d_79d79cd1",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2021-05-16T11:17:14Z",
+      "side": 0,
+      "message": "\u003e uhhhhh?\n\nalready exists in device trees, https://github.com/LineageOS/android_device_oneplus_guacamole/blob/lineage-18.1/proprietary-files.txt#L202\nhttps://github.com/LineageOS/android_device_oneplus_hotdogb/blob/lineage-18.1/proprietary-files.txt#L217",
+      "parentUuid": "1669b2fc_a0fed14b",
+      "range": {
+        "startLine": 891,
+        "startChar": 0,
+        "endLine": 891,
+        "endChar": 27
+      },
+      "revId": "cbafb285da1a1d3ff866f98f4ac3b6e774d45757",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

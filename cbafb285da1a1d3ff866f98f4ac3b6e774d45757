@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1669b2fc_a0fed14b",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-16T11:13:37Z",
+      "side": 0,
+      "message": "uhhhhh?",
+      "range": {
+        "startLine": 891,
+        "startChar": 0,
+        "endLine": 891,
+        "endChar": 27
+      },
+      "revId": "cbafb285da1a1d3ff866f98f4ac3b6e774d45757",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

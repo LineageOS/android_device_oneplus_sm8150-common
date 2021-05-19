@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "233e46a4_7dd81a27",
+        "filename": "doze/res/drawable/ic_aod.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-05-19T14:49:12Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 36
+      },
+      "revId": "b7e44b83c8ec26fa478769553e489ea63772d009",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

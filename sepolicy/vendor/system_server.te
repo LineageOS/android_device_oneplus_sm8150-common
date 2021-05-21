@@ -2,3 +2,6 @@
 allow system_server vendor_sysfs_battery_supply:file { getattr open read };
 
 allow system_server { proc_sensor proc_ultrasound proc_touchpanel }:dir search;
+
+allow system_server hal_cameraHIDL_hwservice:hwservice_manager { find };
+allow system_server hal_cameraHIDL_default:binder call;

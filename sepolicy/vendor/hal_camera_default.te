@@ -16,3 +16,6 @@ allow hal_camera_default sysfs_dtb_model:file r_file_perms;
 
 # Properties
 set_prop(hal_camera_default, vendor_camera_prop)
+
+allow hal_camera_default input_device:dir r_dir_perms;
+allow hal_camera_default input_device:chr_file r_file_perms;

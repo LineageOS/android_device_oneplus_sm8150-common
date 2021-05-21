@@ -151,7 +151,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
     libxml2 \
-    Snap \
     vendor.oneplus.hardware.camera@1.0.vendor:64 \
     vendor.oneplus.hardware.CameraMDMHIDL@1.0.vendor:64
 

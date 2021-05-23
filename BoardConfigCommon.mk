@@ -140,7 +140,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-03-01
+VENDOR_SECURITY_PATCH := 2021-05-01
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk

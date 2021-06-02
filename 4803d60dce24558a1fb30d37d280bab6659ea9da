@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48aa2527_331b2ef1",
+        "filename": "vibrator/Vibrator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2021-06-02T17:55:59Z",
+      "side": 1,
+      "message": "I don\u0027t think the gain should be so high - with 0x90 there\u0027s an annoyingly loud click. How about 0x60 or 0x70?",
+      "revId": "4803d60dce24558a1fb30d37d280bab6659ea9da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b36be8_60c7941d",
+        "filename": "vibrator/Vibrator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2021-06-02T17:55:59Z",
+      "side": 1,
+      "message": "Same as above, this is also really loud - I wouldn\u0027t go about 0x80",
+      "revId": "4803d60dce24558a1fb30d37d280bab6659ea9da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

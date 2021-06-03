@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dff25e11_37f1174c",
+        "filename": "vibrator/Vibrator.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 28870
+      },
+      "writtenOn": "2021-06-03T02:00:15Z",
+      "side": 1,
+      "message": "It turns out that the intensity is different for different devices for the same gain. The duration parameter does nothing when using the brightness path, it\u0027s only controlled via the gain path and seq path. Moving the gain down renders all the effects almost similar with no difference in feel.\nI\u0027ll upload a new patchset trying to dial down the intensities while not making all the effects effectively the same on the 7tpro",
+      "parentUuid": "48aa2527_331b2ef1",
+      "revId": "4803d60dce24558a1fb30d37d280bab6659ea9da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4b36be8_60c7941d",
         "filename": "vibrator/Vibrator.cpp",
         "patchSetId": 6

@@ -1,3 +1,18 @@
-on property:ro.boot.product.hardware.sku=9
-    setprop persist.radio.multisim.config ssss
-    setprop persist.vendor.radio.uicc_se_enabled true
+# 18821 - 7 Pro
+# 18831 - 7 Pro TMO
+# 18857 - 7
+# 18865 - 7T
+# 19801 - 7T Pro
+# 19863 - 7T TMO
+
+on property:ro.boot.project_name=18821
+    setprop persist.radio.multisim.config dsds
+
+on property:ro.boot.project_name=18857
+    setprop persist.radio.multisim.config dsds
+
+on property:ro.boot.project_name=18865
+    setprop persist.radio.multisim.config dsds
+
+on property:ro.boot.project_name=19801
+    setprop persist.radio.multisim.config dsds

@@ -13,6 +13,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+soong_config_module_type {
+    name: "oneplus_msmnile_sensors_hal_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "ONEPLUS_MSMNILE_SENSORS",
+    value_variables: ["ALS_POS_X", "ALS_POS_Y"],
+    properties: ["cppflags"],
+}
+
+oneplus_msmnile_sensors_hal_cc_defaults {
+    name: "oneplus_msmnile_sensors_hal_defaults",
+    soong_config_variables: {
+        ALS_POS_X: {
+            cppflags: ["-DALS_POS_X=%s"],
+        },
+        ALS_POS_Y: {
+            cppflags: ["-DALS_POS_Y=%s"],
+        },
+    },
+}
+
 cc_binary {
     name: "android.hardware.sensors@2.0-service.oneplus_msmnile",
     stem: "android.hardware.sensors@2.0-service.multihal",
@@ -53,10 +73,13 @@ cc_binary {
     ],
 }
 
-oneplus_msmnile_sensors_hal_binary {
+cc_binary {
     name: "als_correction_service.oneplus_msmnile",
     stem: "als_correction_service",
     init_rc: ["als_correction_service.rc"],
+    defaults: [
+        "oneplus_msmnile_sensors_hal_defaults",
+    ],
     srcs: [
         "als_correction_service.cpp",
     ],

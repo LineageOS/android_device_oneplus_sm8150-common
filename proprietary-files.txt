@@ -249,6 +249,7 @@ vendor/lib64/libhdr_tm.so
 
 # Display (HWC)
 vendor/lib64/hw/hwcomposer.msmnile.so
+vendor/lib64/libdisplayconfig.qti.so
 vendor/lib64/libsdmcore.so
 vendor/lib64/libsdmutils.so
 

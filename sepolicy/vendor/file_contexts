@@ -1,4 +1,5 @@
 # Binaries
+/(vendor|system/vendor)/bin/awk                     u:object_r:vendor_toolbox_exec:s0
 /(vendor|system/vendor)/bin/dashd                   u:object_r:dashd_exec:s0
 /(vendor|system/vendor)/bin/opf-service             u:object_r:opf_exec:s0
 /(vendor|system/vendor)/bin/tri-state-key_daemon    u:object_r:tri-state-key_daemon_exec:s0

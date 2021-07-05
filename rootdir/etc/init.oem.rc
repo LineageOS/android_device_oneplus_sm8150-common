@@ -334,14 +334,12 @@ on post-fs
 #ifdef VENDOR_EDIT
 #   /* create a empty file for wifi hal to write mac address */
     mkdir /mnt/vendor/persist/qca6390 0770 wifi wifi
-    write /mnt/vendor/persist/qca6390/wlan_mac.bin ""
     chown wifi wifi /mnt/vendor/persist/qca6390/wlan_mac.bin
     copy /vendor/etc/wifi/qca6390/WCNSS_qcom_cfg.ini /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
     chown wifi wifi /mnt/vendor/persist/qca6390/WCNSS_qcom_cfg.ini
 #   /*create a empty file for wifi single point calibration*/
     mkdir /mnt/vendor/persist/copy 0770 wifi wifi
 #   /* create a empty file for wifi hal to write qca6490 mac address */
-    write /mnt/vendor/persist/wlan_mac.bin ""
     chown wifi wifi /mnt/vendor/persist/wlan_mac.bin
 #   /* Implement the function of forced Chain0/1 insmod WCNSS_qcom_cfg.ini */
     copy /vendor/etc/wifi/WCNSS_qcom_cfg.ini /mnt/vendor/persist/WCNSS_qcom_cfg.ini

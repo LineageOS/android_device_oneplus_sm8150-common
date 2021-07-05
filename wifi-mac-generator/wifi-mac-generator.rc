@@ -1,4 +1,4 @@
-service vendor.wifi-mac-generator /vendor/bin/wifi-mac-generator
+service vendor.wifi-mac-generator /vendor/bin/wifi-mac-generator ${ro.serialno}
     class main
     user wifi
     group wifi

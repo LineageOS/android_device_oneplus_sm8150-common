@@ -1,0 +1,5 @@
+cc_library {
+    name: "libril_shim",
+    srcs: ["libril_shim.cpp"],
+    vendor: true
+}

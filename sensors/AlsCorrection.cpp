@@ -74,7 +74,8 @@ void AlsCorrection::correct(float& light) {
         correction += als_bias;
     }
     // Do not apply correction if < 0, prevent unstable adaptive brightness
-    if (light - correction >= 0) {
+    // Use a light threshold because of sensor bad accuracy
+    if (light - correction >= 10) {
         light -= correction;
     } else {
         // In low light conditions, sensor is just reporting bad values, using

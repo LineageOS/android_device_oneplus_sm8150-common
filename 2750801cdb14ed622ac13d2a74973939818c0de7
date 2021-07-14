@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d0de262_6f0a2916",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-14T12:50:58Z",
+      "side": 1,
+      "message": "Stray tab.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 1
+      },
+      "revId": "2750801cdb14ed622ac13d2a74973939818c0de7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

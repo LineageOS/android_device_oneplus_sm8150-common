@@ -34,68 +34,18 @@ static const std::string kDefaultPath = "/data/vendor/display/default_display_mo
 
 // Mode ids here must match qdcm display mode ids
 const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
-    {0,
-     {"Standard",
-      {
-          {"native_display_p3_mode", "0"},
-          {"native_display_wide_color_mode", "0"},
-          {"native_display_srgb_color_mode", "0"},
-          {"native_display_customer_srgb_mode", "0"},
-          {"native_display_customer_p3_mode", "0"},
-          {"native_display_p3_mode", "1"},
-          {"native_display_loading_effect_mode", "1"},
-      }}},
-    {1,
-     {"Natural",
-      {
-          {"native_display_p3_mode", "0"},
-          {"native_display_wide_color_mode", "0"},
-          {"native_display_srgb_color_mode", "0"},
-          {"native_display_customer_srgb_mode", "0"},
-          {"native_display_customer_p3_mode", "0"},
-          {"native_display_srgb_color_mode", "1"},
-          {"native_display_loading_effect_mode", "0"},
-      }}},
-    {2,
-     {"AMOLED Wide Gamut",
-      {
-          {"native_display_p3_mode", "0"},
-          {"native_display_wide_color_mode", "0"},
-          {"native_display_srgb_color_mode", "0"},
-          {"native_display_customer_srgb_mode", "0"},
-          {"native_display_customer_p3_mode", "0"},
-          {"native_display_wide_color_mode", "1"},
-      }}},
-    {3,
-     {"sRGB",
-      {
-          {"native_display_p3_mode", "0"},
-          {"native_display_wide_color_mode", "0"},
-          {"native_display_srgb_color_mode", "0"},
-          {"native_display_customer_srgb_mode", "0"},
-          {"native_display_customer_p3_mode", "0"},
-          {"native_display_customer_srgb_mode", "1"},
-      }}},
-    {4,
-     {"DCI_P3",
-      {
-          {"native_display_p3_mode", "0"},
-          {"native_display_wide_color_mode", "0"},
-          {"native_display_srgb_color_mode", "0"},
-          {"native_display_customer_srgb_mode", "0"},
-          {"native_display_customer_p3_mode", "0"},
-          {"native_display_customer_p3_mode", "1"},
-      }}},
+    // remove modes here in favor of ColorDisplayManager settings
 };
 
 DisplayModes::DisplayModes(std::shared_ptr<V2_0::sdm::SDMController> controller)
     : mController(std::move(controller)), mCurrentModeId(0), mDefaultModeId(0) {
     std::ifstream defaultFile(kDefaultPath);
 
-    defaultFile >> mDefaultModeId;
-    LOG(DEBUG) << "Default file read result " << mDefaultModeId << " fail " << defaultFile.fail();
-
-    setDisplayMode(mDefaultModeId, false);
+    // sysfs controls doesn't work during early boot, trigger a reload here.
+    int32_t activeModeId;
+    mController->getActiveDisplayMode(&activeModeId);
+    LOG(DEBUG) << "resetting active display mode " << activeModeId;
+    mController->setActiveDisplayMode(activeModeId);
 }
 
 // Methods from ::vendor::lineage::livedisplay::V2_1::IDisplayModes follow.
@@ -110,12 +60,22 @@ Return<void> DisplayModes::getDisplayModes(getDisplayModes_cb resultCb) {
 }
 
 Return<void> DisplayModes::getCurrentDisplayMode(getCurrentDisplayMode_cb resultCb) {
-    resultCb({mCurrentModeId, kModeMap.at(mCurrentModeId).name});
+    auto it = kModeMap.find(mCurrentModeId);
+    if (it == kModeMap.end()) {
+        resultCb({-1, ""});
+    } else {
+        resultCb({mCurrentModeId, it->second.name});
+    }
     return Void();
 }
 
 Return<void> DisplayModes::getDefaultDisplayMode(getDefaultDisplayMode_cb resultCb) {
-    resultCb({mDefaultModeId, kModeMap.at(mDefaultModeId).name});
+    auto it = kModeMap.find(mDefaultModeId);
+    if (it == kModeMap.end()) {
+        resultCb({-1, ""});
+    } else {
+        resultCb({mDefaultModeId, it->second.name});
+    }
     return Void();
 }
 

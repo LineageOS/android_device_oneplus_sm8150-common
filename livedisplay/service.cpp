@@ -16,6 +16,10 @@
 
 #define LOG_TAG "vendor.lineage.livedisplay@2.1-service.oneplus_msmnile"
 
+#include <string>
+#include <fstream>
+#include <thread>
+#include <chrono>
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
@@ -42,8 +46,31 @@ using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
 using ::vendor::lineage::livedisplay::V2_1::implementation::DisplayModes;
 using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
+static void wait_sysfs_controls_ready() {
+    // sysfs controls doesn't work (blocked by mutex) before kernel set native_display_loading_effect_mode to 1
+    for (int counter = 0; counter < 100; counter++) {
+        LOG(INFO) << "Waiting for sysfs controls become ready.";
+        std::ifstream fs("/sys/class/drm/card0-DSI-1/native_display_loading_effect_mode");
+        std::string line;
+        std::getline(fs, line);
+        if (fs.fail()) {
+            continue;
+        }
+        LOG(DEBUG) << line;
+        if (line.find_last_of("1") != std::string::npos) {
+            return;
+        }
+        if (counter > 100) {
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    }
+    LOG(ERROR) << "sysfs controls didn't become ready after 100 attempts, giving up.";
+}
+
 int main() {
     status_t status = OK;
+
+    wait_sysfs_controls_ready();
 
     android::ProcessState::initWithDriver("/dev/vndbinder");
 

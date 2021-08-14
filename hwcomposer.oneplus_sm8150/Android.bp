@@ -1,0 +1,35 @@
+cc_library_shared {
+    name: "hwcomposer.oneplus_sm8150",
+    srcs: [
+        "hwcomposer-shim.cpp",
+        "PanelModeController.cpp",
+    ],
+    shared_libs: [
+        "libhardware",
+        "liblog",
+        "libbase",
+        "android.hardware.graphics.common@1.1",
+        "hwcomposer.fool-linker.msmnile",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    include_dirs: [
+        "hardware/qcom-caf/sm8150/display/include",
+        "hardware/qcom-caf/sm8150/display/sdm/include",
+        "hardware/qcom-caf/sm8150/display/libdebug",
+        "vendor/qcom/opensource/commonsys-intf/display/include",
+    ],
+    relative_install_path: "hw",
+    vendor: true,
+}
+
+// fool the linker to add a DT_NEEDED to hwcomposer.msmnile.so
+cc_library_shared {
+    name: "hwcomposer.fool-linker.msmnile",
+    srcs: ["fool-linker.cpp"],
+    ldflags : ["-Wl,-soname=hwcomposer.msmnile.so"],
+    installable: false,
+    vendor: true,
+}

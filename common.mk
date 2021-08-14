@@ -202,6 +202,7 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     gralloc.msmnile \
     hwcomposer.msmnile \
+    hwcomposer.oneplus_sm8150 \
     libdisplayconfig.qti \
     libdisplayconfig.qti.vendor \
     libqdMetaData \

@@ -66,6 +66,38 @@ function blob_fixup() {
         vendor/bin/hw/qcrild)
             "${PATCHELF}" --add-needed libril_shim.so "${2}"
             ;;
+        vendor/etc/qdcm_calib_data_*.xml)
+            python - "${2}" <<EOF
+import sys
+import copy
+import xml.etree.cElementTree as ET
+tree = ET.parse(sys.argv[1])
+root = tree.getroot()
+modes = root.findall('Disp_Modes')[0]
+for mode_node in modes.findall('Mode'):
+    mode_id = mode_node.get('ModeID')
+    if mode_id == '1':
+        mode_node.set('Name', 'hal_srgb')
+        mode_node.set('ColorGamut', 'srgb')
+        mode_node.set('DynamicRange', 'sdr')
+    elif mode_id == '5':
+        mode_node.set('Name', 'hal_display_p3')
+        mode_node.set('ColorGamut', 'dcip3')
+        mode_node.set('DynamicRange', 'sdr')
+        dup_node = copy.deepcopy(mode_node)
+        dup_node.set('Name', 'hal_saturated')
+        dup_node.set('ModeID', '11')
+        dup_node.set('ColorGamut', 'native')
+        modes.append(dup_node)
+    elif mode_id == '6':
+        mode_node.set('Name', 'hal_hdr')
+        mode_node.set('ColorGamut', 'dcip3')
+        mode_node.set('DynamicRange', 'hdr')
+    else:
+        modes.remove(mode_node)
+tree.write(sys.argv[1], encoding='utf-8', xml_declaration=True)
+EOF
+            ;;
     esac
 }
 

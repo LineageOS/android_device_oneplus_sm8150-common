@@ -92,6 +92,10 @@ vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.enable_null_display=0
+ro.hardware.hwcomposer=oneplus-calib
+persist.vendor.display.hal_srgb_mode=native_srgb
+persist.vendor.display.hal_display_p3_mode=native_p3
+persist.vendor.display.hal_saturated_mode=native_p3
 
 # DPM
 persist.vendor.dpmhalservice.enable=1
@@ -129,6 +133,12 @@ ro.hardware.vulkan=adreno
 ro.opengles.version=196610
 vendor.display.enable_default_color_mode=1
 vendor.gralloc.disable_ubwc=0
+
+# Graphics - Panel Driver Calibration
+# availiable modes: native_srgb, native_p3, advance_srgb, advance_p3, panel_native
+persist.vendor.display.hal_srgb_mode=native_srgb
+persist.vendor.display.hal_display_p3_mode=native_p3
+persist.vendor.display.hal_saturated_mode=native_p3
 
 # IMS
 persist.dbg.volte_avail_ovr=1

@@ -1,0 +1,158 @@
+cc_library_static {
+    name: "libdobby",
+    export_include_dirs: ["include"],
+    local_include_dirs: [
+        "include",
+        "source",
+        "source/include",
+        "source/UserMode",
+        "external",
+        "external/logging",
+        "external/xnucxx",
+        "external/misc-helper",
+        "builtin-plugin",
+        // add_subdirectory(external/misc-helper)
+        "external/misc-helper",
+        // add_subdirectory(external/logging)
+        "external/logging",
+        // add_subdirectory(external/xnucxx)
+        "external/xnucxx",
+        // add_subdirectory(builtin-plugin/SymbolResolver)
+        "builtin-plugin/SymbolResolver",
+    ],
+    cflags: [
+        "-fomit-frame-pointer",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fno-rtti",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-D__DOBBY_BUILD_VERSION__=\"DobbySoong\"",
+    ],
+    shared_libs: ["liblog"],
+    srcs: [
+        // cpu
+        "source/core/arch/CpuFeature.cc",
+        "source/core/arch/CpuRegister.cc",
+
+        // assembler
+        "source/core/modules/assembler/assembler.cc",
+
+        // memory kit
+        "source/MemoryAllocator/CodeBuffer/CodeBufferBase.cc",
+        "source/MemoryAllocator/AssemblyCodeBuilder.cc",
+        "source/MemoryAllocator/MemoryArena.cc",
+
+        // intercept routing
+        "source/InterceptRouting/InterceptRouting.cpp",
+
+        // intercept routing trampoline
+
+        // intercept routing plugin (buildin)
+        "source/InterceptRouting/Routing/FunctionInlineReplace/function-inline-replace.cc",
+        "source/InterceptRouting/Routing/FunctionInlineReplace/FunctionInlineReplaceExport.cc",
+
+        // plugin register
+        "source/InterceptRouting/RoutingPlugin/RoutingPlugin.cc",
+
+        // platform util
+        "source/UserMode/PlatformUtil/Linux/ProcessRuntimeUtility.cc",
+
+        // user mode - platform interface
+        "source/UserMode/UnifiedInterface/platform-posix.cc",
+
+        // user mode - executable memory
+        "source/UserMode/ExecMemory/code-patch-tool-posix.cc",
+        "source/UserMode/ExecMemory/clear-cache-tool-all.c",
+
+        // main
+        "source/dobby.cpp",
+        "source/Interceptor.cpp",
+
+        // NearBranch
+        "source/InterceptRouting/RoutingPlugin/NearBranchTrampoline/NeaBranchTrampoline.cc",
+        "source/MemoryAllocator/NearMemoryArena.cc",
+
+        // add_subdirectory(external/misc-helper)
+        "external/misc-helper/async_logger.cc",
+        "external/misc-helper/pthread_helper.cc",
+        "external/misc-helper/variable_cache.c",
+
+        // add_subdirectory(external/logging)
+        "external/logging/logging.c",
+        "external/logging/cxxlogging.cc",
+
+        // add_subdirectory(external/xnucxx)
+        "external/xnucxx/LiteMemOpt.cc",
+        "external/xnucxx/LiteObject.cc",
+        "external/xnucxx/LiteIterator.cc",
+        "external/xnucxx/LiteCollection.cc",
+        "external/xnucxx/LiteMutableBuffer.cc",
+        "external/xnucxx/LiteMutableArray.cc",
+
+        // add_subdirectory(builtin-plugin/SymbolResolver)
+        "builtin-plugin/SymbolResolver/elf/dobby_symbol_resolver.cc",
+
+        // "builtin-plugin/BionicLinkerRestriction/bionic_linker_restriction.cc",
+    ],
+
+    arch: {
+        arm: {
+            srcs: [
+                // assembler
+                "source/core/modules/assembler/assembler-arm.cc",
+                // codegen
+                "source/core/modules/codegen/codegen-arm.cc",
+                // memory kit
+                "source/MemoryAllocator/CodeBuffer/code-buffer-arm.cc",
+                // instruction relocation
+                "source/InstructionRelocation/arm/ARMInstructionRelocation.cc",
+                // intercept routing trampoline
+                "source/TrampolineBridge/Trampoline/arm/trampoline-arm.cc",
+            ],
+        },
+        arm64: {
+            srcs: [
+                // assembler
+                "source/core/modules/assembler/assembler-arm64.cc",
+                // codegen
+                "source/core/modules/codegen/codegen-arm64.cc",
+                // memory kit
+                "source/MemoryAllocator/CodeBuffer/code-buffer-arm64.cc",
+                // instruction relocation
+                "source/InstructionRelocation/arm64/ARM64InstructionRelocation.cc",
+                // intercept routing trampoline
+                "source/TrampolineBridge/Trampoline/arm64/trampoline-arm64.cc",
+            ],
+        },
+        x86: {
+            srcs: [
+                // assembler
+                "source/core/modules/assembler/assembler-ia32.cc",
+                // codegen
+                "source/core/modules/codegen/codegen-ia32.cc",
+                // memory kit
+                "source/MemoryAllocator/CodeBuffer/code-buffer-x86.cc",
+                // instruction relocation
+                "source/InstructionRelocation/x86/X86InstructionRelocation.cc",
+                // intercept routing trampoline
+                "source/TrampolineBridge/Trampoline/x86/trampoline-x86.cc",
+            ],
+        },
+        x86_64: {
+            srcs: [
+                // assembler
+                "source/core/modules/assembler/assembler-x64.cc",
+                // codegen
+                "source/core/modules/codegen/codegen-x64.cc",
+                // memory kit
+                "source/MemoryAllocator/CodeBuffer/code-buffer-x64.cc",
+                // instruction relocation
+                "source/InstructionRelocation/x64/X64InstructionRelocation.cc",
+                // intercept routing trampoline
+                "source/TrampolineBridge/Trampoline/x64/trampoline-x64.cc",
+            ],
+        },
+    },
+    vendor: true,
+}

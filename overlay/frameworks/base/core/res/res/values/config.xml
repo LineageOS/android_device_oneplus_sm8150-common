@@ -442,4 +442,41 @@
         <item>"/system/lib64/libsurfaceflinger.so"</item>
     </string-array>
 
+    <!-- Enable ColorDisplayManager Natural/Boosted/Saturated setting. -->
+    <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+
+    <!-- The following two arrays specify which color space to use for display composition when a
+         certain color mode is active.
+         Composition color spaces are defined in android.view.Display.COLOR_MODE_xxx, and color
+         modes are defined in ColorDisplayManager.COLOR_MODE_xxx and
+         ColorDisplayManager.VENDOR_COLOR_MODE_xxx.
+         The color space COLOR_MODE_DEFAULT (0) lets the system select the most appropriate
+         composition color space for currently displayed content. Other values (e.g.,
+         COLOR_MODE_SRGB) override system selection; these other color spaces must be supported by
+         the device for for display composition.
+         If a color mode does not have a corresponding color space specified in this array, the
+         currently set composition color space will not be modified.-->
+    <integer-array name="config_displayCompositionColorModes">
+        <item>0</item> <!-- ColorDisplayManager.COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- ColorDisplayManager.COLOR_MODE_BOOSTED -->
+        <item>2</item> <!-- ColorDisplayManager.COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- ColorDisplayManager.COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+    <integer-array name="config_displayCompositionColorSpaces">
+        <item>0</item> <!-- Display.COLOR_MODE_DEFAULT -->
+        <item>9</item> <!-- Display.COLOR_MODE_DISPLAY_P3 -->
+        <item>0</item> <!-- Display.COLOR_MODE_DEFAULT -->
+        <item>9</item> <!-- Display.COLOR_MODE_DISPLAY_P3 -->
+    </integer-array>
+
+    <!-- Whether or not wcg (wide color gamut) should be enabled on this device,
+         we only enabled it while the device has ability of mixed color spaces composition -->
+    <bool name="config_enableWcgMode">true</bool>
+
 </resources>

@@ -1,0 +1,19 @@
+cc_library_shared {
+    name: "hwcomposer.oneplus-calib",
+    srcs: [
+        "hwcomposer-shim.cpp",
+    ],
+
+    shared_libs: [
+        "libhardware",
+        "liblog",
+        "libbase",
+    ],
+    static_libs: ["libdobby"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    relative_install_path: "hw",
+    vendor: true,
+}

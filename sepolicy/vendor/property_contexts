@@ -8,6 +8,9 @@ vendor.camera.        u:object_r:vendor_camera_prop:s0
 
 # Display
 persist.vendor.color.matrix    u:object_r:vendor_display_prop:s0
+persist.vendor.display.hal_srgb_mode u:object_r:vendor_display_prop:s0
+persist.vendor.display.hal_display_p3_mode u:object_r:vendor_display_prop:s0
+persist.vendor.display.hal_saturated_mode u:object_r:vendor_display_prop:s0
 
 # Fastbootd
 ro.fastbootd.available                 u:object_r:exported_default_prop:s0

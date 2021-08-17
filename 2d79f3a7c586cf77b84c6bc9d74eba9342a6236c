@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d05a3aab_17b498c4",
+        "filename": "livedisplay/DisplayModes.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-08-17T15:19:07Z",
+      "side": 1,
+      "message": "This sometimes doesn\u0027t work neither. Maybe we need something to check if sysfs controls can take effect.",
+      "revId": "2d79f3a7c586cf77b84c6bc9d74eba9342a6236c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

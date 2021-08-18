@@ -16,6 +16,24 @@
       "revId": "2d79f3a7c586cf77b84c6bc9d74eba9342a6236c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d667a97e_85dfd598",
+        "filename": "livedisplay/DisplayModes.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-08-18T11:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d05a3aab_17b498c4",
+      "revId": "2d79f3a7c586cf77b84c6bc9d74eba9342a6236c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

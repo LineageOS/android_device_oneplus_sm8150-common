@@ -69,6 +69,24 @@
       "revId": "7c7d18c6f64bc1cc24c70f9cb5ecba03614e9e49",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "701f6a8d_f3b98663",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-08-21T11:08:26Z",
+      "side": 1,
+      "message": "Uh, their algo is very complex so the data is probably correct and you aren\u0027t using it the way they expect you to.",
+      "parentUuid": "46ebe694_5c78e798",
+      "revId": "7c7d18c6f64bc1cc24c70f9cb5ecba03614e9e49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

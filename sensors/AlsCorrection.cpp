@@ -54,28 +54,38 @@ void AlsCorrection::correct(float& light) {
     if (pid != 0) {
         kill(pid, SIGUSR1);
     }
-    uint8_t r = property_get_int32("vendor.sensors.als_correction.r", 0);
-    uint8_t g = property_get_int32("vendor.sensors.als_correction.g", 0);
-    uint8_t b = property_get_int32("vendor.sensors.als_correction.b", 0);
+    // TODO: HIDL service and pass float instead
+    int r = property_get_int32("vendor.sensors.als_correction.r", 0);
+    int g = property_get_int32("vendor.sensors.als_correction.g", 0);
+    int b = property_get_int32("vendor.sensors.als_correction.b", 0);
     ALOGV("Screen Color Above Sensor: %d, %d, %d", r, g, b);
     ALOGV("Original reading: %f", light);
     int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
-    float correction = 0.0f;
+    float correction = 0.0f, correction_scaled = 0.0f;
     if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
-        uint8_t rgb_min = std::min({r, g, b});
-        correction += ((float) rgb_min) / 255.0f * ((float) white_max_lux);
+        constexpr float rgb_scale = 0x7FFFFFFF;
+        int rgb_min = std::min({r, g, b});
         r -= rgb_min;
         g -= rgb_min;
         b -= rgb_min;
-        correction += ((float) r) / 255.0f * ((float) red_max_lux);
-        correction += ((float) g) / 255.0f * ((float) green_max_lux);
-        correction += ((float) b) / 255.0f * ((float) blue_max_lux);
+        correction += ((float) rgb_min) / rgb_scale * ((float) white_max_lux);
+        correction += ((float) r) / rgb_scale * ((float) red_max_lux);
+        correction += ((float) g) / rgb_scale * ((float) green_max_lux);
+        correction += ((float) b) / rgb_scale * ((float) blue_max_lux);
         correction = correction * (((float) screen_brightness) / ((float) max_brightness));
         correction += als_bias;
+        correction_scaled = correction * (((float) white_max_lux) /
+                                          (red_max_lux + green_max_lux + blue_max_lux));
     }
-    // Do not apply correction if < 0, prevent unstable adaptive brightness
     if (light - correction >= 0) {
+        // Apply correction if light - correction >= 0
         light -= correction;
+    } else if (light - correction > -4) {
+        // Return positive value if light - correction > -4
+        light = correction - light;
+    } else if (light - correction_scaled >= 0) {
+        // Substract scaled correction if light - correction_scaled >= 0
+        light -= correction_scaled;
     } else {
         // In low light conditions, sensor is just reporting bad values, using
         // computed correction instead allows to fix the issue

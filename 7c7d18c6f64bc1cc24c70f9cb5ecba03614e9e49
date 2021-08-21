@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8049576b_e78e270c",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-08-21T10:52:16Z",
+      "side": 1,
+      "message": "I\u0027m not really a fan of adding stuff like this since it\u0027ll only be used by you...",
+      "revId": "7c7d18c6f64bc1cc24c70f9cb5ecba03614e9e49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b83b6e38_4c45dfae",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-08-21T10:52:16Z",
+      "side": 1,
+      "message": "not sure if it even makes much sense to ship calibration data in device tree...",
+      "revId": "7c7d18c6f64bc1cc24c70f9cb5ecba03614e9e49",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

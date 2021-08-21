@@ -19,6 +19,7 @@
 #include <cutils/properties.h>
 #include <fstream>
 #include <log/log.h>
+#include <optional>
 #include <time.h>
 
 namespace android {
@@ -40,11 +41,20 @@ static T get(const std::string& path, const T& def) {
 }
 
 void AlsCorrection::init() {
-    red_max_lux = get("/mnt/vendor/persist/engineermode/red_max_lux", 0);
-    green_max_lux = get("/mnt/vendor/persist/engineermode/green_max_lux", 0);
-    blue_max_lux = get("/mnt/vendor/persist/engineermode/blue_max_lux", 0);
-    white_max_lux = get("/mnt/vendor/persist/engineermode/white_max_lux", 0);
-    als_bias = get("/mnt/vendor/persist/engineermode/als_bias", 0);
+    auto loadCalibration = [](const std::string& filename) {
+        constexpr auto pathPrefixLineage = "/mnt/vendor/persist/als_correction.lineage/";
+        constexpr auto pathPrefixOxygen = "/mnt/vendor/persist/engineermode/";
+        constexpr auto propPrefix = "ro.vendor.sensors.als_correction_defaults.";
+        return get<int32_t>(pathPrefixLineage + filename,
+                            property_get_int32((propPrefix + filename).c_str(),
+                                               get(pathPrefixOxygen + filename, 0)));
+    };
+
+    red_max_lux = loadCalibration("red_max_lux");
+    green_max_lux = loadCalibration("green_max_lux");
+    blue_max_lux = loadCalibration("blue_max_lux");
+    white_max_lux = loadCalibration("white_max_lux");
+    als_bias = loadCalibration("als_bias");
     max_brightness = get("/sys/class/backlight/panel0-backlight/max_brightness", 255);
     ALOGV("max r = %d, max g = %d, max b = %d", red_max_lux, green_max_lux, blue_max_lux);
 }
@@ -54,22 +64,24 @@ void AlsCorrection::correct(float& light) {
     if (pid != 0) {
         kill(pid, SIGUSR1);
     }
-    uint8_t r = property_get_int32("vendor.sensors.als_correction.r", 0);
-    uint8_t g = property_get_int32("vendor.sensors.als_correction.g", 0);
-    uint8_t b = property_get_int32("vendor.sensors.als_correction.b", 0);
+    // TODO: HIDL service and pass float instead
+    int32_t r = property_get_int32("vendor.sensors.als_correction.r", 0);
+    int32_t g = property_get_int32("vendor.sensors.als_correction.g", 0);
+    int32_t b = property_get_int32("vendor.sensors.als_correction.b", 0);
     ALOGV("Screen Color Above Sensor: %d, %d, %d", r, g, b);
     ALOGV("Original reading: %f", light);
     int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
     float correction = 0.0f;
     if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
-        uint8_t rgb_min = std::min({r, g, b});
-        correction += ((float) rgb_min) / 255.0f * ((float) white_max_lux);
+        constexpr float rgb_scale = 0x7FFFFFFF;
+        uint16_t rgb_min = std::min({r, g, b});
+        correction += ((float) rgb_min) / rgb_scale * ((float) white_max_lux);
         r -= rgb_min;
         g -= rgb_min;
         b -= rgb_min;
-        correction += ((float) r) / 255.0f * ((float) red_max_lux);
-        correction += ((float) g) / 255.0f * ((float) green_max_lux);
-        correction += ((float) b) / 255.0f * ((float) blue_max_lux);
+        correction += ((float) r) / rgb_scale * ((float) red_max_lux);
+        correction += ((float) g) / rgb_scale * ((float) green_max_lux);
+        correction += ((float) b) / rgb_scale * ((float) blue_max_lux);
         correction = correction * (((float) screen_brightness) / ((float) max_brightness));
         correction += als_bias;
     }

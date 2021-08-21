@@ -16,6 +16,9 @@
 -->
 <resources>
     <string name="close">Tutup</string>
+    <string name="raise_the_camera">Keluarkan kamera</string>
     <string name="retry">Coba lagi</string>
     <string name="warning">Peringatan</string>
+    <string name="motor_cannot_go_up_message">Tidak dapat mengeluarkan kamera depan, pastikan tidak ada yang menghalangi.</string>
+    <string name="motor_press_message">Menekan kamera depan dapat merusak motor kamera. Harap hindari melakukannya.</string>
 </resources>

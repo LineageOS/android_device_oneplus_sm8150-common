@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b2bba40_c2769302",
+        "filename": "configs/qdcm_calib_data_samsung_dsc_cmd_mode_oneplus_dsi_panel.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-08-24T12:41:44Z",
+      "side": 1,
+      "message": "is the file also used by guacamoleb/hotdog/hotdogb? I have only a guacamole...",
+      "revId": "8ff181c7c00527c6b9f87e705a122b0a4784f7f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

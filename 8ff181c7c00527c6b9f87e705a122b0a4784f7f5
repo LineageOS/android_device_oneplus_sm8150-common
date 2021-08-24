@@ -52,6 +52,24 @@
       "revId": "8ff181c7c00527c6b9f87e705a122b0a4784f7f5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc818477_e2f18d28",
+        "filename": "configs/qdcm_calib_data_samsung_dsc_cmd_mode_oneplus_dsi_panel.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 19768
+      },
+      "writtenOn": "2021-08-24T17:06:59Z",
+      "side": 1,
+      "message": "I can see renamed color mode in dump.",
+      "parentUuid": "c80a14d9_daf87e40",
+      "revId": "8ff181c7c00527c6b9f87e705a122b0a4784f7f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

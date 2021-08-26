@@ -307,15 +307,6 @@
       "HoldFd": true
     },
     {
-      "Name": "UfsClkGateEnable",
-      "Path": "/dev/sys/block/bootdevice/clkgate_enable",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "EnergyAware",
       "Path": "/proc/sys/kernel/sched_energy_aware",
       "Values": [
@@ -461,12 +452,6 @@
       "Value": "2597"
     },
     {
-      "PowerHint": "INTERACTION",
-      "Node": "UfsClkGateEnable",
-      "Duration": 200,
-      "Value": "0"
-    },
-    {
       "PowerHint": "LAUNCH",
       "Node": "EnergyAware",
       "Duration": 5000,
@@ -563,12 +548,6 @@
       "Value": "1440000000"
     },
     {
-      "PowerHint": "LAUNCH",
-      "Node": "UfsClkGateEnable",
-      "Duration": 5000,
-      "Value": "0"
-    },
-    {
       "PowerHint": "CAMERA_LAUNCH",
       "Node": "EnergyAware",
       "Duration": 1000,
@@ -615,12 +594,6 @@
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 1000,
       "Value": "2c"
-    },
-    {
-      "PowerHint": "CAMERA_LAUNCH",
-      "Node": "UfsClkGateEnable",
-      "Duration": 1000,
-      "Value": "0"
     },
     {
       "PowerHint": "CAMERA_STREAMING_MID",

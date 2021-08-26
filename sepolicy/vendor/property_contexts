@@ -15,9 +15,6 @@ ro.fastbootd.available                 u:object_r:exported_default_prop:s0
 # FTM mode
 ro.boot.ftm_mode    u:object_r:exported_default_prop:s0
 
-# Graphics
-ro.gfx.driver.1    u:object_r:exported3_default_prop:s0
-
 # Memplus
 vendor.sys.memplus.    u:object_r:vendor_memplus_prop:s0
 

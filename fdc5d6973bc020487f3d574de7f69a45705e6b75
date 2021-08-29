@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31ba76be_68305416",
+        "filename": "hwcomposer.oneplus_sm8150/hwcomposer-shim.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-08-29T14:01:29Z",
+      "side": 1,
+      "message": "seems this is not the right place to issue a reload, at least not immediately...",
+      "revId": "fdc5d6973bc020487f3d574de7f69a45705e6b75",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

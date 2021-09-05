@@ -163,6 +163,24 @@
       "revId": "901d62930a76790231c31779955c129a983fea46",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e488a90f_20e4855d",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 13106
+      },
+      "writtenOn": "2021-09-05T19:09:03Z",
+      "side": 1,
+      "message": "Yes I understand that, for now the focus is to make it more like OP does it and then we can improve things from there. OP uses V0_SRGB, so I use V0_SRGB. I haven\u0027t reversed their averaging code yet, it\u0027s an even more monstrous beast than what we\u0027re dealing with right now.\n\nAsking SF for linear light would potentially remove a lot of complexity from this code if it works well. You\u0027d at least want to use V0_SRGB_LINEAR instead of DISPLAY_P3_LINEAR though.",
+      "parentUuid": "a0c028de_da51e0c5",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

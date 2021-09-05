@@ -181,6 +181,24 @@
       "revId": "901d62930a76790231c31779955c129a983fea46",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc3c7234_8a77d231",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-09-05T19:20:48Z",
+      "side": 1,
+      "message": "stock calibration seems to run with P3 primaries... well, SF think all display modes sRGB in stock, using DISPLAY_P3_LINEAR should only work with my color modes patch.",
+      "parentUuid": "e488a90f_20e4855d",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

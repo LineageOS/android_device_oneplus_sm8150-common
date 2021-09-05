@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "7932fa3f_9e4ed122",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-09-05T18:17:33Z",
+      "side": 1,
+      "message": "...and apply gamma again here?",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef28c3b1_f65c95e8",
         "filename": "sensors/HalProxy.cpp",
         "patchSetId": 2
@@ -90,6 +107,23 @@
         "endLine": 502,
         "endChar": 5
       },
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2e5a88f_43b34794",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-09-05T18:17:33Z",
+      "side": 1,
+      "message": "here sums brightness in gamma space",
       "revId": "901d62930a76790231c31779955c129a983fea46",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true

@@ -1,1 +1,4 @@
+<<<<<<< HEAD   (80ba8a sm8150-common: Drop console from kernel cmdline)
 system_public_prop(vendor_sensors_als_prop)
+=======
+>>>>>>> CHANGE (f1f730 sm8150-common: implement ALS compensation algorithm)

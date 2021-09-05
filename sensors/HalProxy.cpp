@@ -671,8 +671,13 @@ void HalProxy::postEventsToMessageQueue(const std::vector<Event>& eventsList, si
     }
     std::vector<Event> events(eventsList);
     for (auto& event : events) {
+<<<<<<< HEAD   (80ba8a sm8150-common: Drop console from kernel cmdline)
         if (static_cast<int>(event.sensorType) == SENSOR_TYPE_QTI_WISE_LIGHT) {
             AlsCorrection::correct(event.u.scalar);
+=======
+        if (static_cast<int>(event.sensorType) == SENSOR_TYPE_QTI_HARDWARE_LIGHT) {
+            AlsCorrection::process(event);
+>>>>>>> CHANGE (f1f730 sm8150-common: implement ALS compensation algorithm)
         }
     }
     if (mPendingWriteEventsQueue.empty()) {

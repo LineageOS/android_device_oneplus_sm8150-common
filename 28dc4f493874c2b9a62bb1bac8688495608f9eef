@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "466e8a52_570f15fa",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-09-05T19:01:40Z",
+      "side": 0,
+      "message": "Conversion to linear light is done by SF before.",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 57
+      },
+      "revId": "28dc4f493874c2b9a62bb1bac8688495608f9eef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

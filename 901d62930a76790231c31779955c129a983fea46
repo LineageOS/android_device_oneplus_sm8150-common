@@ -199,6 +199,24 @@
       "revId": "901d62930a76790231c31779955c129a983fea46",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b8cfc2c_94645b0d",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 13106
+      },
+      "writtenOn": "2021-09-05T20:53:14Z",
+      "side": 1,
+      "message": "That might explain why the natural color mode has a lower brightness, would your patch make it translate properly?",
+      "parentUuid": "dc3c7234_8a77d231",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

@@ -19,8 +19,24 @@
 
 #include <cstdio>
 #include <signal.h>
-#include <time.h>
 #include <unistd.h>
+#include <utils/Timers.h>
+
+#ifdef DEVICE_guacamole
+#define ALS_SCREEN_RECT 251, 988, 305, 1042
+#endif
+
+#ifdef DEVICE_guacamoleb
+#define ALS_SCREEN_RECT 626, 192, 666, 232
+#endif
+
+#ifdef DEVICE_hotdog
+#define ALS_SCREEN_RECT 255, 903, 301, 949
+#endif
+
+#ifdef DEVICE_hotdogb
+#define ALS_SCREEN_RECT 499, 110, 525, 136
+#endif
 
 using android::base::SetProperty;
 using android::GraphicBuffer;
@@ -29,28 +45,18 @@ using android::ScreenshotClient;
 using android::sp;
 using android::SurfaceComposerClient;
 
-constexpr int ALS_RADIUS = 64;
-constexpr int SCREENSHOT_INTERVAL = 1;
-
 void updateScreenBuffer() {
-    static time_t lastScreenUpdate = 0;
+    static Rect screenshot_rect(ALS_SCREEN_RECT);
     static sp<GraphicBuffer> outBuffer = new GraphicBuffer(
-            10, 10, android::PIXEL_FORMAT_RGB_888,
+            screenshot_rect.getWidth(), screenshot_rect.getHeight(),
+            android::PIXEL_FORMAT_RGB_888,
             GraphicBuffer::USAGE_SW_READ_OFTEN | GraphicBuffer::USAGE_SW_WRITE_OFTEN);
 
-    struct timespec now;
-    clock_gettime(CLOCK_MONOTONIC, &now);
-
-    if (now.tv_sec - lastScreenUpdate >= SCREENSHOT_INTERVAL) {
-        // Update Screenshot at most every second
-        ScreenshotClient::capture(
-                SurfaceComposerClient::getInternalDisplayToken(),
-                android::ui::Dataspace::DISPLAY_P3_LINEAR, android::ui::PixelFormat::RGBA_8888,
-                Rect(ALS_POS_X - ALS_RADIUS, ALS_POS_Y - ALS_RADIUS, ALS_POS_X + ALS_RADIUS,
-                     ALS_POS_Y + ALS_RADIUS),
-                ALS_RADIUS * 2, ALS_RADIUS * 2, true, android::ui::ROTATION_0, &outBuffer);
-        lastScreenUpdate = now.tv_sec;
-    }
+    ScreenshotClient::capture(
+            SurfaceComposerClient::getInternalDisplayToken(),
+            android::ui::Dataspace::V0_SRGB, android::ui::PixelFormat::RGBA_8888,
+            screenshot_rect, screenshot_rect.getWidth(), screenshot_rect.getHeight(),
+            false, android::ui::ROTATION_0, &outBuffer);
 
     uint8_t *out;
     auto resultWidth = outBuffer->getWidth();
@@ -67,10 +73,12 @@ void updateScreenBuffer() {
             bsum += out[y * (stride * 4) + x * 4 + 2];
         }
     }
-    uint32_t max = 255 * resultWidth * resultHeight;
-    SetProperty("vendor.sensors.als_correction.r", std::to_string(rsum * 0x7FFFFFFFuLL / max));
-    SetProperty("vendor.sensors.als_correction.g", std::to_string(gsum * 0x7FFFFFFFuLL / max));
-    SetProperty("vendor.sensors.als_correction.b", std::to_string(bsum * 0x7FFFFFFFuLL / max));
+    uint32_t max = resultWidth * resultHeight;
+    SetProperty("vendor.sensors.als_correction.r", std::to_string(rsum / max));
+    SetProperty("vendor.sensors.als_correction.g", std::to_string(gsum / max));
+    SetProperty("vendor.sensors.als_correction.b", std::to_string(bsum / max));
+    nsecs_t now = systemTime(SYSTEM_TIME_BOOTTIME);
+    SetProperty("vendor.sensors.als_correction.time", std::to_string(ns2ms(now)));
     outBuffer->unlock();
 }
 

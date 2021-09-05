@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1ecd88a2_9ba672b0",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 13106
+      },
+      "writtenOn": "2021-09-05T18:46:32Z",
+      "side": 1,
+      "message": "Yes, pow(pixel, 2.2) is how much light it actually emits. I\u0027ve already verified this against sensor readings on real hardware. This is also how OP does it. Note that the actual estimation is made with the polynomials just above, this is only a lower bound to clamp against.",
+      "parentUuid": "7932fa3f_9e4ed122",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef28c3b1_f65c95e8",
         "filename": "sensors/HalProxy.cpp",
         "patchSetId": 2

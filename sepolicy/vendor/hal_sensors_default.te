@@ -1,3 +1,5 @@
-allow hal_sensors_default als_correction_service:process signal;
+typeattribute hal_sensors_default socket_between_core_and_vendor_violators;
 
-get_prop(hal_sensors_default, vendor_sensors_als_prop)
+allow hal_sensors_default als_correction_service:unix_stream_socket connectto;
+
+allow hal_sensors_default als_correction_socket:sock_file rw_file_perms;

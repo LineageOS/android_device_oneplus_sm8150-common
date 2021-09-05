@@ -1,3 +1,5 @@
+typeattribute hal_sensors_default socket_between_core_and_vendor_violators;
+
 # Allow access to the HALs
 hal_client_domain(hal_sensors_default, hal_audio)
 
@@ -10,8 +12,11 @@ allow hal_sensors_default hal_audio_hwservice:hwservice_manager find;
 # Allow hal_sensors_default to read files in mnt_vendor_file
 r_dir_file(hal_sensors_default, mnt_vendor_file)
 
-# Allow hal_sensors_default to send SIGUSR1 to als_correction_service
-allow hal_sensors_default als_correction_service:process signal;
+# Allow hal_sensors_default to connect to als_correction_service unix stream socket
+allow hal_sensors_default als_correction_service:unix_stream_socket connectto;
+
+# Allow hal_sensors_default to read and write to als_correction_socket
+allow hal_sensors_default als_correction_socket:sock_file rw_file_perms;
 
 # Allow hal_sensors_default to read and write to gpu_device
 allow hal_sensors_default gpu_device:chr_file rw_file_perms;
@@ -48,6 +53,3 @@ r_dir_file(hal_sensors_default, sysfs_graphics)
 
 # Allow hal_sensors_default to get vendor_sensors_prop
 get_prop(hal_sensors_default, vendor_sensors_prop)
-
-# Allow hal_sensors_default to get vendor_sensors_als_prop
-get_prop(hal_sensors_default, vendor_sensors_als_prop)

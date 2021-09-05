@@ -52,7 +52,8 @@
 /mnt/vendor/persist/engineermode(/.*)?               u:object_r:persist_engineer_file:s0
 
 # Socket files
-/dev/socket/vl53l1_daemon    u:object_r:vl53l1_socket:s0
+/dev/socket/als_correction    u:object_r:als_correction_socket:s0
+/dev/socket/vl53l1_daemon     u:object_r:vl53l1_socket:s0
 
 # Sys files
 /sys/bus/platform/devices/soc/soc:tri_state_key/hall_data_calib    u:object_r:sysfs_tri_state_key:s0

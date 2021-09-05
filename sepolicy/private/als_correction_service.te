@@ -2,8 +2,6 @@ type als_correction_service_exec, system_file_type, exec_type, file_type;
 
 init_daemon_domain(als_correction_service)
 
-typeattribute als_correction_service system_writes_vendor_properties_violators;
-
 # Allow access to the HALs
 hal_client_domain(als_correction_service, hal_graphics_allocator)
 
@@ -27,6 +25,3 @@ allow als_correction_service same_process_hal_file:file r_file_perms;
 
 # Allow als_correction_service to read and write to ion_device
 allow als_correction_service ion_device:chr_file rw_file_perms;
-
-# Allow als_correction_service to get vendor_sensors_als_prop
-set_prop(als_correction_service, vendor_sensors_als_prop)

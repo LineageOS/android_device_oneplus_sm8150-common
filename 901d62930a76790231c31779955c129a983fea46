@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "560bbcc4_cc104840",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-09-05T16:49:24Z",
+      "side": 1,
+      "message": "corr \u003d std::max(0.0, corr * conf.rgbw_lux_postmul[i]);",
+      "range": {
+        "startLine": 248,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef28c3b1_f65c95e8",
+        "filename": "sensors/HalProxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-09-05T16:49:24Z",
+      "side": 1,
+      "message": "is this really worth it?",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 5
+      },
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}

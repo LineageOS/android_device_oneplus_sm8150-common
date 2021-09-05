@@ -16,6 +16,7 @@ type op2_file, file_type;
 type opf_file, file_type;
 
 # sockets
+type als_correction_socket, file_type;
 type vl53l1_socket, file_type;
 
 # sysfs

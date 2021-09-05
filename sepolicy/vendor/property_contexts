@@ -56,4 +56,3 @@ persist.vendor.sensors.enable.mag_filter         u:object_r:vendor_sensors_prop:
 persist.vendor.sensors.light.location_x          u:object_r:vendor_sensors_prop:s0
 persist.vendor.sensors.light.location_y          u:object_r:vendor_sensors_prop:s0
 persist.vendor.sensors.proximity.using_motion    u:object_r:vendor_sensors_prop:s0
-vendor.sensors.als_correction.                   u:object_r:vendor_sensors_als_prop:s0

@@ -217,6 +217,24 @@
       "revId": "901d62930a76790231c31779955c129a983fea46",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a40847_606e8970",
+        "filename": "sensors/als_correction_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2021-09-06T05:14:49Z",
+      "side": 1,
+      "message": "Theoretically it would perform a reasonable transform, but OP\u0027s Display P3 calibration uses different white point / white level from sRGB calibration, which doesn\u0027t meet AOSP requirements and leads to different maximum brightness for primaries.",
+      "parentUuid": "3b8cfc2c_94645b0d",
+      "revId": "901d62930a76790231c31779955c129a983fea46",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }

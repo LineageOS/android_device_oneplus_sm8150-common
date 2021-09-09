@@ -108,6 +108,12 @@ on fs
     write /sys/devices/platform/soc/984000.i2c/i2c-4/4-0048/tp_fw_update 0
     write /sys/devices/platform/soc/a94000.i2c/i2c-4/4-005d/tp_fw_update 0
     write /sys/devices/platform/soc/880000.spi/spi_master/spi0/spi0.0/tp_fw_update 0
+    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0048/tp_fw_update 0
+    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0049/tp_fw_update 0
+#18857
+    write /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0020/tp_fw_update 0
+#18865
+    write /sys/devices/platform/soc/c80000.i2c/i2c-5/5-0020/tp_fw_update 0
 
 #add for tp debug log & to set node gesture_enable
     chown system system /proc/touchpanel/tp_debug_log

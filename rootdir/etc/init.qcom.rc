@@ -884,7 +884,7 @@ service diag_mdlog_stop /system/vendor/bin/diag_mdlog -k
     oneshot
 
 # VENDOR_EDIT BruceChenYC, 2020/08/04, need to add -c to clean mask before start command  -i add ADPL
-service diag_mdlog_system_start /system/system_ext/bin/diag_mdlog_system -q 2 -c -u -i
+service diag_mdlog_system_start /system/system_ext/bin/diag_mdlog_system -c -u -i
     class late_start
     user shell
     group system oem_2901 oem_2902 sdcard_rw sdcard_r media_rw

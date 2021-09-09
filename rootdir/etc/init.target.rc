@@ -58,6 +58,7 @@ on fs
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
+    restorecon_recursive --force /mnt/vendor/persist/data/
 #liuhaituo@MM.Audio, 2019/6/25, chmod to support audio_hal and sensor hal
     chmod 0666 /dev/audio_ultrasound
     chmod 0666 /dev/sensor_ultrasound

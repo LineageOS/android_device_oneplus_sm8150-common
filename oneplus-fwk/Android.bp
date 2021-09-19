@@ -1,8 +1,0 @@
-java_library {
-    name: "oneplus-fwk.oneplus_msmnile",
-    installable: true,
-
-    srcs: [
-        "src/**/*.java",
-    ],
-}

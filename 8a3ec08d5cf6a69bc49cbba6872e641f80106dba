@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd58009f_c5310c8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20352
+      },
+      "writtenOn": "2021-11-17T12:28:45Z",
+      "side": 1,
+      "message": "Works on hotdogg.\n\nTest: Make motor camera open fail\n      Click retry/close buttons on error dialog\n      See camera closing/reopening",
+      "revId": "8a3ec08d5cf6a69bc49cbba6872e641f80106dba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

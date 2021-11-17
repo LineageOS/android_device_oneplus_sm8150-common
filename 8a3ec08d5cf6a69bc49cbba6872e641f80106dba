@@ -85,6 +85,24 @@
       "message": "Also address \"No newline at end of revision file.\" pls.",
       "revId": "8a3ec08d5cf6a69bc49cbba6872e641f80106dba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "285fa6c0_b8bb6e81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20352
+      },
+      "writtenOn": "2021-11-17T16:27:24Z",
+      "side": 1,
+      "message": "This is the log of denials: https://katb.in/oroyumoqivo\nI am wondering about that too since it should be done by motor hal",
+      "parentUuid": "a6a37bf0_9c7d1bdc",
+      "revId": "8a3ec08d5cf6a69bc49cbba6872e641f80106dba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

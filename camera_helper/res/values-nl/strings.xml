@@ -20,4 +20,8 @@
     <string name="retry">Opnieuw</string>
     <string name="warning">Let op</string>
     <string name="free_fall_detected_title">Vrije val gedetecteerd</string>
+    <string name="free_fall_detected_message">De frontcamera werd ingeschoven om hem te beschermen. Wil je de frontcamera weer gebruiken?</string>
+    <string name="motor_cannot_go_down_message">De frontcamera kan niet worden ingetrokken, zorg ervoor dat er geen obstakels zijn</string>
+    <string name="motor_cannot_go_up_message">De frontcamera kan niet worden uitgeschoven, zorg ervoor dat er geen obstakels zijn</string>
+    <string name="motor_press_message">Het indrukken van de frontcamera kan de motor beschadigen. Vermijd dit alsjeblieft.</string>
 </resources>

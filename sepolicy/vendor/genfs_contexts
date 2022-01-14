@@ -7,6 +7,7 @@ genfscon proc /ultrasound u:object_r:proc_ultrasound:s0
 genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-005a/leds/vibrator u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/aod u:object_r:sysfs_aod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/aod_disable u:object_r:sysfs_aod:s0
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/auth_status u:object_r:sysfs_fod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dim_alpha u:object_r:sysfs_fod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en u:object_r:sysfs_livedisplay_tuneable:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm u:object_r:sysfs_livedisplay_tuneable:s0
@@ -19,4 +20,5 @@ genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_aod u:object_r:sysfs_aod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_dim u:object_r:sysfs_fod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/notify_fppress u:object_r:sysfs_fod:s0
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/power_status u:object_r:sysfs_fod:s0
 genfscon sysfs /devices/platform/vendor/vendor:infrared_pl u:object_r:vendor_sysfs_sensors:s0

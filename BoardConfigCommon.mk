@@ -87,7 +87,7 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //hardware/oneplus:libfod_extension.oneplus
+TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oneplus:libudfps_extension.oneplus
 
 # Display
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
@@ -104,10 +104,6 @@ TARGET_ENABLE_MEDIADRM_64 := true
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
-
-# Fingerprint
-SOONG_CONFIG_NAMESPACES += ONEPLUS_FOD
-SOONG_CONFIG_ONEPLUS_FOD := POS_X POS_Y SIZE
 
 # HIDL
 DEVICE_MATRIX_FILE := $(VENDOR_PATH)/compatibility_matrix.xml

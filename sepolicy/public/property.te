@@ -1,1 +1,2 @@
-type vendor_sensors_als_prop, property_type;
+system_internal_prop(fastbootd_available_prop)
+system_public_prop(vendor_sensors_als_prop)

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d957c4_e9bf716e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2022-01-27T03:53:36Z",
+      "side": 1,
+      "message": "had the exact same issue on another device with prebuilt audio alioth (xiaomi kona)\n\n`01-23 10:54:05.924  1696  1696 I ServiceManager: Waiting for service \u0027media.audio_policy\u0027 on \u0027/dev/binder\u0027...`\n\nit just dies here with source built libssrec for some reason",
+      "revId": "a18dea0ba3e3bff6d7204587d58d912a57eccd85",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

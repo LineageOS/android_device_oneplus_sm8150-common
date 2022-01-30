@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a09c14_d41c02a6",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-01-30T06:21:12Z",
+      "side": 0,
+      "message": "Do we need all these configs (which are below) now??",
+      "revId": "a22b59690c90e22b45ef1c61750a2e9c2f720e98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

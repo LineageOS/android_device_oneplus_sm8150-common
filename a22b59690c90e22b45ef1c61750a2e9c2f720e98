@@ -16,6 +16,24 @@
       "message": "Do we need all these configs (which are below) now??",
       "revId": "a22b59690c90e22b45ef1c61750a2e9c2f720e98",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da569336_7b7b4e81",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-01-30T09:17:35Z",
+      "side": 0,
+      "message": "Nothing changed because of this change, if something  is unused now then it most likely was unused before as well since we only replace NfcNci.",
+      "parentUuid": "c0a09c14_d41c02a6",
+      "revId": "a22b59690c90e22b45ef1c61750a2e9c2f720e98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

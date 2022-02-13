@@ -247,22 +247,16 @@ vendor/etc/init/vendor.oneplus.hardware.display@1.0-service.rc
 # Display (HDR)
 vendor/lib64/libhdr_tm.so
 
-# Display (HWC)
-vendor/lib64/hw/hwcomposer.msmnile.so
-vendor/lib64/libdisplayconfig.qti.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmutils.so
-
-# Display (SDM)
-vendor/lib64/libdisplayqos.so
-vendor/lib64/libqseed3.so
-vendor/lib64/libsdedrm.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-colormgr-algo.so
-vendor/lib64/libsdm-diag.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libtinyxml2_1.so
+# Display (SDM) - from NX627J - RKQ1.200826.002
+vendor/lib64/libdisplayqos.so|3e95c6aedbfca5132ef75365e0a45a32c79b1fd6
+vendor/lib64/libqseed3.so|a449d79b912415f542509874b43338b27795a1c3
+vendor/lib64/libsdedrm.so|582910d21139781ad9e414c35207584f51e035e2
+vendor/lib64/libsdm-color.so|b2bcf2c205b501024407ed5c216d2b290688bd64
+vendor/lib64/libsdm-colormgr-algo.so|6d17546d7822803700dc21968f75069d1b7392b1
+vendor/lib64/libsdm-diag.so|3d5c311d7d5d842e5a75e9ae3f9f70ceb00cd1cf
+vendor/lib64/libsdm-disp-vndapis.so|42f536763a2f91dcbae5b4b7214e652283c389d6
+vendor/lib64/libsdmextension.so|0aed8ab6ecf878ae57ecba4b8a9bfb0d184ab5f7
+vendor/lib64/libtinyxml2_1.so|621dbc8e3d0529b9ee35393698de82ea006ca7fa
 
 # Display calibration data
 vendor/etc/qdcm_calib_data_samsung_dsc_cmd_mode_oneplus_dsi_panel.xml

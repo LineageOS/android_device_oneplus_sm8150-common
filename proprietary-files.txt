@@ -247,13 +247,7 @@ vendor/etc/init/vendor.oneplus.hardware.display@1.0-service.rc
 # Display (HDR)
 vendor/lib64/libhdr_tm.so
 
-# Display (HWC)
-vendor/lib64/hw/hwcomposer.msmnile.so
-vendor/lib64/libdisplayconfig.qti.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmutils.so
-
-# Display (SDM)
+# Display (SDM) - from nubia - will update sha1sums later lol
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libqseed3.so
 vendor/lib64/libsdedrm.so

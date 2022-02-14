@@ -16,6 +16,24 @@
       "message": "313097: sm8150-common: Use prebuilt vendor libdisplayconfig.qti.so | https://review.lineageos.org/c/LineageOS/android_device_oneplus_sm8150-common/+/313097 probably need to revert this to match source built composer",
       "revId": "49c02e6ae7af6705169b33a4fbd3042a2859c614",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d277e38_6367d427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-02-14T14:32:47Z",
+      "side": 1,
+      "message": "It was removed along with the whole HWC blobs group.",
+      "parentUuid": "0202978a_351930ce",
+      "revId": "49c02e6ae7af6705169b33a4fbd3042a2859c614",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

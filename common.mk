@@ -343,10 +343,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 # Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
 PRODUCT_PACKAGES += \
     als_correction_service.oneplus_msmnile \
     android.hardware.sensors@2.0-service.oneplus_msmnile \
-    libsensorndkbridge
+    libsensorndkbridge \
+    sensors.oplus
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \

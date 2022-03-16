@@ -9,8 +9,8 @@ allow dashd dash_device:chr_file rw_file_perms;
 # Allow dashd to read and write to kmsg_device
 allow dashd kmsg_device:chr_file rw_file_perms;
 
-# Allow dashd to read files in sysfs_battery_supply
-r_dir_file(dashd, sysfs_battery_supply)
+# Allow dashd to read files in vendor_sysfs_battery_supply
+r_dir_file(dashd, vendor_sysfs_battery_supply)
 
-# Allow dashd to read files in sysfs_usb_supply
-r_dir_file(dashd, sysfs_usb_supply)
+# Allow dashd to read files in vendor_sysfs_usb_supply
+r_dir_file(dashd, vendor_sysfs_usb_supply)

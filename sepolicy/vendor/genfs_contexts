@@ -5,6 +5,7 @@ genfscon proc /touchpanel u:object_r:proc_touchpanel:s0
 genfscon proc /ultrasound u:object_r:proc_ultrasound:s0
 
 genfscon sysfs /devices/platform/soc/89c000.i2c/i2c-2/2-005a/leds/vibrator u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/soc/a600000.ssusb/usb_data_enabled u:object_r:sysfs_usb_data_enabled:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/aod u:object_r:sysfs_aod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/aod_disable u:object_r:sysfs_aod:s0
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/auth_status u:object_r:sysfs_fod:s0

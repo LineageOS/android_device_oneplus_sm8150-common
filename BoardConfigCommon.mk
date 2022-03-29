@@ -39,7 +39,7 @@ BOARD_KERNEL_IMAGE_NAME := Image-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
+TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig vendor/debugfs.config
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
 # Platform

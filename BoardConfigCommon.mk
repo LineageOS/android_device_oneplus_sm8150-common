@@ -96,7 +96,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
-TARGET_KERNEL_CONFIG := lineage_sm8150_defconfig
+TARGET_KERNEL_CONFIG := lineage_sm8150_defconfig vendor/debugfs.config
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
 # Kernel modules - Audio

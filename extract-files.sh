@@ -60,11 +60,11 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
+            sed -i "s/\/my_product/\/product/" "${2}"
+            ;;
         system_ext/lib64/libwfdnative.so)
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
-            ;;
-        vendor/bin/hw/qcrild)
-            "${PATCHELF}" --add-needed libril_shim.so "${2}"
             ;;
     esac
 }

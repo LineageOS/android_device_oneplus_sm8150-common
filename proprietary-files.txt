@@ -101,16 +101,11 @@ vendor/bin/hw/vendor.oneplus.hardware.CameraMDMHIDL@1.0-service
 vendor/bin/vl53l1_daemon_main
 vendor/etc/init/vendor.oneplus.hardware.camera@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.CameraMDMHIDL@1.0-service.rc
-vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/lib_bokehlib.so
 vendor/lib64/lib_oneplus_watermark.so
 vendor/lib64/libarcsoft_beautyshot.so
 vendor/lib64/libarcsoft_calibverify_TriCamera.so
 vendor/lib64/libarcsoft_distortion_correction.so
-vendor/lib64/libarcsoft_dualcam_bokeh_api.so
-vendor/lib64/libarcsoft_dualcam_refocus_left.so
-vendor/lib64/libarcsoft_dualcam_refocus_preview.so
-vendor/lib64/libarcsoft_dualcam_refocus_right.so
 vendor/lib64/libarcsoft_dualcam_refocus_uw.so
 vendor/lib64/libarcsoft_hdr_couple_api.so
 vendor/lib64/libarcsoft_hdr_denoise_api.so
@@ -119,7 +114,6 @@ vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_high_dynamic_range_couple.so
 vendor/lib64/libarcsoft_low_light_hdr.so
 vendor/lib64/libarcsoft_piczoom.so
-vendor/lib64/libarcsoft_portrait_distortion_correction.so
 vendor/lib64/libarcsoft_smart_denoise.so
 vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_tricam_calibration.so

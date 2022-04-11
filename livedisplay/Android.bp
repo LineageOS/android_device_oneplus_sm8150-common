@@ -22,8 +22,8 @@ cc_binary {
     srcs: [
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        ":vendor.lineage.livedisplay@2.1-oneplus-af",
-        ":vendor.lineage.livedisplay@2.1-oneplus-se",
+        ":vendor.lineage.livedisplay@2.1-oplus-af",
+        ":vendor.lineage.livedisplay@2.1-oplus-se",
         "DisplayModes.cpp",
         "service.cpp",
     ],
@@ -36,8 +36,9 @@ cc_binary {
         "vendor.lineage.livedisplay@2.1",
     ],
     header_libs: [
+        "kernel_headers.oplus",
         "vendor.lineage.livedisplay@2.0-sdm-headers",
-        "vendor.lineage.livedisplay@2.1-oneplus-headers",
+        "vendor.lineage.livedisplay@2.1-oplus-headers",
     ],
     proprietary: true,
 }

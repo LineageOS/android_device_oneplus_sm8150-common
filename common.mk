@@ -222,6 +222,17 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# Init
+PRODUCT_PACKAGES += \
+    init.class_main.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.rc \
+    init.qcom.recovery.rc \
+    init.qcom.sh \
+    init.target.rc \
+    ueventd.qcom.rc
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gf_input.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf_input.kl \

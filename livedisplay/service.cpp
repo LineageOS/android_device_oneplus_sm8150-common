@@ -19,8 +19,8 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
-#include <livedisplay/oneplus/AntiFlicker.h>
-#include <livedisplay/oneplus/SunlightEnhancement.h>
+#include <livedisplay/oplus/AntiFlicker.h>
+#include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
 

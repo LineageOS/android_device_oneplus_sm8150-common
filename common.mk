@@ -304,6 +304,8 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Overlays
+$(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
+
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
 

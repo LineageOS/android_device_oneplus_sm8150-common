@@ -113,7 +113,8 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_ROOT_EXTRA_SYMLINKS += /vendor/odm/vendor:/odm/vendor
 
 # Security
-VENDOR_SECURITY_PATCH := 2022-12-05
+BOOT_SECURITY_PATCH := 2022-12-05
+VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk

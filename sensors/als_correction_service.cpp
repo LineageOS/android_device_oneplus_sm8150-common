@@ -58,6 +58,7 @@ void updateScreenBuffer() {
         captureArgs.width = ALS_RADIUS * 2;
         captureArgs.height = ALS_RADIUS * 2;
         captureArgs.useIdentityTransform = true;
+        captureArgs.captureSecureLayers = true;
         sp<SyncScreenCaptureListener> captureListener = new SyncScreenCaptureListener();
         if (ScreenshotClient::captureDisplay(captureArgs, captureListener) == android::NO_ERROR) {
             ScreenCaptureResults captureResults = captureListener->waitForResults();

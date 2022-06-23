@@ -89,8 +89,12 @@ cc_binary {
         "libgui",
         "libui",
         "libutils",
+        "liblog",
     ],
     cflags: [
         "-DNO_INPUT",
+    ],
+    local_include_dirs: [
+        "include",
     ],
 }

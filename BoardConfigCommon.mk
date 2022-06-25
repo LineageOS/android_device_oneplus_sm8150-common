@@ -144,10 +144,7 @@ SOONG_CONFIG_ONEPLUS_MSMNILE_SENSORS := ALS_POS_X ALS_POS_Y
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-
-BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
-PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
-PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
+include hardware/oplus/sepolicy/qti/SEPolicy.mk
 
 # Trust
 TARGET_TRUST_USB_CONTROL_PATH := /sys/devices/platform/soc/a600000.ssusb/usb_data_enabled

@@ -1,2 +1,0 @@
-# Allow vendor_sensors to get vendor_sensors_prop
-get_prop(vendor_sensors, vendor_sensors_prop)

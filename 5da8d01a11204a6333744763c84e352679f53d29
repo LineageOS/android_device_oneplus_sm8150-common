@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddcc09ac_c33d5edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30583
+      },
+      "writtenOn": "2022-08-22T15:53:35Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e did you compile test this? btw don\u0027t remove people from CC.\n\nyes, tested",
+      "revId": "5da8d01a11204a6333744763c84e352679f53d29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

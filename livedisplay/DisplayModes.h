@@ -19,9 +19,9 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
+using ::android::sp;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::sp;
 
 class DisplayModes : public IDisplayModes {
   public:

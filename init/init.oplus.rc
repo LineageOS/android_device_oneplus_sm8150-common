@@ -40,6 +40,10 @@ on boot
     # Sensors
     chown system system /sys/devices/platform/soc/soc:sensor_fb/adsp_notify
 
+    # Ultrasound
+    chmod 0666 /dev/audio_ultrasound
+    chmod 0666 /dev/sensor_ultrasound
+
 on property:ro.boot.prjname=*
     # Display
     setprop ro.separate.soft ${ro.boot.prjname}

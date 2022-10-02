@@ -95,7 +95,7 @@ public class FallSensor implements SensorEventListener {
     void enable() {
         if (DEBUG) Log.d(TAG, "Enabling");
         mExecutorService.submit(() -> {
-            mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+            mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
         });
     }
 

@@ -13,7 +13,6 @@ cc_binary {
     srcs: [
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        ":vendor.lineage.livedisplay@2.1-oplus-af",
         ":vendor.lineage.livedisplay@2.1-oplus-se",
         "DisplayModes.cpp",
         "service.cpp",

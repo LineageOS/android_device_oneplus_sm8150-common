@@ -6,8 +6,9 @@
 
 cc_binary {
     name: "vendor.lineage.livedisplay@2.1-service.oneplus_msmnile",
-    init_rc: ["vendor.lineage.livedisplay@2.1-service.oneplus_msmnile.rc"],
-    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oneplus_msmnile.xml"],
+    stem: "vendor.lineage.livedisplay@2.1-service.oplus",
+    init_rc: ["vendor.lineage.livedisplay@2.1-service.oplus.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service.oplus.xml"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [

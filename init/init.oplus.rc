@@ -37,6 +37,12 @@ on boot
     chown system system /sys/kernel/oplus_display/notify_fppress
     chown system system /sys/kernel/oplus_display/panel_serial_number
 
+    # Motor
+    chown system system /sys/class/motor/direction
+    chown system system /sys/class/motor/enable
+    chown system system /sys/class/motor/hall_calibration
+    chown system system /sys/class/motor/position
+
     # Sensors
     chown system system /sys/devices/platform/soc/soc:sensor_fb/adsp_notify
 

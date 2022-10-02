@@ -9,7 +9,7 @@
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
         <item>/system_ext/priv-app/LineageParts/LineageParts.apk</item>
         <item>/system_ext/app/KeyHandler/KeyHandler.apk</item>
-        <item>/system/priv-app/OnePlusCameraHelper/OnePlusCameraHelper.apk</item>
+        <item>/system_ext/priv-app/OnePlusCameraHelper/OnePlusCameraHelper.apk</item>
     </string-array>
 
     <!-- Names of the key handler classes -->

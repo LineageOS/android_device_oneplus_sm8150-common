@@ -38,7 +38,7 @@ public class FallSensor implements SensorEventListener {
 
         for (Sensor sensor : mSensorManager.getSensorList(Sensor.TYPE_ALL)) {
             if (DEBUG) Log.d(TAG, "Sensor type: " + sensor.getStringType());
-            if (TextUtils.equals(sensor.getStringType(), "oneplus.sensor.free_fall")) {
+            if (TextUtils.equals(sensor.getStringType(), "camera_protect")) {
                 if (DEBUG) Log.d(TAG, "Found fall sensor");
                 mSensor = sensor;
                 break;

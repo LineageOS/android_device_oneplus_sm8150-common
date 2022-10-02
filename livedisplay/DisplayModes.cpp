@@ -10,6 +10,8 @@
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+#include <fcntl.h>
+#include <oplus/oplus_display_panel.h>
 
 #include <fstream>
 
@@ -24,62 +26,17 @@ static const std::string kDefaultPath = "/data/vendor/display/default_display_mo
 
 // Mode ids here must match qdcm display mode ids
 const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
-        {0,
-         {"Standard",
-          {
-                  {"native_display_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "0"},
-                  {"native_display_srgb_color_mode", "0"},
-                  {"native_display_customer_srgb_mode", "0"},
-                  {"native_display_customer_p3_mode", "0"},
-                  {"native_display_p3_mode", "1"},
-                  {"native_display_loading_effect_mode", "1"},
-          }}},
-        {1,
-         {"Natural",
-          {
-                  {"native_display_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "0"},
-                  {"native_display_srgb_color_mode", "0"},
-                  {"native_display_customer_srgb_mode", "0"},
-                  {"native_display_customer_p3_mode", "0"},
-                  {"native_display_srgb_color_mode", "1"},
-                  {"native_display_loading_effect_mode", "0"},
-          }}},
-        {2,
-         {"AMOLED Wide Gamut",
-          {
-                  {"native_display_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "0"},
-                  {"native_display_srgb_color_mode", "0"},
-                  {"native_display_customer_srgb_mode", "0"},
-                  {"native_display_customer_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "1"},
-          }}},
-        {3,
-         {"sRGB",
-          {
-                  {"native_display_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "0"},
-                  {"native_display_srgb_color_mode", "0"},
-                  {"native_display_customer_srgb_mode", "0"},
-                  {"native_display_customer_p3_mode", "0"},
-                  {"native_display_customer_srgb_mode", "1"},
-          }}},
-        {4,
-         {"DCI_P3",
-          {
-                  {"native_display_p3_mode", "0"},
-                  {"native_display_wide_color_mode", "0"},
-                  {"native_display_srgb_color_mode", "0"},
-                  {"native_display_customer_srgb_mode", "0"},
-                  {"native_display_customer_p3_mode", "0"},
-                  {"native_display_customer_p3_mode", "1"},
-          }}},
+        {0, {"Vivid", 0, 0}},
+        {1, {"Natural", 1, 1}},
+        {2, {"Cinematic", 0, 1}},
+        {3, {"Brilliant", 4, 0}},
 };
 
 DisplayModes::DisplayModes(std::shared_ptr<V2_0::sdm::SDMController> controller)
-    : mController(std::move(controller)), mCurrentModeId(0), mDefaultModeId(0) {
+    : mController(std::move(controller)),
+      mOplusDisplayFd(open("/dev/oplus_display", O_RDWR)),
+      mCurrentModeId(0),
+      mDefaultModeId(0) {
     std::ifstream defaultFile(kDefaultPath);
 
     defaultFile >> mDefaultModeId;
@@ -114,20 +71,16 @@ Return<bool> DisplayModes::setDisplayMode(int32_t modeID, bool makeDefault) {
     if (iter == kModeMap.end()) {
         return false;
     }
-    for (const auto& [name, value] : iter->second.commands) {
-        std::ofstream file(kModeBasePath + name);
-        file << value;
-        if (file.fail()) {
-            LOG(ERROR) << "Failed to write to " << (kModeBasePath + name);
-        }
+    if (mOplusDisplayFd >= 0) {
+        ioctl(mOplusDisplayFd, PANEL_IOCTL_SET_SEED, &iter->second.seedMode);
     }
-    mController->setActiveDisplayMode(iter->first);
+    mController->setActiveDisplayMode(iter->second.displayModeId);
     mCurrentModeId = iter->first;
     if (makeDefault) {
         std::ofstream defaultFile(kDefaultPath);
         defaultFile << iter->first;
         if (!defaultFile.fail()) {
-            mController->setDefaultDisplayMode(iter->first);
+            mController->setDefaultDisplayMode(iter->second.displayModeId);
             mDefaultModeId = iter->first;
         }
     }

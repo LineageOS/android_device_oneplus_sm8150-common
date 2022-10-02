@@ -41,10 +41,12 @@ class DisplayModes : public IDisplayModes {
   private:
     struct ModeInfo {
         std::string name;
-        std::vector<std::pair<std::string, std::string>> commands;
+        int32_t displayModeId;
+        uint32_t seedMode;
     };
     static const std::map<int32_t, ModeInfo> kModeMap;
     std::shared_ptr<V2_0::sdm::SDMController> mController;
+    int32_t mOplusDisplayFd;
     int32_t mCurrentModeId;
     int32_t mDefaultModeId;
     DisplayModeSetCallback mOnDisplayModeSet;

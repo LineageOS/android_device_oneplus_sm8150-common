@@ -18,13 +18,13 @@ public class CameraMotorController {
 
     // Camera motor paths
     private static final String CAMERA_MOTOR_ENABLE_PATH =
-            "/sys/devices/platform/vendor/vendor:motor_pl/enable";
+            "/sys/class/motor/enable";
     public static final String CAMERA_MOTOR_HALL_CALIBRATION =
-            "/sys/devices/platform/vendor/vendor:motor_pl/hall_calibration";
+            "/sys/class/motor/hall_calibration";
     private static final String CAMERA_MOTOR_DIRECTION_PATH =
-            "/sys/devices/platform/vendor/vendor:motor_pl/direction";
+            "/sys/class/motor/direction";
     private static final String CAMERA_MOTOR_POSITION_PATH =
-            "/sys/devices/platform/vendor/vendor:motor_pl/position";
+            "/sys/class/motor/position";
 
     // Motor calibration data path
     public static final String CAMERA_PERSIST_HALL_CALIBRATION =

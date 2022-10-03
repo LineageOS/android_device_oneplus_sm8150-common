@@ -80,6 +80,7 @@ cc_binary {
     defaults: [
         "oneplus_msmnile_sensors_hal_defaults",
     ],
+    system_ext_specific: true,
     srcs: [
         "als_correction_service.cpp",
     ],

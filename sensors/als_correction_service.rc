@@ -1,4 +1,4 @@
-service als_correction_service /system/bin/als_correction_service
+service als_correction_service /system_ext/bin/als_correction_service
     class hal
     user system
     group system

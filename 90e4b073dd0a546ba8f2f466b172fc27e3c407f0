@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b140d3_8b7832df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-05T20:08:51Z",
+      "side": 1,
+      "message": "It does...but does frp really matter on unlocked phone?",
+      "revId": "90e4b073dd0a546ba8f2f466b172fc27e3c407f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

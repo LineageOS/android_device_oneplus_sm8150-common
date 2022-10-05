@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "760490c7_b3d86b1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-05T20:04:01Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4:\n\u003e \n\u003e Is the file name (containing SM8250) correct on SM8150 too?\n\nYes.",
+      "revId": "d8df9d06e69c846951ee98a4fda413e58f3cc9df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

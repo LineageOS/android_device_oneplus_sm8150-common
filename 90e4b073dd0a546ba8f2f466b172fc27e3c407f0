@@ -16,6 +16,23 @@
       "message": "It does...but does frp really matter on unlocked phone?",
       "revId": "90e4b073dd0a546ba8f2f466b172fc27e3c407f0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff307b4_31668053",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-05T20:19:04Z",
+      "side": 1,
+      "message": "\u003e Patch Set 4:\n\u003e \n\u003e That\u0027s questionable. What\u0027s the reason for changing it if it breaks functionality though? Maybe I\u0027m missing something. :)\n\nLess selinux/ueventd rules.",
+      "revId": "90e4b073dd0a546ba8f2f466b172fc27e3c407f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

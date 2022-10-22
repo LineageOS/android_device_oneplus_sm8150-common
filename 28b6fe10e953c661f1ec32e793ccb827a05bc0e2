@@ -34,6 +34,23 @@
       "parentUuid": "aadc2b42_c4acbb91",
       "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd20c034_ea541980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-22T08:23:30Z",
+      "side": 1,
+      "message": "We also seem to be missing odm/etc/wifi/init.project.wifi.sh",
+      "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

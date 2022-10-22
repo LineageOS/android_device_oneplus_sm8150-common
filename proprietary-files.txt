@@ -754,6 +754,7 @@ odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_53
 odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_57
 odm/etc/nfc/st21nfc_fw.bin_st21h
 odm/etc/nfc/st21nfc_fw7.bin_st21h
+odm/lib/libpn553_fw.so
 odm/lib/libsn100u_fw.so
 
 # OMX

@@ -1,2 +1,5 @@
 # Display
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oneplus_msmnile    u:object_r:hal_lineage_livedisplay_qti_exec:s0
+
+# WLAN
+/mnt/vendor/persist/bdwlan.bin                                                               u:object_r:vendor_persist_wcnss_service_file:s0

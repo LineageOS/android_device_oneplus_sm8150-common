@@ -51,6 +51,24 @@
       "message": "We also seem to be missing odm/etc/wifi/init.project.wifi.sh",
       "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe4c8ebd_26575c49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2022-10-22T09:20:15Z",
+      "side": 1,
+      "message": "they also seem to have blindly granted hal_camera_default entire perms to entire sysfs\n\netc/selinux/vendor_sepolicy.cil\n4700:(allow hal_camera_default sysfs_30_0 (dir (open)))\n4701:(allow hal_camera_default sysfs_30_0 (dir (read)))\n4702:(allow hal_camera_default sysfs_30_0 (file (read)))\n4703:(allow hal_camera_default sysfs_30_0 (file (open)))\n4704:(allow hal_camera_default sysfs_30_0 (file (write)))\n4705:(allow hal_camera_default sysfs_30_0 (file (getattr)))\n\nfor\n\n10-21 22:09:16.173  1025  1025 I android.hardwar: type\u003d1400 audit(0.0:1028): avc: denied { read } for name\u003d\"model\" dev\u003d\"sysfs\" ino\u003d75 scontext\u003du:r:hal_camera_default:s0 tcontext\u003du:object_r:sysfs:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:16.173  1025  1025 I android.hardwar: type\u003d1400 audit(0.0:1029): avc: denied { open } for path\u003d\"/sys/firmware/devicetree/base/model\" dev\u003d\"sysfs\" ino\u003d75 scontext\u003du:r:hal_camera_default:s0 tcontext\u003du:object_r:sysfs:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:16.173  1025  1025 I android.hardwar: type\u003d1400 audit(0.0:1030): avc: denied { getattr } for path\u003d\"/sys/firmware/devicetree/base/model\" dev\u003d\"sysfs\" ino\u003d75 scontext\u003du:r:hal_camera_default:s0 tcontext\u003du:object_r:sysfs:s0 tclass\u003dfile permissive\u003d1",
+      "parentUuid": "66c65762_d6ca51b7",
+      "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

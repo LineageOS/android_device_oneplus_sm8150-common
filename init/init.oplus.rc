@@ -116,6 +116,11 @@ service oplus-sh /odm/bin/init.oplus.sh
     group root
     oneshot
 
+service oplus-wifi-sh /odm/bin/init.oplus.wifi.sh
+    class core
+    user root
+    oneshot
+
 service oplus_sensor_fb /odm/bin/oplus_sensor_fb
     user system
     group system

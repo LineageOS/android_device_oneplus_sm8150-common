@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aadc2b42_c4acbb91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2022-10-22T06:42:41Z",
+      "side": 1,
+      "message": "10-21 22:09:18.953  1506  1506 I cnss-daemon: type\u003d1400 audit(0.0:1058): avc: denied { read } for name\u003d\"bdwlan.bin\" dev\u003d\"sda2\" ino\u003d17 scontext\u003du:r:vendor_wcnss_service:s0 tcontext\u003du:object_r:mnt_vendor_file:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:18.953  1506  1506 I cnss-daemon: type\u003d1400 audit(0.0:1059): avc: denied { open } for path\u003d\"/mnt/vendor/persist/bdwlan.bin\" dev\u003d\"sda2\" ino\u003d17 scontext\u003du:r:vendor_wcnss_service:s0 tcontext\u003du:object_r:mnt_vendor_file:s0 tclass\u003dfile permissive\u003d1\n10-21 22:09:18.953  1506  1506 I cnss-daemon: type\u003d1400 audit(0.0:1060): avc: denied { getattr } for path\u003d\"/mnt/vendor/persist/bdwlan.bin\" dev\u003d\"sda2\" ino\u003d17 scontext\u003du:r:vendor_wcnss_service:s0 tcontext\u003du:object_r:mnt_vendor_file:s0 tclass\u003dfile permissive\u003d1",
+      "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

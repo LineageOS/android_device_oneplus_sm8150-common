@@ -87,6 +87,23 @@
       "parentUuid": "fe4c8ebd_26575c49",
       "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b198c30c_b679da81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-22T09:49:55Z",
+      "side": 1,
+      "message": "btw if you use discord, join https://lineageos.org/discord, and I can add you to #oneplus channel there. That\u0027s where we are usually discussing lineage oneplus things.",
+      "revId": "28b6fe10e953c661f1ec32e793ccb827a05bc0e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

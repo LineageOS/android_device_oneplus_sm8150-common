@@ -16,6 +16,23 @@
       "message": "All CtsVerifier tests passed.",
       "revId": "185c885eb24637532adbbd586d54d985c828e34f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fce55b89_036054d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-24T19:18:34Z",
+      "side": 1,
+      "message": "Will look good. I can\u0027t verify the payment yet. Just tomorrow.\n\nIt looks like the firmware libraries need to be migrated too.\n\n10-24 22:11:55.348  1063  4009 D NxpTml  : PN54X - Read requested.....\n10-24 22:11:55.348  1063  4009 D NxpTml  : PN54X - Invoking I2C Read.....\n10-24 22:11:55.348  1063  1063 D NxpFwDnld: @@@/vendor/lib64/libpn553_fw.so\n10-24 22:11:55.348  1063  1063 E NxpFwDnld: NULL handler : unable to load the library file, specify correct path\n10-24 22:11:55.348  1063  1063 D NxpFwDnld: FW Image Length - ImageInfoLen 0\n10-24 22:11:55.348  1063  1063 D NxpFwDnld: FW Image Info Pointer - pImageInfo 0x0\n10-24 22:11:55.348  1063  1063 E NxpFwDnld: Image extraction Failed - invalid imginfo or imginfolen!!\n10-24 22:11:55.348  1063  1063 E NxpFwDnld: Error loading libpn54x_fw !!\n10-24 22:11:55.348  1063  1063 E NxpHal  : Image information extraction Failed!!",
+      "revId": "185c885eb24637532adbbd586d54d985c828e34f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

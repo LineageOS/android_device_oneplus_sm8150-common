@@ -16,6 +16,24 @@
       "message": "To my regret, this does not fix the working of NFC on hotdog and guacamole.",
       "revId": "3b22635c6e5da0cb248552e09c51c18c8007eb06",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d936060f_02f8ff7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-24T11:25:01Z",
+      "side": 1,
+      "message": "nfc works here tho.",
+      "parentUuid": "b612114f_970b8707",
+      "revId": "3b22635c6e5da0cb248552e09c51c18c8007eb06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

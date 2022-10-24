@@ -16,6 +16,24 @@
       "message": "Here you need to replace the config with the correct one.\nhttps://github.com/TheMuppets/proprietary_vendor_oneplus_sm8150-common/commit/e644c3774c0f9069a7d5685a2eacc2dbfa5dcfbf\n\nSee:\nhttps://github.com/crdroidandroid/proprietary_vendor_oneplus_sm8150-common/commit/4394fa5f8ce18d46bbd60dcc88b22b5143e7d14c\n",
       "revId": "1e7d7ccb49f2f114b9c9f544dbc8e7b1469c9b51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "099709f9_2f5dca83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-24T16:41:30Z",
+      "side": 1,
+      "message": "This diff is definitely not the result of rerunning ./extract-files.sh.",
+      "parentUuid": "753a33f9_6df1fd59",
+      "revId": "1e7d7ccb49f2f114b9c9f544dbc8e7b1469c9b51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

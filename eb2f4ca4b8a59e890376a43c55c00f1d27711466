@@ -16,6 +16,23 @@
       "message": "Guys, I can\u0027t send anything to gerrit:\nShevT@review.lineageos.org: Permission denied (publickey).\n\nPlease add yourself:\n\nIt is necessary for hotdog and guacamole\nhttps://github.com/crdroidandroid/android_device_oneplus_sm8150-common/commit/27b6f9e64510dea8b98213afa21168f27929028f\n\nand\nhttps://github.com/crdroidandroid/android_device_oneplus_sm8150-common/commit/8d388c92b7f633c393b39695ea055004acd377ba",
       "revId": "eb2f4ca4b8a59e890376a43c55c00f1d27711466",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ffc452_a6a5921a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-24T07:51:08Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e Try to use ed25519 key instead of ssh-rsa, then you should be able to push stuff yourself.\n\nThanks",
+      "revId": "eb2f4ca4b8a59e890376a43c55c00f1d27711466",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

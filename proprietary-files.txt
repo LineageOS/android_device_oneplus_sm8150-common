@@ -725,36 +725,12 @@ vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-hta.so
 vendor/lib64/unnhal-acc-hvx.so
 
-# NFC
-odm/bin/hw/android.hardware.nfc@1.2-service
-odm/etc/init/android.hardware.nfc@1.2-service.rc
-odm/etc/init/init.pn8x.nfc.rc
-odm/etc/vintf/manifest/manifest_nfc_nq330.xml
-odm/lib64/ese_client.so
-odm/lib64/ese_spi_nxp_nq330.so
-odm/lib64/hal_libnfc.so
-odm/lib64/libchrome.so
-odm/lib64/nfc_nci.pn54x.default.so
-odm/lib64/vendor.nxp.eventprocessor@1.0.so
-odm/lib64/vendor.nxp.nxpnfc@1.0.so
-odm/lib64/vendor.nxpnq330.nxpese@1.0.so
-
 # NFC configs
-odm/etc/nfc/libnfc-nci.conf_18865:odm/etc/libnfc-nci.conf
-odm/etc/nfc/libnfc-nxp.conf_18865:odm/etc/libnfc-nxp.conf
-odm/etc/nfc/libnfc-nxp_RF.conf_18865:odm/etc/libnfc-nxp_RF.conf
-odm/etc/nfc/libnfc-nxp_RF_noeSE.conf_18865:odm/etc/libnfc-nxp_RF_noeSE.conf
-odm/etc/nfc/libnfc-nxp_noeSE.conf_18865:odm/etc/libnfc-nxp_noeSE.conf
+odm/etc/nfc/libnfc-nci.conf_18865:vendor/etc/libnfc-nci.conf
+odm/etc/nfc/libnfc-nxp.conf_18865:vendor/etc/libnfc-nxp.conf
 
 # NFC firmware
-odm/etc/nfc/nfc_conf_ref
-odm/etc/nfc/nfc_fw_ref
-odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_53
-odm/etc/nfc/sn100u.bin_sn100t_fw_01_10_57
-odm/etc/nfc/st21nfc_fw.bin_st21h
-odm/etc/nfc/st21nfc_fw7.bin_st21h
-odm/lib/libpn553_fw.so
-odm/lib/libsn100u_fw.so
+odm/lib/libpn553_fw.so:vendor/lib64/libpn553_fw.so
 
 # OMX
 vendor/lib/libAlacSwDec.so

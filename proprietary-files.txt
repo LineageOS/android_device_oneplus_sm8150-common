@@ -730,7 +730,6 @@ odm/bin/hw/android.hardware.nfc@1.2-service
 odm/etc/init/android.hardware.nfc@1.2-service.rc
 odm/etc/init/init.pn8x.nfc.rc
 odm/etc/vintf/manifest/manifest_nfc_nq330.xml
-odm/etc/libnfc-nci.conf
 odm/lib64/ese_client.so
 odm/lib64/ese_spi_nxp_nq330.so
 odm/lib64/hal_libnfc.so

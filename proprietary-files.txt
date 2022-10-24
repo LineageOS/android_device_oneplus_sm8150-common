@@ -744,7 +744,7 @@ odm/lib64/vendor.nxpnq330.nxpese@1.0.so
 odm/etc/nfc/libnfc-nci.conf_18865:odm/etc/libnfc-nci.conf
 odm/etc/nfc/libnfc-nxp.conf_18865:odm/etc/libnfc-nxp.conf
 odm/etc/nfc/libnfc-nxp_RF.conf_18865:odm/etc/libnfc-nxp_RF.conf
-odm/etc/nfc/libnfc-nxp_RF_noeSE.conf_18865:odm/etc/libnfc-nxp_RF_noeSE
+odm/etc/nfc/libnfc-nxp_RF_noeSE.conf_18865:odm/etc/libnfc-nxp_RF_noeSE.conf
 odm/etc/nfc/libnfc-nxp_noeSE.conf_18865:odm/etc/libnfc-nxp_noeSE.conf
 
 # NFC firmware

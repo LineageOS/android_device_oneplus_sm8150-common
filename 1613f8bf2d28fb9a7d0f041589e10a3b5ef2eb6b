@@ -157,6 +157,24 @@
       "parentUuid": "1820d258_015a0173",
       "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac9b728_783fbf1e",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-25T07:26:04Z",
+      "side": 1,
+      "message": "HAL wants it in lib64.",
+      "parentUuid": "62bf0b67_32a28e31",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

@@ -33,6 +33,24 @@
       "message": "Not need. Getting an error while compiling.",
       "revId": "229b3ff27d4e535ac1a697d456e43d1dfa4a4f17",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b44d8881_dca583db",
+        "filename": "manifest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-25T07:41:12Z",
+      "side": 1,
+      "message": "Not registered by anything.",
+      "parentUuid": "fb29ed82_dfb8ea27",
+      "revId": "229b3ff27d4e535ac1a697d456e43d1dfa4a4f17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

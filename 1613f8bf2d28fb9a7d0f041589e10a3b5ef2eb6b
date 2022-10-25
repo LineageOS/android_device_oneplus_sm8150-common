@@ -70,6 +70,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22c576a_75cbc0dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T07:23:45Z",
+      "side": 1,
+      "message": "I think vendor.nxp.nxpnfc should be added to manifest.xml\n\n    \u003chal format\u003d\"hidl\"\u003e\n        \u003cname\u003evendor.nxp.nxpnfc\u003c/name\u003e\n        \u003ctransport\u003ehwbinder\u003c/transport\u003e\n        \u003cversion\u003e1.0\u003c/version\u003e\n        \u003cinterface\u003e\n            \u003cname\u003eINxpNfc\u003c/name\u003e\n            \u003cinstance\u003edefault\u003c/instance\u003e\n        \u003c/interface\u003e\n    \u003c/hal\u003e",
+      "parentUuid": "79e479db_6cb382fb",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820d258_015a0173",

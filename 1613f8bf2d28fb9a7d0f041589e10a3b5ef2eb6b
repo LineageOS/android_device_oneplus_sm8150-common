@@ -36,6 +36,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a04cc30f_25f8f2ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T06:08:36Z",
+      "side": 1,
+      "message": "Also, I think vendor.nxp.nxpnfc should be added to manifest.xml\n\n10-25 09:03:07.032  1063  1063 D nxpnfc@1.2-service: NFC HAL Service 1.2 is starting.\n10-25 09:03:07.043   684   684 I hwservicemanager: getTransport: Cannot find entry vendor.nxp.nxpnfc@1.0::INxpNfc/default in either framework or device VINTF manifest.\n10-25 09:03:07.043  1063  1063 E HidlServiceManagement: Service vendor.nxp.nxpnfc@1.0::INxpNfc/default must be in VINTF manifest in order to register/get.\n10-25 09:03:07.043  1063  1063 D nxpnfc@1.2-service: Could not register service for NXP NFC Extn Iface (-2147483648).\n10-25 09:03:07.043  1063  1063 D nxpnfc@1.2-service: NFC service is ready",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820d258_015a0173",

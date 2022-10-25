@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c394ed_7a6d512b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T05:00:55Z",
+      "side": 1,
+      "message": "10-25 07:55:12.372  1062  1062 D NxpHal  : Checking response\n10-25 07:55:12.372  1062  1062 W NxpFwDnld: firmware type not found. Taking default value: 1\n10-25 07:55:12.373  1062  1062 E NxpFwDnld: free library SUCCESS !!\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: @@@/vendor/lib64/libpn553_fw.so\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Image Length - ImageInfoLen 34462\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Image Info Pointer - pImageInfo 0x76f1ea2430\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Major Version Num - 1\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Minor Version Num - 22\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Image Length - 34462\n10-25 07:55:12.374  1062  1062 D NxpFwDnld: FW Image Info Pointer - 0x76f1ea2430\n10-25 07:55:12.374  1062  1062 D NxpHal  : FW version for FW file \u003d 0x122\n10-25 07:55:12.374  1062  1062 D NxpHal  : FW version from device \u003d 0x112125\n10-25 07:55:12.374  1062  1062 E NxpHal  : Wrong FW Version \u003e\u003e\u003e Firmware download not allowed\n10-25 07:55:12.374  1062  1062 D NxpHal  : FW download Rejected. Continuiing Nfc Init\n\nI don\u0027t like the last 4 lines.\nMight have to try the firmware from here - https://github.com/NXP/nfc-NXPNFCC_FW/tree/master/pn553/64-bit\n\nI\u0027ll check it out a little later.",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820d258_015a0173",
@@ -14,6 +31,24 @@
       "writtenOn": "2022-10-25T01:33:34Z",
       "side": 1,
       "message": "shouldn\u0027t this be vendor/lib/libpn553_fw.so?",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bf0b67_32a28e31",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T05:00:55Z",
+      "side": 1,
+      "message": "Yup.\nhttps://review.lineageos.org/c/LineageOS/android_device_oneplus_sm8150-common/+/342442/comments/fce55b89_036054d1\n\nAlso, the library is 64-bit:\nreadelf -a | grep -i elf",
+      "parentUuid": "1820d258_015a0173",
       "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }

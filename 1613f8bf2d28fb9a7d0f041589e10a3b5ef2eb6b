@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1820d258_015a0173",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2022-10-25T01:33:34Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be vendor/lib/libpn553_fw.so?",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

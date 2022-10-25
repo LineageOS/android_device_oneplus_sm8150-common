@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f604297_c841081c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T06:06:47Z",
+      "side": 1,
+      "message": "After update firmware from .../NXP/nfc-NXPNFCC_FW/....:\n\nP.S.: I think we need to update with a separate commit\n\n10-25 08:49:15.158  1064  1064 W NxpFwDnld: firmware type not found. Taking default value: 1\n10-25 08:49:15.162  1917  2610 I Telecom : PhoneAccountRegistrar: Modify account: [ComponentInfo{com.android.phone/com.android.services.telephony.TelephonyConnectionService}, 2, UserHandle{0}]: TSI.rPA@API\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: @@@/vendor/lib64/libpn553_fw.so\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Image Length - ImageInfoLen 34542\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Image Info Pointer - pImageInfo 0x7398621360\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Major Version Num - 21\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Minor Version Num - 25\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Image Length - 34542\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: FW Image Info Pointer - 0x7398621360\n10-25 08:49:15.162  1064  1064 D NxpHal  : FW version for FW file \u003d 0x2125\n10-25 08:49:15.162  1064  1064 D NxpHal  : FW version from device \u003d 0x112125\n10-25 08:49:15.162  1064  1064 D NxpHal  : FW update not required\n10-25 08:49:15.162  1064  1064 D NxpFwDnld: Freeing Mem for Dnld Context..\n10-25 08:49:15.162  1064  1064 D NfccPowerTracker: NfccPowerTracker::ProcessCmd: Enter, Received len :5\n10-25 08:49:15.162  1064  4389 D NxpTml  : PN54X - Write requested.....\n10-25 08:49:15.162  1064  4389 D NxpTml  : PN54X - Invoking I2C Write.....\n10-25 08:49:15.163  1064  4388 D NxpTml  : PN54X - I2C Read successful.....",
+      "parentUuid": "a3c394ed_7a6d512b",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820d258_015a0173",

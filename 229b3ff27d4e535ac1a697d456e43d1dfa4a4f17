@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a32a9e6_901fd019",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-25T07:31:54Z",
+      "side": 1,
+      "message": "vendor.nxp.nxpese no need. Getting an error while compiling.\n\n  vendor.nxp.nxpese@1.0::INxpEse/default\nINCOMPATIBLE\n\nstderr:getKernelLevel: Both device manifest and kernel release do not specify kernel FCM version.\ngetKernelLevel: Both device manifest and kernel release do not specify kernel FCM version.\ngetKernelLevel: Both device manifest and kernel release do not specify kernel FCM version.\nBoth device manifest and kernel release do not specify kernel FCM version.\ngetKernelLevel: Both device manifest and kernel release do not specify kernel FCM version.\ngetKernelLevel:\nERROR: files are incompatible: The following instances are in the device manifest but not specified in framework compatibility matrix:\n    vendor.nxp.nxpese@1.0::INxpEse/default\nSuggested fix:\n1. Update deprecated HALs to the latest version.\n2. Check for any typos in device manifest or framework compatibility matrices with FCM version \u003e\u003d 4.\n3. For new platform HALs, add them to any framework compatibility matrix with FCM version \u003e\u003d 4 where applicable.\n4. For device-specific HALs, add to DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE or DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE.: Success\n\n10:28:12 ninja failed with: exit status 1",
+      "revId": "229b3ff27d4e535ac1a697d456e43d1dfa4a4f17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

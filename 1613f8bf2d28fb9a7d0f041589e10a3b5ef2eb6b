@@ -88,6 +88,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e165faa_aa165b3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2022-10-25T07:24:44Z",
+      "side": 1,
+      "message": "So it was all pointless? Also, keep in mind that shipping this firmware is not guaranteed to work for all possible variations of these devices. I know from personal experience how doing so can break NFC.",
+      "parentUuid": "2f604297_c841081c",
+      "revId": "1613f8bf2d28fb9a7d0f041589e10a3b5ef2eb6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820d258_015a0173",

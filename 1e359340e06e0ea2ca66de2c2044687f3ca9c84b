@@ -34,6 +34,24 @@
       "parentUuid": "1b9c7c38_1fed270d",
       "revId": "1e359340e06e0ea2ca66de2c2044687f3ca9c84b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c69789f_a561f3b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-10-26T08:33:07Z",
+      "side": 1,
+      "message": "Idk, I\u0027m still skeptical about shipping hvdcp_opti even if it\u0027s happy to print some logs. Seems like not a single oneplus device on lineage ships it...?",
+      "parentUuid": "c3d176f4_2ac8c157",
+      "revId": "1e359340e06e0ea2ca66de2c2044687f3ca9c84b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

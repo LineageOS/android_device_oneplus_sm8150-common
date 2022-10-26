@@ -16,6 +16,24 @@
       "message": "Useless?",
       "revId": "1e359340e06e0ea2ca66de2c2044687f3ca9c84b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d176f4_2ac8c157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2022-10-26T08:26:04Z",
+      "side": 1,
+      "message": "[    9.322909] (7)[1706:hvdcp_opti][    9.322907]@7 HVDCP2: Registered HVDCP2\n[    9.328436] (6)[1707:hvdcp_opti][    9.328433]@6 hvdcpd: Registered HVDCP\n[    9.329167] (5)[1713:hvdcp_opti][    9.329164]@5 QG-D: /dev/qg not found\n[    9.329298] (6)[1708:hvdcp_opti][    9.329296]@6 THERM-BALANCE: Parallel PSY entry not found.\n[    9.329679] (6)[1709:hvdcp_opti][    9.329677]@6 STD-PD: Registered STD_PD\n[    9.329691] (3)[1710:hvdcp_opti][    9.329687]@3 PPS: Registered PPS\n[    9.330170] (6)[1711:hvdcp_opti][    9.330168]@6 CTM: Registered CTM\n[    9.330753] (5)[1714:hvdcp_opti][    9.330750]@5 SOH-D: opened /mnt/vendor/persist/hvdcp_opti/soh_info.txt\n[    9.331486] (5)[1714:hvdcp_opti][    9.331483]@5 SOH-D: Read 17 soh_info parameters successfully\n[    9.333399] (5)[1714:hvdcp_opti][    9.333397]@5 SOH-D: Registered SOH (hvdcp_opti)!\n[    9.347649] (7)[1712:hvdcp_opti][    9.347646]@7 CP: charge_pump missing",
+      "parentUuid": "1b9c7c38_1fed270d",
+      "revId": "1e359340e06e0ea2ca66de2c2044687f3ca9c84b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

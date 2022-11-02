@@ -105,9 +105,6 @@ persist.vendor.qcom.bluetooth.soc=cherokee
 ro.bluetooth.a2dp_offload.supported=true
 ro.vendor.bluetooth.wipower=false
 
-# Camera
-vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram
-
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
 ro.crypto.allow_encrypt_override=true

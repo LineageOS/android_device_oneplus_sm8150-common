@@ -5,6 +5,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-if grep -q simcardnum.doublesim=1 /proc/cmdline; then
+# 18821 - 7 Pro
+# 18831 - 7 Pro TMO
+# 18857 - 7
+# 18865 - 7T
+# 19801 - 7T Pro
+# 19863 - 7T TMO
+
+if grep -qE "androidboot.prj_version=(18821|18857|18865|19801)" /proc/cmdline; then
     setprop vendor.radio.multisim.config dsds
 fi

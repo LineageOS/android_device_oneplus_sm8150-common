@@ -70,7 +70,6 @@ vendor/lib/libadm.so
 vendor/lib/libadsprpc.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioparsers.so
 vendor/lib/libhdmipassthru.so
@@ -214,7 +213,6 @@ vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
 vendor/lib64/libcom.qti.chinodeutils.so
-vendor/lib64/libcvface_api.so
 vendor/lib64/libcvface_api.so
 vendor/lib64/libcvp_common.so
 vendor/lib64/libmidasserviceintf.so

@@ -76,7 +76,7 @@ function blob_fixup() {
             sed -i "/NXP_NFC_DEV_NODE/ s/pn553/nq-nci/" "${2}"
             ;;
         vendor/lib64/hw/com.qti.chi.override.so)
-            "${SIGSCAN}" -p "1F A5 02 94" -P "1F 20 03 D5" -f "${2}"
+            grep -q libcamera_metadata_shim.so "${2}" || "${PATCHELF}" --add-needed libcamera_metadata_shim.so "${2}"
             ;;
     esac
 }

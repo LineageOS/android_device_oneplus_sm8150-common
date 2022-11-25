@@ -189,7 +189,7 @@ vendor/lib64/camera/components/com.qtistatic.stats.pdlib.so
 vendor/lib64/camera/components/com.vidhance.stats.aec_dmbr.so
 vendor/lib64/camera/components/libdepthmapwrapper.so
 vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so|dd83326fbb127847efb14d19ff359008a0bfbc78|dc6dcedc57f7622cc1dfd365d6029d4153854272
+vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libSonyIMX471RmscLibrary.so
 vendor/lib64/lib_bokehlib.so
 vendor/lib64/libarcsoft_beautyshot.so

@@ -109,6 +109,7 @@ system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 
 # Camera
+odm/bin/vl53l1_daemon_main
 odm/etc/camera/fwk_config.json
 odm/lib64/camera/fdconfigpreview.bin
 odm/lib64/camera/fdconfigpreviewlite.bin
@@ -120,6 +121,8 @@ odm/lib64/libarcsoft_dualcam_refocus_preview.so
 odm/lib64/libarcsoft_dualcam_refocus_right.so
 odm/lib64/libarcsoft_dualcam_refocus_uw.so
 odm/lib64/libormshalclient.so
+odm/lib64/libvl53l1_daemon.so
+odm/lib64/sensors.hal.tof.so
 vendor/bin/hw/vendor.oplus.hardware.cameraMDM@2.0-service
 vendor/etc/camera/ashdr/iso617_4608x3456.ncf
 vendor/etc/camera/ashdr/ncf_pack.ncf

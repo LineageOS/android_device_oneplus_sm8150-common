@@ -46,6 +46,9 @@ on boot
     # Sensors
     chown system system /sys/devices/platform/soc/soc:sensor_fb/adsp_notify
 
+    # TOF
+    chown cameraserver cameraserver /dev/stmvl53l1_ranging
+
     # Ultrasound
     chmod 0666 /dev/audio_ultrasound
     chmod 0666 /dev/sensor_ultrasound
@@ -126,3 +129,9 @@ service oplus_sensor_fb /odm/bin/oplus_sensor_fb
     group system
     class late_start
     oneshot
+
+service vl53l1_daemon_main /odm/bin/vl53l1_daemon_main
+    class late_start
+    user root
+    group root
+    socket vl53l1_daemon stream 660 root system

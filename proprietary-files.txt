@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
-## from OnePlus 7 Pro (GM1911_11_H.30).
+## from OnePlus 7 Pro (GM1911_11_H.32).
 
 # ACDBs
 vendor/etc/acdbdata/adsp_avs_config.acdb
@@ -277,6 +277,7 @@ odm/firmware/fastchg/19831/oplus_vooc_fw.bin
 odm/firmware/fastchg/19850/oplus_vooc_fw.bin
 odm/firmware/fastchg/19851/oplus_vooc_fw.bin
 odm/firmware/fastchg/19853/oplus_vooc_fw.bin
+odm/firmware/fastchg/19861/oplus_vooc_fw.bin
 odm/firmware/fastchg/19863/oplus_vooc_fw.bin
 
 # CNE
@@ -446,6 +447,7 @@ odm/lib64/hw/fingerprint.18865_goodix9558_G3.default.so
 odm/lib64/hw/fingerprint.19805_goodix9638_G6_3.default.so
 odm/lib64/hw/fingerprint.19805_goodix9678_G6_7.default.so
 odm/lib64/hw/fingerprint.19811_goodix9638_G6.default.so
+odm/lib64/hw/fingerprint.19861_goodix9608_G5.default.so
 odm/lib64/hw/fingerprint.20801_goodix9558_G3.default.so
 odm/lib64/hw/fingerprint.20828_goodix9678.default.so
 odm/lib64/hw/fingerprint.goodix9608_G5.default.so
@@ -453,6 +455,7 @@ odm/lib64/hw/fingerprint.goodix9638_G6.default.so
 odm/lib64/libgf_hal_19805_G6_3_oplus.so
 odm/lib64/libgf_hal_19805_G6_7_oplus.so
 odm/lib64/libgf_hal_19811_G6_oplus.so
+odm/lib64/libgf_hal_19861_G5_oplus.so
 odm/lib64/libgf_hal_20828_G6_7_oplus.so
 odm/lib64/libgf_hal_G5_oplus.so
 odm/lib64/libgf_hal_G6_oplus.so
@@ -909,6 +912,7 @@ vendor/lib64/libnetmgr_common.so
 vendor/lib64/libnetmgr_nr_fusion.so
 vendor/lib64/libnetmgr_rmnet_ext.so
 vendor/lib64/libnlnetmgr.so
+vendor/lib64/liboemnvbk_img_helper.so
 vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqcbor.so
@@ -1061,6 +1065,16 @@ odm/firmware/tp/19801/FW_S6SY761_SAMSUNG_NEW.bin
 odm/firmware/tp/19801/FW_S6SY761_SAMSUNG_NEW_FAE.bin
 odm/firmware/tp/19801/LIMIT_S6SY761_SAMSUNG.img
 odm/firmware/tp/19801/LIMIT_S6SY761_SAMSUNG_NEW.img
+odm/firmware/tp/19861/LIMIT_SY761_OFILM.img
+odm/firmware/tp/19861/LIMIT_SY761_OFILM_NEW.img
+odm/firmware/tp/19861/LIMIT_SY761_SAMSUNG.img
+odm/firmware/tp/19861/LIMIT_SY761_SAMSUNG_NEW.img
+odm/firmware/tp/19863/FW_S3706_SAMSUNG.img
+odm/firmware/tp/19863/FW_S3706_SAMSUNG_FAE.img
+odm/firmware/tp/19863/FW_S3706_SAMSUNG_NEW.img
+odm/firmware/tp/19863/FW_S3706_SAMSUNG_NEW_FAE.img
+odm/firmware/tp/19863/LIMIT_S3706_SAMSUNG.img
+odm/firmware/tp/19863/LIMIT_S3706_SAMSUNG_NEW.img
 
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service

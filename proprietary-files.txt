@@ -1069,12 +1069,6 @@ odm/firmware/tp/19861/LIMIT_SY761_OFILM.img
 odm/firmware/tp/19861/LIMIT_SY761_OFILM_NEW.img
 odm/firmware/tp/19861/LIMIT_SY761_SAMSUNG.img
 odm/firmware/tp/19861/LIMIT_SY761_SAMSUNG_NEW.img
-odm/firmware/tp/19863/FW_S3706_SAMSUNG.img
-odm/firmware/tp/19863/FW_S3706_SAMSUNG_FAE.img
-odm/firmware/tp/19863/FW_S3706_SAMSUNG_NEW.img
-odm/firmware/tp/19863/FW_S3706_SAMSUNG_NEW_FAE.img
-odm/firmware/tp/19863/LIMIT_S3706_SAMSUNG.img
-odm/firmware/tp/19863/LIMIT_S3706_SAMSUNG_NEW.img
 
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service

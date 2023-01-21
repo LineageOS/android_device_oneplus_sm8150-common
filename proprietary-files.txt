@@ -72,6 +72,7 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioparsers.so
+vendor/lib/libbatterylistener.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 vendor/lib/libssrec.so

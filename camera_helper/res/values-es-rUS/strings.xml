@@ -9,8 +9,8 @@
     <string name="retry">Reintentar</string>
     <string name="warning">Advertencia</string>
     <string name="free_fall_detected_title">Caída libre detectada</string>
-    <string name="free_fall_detected_message">Se ha bajado la cámara frontal para protegerla. ¿Quiere usar la cámara frontal de nuevo?</string>
-    <string name="motor_cannot_go_down_message">No se puede retraer la cámara frontal, por favor, asegúrate de que no hay obstrucción</string>
-    <string name="motor_cannot_go_up_message">No se puede sacar la cámara frontal, por favor, asegúrate de que no hay obstrucción</string>
+    <string name="free_fall_detected_message">Se ha retraído la cámara frontal para protegerla. ¿Quiere usar la cámara frontal de nuevo?</string>
+    <string name="motor_cannot_go_down_message">No se puede retraer la cámara frontal, por favor, asegúrate de que no se encuentra obstruida</string>
+    <string name="motor_cannot_go_up_message">No se puede elevar la cámara frontal, por favor, asegúrate de que no se encuentra obstruida</string>
     <string name="motor_press_message">Presionar la cámara frontal puede dañar el motor. Por favor, evite hacerlo.</string>
 </resources>

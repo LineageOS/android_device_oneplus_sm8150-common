@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Đóng</string>
+    <string name="raise_the_camera">Nâng máy ảnh lên</string>
+    <string name="retry">Thử lại</string>
+    <string name="warning">Cảnh báo</string>
+    <string name="free_fall_detected_title">Đã phát hiện rơi tự do</string>
+    <string name="free_fall_detected_message">Camera trước đã được hạ xuống để bảo vệ chính nó. Bạn có muốn sử dụng lại camera trước không?</string>
+    <string name="motor_cannot_go_down_message">Camera trước không thể thụt vào, vui lòng đảm bảo rằng không có vật cản tác động lên camera</string>
+    <string name="motor_cannot_go_up_message">Camera trước không thể nâng lên, hãy chắc chắn rằng không có vật cản tác động lên camera</string>
+    <string name="motor_press_message">Nhấn mạnh camera trước xuống có thể làm hỏng mô-tơ. Xin vui lòng tránh làm vậy.</string>
+</resources>

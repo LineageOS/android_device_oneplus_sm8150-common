@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2629171_0a487a42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2023-02-27T15:59:59Z",
+      "side": 1,
+      "message": "In any case, you need to update, because. Users from some countries have reported that GPS starts working normally after this fix. Before this patch, the device searches for satellites for a long time and determines the position for a long time.",
+      "revId": "5941b769e169868e9c6a247121bb4b6adeed5512",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }

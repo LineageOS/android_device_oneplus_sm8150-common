@@ -16,6 +16,23 @@
       "message": "https://github.com/LineageOS/android_device_oneplus_sm8150-common/blob/lineage-20/configs/gps.conf",
       "revId": "688a2a3fbe87d6377ce79bd1c82bd7c84bb48012",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed8e8c34_7ce4ce89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2023-02-27T15:56:19Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_device_oneplus_sm8150-common/commit/a539c042415b493e3b4e8b7e7ffecc423c461d96",
+      "revId": "688a2a3fbe87d6377ce79bd1c82bd7c84bb48012",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []

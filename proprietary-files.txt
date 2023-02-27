@@ -538,7 +538,6 @@ vendor/etc/apdr.conf
 vendor/etc/cacert_location.pem
 vendor/etc/flp.conf
 vendor/etc/gnss_antenna_info.conf
-vendor/etc/gps.conf
 vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/sap.conf

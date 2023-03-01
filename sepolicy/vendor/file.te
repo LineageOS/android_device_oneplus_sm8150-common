@@ -1,2 +1,0 @@
-# USB
-type vendor_sysfs_usb_data_enabled, fs_type, sysfs_type;

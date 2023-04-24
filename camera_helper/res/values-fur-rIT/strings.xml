@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Siere</string>
+    <string name="raise_the_camera">Alce la cjamare</string>
+    <string name="retry">Torne prove</string>
+    <string name="warning">Atenzion</string>
+    <string name="free_fall_detected_title">Colade rilevade</string>
+    <string name="free_fall_detected_message">La fotocjamare frontâl e je stade sbassade par protezile. Desideristu tornâ a doprâ la fotocjamare frontâl?</string>
+    <string name="motor_cannot_go_down_message">La fotocjamare frontâl no rive a tirâsi indaûr, controle di no vê ostruzions</string>
+    <string name="motor_cannot_go_up_message">La fotocjamare frontâl no rive a vignî fûr, controle di no vê ostruzions</string>
+    <string name="motor_press_message">Se tu tegnis fracade jù la fotocjamare frontâl tu puedis rompi il motorin. Evite di fâlu par plasê.</string>
+</resources>

@@ -79,7 +79,7 @@ firmware_directories /vendor/firmware_mnt/image/
 
 /dev/radio0               0640   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
-/dev/ttyUSB0              0660   bluetooth  bluetooth
+/dev/ttyUSB0              0666   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
 /dev/smdcntl1             0640   radio      radio
 /dev/smdcntl2             0640   radio      radio

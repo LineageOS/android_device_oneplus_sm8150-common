@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Loka</string>
+    <string name="raise_the_camera">Lyfta myndavélinni</string>
+    <string name="retry">Reyna aftur</string>
+    <string name="warning">Aðvörun</string>
+    <string name="free_fall_detected_title">Skynjaði frjálst fall</string>
+    <string name="free_fall_detected_message">Myndavélin á framhliðinni hefur verið dregin inn til að verja hana. Viltu nota hana aftur?</string>
+    <string name="motor_cannot_go_down_message">Myndavélin á framhliðinni nær ekki að dragast inn, gakktu úr skugga um að engin fyrirstaða sé fyrir hendi</string>
+    <string name="motor_cannot_go_up_message">Myndavélin á framhliðinni nær ekki að dragast út, gakktu úr skugga um að engin fyrirstaða sé fyrir hendi</string>
+    <string name="motor_press_message">Sé myndavélinni á framhliðinni ýtt niður, getur það skemmt mótorinn. Forðastu að gera slíkt.</string>
+</resources>

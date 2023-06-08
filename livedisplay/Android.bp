@@ -13,7 +13,6 @@ cc_binary {
     srcs: [
         ":vendor.lineage.livedisplay@2.0-sdm-pa",
         ":vendor.lineage.livedisplay@2.0-sdm-utils",
-        ":vendor.lineage.livedisplay@2.1-oplus-se",
         "DisplayModes.cpp",
         "service.cpp",
     ],
@@ -28,7 +27,6 @@ cc_binary {
     header_libs: [
         "kernel_headers.oplus",
         "vendor.lineage.livedisplay@2.0-sdm-headers",
-        "vendor.lineage.livedisplay@2.1-oplus-headers",
     ],
     proprietary: true,
 }

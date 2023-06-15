@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Stäng</string>
+    <string name="raise_the_camera">Höj kameran</string>
+    <string name="retry">Försök igen</string>
+    <string name="warning">Varning</string>
+    <string name="free_fall_detected_title">Fritt fall upptäcktes</string>
+    <string name="free_fall_detected_message">Kameran har sänkts för att skydda den. Vill du använda kameran igen?</string>
+    <string name="motor_cannot_go_down_message">Kameran kan inte dras tillbaka, vänligen se till att inget hindrar den</string>
+    <string name="motor_cannot_go_up_message">Något förhindrar kameran från att skjutas ut, vänligen se till att inget hindrar den</string>
+    <string name="motor_press_message">Undvik att trycka ner kameran då detta kan skada motorn.</string>
+</resources>

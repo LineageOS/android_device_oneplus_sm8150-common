@@ -4,5 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <string name="close">Закрыць</string>
     <string name="motor_press_message">Націск на франтальную камеру можа прывесці да пашкоджання рухавіка. Калі ласка, пазбягайце гэтага.</string>
 </resources>

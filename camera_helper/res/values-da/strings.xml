@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Luk</string>
+    <string name="raise_the_camera">Løft kameraet</string>
+    <string name="retry">Prøv igen</string>
+    <string name="warning">Advarsel</string>
+</resources>

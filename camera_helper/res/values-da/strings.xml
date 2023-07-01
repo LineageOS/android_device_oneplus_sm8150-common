@@ -15,6 +15,8 @@
      limitations under the License.
 -->
 <resources>
-    <string name="close">Закрыць</string>
-    <string name="raise_the_camera">Падняць камеру</string>
+    <string name="close">Luk</string>
+    <string name="raise_the_camera">Løft kameraet</string>
+    <string name="retry">Prøv igen</string>
+    <string name="warning">Advarsel</string>
 </resources>

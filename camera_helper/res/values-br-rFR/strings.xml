@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Serriñ</string>
+    <string name="raise_the_camera">Dispakañ ar c\'hamera</string>
+    <string name="retry">Klask en-dro</string>
+    <string name="warning">Diwallit</string>
+    <string name="free_fall_detected_message">Ar c\'hamera a-raok a zo bet dastumet evit he gwareziñ. Implij anezhi en-dro a fell deoc\'h ?</string>
+    <string name="motor_cannot_go_down_message">Ar c\'hamera a-raok n\'hall ket emzastum, gwiriañ n\'eus netra o stankañ</string>
+    <string name="motor_cannot_go_up_message">Ar c\'hamera a-raok n\'hall ket dispakañ, gwiriañ n\'eus netra o stankañ</string>
+    <string name="motor_press_message">Pouezañ war ar c\'hamera a-raok a c\'hell foeltrañ ardivink. Diwallit d\'hen ober.</string>
+</resources>

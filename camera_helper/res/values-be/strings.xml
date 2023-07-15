@@ -6,4 +6,5 @@
 <resources>
     <string name="close">Закрыць</string>
     <string name="raise_the_camera">Падняць камеру</string>
+    <string name="retry">Паўтарыць</string>
 </resources>

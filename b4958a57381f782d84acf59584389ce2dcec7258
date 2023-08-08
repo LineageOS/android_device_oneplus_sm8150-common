@@ -33,6 +33,23 @@
       "message": "The device boots normally. I just saw these errors in the logs.",
       "revId": "b4958a57381f782d84acf59584389ce2dcec7258",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ee64ae_61bc7f58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2023-08-08T06:58:37Z",
+      "side": 1,
+      "message": "ok",
+      "revId": "b4958a57381f782d84acf59584389ce2dcec7258",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []

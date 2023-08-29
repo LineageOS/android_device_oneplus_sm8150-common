@@ -4,8 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 COMMON_PATH := device/oneplus/sm8150-common
 
 # A/B

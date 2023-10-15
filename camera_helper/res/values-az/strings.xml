@@ -10,7 +10,7 @@
     <string name="warning">Xəbərdarlıq</string>
     <string name="free_fall_detected_title">Sərbəst düşmə aşkarlandı</string>
     <string name="free_fall_detected_message">Qorumaq məqsədilə ön kamera endirildi. Ön kameranı yenidən istifadə etmək istəyirsiniz?</string>
-    <string name="motor_cannot_go_down_message">Ön kamera geri götürülə bilmədi, zəhmət olmasa heç bir maneə olmadığına əmin olun</string>
-    <string name="motor_cannot_go_up_message">Ön kamera açıla bilmədi, zəhmət olmasa heç bir maneə olmadığına əmin olun</string>
-    <string name="motor_press_message">Ön kameraya basmaq, mühərriki zədələyə bilər. Zəhmət olmasa bunu etməyin.</string>
+    <string name="motor_cannot_go_down_message">Ön kamera geri götürülə bilmədi, lütfən heç bir maneə olmadığına əmin olun</string>
+    <string name="motor_cannot_go_up_message">Ön kamera açıla bilmədi, lütfən heç bir maneə olmadığına əmin olun</string>
+    <string name="motor_press_message">Ön kameraya basmaq, mühərriki zədələyə bilər. Lütfən bunu etməyin.</string>
 </resources>

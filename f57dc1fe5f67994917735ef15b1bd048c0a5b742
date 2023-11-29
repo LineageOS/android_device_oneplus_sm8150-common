@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e46415_416745d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-11-29T20:44:32Z",
+      "side": 1,
+      "message": "Enabled by hardware/oplus/overlay/qssi/FrameworksResCommon/res/values/config.xml.\n\n```\n$ adb shell cmd overlay lookup android android:bool/config_automatic_brightness_available\ntrue\n```",
+      "revId": "f57dc1fe5f67994917735ef15b1bd048c0a5b742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

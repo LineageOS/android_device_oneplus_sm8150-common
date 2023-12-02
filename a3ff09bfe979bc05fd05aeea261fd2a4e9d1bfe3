@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df15de70_0a206acd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-12-02T10:18:11Z",
+      "side": 1,
+      "message": "move to hotdog*; guacamole* is not dynamic.",
+      "revId": "a3ff09bfe979bc05fd05aeea261fd2a4e9d1bfe3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

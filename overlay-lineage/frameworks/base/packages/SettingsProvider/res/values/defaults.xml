@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2012, The Android Open Source Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Set the automatic brightness mode on by default -->
+    <bool name="def_screen_brightness_automatic_mode">true</bool>
+
+</resources>

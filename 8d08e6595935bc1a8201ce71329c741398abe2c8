@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f11ba2_d1245fa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-12-03T11:21:38Z",
+      "side": 1,
+      "message": "that should be better, after hotdog blinded me thrice after a wipe...",
+      "revId": "8d08e6595935bc1a8201ce71329c741398abe2c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

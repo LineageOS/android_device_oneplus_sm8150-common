@@ -3,7 +3,8 @@
     package="org.lineageos.camerahelper"
     android:versionCode="1"
     android:versionName="1.0"
-    android:sharedUserId="android.uid.system">
+    android:sharedUserId="android.uid.system"
+    android:sharedUserMaxSdkVersion="32">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

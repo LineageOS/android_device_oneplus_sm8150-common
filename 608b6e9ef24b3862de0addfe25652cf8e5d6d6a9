@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "798d2319_e66dbba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-12-19T17:05:42Z",
+      "side": 1,
+      "message": "ah yeah, that was just the original commit msg. we debated if this was necessary at all.\n@ lukasz: it is necessary, the damn logspam is driving me nuts. every i2c write is logged, and not just at boot as i stated previously... argh.",
+      "revId": "608b6e9ef24b3862de0addfe25652cf8e5d6d6a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

@@ -17,3 +17,5 @@ allow als_correction_service surfaceflinger_service:service_manager find;
 allow als_correction_service same_process_hal_file:file r_file_perms;
 
 allow als_correction_service ion_device:chr_file rw_file_perms;
+
+get_prop(als_correction_service, vendor_sensors_als_prop)

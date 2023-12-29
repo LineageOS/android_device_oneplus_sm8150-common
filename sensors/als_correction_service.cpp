@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <android-base/properties.h>
 #include <binder/ProcessState.h>
 #include <gui/SurfaceComposerClient.h>
 #include <gui/SyncScreenCaptureListener.h>
@@ -26,6 +27,7 @@
 #include <time.h>
 #include <unistd.h>
 
+using android::base::GetProperty;
 using android::gui::ScreenCaptureResults;
 using android::ui::DisplayState;
 using android::ui::PixelFormat;
@@ -38,17 +40,7 @@ using android::sp;
 using android::SurfaceComposerClient;
 using android::SyncScreenCaptureListener;
 
-#if defined(DEVICE_guacamole) || defined(DEVICE_guacamoleg)
-static Rect screenshot_rect(251, 988, 305, 1042);
-#elif defined(DEVICE_guacamoleb)
-static Rect screenshot_rect(626, 192, 666, 232);
-#elif defined(DEVICE_hotdog) || defined(DEVICE_hotdogg)
-static Rect screenshot_rect(255, 903, 301, 949);
-#elif defined(DEVICE_hotdogb)
-static Rect screenshot_rect(499, 110, 525, 136);
-#else
-#error No ALS configuration for this device
-#endif
+static Rect screenshot_rect;
 
 class TakeScreenshotCommand : public FrameworkCommand {
   public:
@@ -133,6 +125,18 @@ class AlsCorrectionListener : public FrameworkListener {
 };
 
 int main() {
+    int32_t left, top, right, bottom;
+    std::istringstream is(GetProperty("vendor.sensors.als_correction.grabrect", ""));
+
+    is >> left >> top >> right >> bottom;
+    if (left == 0) {
+        ALOGE("No screenshot grab area config");
+        return 0;
+    }
+
+    ALOGI("Screenshot grab area: %d %d %d %d", left, right, top, bottom);
+    screenshot_rect = Rect(left, top, right, bottom);
+
     auto listener = new AlsCorrectionListener();
     listener->startListener();
 

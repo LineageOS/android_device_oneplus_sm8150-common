@@ -13,29 +13,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-soong_config_module_type {
-    name: "oneplus_msmnile_sensors_hal_cc_defaults",
-    module_type: "cc_defaults",
-    config_namespace: "ONEPLUS_MSMNILE_SENSORS",
-    value_variables: ["DEVICE"],
-    properties: ["cppflags"],
-}
-
-oneplus_msmnile_sensors_hal_cc_defaults {
-    name: "oneplus_msmnile_sensors_hal_defaults",
-    soong_config_variables: {
-        DEVICE: {
-            cppflags: ["-DDEVICE_%s"],
-        },
-    },
-}
-
 cc_binary {
     name: "android.hardware.sensors@2.0-service.oneplus_msmnile",
     stem: "android.hardware.sensors@2.0-service.multihal",
     defaults: [
         "hidl_defaults",
-        "oneplus_msmnile_sensors_hal_defaults",
     ],
     vendor: true,
     relative_install_path: "hw",
@@ -75,9 +57,6 @@ cc_binary {
     name: "als_correction_service.oneplus_msmnile",
     stem: "als_correction_service",
     init_rc: ["als_correction_service.rc"],
-    defaults: [
-        "oneplus_msmnile_sensors_hal_defaults",
-    ],
     system_ext_specific: true,
     srcs: [
         "als_correction_service.cpp",

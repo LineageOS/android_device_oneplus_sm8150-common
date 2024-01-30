@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1250f07_a5a739da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2024-01-30T18:25:19Z",
+      "side": 1,
+      "message": "fyi, this would fix the panics: https://github.com/LineageOS/android_kernel_nubia_sm8150/commit/9cfe5878f4ad292fccc2e80c17dfded477ac76d7",
+      "revId": "1964a0a893cc3fad88b258cafa9d4352b54ecbdd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

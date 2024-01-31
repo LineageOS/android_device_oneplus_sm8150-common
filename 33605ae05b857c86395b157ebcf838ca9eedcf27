@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2d70f2_2c148008",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-01-31T12:23:15Z",
+      "side": 1,
+      "message": "Don\u0027t you have something like this in dmesg?\nhttps://github.com/crdroidandroid/android_device_oneplus_sm8150-common/commit/05644d85e6fa99f5515e3aa367b0d060ea0f588f",
+      "revId": "33605ae05b857c86395b157ebcf838ca9eedcf27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }

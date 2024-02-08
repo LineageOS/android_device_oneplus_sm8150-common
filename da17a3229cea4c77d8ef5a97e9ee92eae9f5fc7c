@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce4d791e_fe2f2fef",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-02-08T12:06:11Z",
+      "side": 1,
+      "message": "using unix sockets is fine for IPC, maybe you want to use binder/aidl to properly define an iface?",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 100
+      },
+      "revId": "da17a3229cea4c77d8ef5a97e9ee92eae9f5fc7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158d5ab5_62865825",
+        "filename": "sepolicy/vendor/hal_sensors_default.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-02-08T12:06:11Z",
+      "side": 1,
+      "message": "yeah... you can avoid that via AIDL",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 75
+      },
+      "revId": "da17a3229cea4c77d8ef5a97e9ee92eae9f5fc7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

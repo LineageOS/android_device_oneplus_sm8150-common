@@ -45,6 +45,30 @@
       },
       "revId": "da17a3229cea4c77d8ef5a97e9ee92eae9f5fc7c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f220c479_7f42df04",
+        "filename": "sepolicy/vendor/hal_sensors_default.te",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-08T15:14:24Z",
+      "side": 1,
+      "message": "thanks for the suggestion, will look into it after the actual compensation works properly",
+      "parentUuid": "158d5ab5_62865825",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 75
+      },
+      "revId": "da17a3229cea4c77d8ef5a97e9ee92eae9f5fc7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

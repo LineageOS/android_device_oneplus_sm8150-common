@@ -27,9 +27,11 @@
 #
 #
 
+import /vendor/etc/init/hw/init.target.power.rc
+
 on early-init
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_wglink audio_q6_pdr audio_q6_notifier audio_apr audio_adsp_loader audio_q6 audio_native audio_usf audio_pinctrl_wcd audio_swr audio_platform audio_hdmi audio_wcd_spi audio_stub audio_wcd_core audio_wsa881x audio_wcd9360 audio_hdmi audio_machine_msmnile audio_extend audio_tfa9894
-    write /proc/sys/kernel/sched_boost 1
+    write /proc/sys/kernel/sched_energy_aware 0
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -73,11 +75,6 @@ on boot
     chown system system /sys/kernel/qvr_external_sensor/fd
     start rmt_storage
     start rfs_access
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-3,5-6
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/restricted/cpus 0-3
 
 #Load WLAN driver
     insmod /vendor/lib/modules/qca_cld3_wlan.ko
@@ -89,6 +86,16 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop vendor.usb.controller a600000.dwc3
+
+on property:sys.boot_completed=1
+    setprop vendor.setup.power 1
+
+    # Setup runtime cpusets
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-3,5-6
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/restricted/cpus 0-3
 
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
@@ -122,6 +129,7 @@ on property:init.svc.vendor.charger=running
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
+    setprop vendor.setup.power 1
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main

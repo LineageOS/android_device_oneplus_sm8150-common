@@ -346,7 +346,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     class core
     user root
     group root
-    disabled
 
 on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage

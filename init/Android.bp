@@ -25,6 +25,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.target.power.rc",
+    src: "init.target.power.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.target.rc",
     src: "init.target.rc",
     sub_dir: "init/hw",
@@ -53,12 +60,6 @@ sh_binary {
 sh_binary {
     name: "init.qcom.early_boot.sh",
     src: "init.qcom.early_boot.sh",
-    vendor: true,
-}
-
-sh_binary {
-    name: "init.qcom.post_boot.sh",
-    src: "init.qcom.post_boot.sh",
     vendor: true,
 }
 

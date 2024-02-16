@@ -75,6 +75,10 @@ on init
     write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us 20000
 
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
     # set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
@@ -133,6 +137,10 @@ on property:sys.boot_completed=1
     write /sys/block/sda/queue/iostats 1
     write /sys/block/sde/queue/nr_requests 128
     write /sys/block/sde/queue/iostats 1
+
+    # Enable ZRAM on boot_complete
+    swapon_all /vendor/etc/fstab.${ro.boot.hardware}
+    write /proc/sys/vm/swappiness 100
 
     # Setup runtime cpusets
     write /dev/cpuset/top-app/cpus 0-7

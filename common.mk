@@ -351,7 +351,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 PRODUCT_PACKAGES += \
-    als_correction_service.oneplus_msmnile \
+    vendor.lineage.oplus_als.service \
     android.hardware.sensors@2.0-service.oneplus_msmnile \
     libsensorndkbridge \
     sensors.oplus

@@ -1,25 +1,21 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2024 The LineageOS Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "AlsCorrection.h"
 
+#include <android/binder_manager.h>
+#include <binder/IBinder.h>
+#include <binder/IServiceManager.h>
 #include <cutils/properties.h>
 #include <fstream>
 #include <log/log.h>
-#include <time.h>
+#include <utils/Timers.h>
+
+using aidl::vendor::lineage::oplus_als::AreaRgbCaptureResult;
+using aidl::vendor::lineage::oplus_als::IAreaCapture;
 
 namespace android {
 namespace hardware {
@@ -29,6 +25,7 @@ namespace implementation {
 
 static int red_max_lux, green_max_lux, blue_max_lux, white_max_lux, max_brightness;
 static int als_bias;
+static std::shared_ptr<IAreaCapture> service;
 
 template <typename T>
 static T get(const std::string& path, const T& def) {
@@ -47,31 +44,46 @@ void AlsCorrection::init() {
     als_bias = get("/mnt/vendor/persist/engineermode/als_bias", 0);
     max_brightness = get("/sys/class/backlight/panel0-backlight/max_brightness", 255);
     ALOGV("max r = %d, max g = %d, max b = %d", red_max_lux, green_max_lux, blue_max_lux);
+
+    const auto instancename = std::string(IAreaCapture::descriptor) + "/default";
+
+    if (AServiceManager_isDeclared(instancename.c_str())) {
+        service = IAreaCapture::fromBinder(::ndk::SpAIBinder(
+            AServiceManager_waitForService(instancename.c_str())));
+    } else {
+        ALOGE("Service is not registered");
+    }
 }
 
 void AlsCorrection::correct(float& light) {
-    pid_t pid = property_get_int32("vendor.sensors.als_correction.pid", 0);
-    if (pid != 0) {
-        kill(pid, SIGUSR1);
+    static nsecs_t last_update = 0;
+    static AreaRgbCaptureResult screenshot = { 0.0, 0.0, 0.0 };
+
+    nsecs_t now = systemTime(SYSTEM_TIME_BOOTTIME);
+    if ((now - last_update) > ms2ns(500)) {
+        if (service != nullptr && service->getAreaBrightness(&screenshot).isOk()) {
+            last_update = now;
+        } else {
+            ALOGE("Could not get area above sensor");
+        }
+    } else {
+        ALOGV("Capture skipped because interval not expired at %ld", now);
     }
-    // TODO: HIDL service and pass float instead
-    int r = property_get_int32("vendor.sensors.als_correction.r", 0);
-    int g = property_get_int32("vendor.sensors.als_correction.g", 0);
-    int b = property_get_int32("vendor.sensors.als_correction.b", 0);
-    ALOGV("Screen Color Above Sensor: %d, %d, %d", r, g, b);
+
+    float r = screenshot.r / 255, g = screenshot.g / 255, b = screenshot.b / 255;
+    ALOGV("Screen Color Above Sensor: %f, %f, %f", r, g, b);
     ALOGV("Original reading: %f", light);
     int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
     float correction = 0.0f, correction_scaled = 0.0f;
     if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
-        constexpr float rgb_scale = 0x7FFFFFFF;
-        int rgb_min = std::min({r, g, b});
+        float rgb_min = std::min({r, g, b});
         r -= rgb_min;
         g -= rgb_min;
         b -= rgb_min;
-        correction += ((float) rgb_min) / rgb_scale * ((float) white_max_lux);
-        correction += ((float) r) / rgb_scale * ((float) red_max_lux);
-        correction += ((float) g) / rgb_scale * ((float) green_max_lux);
-        correction += ((float) b) / rgb_scale * ((float) blue_max_lux);
+        correction += rgb_min * ((float) white_max_lux);
+        correction += r * ((float) red_max_lux);
+        correction += g * ((float) green_max_lux);
+        correction += b * ((float) blue_max_lux);
         correction = correction * (((float) screen_brightness) / ((float) max_brightness));
         correction += als_bias;
         correction_scaled = correction * (((float) white_max_lux) /

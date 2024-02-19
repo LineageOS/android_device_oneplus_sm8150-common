@@ -1,3 +1,2 @@
-allow hal_sensors_default als_correction_service:process signal;
-
-get_prop(hal_sensors_default, vendor_sensors_als_prop)
+binder_use(hal_sensors_default)
+hal_client_domain(hal_sensors_default, hal_lineage_oplus_als)

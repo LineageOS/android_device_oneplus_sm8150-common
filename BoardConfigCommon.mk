@@ -162,10 +162,6 @@ BOARD_ROOT_EXTRA_SYMLINKS += /vendor/odm/vendor:/odm/vendor
 # Security
 VENDOR_SECURITY_PATCH := 2022-12-05
 
-# Sensors
-SOONG_CONFIG_NAMESPACES += ONEPLUS_MSMNILE_SENSORS
-SOONG_CONFIG_ONEPLUS_MSMNILE_SENSORS := ALS_POS_X ALS_POS_Y
-
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/oplus/sepolicy/qti/SEPolicy.mk

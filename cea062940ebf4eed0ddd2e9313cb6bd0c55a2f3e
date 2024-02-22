@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4788fa6_41b209fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-02-22T22:05:52Z",
+      "side": 1,
+      "message": "This happens on every single device we ship that uses defconfig fragments",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddeadf6b_32777bc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-02-22T22:05:52Z",
+      "side": 1,
+      "message": "You could pick https://review.lineageos.org/c/LineageOS/android_kernel_qcom_sm8250/+/357264 to sm8150 kernel",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

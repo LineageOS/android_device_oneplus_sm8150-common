@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0595af5b_846fa226",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-02-22T22:29:37Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_prebuilts_tools-lineage/+/383790",
+      "parentUuid": "c4788fa6_41b209fc",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddeadf6b_32777bc2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1

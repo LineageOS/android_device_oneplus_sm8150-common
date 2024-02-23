@@ -69,6 +69,23 @@
       },
       "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72cc707_d50e5032",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-23T06:57:10Z",
+      "side": 1,
+      "message": "having yes available doesnt solve the problem of not disabling dependant options tho. disabling one option here took quite a few others down on regen, i peefer to have the config sane/clean",
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

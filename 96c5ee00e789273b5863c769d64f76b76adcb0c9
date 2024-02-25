@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9c048ec_ca0b4d06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-02-25T11:16:55Z",
+      "side": 1,
+      "message": "I removed this a long time ago. Everything works great. No need to run twice.\nhttps://github.com/crdroidandroid/android_device_oneplus_sm8150-common/commit/d9ebc326da88c1305c10ef57314cf1bddbd1827e",
+      "revId": "96c5ee00e789273b5863c769d64f76b76adcb0c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

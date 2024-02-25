@@ -71,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "18aad155_ae1f8b87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-25T20:02:18Z",
+      "side": 1,
+      "message": "sure, but there are still some options that this doesnt include:\nCONFIG_QTI_RPM_STATS_LOG depends on debug_fs\nso does CONFIG_IPA_UT, and some others that are now in https://review.lineageos.org/c/LineageOS/android_kernel_oneplus_sm8150/+/383796",
+      "parentUuid": "ddeadf6b_32777bc2",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f72cc707_d50e5032",

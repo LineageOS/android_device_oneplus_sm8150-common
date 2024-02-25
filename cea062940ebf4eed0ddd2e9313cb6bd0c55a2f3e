@@ -95,6 +95,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "63a4f106_dbd2c3ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-02-25T20:25:36Z",
+      "side": 1,
+      "message": "If something depends on debugfs, then there\u0027s no issue because these options will end up being disabled. The only problem is when some option selects debugfs instead of depending on it",
+      "parentUuid": "18aad155_ae1f8b87",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "cea062940ebf4eed0ddd2e9313cb6bd0c55a2f3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f72cc707_d50e5032",

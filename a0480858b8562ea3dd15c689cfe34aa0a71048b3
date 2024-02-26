@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5d84437_0b17ca40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-26T07:10:33Z",
+      "side": 1,
+      "message": "prefer this way at least for 8150, if no one is opposed to it. i see the value of merging fragments in later kernel versions",
+      "revId": "a0480858b8562ea3dd15c689cfe34aa0a71048b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

@@ -7,6 +7,7 @@
 #pragma once
 
 #include <aidl/vendor/lineage/oplus_als/BnAreaCapture.h>
+#include <android/hardware/sensors/2.1/types.h>
 
 namespace android {
 namespace hardware {
@@ -19,7 +20,7 @@ static constexpr int SENSOR_TYPE_QTI_WISE_LIGHT = 33171103;
 class AlsCorrection {
   public:
     static void init();
-    static void correct(float& light);
+    static void process(Event& event);
 };
 
 }  // namespace implementation

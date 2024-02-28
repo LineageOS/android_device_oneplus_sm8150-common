@@ -6,16 +6,20 @@
 
 #include "AlsCorrection.h"
 
+#include <android-base/properties.h>
 #include <android/binder_manager.h>
 #include <binder/IBinder.h>
 #include <binder/IServiceManager.h>
-#include <cutils/properties.h>
 #include <fstream>
 #include <log/log.h>
 #include <utils/Timers.h>
 
 using aidl::vendor::lineage::oplus_als::AreaRgbCaptureResult;
 using aidl::vendor::lineage::oplus_als::IAreaCapture;
+using android::base::GetIntProperty;
+
+#define ALS_CALI_DIR "/proc/sensor/als_cali/"
+#define BRIGHTNESS_DIR "/sys/class/backlight/panel0-backlight/"
 
 namespace android {
 namespace hardware {
@@ -37,13 +41,14 @@ static T get(const std::string& path, const T& def) {
 }
 
 void AlsCorrection::init() {
-    red_max_lux = get("/mnt/vendor/persist/engineermode/red_max_lux", 0);
-    green_max_lux = get("/mnt/vendor/persist/engineermode/green_max_lux", 0);
-    blue_max_lux = get("/mnt/vendor/persist/engineermode/blue_max_lux", 0);
-    white_max_lux = get("/mnt/vendor/persist/engineermode/white_max_lux", 0);
-    als_bias = get("/mnt/vendor/persist/engineermode/als_bias", 0);
-    max_brightness = get("/sys/class/backlight/panel0-backlight/max_brightness", 255);
-    ALOGV("max r = %d, max g = %d, max b = %d", red_max_lux, green_max_lux, blue_max_lux);
+    als_bias = GetIntProperty("vendor.sensors.als_correction.bias", 0);
+    red_max_lux = get(ALS_CALI_DIR "red_max_lux", 0);
+    green_max_lux = get(ALS_CALI_DIR "green_max_lux", 0);
+    blue_max_lux = get(ALS_CALI_DIR "blue_max_lux", 0);
+    white_max_lux = get(ALS_CALI_DIR "white_max_lux", 0);
+    max_brightness = get(BRIGHTNESS_DIR "max_brightness", 1023.0);
+    ALOGV("Display maximums: R=%d G=%d B=%d W=%d, Brightness=%d",
+        red_max_lux, green_max_lux, blue_max_lux, white_max_lux, max_brightness);
 
     const auto instancename = std::string(IAreaCapture::descriptor) + "/default";
 
@@ -73,7 +78,7 @@ void AlsCorrection::correct(float& light) {
     float r = screenshot.r / 255, g = screenshot.g / 255, b = screenshot.b / 255;
     ALOGV("Screen Color Above Sensor: %f, %f, %f", r, g, b);
     ALOGV("Original reading: %f", light);
-    int screen_brightness = get("/sys/class/backlight/panel0-backlight/brightness", 0);
+    int screen_brightness = get(BRIGHTNESS_DIR "brightness", 0);
     float correction = 0.0f, correction_scaled = 0.0f;
     if (red_max_lux > 0 && green_max_lux > 0 && blue_max_lux > 0 && white_max_lux > 0) {
         float rgb_min = std::min({r, g, b});

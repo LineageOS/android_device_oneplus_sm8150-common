@@ -1,2 +1,4 @@
 binder_use(hal_sensors_default)
 hal_client_domain(hal_sensors_default, hal_lineage_oplus_als)
+
+get_prop(hal_sensors_default, vendor_sensors_als_prop)

@@ -18,6 +18,29 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a93f39cd_7b576ae1",
+        "filename": "als/default/AreaCapture.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-02-29T16:58:39Z",
+      "side": 1,
+      "message": "Can you implement all of that via aidl callbacks so you can get the brightness asynchronously?\nif you\u0027re hot-fixing the value received by the qti sensor than I guess it\u0027s a no, unless you can queue new events and simply discard the current event and send it as soon as you get the callback data?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "13e35ca8910b7419a2ad1b4d55d1aca53b8930f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2665c51e_7c30cce0",

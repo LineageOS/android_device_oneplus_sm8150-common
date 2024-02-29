@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc37c1b_917dcb35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-29T18:38:01Z",
+      "side": 1,
+      "message": "you are correct. i kinda misinterpreted google\u0027s formulation of \"IPC between vendor/vendor processes with AIDL Interfaces\" ... thanks!",
+      "revId": "300faaa49d52e23897a1c15eddb08ec64473e604",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

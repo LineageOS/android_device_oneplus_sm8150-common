@@ -22,6 +22,30 @@
       },
       "revId": "ada03bfafe58b06776e4afc209ed07858631321b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "261d61f2_c735da6e",
+        "filename": "sepolicy/private/hal_lineage_oplus_als_aidl.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-29T14:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c07782_27010799",
+      "range": {
+        "startLine": 26,
+        "startChar": 60,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "ada03bfafe58b06776e4afc209ed07858631321b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

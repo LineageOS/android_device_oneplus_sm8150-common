@@ -22,6 +22,30 @@
       },
       "revId": "6f5d44d31f33b8e00142159c076b466652c86130",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "555b2c05_ff9c0032",
+        "filename": "sensors/AlsCorrection.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-02-29T12:53:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5691ca30_560274dc",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "6f5d44d31f33b8e00142159c076b466652c86130",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

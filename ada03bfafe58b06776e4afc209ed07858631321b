@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c07782_27010799",
+        "filename": "sepolicy/private/hal_lineage_oplus_als_aidl.te",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-02-29T12:24:08Z",
+      "side": 1,
+      "message": "not rx?",
+      "range": {
+        "startLine": 26,
+        "startChar": 60,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "ada03bfafe58b06776e4afc209ed07858631321b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

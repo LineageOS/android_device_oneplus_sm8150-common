@@ -57,7 +57,6 @@ ndk::ScopedAStatus AreaCapture::getAreaBrightness(AreaRgbCaptureResult* _aidl_re
     captureArgs.sourceCrop = m_screenshot_rect;
     captureArgs.width = m_screenshot_rect.getWidth();
     captureArgs.height = m_screenshot_rect.getHeight();
-    captureArgs.useIdentityTransform = true;
     captureArgs.captureSecureLayers = true;
 
     sp<SyncScreenCaptureListener> captureListener = new SyncScreenCaptureListener();

@@ -49,4 +49,6 @@
         <item>0:2:15</item>
     </string-array>
 
+    <!-- Disable lockscreen rotation by default -->
+    <bool name="config_enableLockScreenRotation">false</bool>
 </resources>

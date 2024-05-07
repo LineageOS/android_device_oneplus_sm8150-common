@@ -92,6 +92,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
+        vendor/etc/izat.conf)
+            [ "$2" = "" ] && return 0
+            sed -i "221s/PROCESS_STATE=ENABLED/PROCESS_STATE=DISABLED/g" "${2}"
+            ;;
         vendor/etc/libnfc-nci.conf)
             [ "$2" = "" ] && return 0
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"

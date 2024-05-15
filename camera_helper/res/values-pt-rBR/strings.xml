@@ -5,7 +5,7 @@
 -->
 <resources>
     <string name="close">Fechar</string>
-    <string name="raise_the_camera">Acessar a câmera</string>
+    <string name="raise_the_camera">Levante a câmera</string>
     <string name="retry">Tentar novamente</string>
     <string name="warning">Aviso</string>
     <string name="free_fall_detected_title">Queda livre detectada</string>

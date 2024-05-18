@@ -1,0 +1,11 @@
+cc_library {
+    name: "libperfmgr-ext",
+    vendor: true,
+    srcs: [
+        "Power.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.power-V3-ndk",
+        "libbinder_ndk",
+    ],
+}

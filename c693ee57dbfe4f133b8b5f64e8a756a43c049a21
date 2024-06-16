@@ -16,6 +16,23 @@
       "message": "This is only needed for 5.4",
       "revId": "c693ee57dbfe4f133b8b5f64e8a756a43c049a21",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c6550c8_bb25c924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-06-16T20:20:41Z",
+      "side": 1,
+      "message": "Support is automatically detected for other kernels: https://android.googlesource.com/platform/build/soong/+/refs/tags/android-14.0.0_r50/scripts/uffd_gc_utils.py",
+      "revId": "c693ee57dbfe4f133b8b5f64e8a756a43c049a21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []

@@ -8,6 +8,13 @@ soong_namespace {
 }
 
 install_symlink {
+    name: "acdbdata_adsp_avs_config.bin_symlink",
+    device_specific: true,
+    installed_location: "etc/acdbdata/adsp_avs_config.acdb",
+    symlink_target: "/vendor/etc/acdbdata/adsp_avs_config.acdb",
+}
+
+install_symlink {
     name: "firmware_wlan_mac.bin_symlink",
     vendor: true,
     installed_location: "firmware/wlan/qca_cld/wlan_mac.bin",

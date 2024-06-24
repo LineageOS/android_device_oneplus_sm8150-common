@@ -17,6 +17,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script
 
+# ADSP config
+PRODUCT_PACKAGES += \
+    firmware_adsp_avs_config.bin_symlink
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong \

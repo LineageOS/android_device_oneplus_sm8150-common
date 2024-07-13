@@ -1,2 +1,5 @@
 # Display
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.oneplus_msmnile    u:object_r:hal_lineage_livedisplay_qti_exec:s0
+
+# Memtrack AIDL HAL
+/vendor/bin/hw/vendor\.qti.hardware\.memtrack-service                                        u:object_r:hal_memtrack_default_exec:s0

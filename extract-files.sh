@@ -70,6 +70,9 @@ function blob_fixup() {
         odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml)
             sed -ni "/android.hardware.biometrics.fingerprint/{x;s/hal format/hal override=\"true\" format/;x};x;1!p;\${x;p}" "${2}"
             ;;
+        product/app/PowerOffAlarm/PowerOffAlarm.apk)
+            apktool_patch "${2}" "${MY_DIR}/blob-patches/PowerOffAlarm.patch" -s
+            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             sed -i "s/\/my_product/\/product/" "${2}"
             ;;

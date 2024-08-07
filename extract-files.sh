@@ -83,6 +83,8 @@ function blob_fixup() {
             sed -i "/NXP_NFC_DEV_NODE/ s/pn553/nq-nci/" "${2}"
             sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
+            sed -i "/NXP_FW_NAME/ s/NXP_FW_NAME/#NXP_FW_NAME/" "${2}"
+            sed -i "/NXP_DEBUG_FW_NAME/ s/NXP_DEBUG_FW_NAME/#NXP_DEBUG_FW_NAME/" "${2}"
             ;;
         vendor/lib64/hw/com.qti.chi.override.so)
             grep -q libcamera_metadata_shim.so "${2}" || "${PATCHELF}" --add-needed libcamera_metadata_shim.so "${2}"

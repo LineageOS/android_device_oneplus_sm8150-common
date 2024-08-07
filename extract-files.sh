@@ -98,6 +98,8 @@ function blob_fixup() {
             ;;
         vendor/etc/libnfc-nxp.conf)
             [ "$2" = "" ] && return 0
+            sed -i "/^NXP_DEBUG_FW_NAME/ s/^/#/" "${2}"
+            sed -i "/^NXP_FW_NAME/ s/^/#/" "${2}"
             sed -i "/NXP_NFC_DEV_NODE/ s/pn553/nq-nci/" "${2}"
             sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"

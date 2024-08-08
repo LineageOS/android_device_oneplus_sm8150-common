@@ -16,6 +16,24 @@
       "message": "sepolicy was already done in hardware/oplus and we can just delete lines instead of commenting them out.",
       "revId": "d0cdf556f30a1b0addc8f7492a6f61b54160b28a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d41f485_5b43052b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-08-08T08:13:36Z",
+      "side": 1,
+      "message": "eh, changed my mind, but I wrote a different sed command for it.",
+      "parentUuid": "4976c3d9_13e57b57",
+      "revId": "d0cdf556f30a1b0addc8f7492a6f61b54160b28a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

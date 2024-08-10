@@ -51,6 +51,23 @@
       "message": "then this needs to go: https://github.com/LineageOS/android_device_oneplus_sm8150-common/blob/6a632cb287c8006db1ac2a1112d5be2454b37cbd/common.mk#L90",
       "revId": "1fade9c72d80727768522dd9ce99b715a3e42f79",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1c36e3_9c6da82a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2024-08-10T21:21:01Z",
+      "side": 1,
+      "message": "luk? 2 cts?",
+      "revId": "1fade9c72d80727768522dd9ce99b715a3e42f79",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c032d78_09e95a3b",
+        "filename": "common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-08-16T12:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf2cc89_61b10a29",
+      "revId": "c65b04d32c5d19f43179c8853986e124fea20178",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39a84101_b194366b",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-16T12:10:04Z",
       "side": 1,
       "message": "-\u003e qcom sepolicy",
+      "revId": "c65b04d32c5d19f43179c8853986e124fea20178",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fd3185e_a2761a35",
+        "filename": "sepolicy/vendor/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-08-16T12:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a84101_b194366b",
       "revId": "c65b04d32c5d19f43179c8853986e124fea20178",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad98d7fb_19093a46",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-22T23:14:33Z",
+      "side": 1,
+      "message": "Pick the symlinks commit as well.",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 35
+      },
+      "revId": "6403b4cb3ae39dc818e0841bc38cb750918306b8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

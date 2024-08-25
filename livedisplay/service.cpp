@@ -9,6 +9,7 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include <livedisplay/oplus/AntiFlicker.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
@@ -54,6 +55,13 @@ int main() {
     if (status != OK) {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL PictureAdjustment Iface ("
                    << status << ")";
+        goto shutdown;
+    }
+
+    status = af->registerAsService();
+    if (status != OK) {
+        LOG(WARNING) << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                     << status << ")";
         goto shutdown;
     }
 

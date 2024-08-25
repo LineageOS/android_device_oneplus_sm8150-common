@@ -9,6 +9,7 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
+#include <livedisplay/oplus/AntiFlicker.h>
 #include <livedisplay/oplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
@@ -23,9 +24,11 @@ using android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
+using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
 using ::vendor::lineage::livedisplay::V2_1::IDisplayModes;
 using ::vendor::lineage::livedisplay::V2_1::IPictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
 using ::vendor::lineage::livedisplay::V2_1::implementation::DisplayModes;
 using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 
@@ -37,11 +40,19 @@ int main() {
     LOG(INFO) << "LiveDisplay HAL service is starting.";
 
     std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
+    sp<AntiFlicker> af = new AntiFlicker();
     sp<DisplayModes> dm = new DisplayModes(controller);
     sp<PictureAdjustment> pa = new PictureAdjustment(controller);
     sp<SunlightEnhancement> se = new SunlightEnhancement();
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
+
+    status = af->registerAsService();
+    if (status != OK) {
+        LOG(WARNING) << "Could not register service for LiveDisplay HAL AntiFlicker Iface ("
+                     << status << ")";
+        goto shutdown;
+    }
 
     status = dm->registerAsService();
     if (status != OK) {

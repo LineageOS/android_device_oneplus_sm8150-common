@@ -1,4 +1,0 @@
-service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.oneplus_msmnile
-    class late_start
-    user system
-    group system

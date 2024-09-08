@@ -16,6 +16,24 @@
       "message": "Your can also remove TARGET_DISABLE_XML_FIXING from the scripts.",
       "revId": "39da37f193adf772c6dd62cdaac25e8956b3102f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70eb177e_5d8c8b98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-08T17:00:55Z",
+      "side": 1,
+      "message": "i don\u0027t want to unnecessarily fixup all xml files. also you discarded my patchset in extract utils ^^",
+      "parentUuid": "79e0469b_df96d334",
+      "revId": "39da37f193adf772c6dd62cdaac25e8956b3102f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

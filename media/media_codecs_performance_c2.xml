@@ -21,28 +21,6 @@ limitations under the License.
 
 <MediaCodecs>
     <Encoders>
-        <MediaCodec name="OMX.qcom.video.encoder.avc" type="video/avc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="238-238" />
-            <Limit name="measured-frame-rate-720x480" range="277-287" />
-            <Limit name="measured-frame-rate-1280x720" range="200-204" />
-            <Limit name="measured-frame-rate-1920x1080" range="116-118" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.hevc" type="video/hevc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="226-226" />
-            <Limit name="measured-frame-rate-720x480" range="336-339" />
-            <Limit name="measured-frame-rate-1280x720" range="183-194" />
-            <Limit name="measured-frame-rate-1920x1080" range="91-104" />
-            <Limit name="measured-frame-rate-3840x2160" range="37-40" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.hevc.cq" type="video/hevc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="340-400" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" update="true">
-            <Limit name="measured-frame-rate-320x180" range="363-484" />
-            <Limit name="measured-frame-rate-640x360" range="250-280" />
-            <Limit name="measured-frame-rate-1280x720" range="123-125" />
-            <Limit name="measured-frame-rate-1920x1080" range="85-90" />
-        </MediaCodec>
         <MediaCodec name="c2.qti.avc.encoder" type="video/avc" update="true">
             <Limit name="measured-frame-rate-320x240" range="106-234" />
             <Limit name="measured-frame-rate-720x480" range="64-140" />
@@ -83,49 +61,6 @@ limitations under the License.
         </MediaCodec>
     </Encoders>
     <Decoders>
-        <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" update="true">
-            <Limit name="measured-frame-rate-320x240" range="960-1268" />
-            <Limit name="measured-frame-rate-720x480" range="857-1104" />
-            <Limit name="measured-frame-rate-1280x720" range="312-316" />
-            <Limit name="measured-frame-rate-1920x1088" range="246-250" />
-        </MediaCodec>
-            <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" update="true">
-            <Limit name="measured-frame-rate-352x288" range="784-1700" />
-            <!--#ifdef OPLUS_BUG_COMPATIBILITY-->
-            <!--Zhenhui.Yu@MULTMEDIASERVER.PLAYER.106703, 2020/11/16,Add for Fix CtsMediaTestCases fail-->
-            <Limit name="measured-frame-rate-640x360" range="1000-2000" />
-            <!-- #endif OPLUS_BUG_COMPATIBILITY-->
-            <Limit name="measured-frame-rate-720x480" range="1046-1157" />
-            <Limit name="measured-frame-rate-1280x720" range="290-641" />
-            <Limit name="measured-frame-rate-1920x1080" range="316-318" />
-            <Limit name="measured-frame-rate-3840x2160" range="148-149" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qti.video.decoder.h263sw" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="268-418" />
-            <Limit name="measured-frame-rate-352x288" range="273-561" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qti.video.decoder.mpeg4sw" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-176x144" range="409-410" />
-            <Limit name="measured-frame-rate-480x360" range="436-524" />
-            <Limit name="measured-frame-rate-1280x720" range="240-292" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" update="true">
-            <Limit name="measured-frame-rate-320x240" range="337-337" />
-            <Limit name="measured-frame-rate-640x360" range="330-750" />
-            <Limit name="measured-frame-rate-1280x720" range="337-337" />
-            <Limit name="measured-frame-rate-1920x1080" range="248-248" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.vp9" type="video/x-vnd.on2.vp9" update="true">
-            <!-- #ifdef OPLUS_BUG_COMPATIBILITY-->
-            <!-- HuozhuChen@MULTMEDIASERVER.PLAYER.605718, 2020/11/13, Modify for CTS performance test-->
-            <Limit name="measured-frame-rate-320x180" range="300-800" />
-            <!-- #endif OPLUS_BUG_COMPATIBILITY-->
-            <Limit name="measured-frame-rate-320x240" range="1103-1262" />
-            <Limit name="measured-frame-rate-640x360" range="347-783" />
-            <Limit name="measured-frame-rate-1280x720" range="579-594" />
-            <Limit name="measured-frame-rate-1920x1080" range="496-518" />
-            <Limit name="measured-frame-rate-3840x2160" range="139-139" />
-        </MediaCodec>
         <MediaCodec name="c2.qti.avc.decoder" type="video/avc" update="true">
             <Limit name="measured-frame-rate-320x240" range="220-630" />
             <Limit name="measured-frame-rate-720x480" range="250-513" />

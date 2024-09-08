@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e0469b_df96d334",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-09-08T16:56:54Z",
+      "side": 1,
+      "message": "Your can also remove TARGET_DISABLE_XML_FIXING from the scripts.",
+      "revId": "39da37f193adf772c6dd62cdaac25e8956b3102f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

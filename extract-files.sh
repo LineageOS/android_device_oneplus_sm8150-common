@@ -92,10 +92,6 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
-        vendor/etc/data/dsi_config.xml|vendor/etc/data/netmgr_config.xml)
-            [ "$2" = "" ] && return 0
-            fix_xml "${2}"
-            ;;
         vendor/etc/libnfc-nci.conf)
             [ "$2" = "" ] && return 0
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"

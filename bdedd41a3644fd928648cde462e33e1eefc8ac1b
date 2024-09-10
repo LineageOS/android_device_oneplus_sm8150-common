@@ -69,6 +69,24 @@
       "parentUuid": "f751b44c_ea23688b",
       "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684652f9_448d7aeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-09-10T14:35:46Z",
+      "side": 1,
+      "message": "No firmware is required. No one uses or booting it.",
+      "parentUuid": "05dac919_d8881f3f",
+      "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

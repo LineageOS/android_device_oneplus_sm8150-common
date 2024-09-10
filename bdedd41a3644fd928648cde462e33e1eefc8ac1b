@@ -33,6 +33,24 @@
       "message": "Why is the fw unneeded?",
       "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f751b44c_ea23688b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-09-10T13:40:23Z",
+      "side": 1,
+      "message": "\u003e Why is the fw unneeded?\n\nIt is not required for work.\nThere is an attempt to download pm557 in the logs. But it works well without all this.",
+      "parentUuid": "d7481ccc_2cfa0881",
+      "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

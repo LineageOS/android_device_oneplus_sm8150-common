@@ -105,6 +105,24 @@
       "parentUuid": "684652f9_448d7aeb",
       "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1f22f2_e6321a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2024-09-10T14:48:42Z",
+      "side": 1,
+      "message": "I don\u0027t see this in the code and in the logs.\nAlso, I have been using this patch for a long time without firmware. NFC works great for me and my users.",
+      "parentUuid": "07c48e7c_01fe7532",
+      "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

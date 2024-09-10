@@ -87,6 +87,24 @@
       "parentUuid": "05dac919_d8881f3f",
       "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c48e7c_01fe7532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2024-09-10T14:45:36Z",
+      "side": 1,
+      "message": "It is used, it\u0027s updated on boot",
+      "parentUuid": "684652f9_448d7aeb",
+      "revId": "bdedd41a3644fd928648cde462e33e1eefc8ac1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

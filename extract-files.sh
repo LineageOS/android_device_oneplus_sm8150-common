@@ -110,6 +110,11 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             grep -q libcamera_metadata_shim.so "${2}" || "${PATCHELF}" --add-needed libcamera_metadata_shim.so "${2}"
             ;;
+        vendor/lib64/sensors.ssc.so)
+            [ "$2" = "" ] && return 0
+            sed -i "s/android.hardware.audio@4.0.so/android.hardware.audio@6.0.so/" "${2}"
+            sed -i "s/android.hardware.audio.common@4.0.so/android.hardware.audio.common@6.0.so/" "${2}"
+            ;;
         *)
             return 1
             ;;

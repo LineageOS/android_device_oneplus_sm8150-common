@@ -51,6 +51,23 @@
       "message": "Number of restarts: 1\n\nThen another and another...",
       "revId": "21ca85ed92ef7bf74a74ab4eaf25175899b99dc6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4ede72_4f987fb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-26T09:06:52Z",
+      "side": 1,
+      "message": "if it\u0027s just retried \u003c\u003d 10 times, I don\u0027t see why we\u0027d bother touching it, especially with so fragile sed command...",
+      "revId": "21ca85ed92ef7bf74a74ab4eaf25175899b99dc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

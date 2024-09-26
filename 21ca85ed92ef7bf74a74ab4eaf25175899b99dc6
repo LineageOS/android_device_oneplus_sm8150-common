@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "537adada_c656a62f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-09-26T08:47:09Z",
+      "side": 1,
+      "message": "does it actually fix anything useful? or just silences 5 lines of text in the logcat?",
+      "revId": "21ca85ed92ef7bf74a74ab4eaf25175899b99dc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

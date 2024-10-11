@@ -1,0 +1,2 @@
+# Sensors
+/vendor/bin/hw/android\.hardware\.sensors@2\.1-service\.oneplus_msmnile    u:object_r:hal_sensors_default_exec:s0

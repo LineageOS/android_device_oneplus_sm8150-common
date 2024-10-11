@@ -15,7 +15,6 @@
 
 cc_binary {
     name: "android.hardware.sensors@2.1-service.oneplus_msmnile",
-    stem: "android.hardware.sensors@2.1-service.multihal",
     defaults: [
         "hidl_defaults",
     ],
@@ -27,8 +26,8 @@ cc_binary {
         "HalProxyCallback.cpp",
         "service.cpp",
     ],
-    init_rc: ["android.hardware.sensors@2.1-service-multihal.rc"],
-    vintf_fragments: ["android.hardware.sensors@2.1-multihal.xml"],
+    init_rc: ["android.hardware.sensors@2.1-service-oneplus_msmnile.rc"],
+    vintf_fragments: ["android.hardware.sensors@2.1-oneplus_msmnile.xml"],
     header_libs: [
         "android.hardware.sensors@2.X-multihal.header",
         "android.hardware.sensors@2.X-shared-utils",

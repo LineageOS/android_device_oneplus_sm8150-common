@@ -102,6 +102,10 @@ function blob_fixup() {
             sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
             ;;
+        vendor/lib/hw/audio.primary.msmnile.so)
+            [ "$2" = "" ] && return 0
+            sed -i "s/\/vendor\/lib\/liba2dpoffload.so/\/odm\/lib\/liba2dpoffload.so\x00\x00\x00/" "${2}"
+            ;;
         vendor/lib64/hw/com.qti.chi.override.so)
             [ "$2" = "" ] && return 0
             grep -q libcamera_metadata_shim.so "${2}" || "${PATCHELF}" --add-needed libcamera_metadata_shim.so "${2}"

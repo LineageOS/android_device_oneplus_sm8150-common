@@ -2,7 +2,7 @@
 ## from OnePlus 7 Pro (GM1911_11_H.41).
 
 # ACDBs
-vendor/etc/acdbdata/adsp_avs_config.acdb
+vendor/etc/acdbdata/adsp_avs_config.acdb;SYMLINK=odm/etc/acdbdata/adsp_avs_config.acdb
 
 # ADSP
 vendor/bin/adsprpcd

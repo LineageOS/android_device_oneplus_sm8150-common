@@ -33,7 +33,6 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    acdbdata_adsp_avs_config.bin_symlink \
     android.hardware.audio.service \
     android.hardware.audio@4.0.vendor \
     android.hardware.audio@6.0-impl \

@@ -7,6 +7,7 @@
 #include "AreaCapture.h"
 
 #include <android-base/properties.h>
+#include <gui/AidlUtil.h>
 #include <gui/SurfaceComposerClient.h>
 #include <gui/SyncScreenCaptureListener.h>
 #include <ui/DisplayState.h>
@@ -22,6 +23,7 @@ using android::SurfaceComposerClient;
 using android::SyncScreenCaptureListener;
 using android::base::GetProperty;
 using android::gui::ScreenCaptureResults;
+using android::gui::aidl_utils::toARect;
 using android::ui::PixelFormat;
 
 namespace aidl {
@@ -51,16 +53,17 @@ sp<IBinder> AreaCapture::getInternalDisplayToken() {
 }
 
 ndk::ScopedAStatus AreaCapture::getAreaBrightness(AreaRgbCaptureResult* _aidl_return) {
-    DisplayCaptureArgs captureArgs;
-    captureArgs.displayToken = getInternalDisplayToken();
-    captureArgs.pixelFormat = PixelFormat::RGBA_8888;
-    captureArgs.sourceCrop = m_screenshot_rect;
-    captureArgs.width = m_screenshot_rect.getWidth();
-    captureArgs.height = m_screenshot_rect.getHeight();
-    captureArgs.captureSecureLayers = true;
+    DisplayCaptureArgs displayCaptureArgs;
+    displayCaptureArgs.displayToken = getInternalDisplayToken();
+    displayCaptureArgs.captureArgs.pixelFormat = ::android::PIXEL_FORMAT_RGBA_8888;
+    displayCaptureArgs.captureArgs.sourceCrop = toARect(m_screenshot_rect);
+    displayCaptureArgs.width = m_screenshot_rect.getWidth();
+    displayCaptureArgs.height = m_screenshot_rect.getHeight();
+    displayCaptureArgs.captureArgs.captureSecureLayers = true;
 
     sp<SyncScreenCaptureListener> captureListener = new SyncScreenCaptureListener();
-    if (ScreenshotClient::captureDisplay(captureArgs, captureListener) != ::android::NO_ERROR) {
+    if (ScreenshotClient::captureDisplay(displayCaptureArgs, captureListener) !=
+        ::android::NO_ERROR) {
         ALOGE("Capture failed");
         return ndk::ScopedAStatus::fromServiceSpecificError(-1);
     }

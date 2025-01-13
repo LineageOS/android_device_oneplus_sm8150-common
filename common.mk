@@ -265,6 +265,12 @@ PRODUCT_PACKAGES += \
     OPlusFrameworksResCommon \
     OPlusSystemUIResCommon
 
+# Partitions
+PRODUCT_PACKAGES += \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
+    vendor_firmware_mnt_mountpoint
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \

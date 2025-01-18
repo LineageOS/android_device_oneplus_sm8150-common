@@ -16,6 +16,24 @@
       "message": "As far as I remember, here is the original patch - https://github.com/crdroidandroid/android_device_oneplus_sm8150-common/commit/0c9fbf847b1237454c15469d1052575e5f6a19a5",
       "revId": "9fdf4f1b80f5cd77bf5c17a79dee0b4dc6a5a49f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1515ab5_1ca0d09e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-01-18T07:22:39Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_hardware_qcom_audio-ar/commit/f08892ad9b83de6fa706f57b08c530e2ce2de840",
+      "parentUuid": "6714ddb6_55909d25",
+      "revId": "9fdf4f1b80f5cd77bf5c17a79dee0b4dc6a5a49f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c76cf03_050cb3bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-02-08T11:44:24Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to work for hotdog.\nI built the firmware, and when installing it, I got an error at stage 2/2. After that, I rebooted into recovery and got what\u0027s in the image. I flashed recovery.img separately, but the problem remains.\nI have now launched the build without this patch.\n\nYesterday I did a build with 417891. The build was successful and launched perfectly on hotdog. Accordingly, the problem is either in this patch or in 417770.\n\nhttps://i.postimg.cc/nhqxkWLr/Recovery.jpg",
+      "revId": "959678225ec01e6110ec610599b8ae279647c54f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

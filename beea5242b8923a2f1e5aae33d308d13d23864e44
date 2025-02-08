@@ -51,6 +51,24 @@
       "message": "Not sure where Alex picked this from (https://review.lineageos.org/337576), that\u0027s why I thought it was kinda necessary.",
       "revId": "beea5242b8923a2f1e5aae33d308d13d23864e44",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9493c168_5fa52dc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-08T12:07:08Z",
+      "side": 1,
+      "message": "yes, 8250-8350 stock have it set.",
+      "parentUuid": "596966a0_4cd1e225",
+      "revId": "beea5242b8923a2f1e5aae33d308d13d23864e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

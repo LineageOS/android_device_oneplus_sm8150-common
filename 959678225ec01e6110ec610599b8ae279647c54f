@@ -68,6 +68,24 @@
       "parentUuid": "d7a57c32_0eae49df",
       "revId": "959678225ec01e6110ec610599b8ae279647c54f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "652770c8_875d8b3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-02-08T19:45:55Z",
+      "side": 1,
+      "message": "$ grep USE_BSG_FRAMEWORK out/soong/soong.*.variables\nout/soong/soong.lineage_hotdog.variables:            \"USE_BSG_FRAMEWORK\": \"\"\nout/soong/soong.lineage_hotdog.variables:            \"USE_BSG_FRAMEWORK\": \"bool\"",
+      "parentUuid": "e0437ce7_04e1844b",
+      "revId": "959678225ec01e6110ec610599b8ae279647c54f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

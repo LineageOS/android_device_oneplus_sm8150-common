@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af376640_86c54591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-02-08T20:28:39Z",
+      "side": 1,
+      "message": "$ grep USE_BSG_FRAMEWORK out/soong/soong.*.variables\nout/soong/soong.lineage_hotdog.variables:            \"USE_BSG_FRAMEWORK\": \"false\"",
+      "revId": "62bd88a7fa6f9173a31c0f5aa4c40bae6eaf946a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

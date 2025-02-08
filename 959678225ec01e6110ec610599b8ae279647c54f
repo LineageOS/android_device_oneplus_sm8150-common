@@ -50,6 +50,24 @@
       "message": "I restored the device via EDL (no other way).\nRolled back this fix and 417770. The phone booted up normally. After that, I made a build with fix 417770. I did not add this fix. After the firmware update, the phone died again. I conclude that the problem is with 417770",
       "revId": "959678225ec01e6110ec610599b8ae279647c54f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0437ce7_04e1844b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-08T19:28:39Z",
+      "side": 1,
+      "message": "`grep USE_BSG_FRAMEWORK out/soong/soong.*.variables`",
+      "parentUuid": "d7a57c32_0eae49df",
+      "revId": "959678225ec01e6110ec610599b8ae279647c54f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

@@ -104,6 +104,24 @@
       "message": "The WiFi Aware Checker program, after this patch, says that there is support.\nOr am I wrong about something?",
       "revId": "beea5242b8923a2f1e5aae33d308d13d23864e44",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c70e31ce_fcfa391d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-02-08T12:09:47Z",
+      "side": 1,
+      "message": "PS2 or PS1?",
+      "parentUuid": "6733d7ff_4459f829",
+      "revId": "beea5242b8923a2f1e5aae33d308d13d23864e44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

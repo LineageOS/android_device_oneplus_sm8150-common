@@ -104,6 +104,24 @@
       "parentUuid": "652770c8_875d8b3f",
       "revId": "959678225ec01e6110ec610599b8ae279647c54f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d555ea_56cfb423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-02-08T20:02:32Z",
+      "side": 1,
+      "message": "A clean build. Both patches are present:\n\n$ grep USE_BSG_FRAMEWORK out/soong/soong.*.variables\nout/soong/soong.lineage_hotdog.variables:            \"USE_BSG_FRAMEWORK\": \"\"\nout/soong/soong.lineage_hotdog.variables:            \"USE_BSG_FRAMEWORK\": \"bool\"",
+      "parentUuid": "71dc715b_62a99d8c",
+      "revId": "959678225ec01e6110ec610599b8ae279647c54f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

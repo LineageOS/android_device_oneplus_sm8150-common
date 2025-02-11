@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcea3915_905e36c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-02-11T21:37:27Z",
+      "side": 1,
+      "message": "8150; also it was omitted on purpose since it\u0027s using ultrasonic als.",
+      "revId": "fbd52234bba4d02df45c5563690f98307066ba24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

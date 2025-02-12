@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bcea49_ed39e1de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-02-12T12:04:25Z",
+      "side": 1,
+      "message": "` E ThermalHalWrapper: Couldn\u0027t getTemperatureThresholds due to invalid status\n E ThermalHalWrapper: java.lang.IllegalArgumentException: ThermalHAL not initialized properly.\n E ThermalHalWrapper:     at android.os.Parcel.createExceptionOrNull(Parcel.java:3235)\n E ThermalHalWrapper:     at android.os.Parcel.createException(Parcel.java:3215)\n E ThermalHalWrapper:     at android.os.Parcel.readException(Parcel.java:3198)\n E ThermalHalWrapper:     at android.os.Parcel.readException(Parcel.java:3140)\n E ThermalHalWrapper:     at android.hardware.thermal.IThermal$Stub$Proxy.getTemperatureThresholdsWithType(IThermal.java:429)\n E ThermalHalWrapper:     at com.android.server.power.ThermalManagerService$ThermalHalAidlWrapper.getTemperatureThresholds(ThermalManagerService.java:1097)\n E ThermalHalWrapper:     at com.android.server.power.ThermalManagerService$TemperatureWatcher.updateThresholds(ThermalManagerService.java:1632)\n E ThermalHalWrapper:     at com.android.server.power.ThermalManagerService.onActivityManagerReady(ThermalManagerService.java:203)\n E ThermalHalWrapper:     at com.android.server.power.ThermalManagerService.onBootPhase(ThermalManagerService.java:162)\n E ThermalHalWrapper:     at com.android.server.SystemServiceManager.startBootPhase(SystemServiceManager.java:318)\n E ThermalHalWrapper:     at com.android.server.SystemServer.lambda$startOtherServices$6(SystemServer.java:3182)\n E ThermalHalWrapper:     at com.android.server.SystemServer.$r8$lambda$BN7-hELiNpLB--F7mM8F7eiz3DM(SystemServer.java:0)\n E ThermalHalWrapper:     at com.android.server.SystemServer$$ExternalSyntheticLambda8.run(R8$$SyntheticClass:0)\n E ThermalHalWrapper:     at com.android.server.am.ActivityManagerService.systemReady(ActivityManagerService.java:9018)\n E ThermalHalWrapper:     at com.android.server.SystemServer.startOtherServices(SystemServer.java:3179)\n E ThermalHalWrapper:     at com.android.server.SystemServer.run(SystemServer.java:961)\n E ThermalHalWrapper:     at com.android.server.SystemServer.main(SystemServer.java:682)\n E ThermalHalWrapper:     at java.lang.reflect.Method.invoke(Native Method)\n E ThermalHalWrapper:     at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:594)\n E ThermalHalWrapper:     at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:849)`",
+      "revId": "0e6f3e5783d99924e3f4fb9ce193534fea0bb94b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

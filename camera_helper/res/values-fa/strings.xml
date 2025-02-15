@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">بستن</string>
+    <string name="raise_the_camera">دوربین را بالا ببرید</string>
+    <string name="retry">مجدد</string>
+    <string name="warning">هشدار</string>
+    <string name="free_fall_detected_title">سقوط آزاد تشخیص داده‌شد</string>
+    <string name="free_fall_detected_message">برای محافظت از دوربین جلویی گوشی آن را بسته‌ایم. آیا می‌خواهید دوباره از آن استفاده کنید؟</string>
+    <string name="motor_cannot_go_down_message">دوربین جلویی دستگاه نمی‌تواند جمع شود، مطمئن شوید مانعی جلوی آن قرار ندارد</string>
+    <string name="motor_cannot_go_up_message">دوربین جلویی دستگاه نمی‌تواند باز شود، مطمئن شوید مانعی جلوی آن قرار ندارد</string>
+    <string name="motor_press_message">فشار دادن دوربین جلویی می‌تواند باعث آسیب رسیدن به موتور آن شود. لطفا از این کار اجتناب کنید.</string>
+</resources>

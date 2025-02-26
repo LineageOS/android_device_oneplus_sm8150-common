@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Dún</string>
+    <string name="raise_the_camera">Ardaigh an ceamara</string>
+    <string name="retry">Bain triail eile as</string>
+    <string name="warning">Rabhadh</string>
+    <string name="free_fall_detected_title">Braitheadh ​​titim saor in aisce</string>
+    <string name="free_fall_detected_message">Tá an ceamara aghaidh tosaigh íslithe chun é a chosaint. Ar mhaith leat ceamara tosaigh a úsáid arís?</string>
+    <string name="motor_cannot_go_down_message">Ní féidir leis an gceamara aghaidh tosaigh tarraingt siar, le do thoil a chinntiú nach bhfuil aon bhac</string>
+    <string name="motor_cannot_go_up_message">Ní féidir leis an gceamara aghaidh tosaigh aníos, cinntigh le do thoil nach bhfuil aon bhac</string>
+    <string name="motor_press_message">Is féidir damáiste a dhéanamh don mhótar má bhrúitear síos an ceamara atá os comhair tosaigh. Seachain é sin a dhéanamh le do thoil.</string>
+</resources>

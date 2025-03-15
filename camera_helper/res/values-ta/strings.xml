@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">மூடுக</string>
+    <string name="raise_the_camera">ஒளிப்படக்கருவியை உயர்த்துக</string>
+    <string name="retry">மீண்டும் முயல்க</string>
+    <string name="warning">எச்சரிக்கை</string>
+</resources>

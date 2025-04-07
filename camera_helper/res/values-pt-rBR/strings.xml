@@ -5,12 +5,12 @@
 -->
 <resources>
     <string name="close">Fechar</string>
-    <string name="raise_the_camera">Levante a câmera</string>
+    <string name="raise_the_camera">Levantar a câmera</string>
     <string name="retry">Tentar novamente</string>
     <string name="warning">Aviso</string>
     <string name="free_fall_detected_title">Queda livre detectada</string>
     <string name="free_fall_detected_message">A câmera frontal foi retraída para protegê-la. Gostaria de usar a câmera frontal novamente?</string>
     <string name="motor_cannot_go_down_message">A câmera frontal não pôde ser retraída. Por favor, certifique-se de que não há obstruções.</string>
     <string name="motor_cannot_go_up_message">A câmera frontal não pôde ser ejetada. Por favor, certifique-se de que não há obstruções.</string>
-    <string name="motor_press_message">Pressionar a câmera frontal pode danificar o motor. Por favor, evite fazê-lo.</string>
+    <string name="motor_press_message">Pressionar a câmera frontal para baixo pode danificar o motor. Por favor, evite fazer isso.</string>
 </resources>

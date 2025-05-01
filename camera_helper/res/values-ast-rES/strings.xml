@@ -12,5 +12,5 @@
     <string name="free_fall_detected_message">Guardóse la cámara d\'alantre pa protexela. ¿Quies volver usala?</string>
     <string name="motor_cannot_go_down_message">Nun se pue guardar la cámara d\'alantre, asegúrate de que nun ta torgada</string>
     <string name="motor_cannot_go_up_message">Nun se pue sacar la cámara d\'alantre, asegúrate de que nun ta torgada</string>
-    <string name="motor_press_message">Primir na cámara d\'alantre pue dañar el so motor. Evita facelo.</string>
+    <string name="motor_press_message">Al primir la cámara d\'alantre pues dañar el so motor. Evita facelo.</string>
 </resources>

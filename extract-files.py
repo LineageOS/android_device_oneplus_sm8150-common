@@ -57,13 +57,13 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_register_buf_attr')
         .clear_symbol_version('remote_register_buf'),
     'product/app/PowerOffAlarm/PowerOffAlarm.apk': blob_fixup()
-        .apktool_patch('blob-patches/PowerOffAlarm.patch', '-s'),
+        .apktool_patch('blob-patches/PowerOffAlarm.patch'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
     'system_ext/bin/wfdservice': blob_fixup()
         .add_needed('libwfdservice_shim.so'),
     'system_ext/framework/oplus-ims-ext.jar': blob_fixup()
-        .apktool_patch('blob-patches/oplus-ims-ext.patch', '-r'),
+        .apktool_patch('blob-patches/oplus-ims-ext.patch'),
     'system_ext/lib/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib/libwfdservice.so': blob_fixup()

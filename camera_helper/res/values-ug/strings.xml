@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">ياپ</string>
+    <string name="raise_the_camera">كامېرانى كۆتۈرۈڭ</string>
+    <string name="retry">قايتا سىنا</string>
+    <string name="warning">ئاگاھلاندۇرۇش</string>
+    <string name="free_fall_detected_title">ئەركىن چۈشۈش بايقالدى</string>
+    <string name="free_fall_detected_message">ئالدى كامېرانى يىغىپ قوغدايدۇ. ئالدى كامېرانى قايتا ئىشلىتەمسىز؟</string>
+    <string name="motor_cannot_go_down_message">ئالدى كامېرانى يىغالمىدى، ھېچقانداق توسالغۇ يوقلۇقىغا كاپالەتلىك قىلىڭ</string>
+    <string name="motor_cannot_go_up_message">ئالدى كامېرانى قاڭقىتالمىدى، ھېچقانداق توسالغۇ يوقلۇقىغا كاپالەتلىك قىلىڭ</string>
+    <string name="motor_press_message">ئالدى كامېرا بېسىلسا موتورى بۇزۇلۇشى مۇمكىن. بۇنداق قىلىشتىن ساقلىنىڭ.</string>
+</resources>

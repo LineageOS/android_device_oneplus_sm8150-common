@@ -34,6 +34,24 @@
       "parentUuid": "db076504_86b17749",
       "revId": "093ef452b41906c912030b85ae3755c90dcd67b9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33f37e60_eae27609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-07-28T09:57:42Z",
+      "side": 1,
+      "message": "flashed rebuilt vendor.img on top of last official build and it still looks alright, merging~",
+      "parentUuid": "de130272_80fa22ef",
+      "revId": "093ef452b41906c912030b85ae3755c90dcd67b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

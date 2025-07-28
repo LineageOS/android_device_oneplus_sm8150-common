@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff4ad4f_1e78b74c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2025-07-28T09:26:39Z",
+      "side": 1,
+      "message": "For Android 15, this patch causes a compilation error. For Android 16, everything is fine.\n\nERROR: files are incompatible: android.hardware.soundtrigger@2.1::ISoundTriggerHw/default is deprecated; requires at least 2.3\n    because it matches android.hardware.soundtrigger@2.0::ISoundTriggerHw/default from /system/etc/vintf/compatibility_matrix.5.xml: Success",
+      "revId": "11d63b52b85ac4cc29a1f2fa32235c2bbd4a3d59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }

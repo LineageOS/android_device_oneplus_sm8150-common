@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">סגירה</string>
+    <string name="raise_the_camera">הרם את המצלמה</string>
+    <string name="retry">ניסיון חוזר</string>
+    <string name="warning">אזהרה</string>
+    <string name="free_fall_detected_title">זוהתה נפילה חופשית</string>
+    <string name="free_fall_detected_message">המצלמה הקדמית נסגרה למטרת הגנה. האם ברצונך להשתמש במצלמה הקדמית שוב?</string>
+    <string name="motor_cannot_go_down_message">המצלמה הקדמית אינה מצליחה להיסגר, נא לוודא שאין מכשול</string>
+    <string name="motor_cannot_go_up_message">המצלמה הקדמית אינה מצליחה להפתח, נא לוודא שאין חסימה</string>
+    <string name="motor_press_message">סגירה בכוח של המצלמה הקדמית עלול לפגוע במנוע. נא להימנע מכך.</string>
+</resources>

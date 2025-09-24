@@ -8,4 +8,5 @@
     <string name="raise_the_camera">ஒளிப்படக்கருவியை உயர்த்துக</string>
     <string name="retry">மீண்டும் முயல்க</string>
     <string name="warning">எச்சரிக்கை</string>
+    <string name="free_fall_detected_title">கட்டற்ற வீழ்ச்சி கண்டறியப்பட்டது</string>
 </resources>

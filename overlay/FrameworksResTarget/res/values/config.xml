@@ -49,4 +49,7 @@
         <item>0:2:15</item>
     </string-array>
 
+    <!-- Whether this device is supporting the camera toggle -->
+    <bool name="config_supportsCamToggle">true</bool>
+
 </resources>

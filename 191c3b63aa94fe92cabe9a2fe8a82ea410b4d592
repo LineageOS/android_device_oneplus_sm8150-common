@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4e5b273_6961a1cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29669
+      },
+      "writtenOn": "2025-11-12T05:48:52Z",
+      "side": 1,
+      "message": "Does screen off ok google works with these removed ?\nBecause on raphael it needs stock sound trigger 2.2\nas soon as we build st 2.2 / 2.3 for source this screen off ok google dosent work",
+      "revId": "191c3b63aa94fe92cabe9a2fe8a82ea410b4d592",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

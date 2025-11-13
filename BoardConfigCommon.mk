@@ -124,8 +124,18 @@ include $(COMMON_PATH)/sepolicy/SEPolicy.mk
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
+ifneq ($(WITH_AVB),true)
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_verification_disabled_flag
+endif
+
+ifneq (,$(AVB_CUSTOM_KEY_PATH))
+BOARD_AVB_ALGORITHM := $(AVB_CUSTOM_ALGORITHM)
+BOARD_AVB_KEY_PATH := $(AVB_CUSTOM_KEY_PATH)
+else
+AVB_CUSTOM_ALGORITHM := SHA256_RSA4096
+AVB_CUSTOM_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+endif
 
 # WiFi
 BOARD_WLAN_DEVICE := qcwcn

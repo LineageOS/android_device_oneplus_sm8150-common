@@ -124,8 +124,10 @@ include $(COMMON_PATH)/sepolicy/SEPolicy.mk
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
+ifneq ($(WITH_AVB),true)
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_verification_disabled_flag
+endif
 
 # WiFi
 BOARD_WLAN_DEVICE := qcwcn

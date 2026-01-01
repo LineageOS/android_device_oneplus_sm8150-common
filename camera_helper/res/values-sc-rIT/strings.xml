@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Serra</string>
+    <string name="raise_the_camera">Àrtzia sa càmera</string>
+    <string name="retry">Torra a proare</string>
+    <string name="warning">Avisu</string>
+</resources>

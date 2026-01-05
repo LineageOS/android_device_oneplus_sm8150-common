@@ -16,6 +16,24 @@
       "message": "For 23.2 if/when the 5.10 bpf patches get finished for 4.14",
       "revId": "a814ca9107a43b1606a9f78a7da21cac5434da3f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867d0070_2ec33f64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-05T23:13:40Z",
+      "side": 1,
+      "message": "FYI https://review.lineageos.org/c/LineageOS/android_packages_modules_Connectivity/+/464978",
+      "parentUuid": "4319cfef_98d0fb80",
+      "revId": "a814ca9107a43b1606a9f78a7da21cac5434da3f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

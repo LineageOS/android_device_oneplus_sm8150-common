@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4319cfef_98d0fb80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-01-05T23:12:29Z",
+      "side": 1,
+      "message": "For 23.2 if/when the 5.10 bpf patches get finished for 4.14",
+      "revId": "a814ca9107a43b1606a9f78a7da21cac5434da3f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

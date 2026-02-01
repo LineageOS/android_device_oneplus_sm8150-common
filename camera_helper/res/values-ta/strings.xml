@@ -5,12 +5,12 @@
 -->
 <resources>
     <string name="close">மூடுக</string>
-    <string name="raise_the_camera">ஒளிப்படக்கருவியை உயர்த்துக</string>
+    <string name="raise_the_camera">ஒளிப்படமியை உயர்த்துக</string>
     <string name="retry">மீண்டும் முயல்க</string>
     <string name="warning">எச்சரிக்கை</string>
-    <string name="free_fall_detected_title">கட்டற்ற வீழ்ச்சி கண்டறியப்பட்டது</string>
-    <string name="free_fall_detected_message">முன்புறப் படமியைப் பாதுகாக்கும் பொருட்டு அதனைக் கீழே இறக்கப்பட்டுள்ளது. நீர் மீண்டும் முன்புறப் படமியைப் பயன்படுத்த விரும்புகிறீரா?</string>
-    <string name="motor_cannot_go_down_message">முன்புறப் படமியை உள்ளிழுக்க முடியாது, எத்தடையும் இல்லை என்பதை உறுதிப்படுத்திக் கொள்ளவும்</string>
-    <string name="motor_cannot_go_up_message">முன்புறப் படமி வெளிவர முடியவில்லை, எத்தடையும் இல்லை என்பதை உறுதிப்படுத்தவும்</string>
-    <string name="motor_press_message">முன்புறப் படமியை அழுத்தினால் இயக்கிப் பழுதடையக்கூடும். அவ்வாறு செய்வதைத் தவிர்க்கவும்.</string>
+    <string name="free_fall_detected_title">தடையற்ற வீழ்ச்சி கண்டறியப்பட்டது</string>
+    <string name="free_fall_detected_message">முன்புற ஒளிப்படமியைப் பாதுகாக்கும் பொருட்டு உள்ளிழுக்கப்பட்டது. அதனை மீண்டும் பயன்படுத்த விழைகிறீரா?</string>
+    <string name="motor_cannot_go_down_message">முன்புற ஒளிப்படமி உள்ளிறங்கவில்லை; தடைகள் எவையுமில்லை என்பதை உறுதிசெய்யவும்</string>
+    <string name="motor_cannot_go_up_message">முன்புற ஒளிப்படமி வெளிவரவில்லை; தடைகள் எவையுமில்லை என்பதை உறுதிசெய்யவும்</string>
+    <string name="motor_press_message">முன்புற ஒளிப்படமியை அழுத்துவது அதன் இயக்கியைப் பழுதாக்கும். அவ்வாறு செய்வதைத் தவிர்க்கவும்.</string>
 </resources>

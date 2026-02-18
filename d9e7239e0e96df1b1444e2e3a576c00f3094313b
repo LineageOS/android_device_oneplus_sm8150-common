@@ -16,6 +16,24 @@
       "message": "What does config_show_smooth_display have to do with it?",
       "revId": "d9e7239e0e96df1b1444e2e3a576c00f3094313b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c999f68a_6224ce79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2026-02-18T04:34:08Z",
+      "side": 1,
+      "message": "Unfortunate mistake while cherry-picking commits. Thanks for catching.",
+      "parentUuid": "344d27e8_d7c32bce",
+      "revId": "d9e7239e0e96df1b1444e2e3a576c00f3094313b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

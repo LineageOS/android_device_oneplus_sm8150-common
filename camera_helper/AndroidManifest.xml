@@ -14,7 +14,8 @@
 
     <application
         android:label="OnePlusCameraHelper"
-        android:persistent="true">
+        android:persistent="true"
+        android:theme="@style/Theme.SubSettingsBase.Expressive">
 
         <receiver android:name="org.lineageos.camerahelper.BootCompletedReceiver">
             <intent-filter>

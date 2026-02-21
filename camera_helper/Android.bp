@@ -9,6 +9,9 @@ android_app {
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
+    static_libs: [
+        "SettingsLibSettingsTheme",
+    ],
 
     certificate: "platform",
     platform_apis: true,

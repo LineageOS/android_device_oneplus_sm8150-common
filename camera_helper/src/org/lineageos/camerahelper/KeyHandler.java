@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.ContextThemeWrapper;
 import android.view.WindowManager;
 
 import com.android.internal.os.DeviceKeyHandler;
@@ -76,7 +77,8 @@ public class KeyHandler implements DeviceKeyHandler {
         new Handler(Looper.getMainLooper()).post(() -> {
             Context packageContext = getPackageContext();
             if (packageContext != null) {
-                AlertDialog alertDialog = new AlertDialog.Builder(packageContext)
+                AlertDialog alertDialog = new AlertDialog.Builder(
+                        new ContextThemeWrapper(packageContext, R.style.Theme_SubSettingsBase_Expressive))
                         .setTitle(R.string.warning)
                         .setMessage(R.string.motor_cannot_go_down_message)
                         .setPositiveButton(R.string.retry, (dialog, which) -> {
@@ -98,7 +100,8 @@ public class KeyHandler implements DeviceKeyHandler {
         new Handler(Looper.getMainLooper()).post(() -> {
             Context packageContext = getPackageContext();
             if (packageContext != null) {
-                AlertDialog alertDialog = new AlertDialog.Builder(packageContext)
+                AlertDialog alertDialog = new AlertDialog.Builder(
+                        new ContextThemeWrapper(packageContext, R.style.Theme_SubSettingsBase_Expressive))
                         .setTitle(R.string.warning)
                         .setMessage(R.string.motor_cannot_go_up_message)
                         .setNegativeButton(R.string.retry, (dialog, which) -> {
@@ -138,7 +141,8 @@ public class KeyHandler implements DeviceKeyHandler {
         new Handler(Looper.getMainLooper()).post(() -> {
             Context packageContext = getPackageContext();
             if (packageContext != null) {
-                AlertDialog alertDialog = new AlertDialog.Builder(packageContext)
+                AlertDialog alertDialog = new AlertDialog.Builder(
+                        new ContextThemeWrapper(packageContext, R.style.Theme_SubSettingsBase_Expressive))
                         .setTitle(R.string.warning)
                         .setMessage(R.string.motor_press_message)
                         .setPositiveButton(android.R.string.ok, null)

@@ -15,6 +15,10 @@ android_app {
     privileged: true,
     system_ext_specific: true,
 
+    static_libs: [
+        "SettingsLibSettingsTheme",
+    ],
+
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },

@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.WindowManager;
 
 import java.util.concurrent.ExecutorService;
@@ -65,7 +66,9 @@ public class FallSensor implements SensorEventListener {
 
         // Show alert dialog informing user that we closed the camera
         new Handler(Looper.getMainLooper()).post(() -> {
-            AlertDialog alertDialog = new AlertDialog.Builder(mContext)
+            Context context = new ContextThemeWrapper(
+                    mContext, R.style.Theme_SubSettingsBase_Expressive);
+            AlertDialog alertDialog = new AlertDialog.Builder(context)
                     .setTitle(R.string.free_fall_detected_title)
                     .setMessage(R.string.free_fall_detected_message)
                     .setNegativeButton(R.string.raise_the_camera, (dialog, which) -> {

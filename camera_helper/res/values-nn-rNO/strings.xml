@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">Lukk</string>
+    <string name="raise_the_camera">Hev kameraet</string>
+    <string name="retry">Prøv på nytt</string>
+    <string name="warning">Åtvaring</string>
+    <string name="free_fall_detected_title">Fritt fall registrert</string>
+    <string name="free_fall_detected_message">Frontkameraet er senka for å tryggja det. Vil du bruka frontkameraet på nytt?</string>
+    <string name="motor_cannot_go_down_message">Frontkameraet kan ikkje trekkja seg inn, sjekk at det ikkje er noko i vegen</string>
+    <string name="motor_cannot_go_up_message">Frontkameraet kan ikkje spretta opp, sjekk at det ikkje er noko i vegen</string>
+    <string name="motor_press_message">Trykkjer du ned frontkameraet, kan motoren ta skade. Ikkje gjer det.</string>
+</resources>

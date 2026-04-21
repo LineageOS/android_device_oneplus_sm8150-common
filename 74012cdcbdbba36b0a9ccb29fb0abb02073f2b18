@@ -16,6 +16,24 @@
       "message": "Shouldn\u0027t armv8-2a be here?\nAt the beginning of compilation, I get a warning that armv8-a is not allowed. Armv8-2a will be used.",
       "revId": "74012cdcbdbba36b0a9ccb29fb0abb02073f2b18",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f955ef43_f994be82",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-04-21T08:30:23Z",
+      "side": 1,
+      "message": "I dont get such an error with this chain",
+      "parentUuid": "11a7cdb6_b03c4f6f",
+      "revId": "74012cdcbdbba36b0a9ccb29fb0abb02073f2b18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

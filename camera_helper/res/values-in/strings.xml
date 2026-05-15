@@ -8,6 +8,7 @@
     <string name="raise_the_camera">Keluarkan kamera</string>
     <string name="retry">Coba lagi</string>
     <string name="warning">Peringatan</string>
+    <string name="free_fall_detected_title">Free fall terdeteksi</string>
     <string name="free_fall_detected_message">Kamera depan telah dimasukkan untuk melindunginya. Apakah Anda ingin menggunakan kamera depan lagi?</string>
     <string name="motor_cannot_go_down_message">Tidak dapat menarik masuk kamera depan, pastikan tidak ada yang menghalangi.</string>
     <string name="motor_cannot_go_up_message">Tidak dapat mengeluarkan kamera depan, pastikan tidak ada yang menghalangi.</string>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="close">داخستن</string>
+    <string name="raise_the_camera">بەرزکردنەوەی کامێرا</string>
+    <string name="retry">هەوڵدانەوە</string>
+    <string name="warning">ئاگاداری</string>
+    <string name="free_fall_detected_title">کەوتنی ئازاد دۆزرایەوە</string>
+    <string name="free_fall_detected_message">کامێرای پێشەوە بۆ پاراستن کێشراوەتەوە. دەتەوێت دووبارە کامێرای پێشەوە بەرز بکەیتەوە؟</string>
+    <string name="motor_cannot_go_down_message">بزوێنەری کامێرای پێشەوە ناچێتە خوارەوە، تکایە دڵنیابەوە کە هیچ ئاستەنگێک نییە</string>
+    <string name="motor_cannot_go_up_message">بزوێنەری کامێرای پێشەوە بەرز نابێتەوە، تکایە دڵنیابەوە کە هیچ ئاستەنگێک نییە</string>
+    <string name="motor_press_message">داگرتنی کامێرای پێشەوە بە دەست دەبێتە هۆی تێکچوونی بزوێنەرەکە. تکایە لەم کارە دوور بکەوەرەوە.</string>
+</resources>

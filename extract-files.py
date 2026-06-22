@@ -60,10 +60,12 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/PowerOffAlarm.patch'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
+    'system/framework/WfdCommon.jar': blob_fixup()
+        .apktool_patch('blob-patches/WfdCommon.patch'),
     'system_ext/framework/oplus-ims-ext.jar': blob_fixup()
         .apktool_patch('blob-patches/oplus-ims-ext.patch'),
-    'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .add_needed('libinput_shim.so'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
     'vendor/etc/sensors/sns_reg_config': blob_fixup()
         .regex_replace('version=8', 'version=9'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()

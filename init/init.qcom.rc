@@ -242,6 +242,9 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
+    # NFC libnfc-nxp*.bin
+    mkdir /data/vendor/nfc/ 0770 nfc nfc
+
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
 

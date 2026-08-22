@@ -16,6 +16,23 @@
       "message": "hotdog has the same problem",
       "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c95817f_23a49b7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-22T10:09:40Z",
+      "side": 1,
+      "message": "are you sure HIDL isn\u0027t just obscuring same issue because it doesn\u0027t have `abort()` here? if removing abort() works the same as HIDL, we could probably just add hax that allows skipping it for terrible devices.\n\nhttps://github.com/LineageOS/android_hardware_nxp_nfc/blob/lineage-23.2/pn8x/halimpl/hal/phNxpNciHal.cc#L1081-L1093\nhttps://github.com/LineageOS/android_hardware_nxp_nfc/blob/lineage-23.2/snxxx/halimpl/hal/phNxpNciHal.cc#L1334-L1351",
+      "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

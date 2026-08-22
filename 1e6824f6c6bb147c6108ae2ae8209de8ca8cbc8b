@@ -33,6 +33,24 @@
       "message": "are you sure HIDL isn\u0027t just obscuring same issue because it doesn\u0027t have `abort()` here? if removing abort() works the same as HIDL, we could probably just add hax that allows skipping it for terrible devices.\n\nhttps://github.com/LineageOS/android_hardware_nxp_nfc/blob/lineage-23.2/pn8x/halimpl/hal/phNxpNciHal.cc#L1081-L1093\nhttps://github.com/LineageOS/android_hardware_nxp_nfc/blob/lineage-23.2/snxxx/halimpl/hal/phNxpNciHal.cc#L1334-L1351",
       "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e873997_78e3947c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-22T10:24:44Z",
+      "side": 1,
+      "message": "```diff\ndiff --git a/snxxx/Android.bp b/snxxx/Android.bp\nindex 61d0817..2eef56b 100644\n--- a/snxxx/Android.bp\n+++ b/snxxx/Android.bp\n@@ -54,7 +54,10 @@ cc_library_shared {\n         \"-DNXP_NFC_RECOVERY\u003dTRUE\",\n         \"-DNXP_QTAG\u003dTRUE\",\n         \"-DNXP_FORCE_FW_DOWNLOAD\u003d1\",\n-    ],\n+    ] + select(soong_config_variable(\"nxp_snxxx\", \"needs_core_reset_ntf\"), {\n+        true: [\"-DNXP_NEEDS_CORE_RESET_NTF\"],\n+        default: [],\n+    }),\n     srcs: [\n         \"halimpl/dnld/phDnldNfc.cc\",\n         \"halimpl/dnld/phDnldNfc_Internal.cc\",\ndiff --git a/snxxx/halimpl/hal/phNxpNciHal.cc b/snxxx/halimpl/hal/phNxpNciHal.cc\nindex c0a39b8..5f9501b 100644\n--- a/snxxx/halimpl/hal/phNxpNciHal.cc\n+++ b/snxxx/halimpl/hal/phNxpNciHal.cc\n@@ -1339,7 +1339,9 @@ retry:\n               \"recovery\\n\");\n           // Send the Core Reset NTF to upper layer, which will trigger the\n           // recovery.\n+#ifndef NXP_NEEDS_CORE_RESET_NTF\n           abort();\n+#endif\n           nxpncihal_ctrl.rx_data_len \u003d sizeof(reset_ntf);\n           memcpy(nxpncihal_ctrl.p_rx_data, reset_ntf, sizeof(reset_ntf));\n           (*nxpncihal_ctrl.p_nfc_stack_data_cback)(nxpncihal_ctrl.rx_data_len,\n```\n\nplus device side\n\n```\n$(call soong_config_set_bool,nxp_snxxx,needs_core_reset_ntf,true)\n```\n\nif that helps, that\u0027d be great, no idea why nxp decided to no longer send core reset notifications.",
+      "parentUuid": "2c95817f_23a49b7b",
+      "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

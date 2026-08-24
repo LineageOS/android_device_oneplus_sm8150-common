@@ -105,6 +105,23 @@
       "parentUuid": "1de298a8_f2c97472",
       "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab94f9ea_988f1b19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-24T12:56:18Z",
+      "side": 1,
+      "message": "kernel side fix has been shipped.",
+      "revId": "1e6824f6c6bb147c6108ae2ae8209de8ca8cbc8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": [

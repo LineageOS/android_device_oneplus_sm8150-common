@@ -1,4 +1,4 @@
-type camera_helper_app, domain;
+type camera_helper_app, domain, coredomain;
 
 app_domain(camera_helper_app)
 

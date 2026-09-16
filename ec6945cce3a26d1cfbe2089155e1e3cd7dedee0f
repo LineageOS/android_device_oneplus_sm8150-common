@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70247f6d_a05680f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2026-09-16T19:25:44Z",
+      "side": 1,
+      "message": "Wow, the phone started booting up so fast!",
+      "revId": "ec6945cce3a26d1cfbe2089155e1e3cd7dedee0f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

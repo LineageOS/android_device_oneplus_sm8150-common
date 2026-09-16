@@ -67,8 +67,6 @@ public class CameraMotorService extends Service implements Handler.Callback {
 
     @Override
     public void onCreate() {
-        CameraMotorController.calibrate();
-
         CameraManager cameraManager = getSystemService(CameraManager.class);
         cameraManager.registerAvailabilityCallback(mAvailabilityCallback, null);
     }

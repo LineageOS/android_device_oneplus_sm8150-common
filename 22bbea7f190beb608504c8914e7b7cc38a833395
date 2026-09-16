@@ -52,6 +52,24 @@
       "parentUuid": "d422d1f3_d1f84c69",
       "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b6c5b8_a6646880",
+        "filename": "sepolicy/private/camera_helper_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2026-09-16T11:15:45Z",
+      "side": 1,
+      "message": "Yes, nothing good. We need to look for another way.\n\n09-16 14:12:39.410  3603  3603 E CameraMotorController: Failed to read /mnt/vendor/persist/engineermode/hall_calibration\n09-16 14:12:39.410  3603  3603 E CameraMotorController: java.io.FileNotFoundException: /mnt/vendor/persist/engineermode/hall_calibration: open failed: EACCES (Permission denied)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.IoBridge.open(IoBridge.java:574)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at java.io.FileInputStream.\u003cinit\u003e(FileInputStream.java:179)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.os.FileUtils.readTextFile(FileUtils.java:745)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at org.lineageos.camerahelper.CameraMotorController.calibrate(go/retraceme 221e74a6ce68763996c0bfa2f7fd29cc109c610aa0a04d3b093cf2ebbc78c89d:11)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at org.lineageos.camerahelper.CameraMotorService.onCreate(go/retraceme 221e74a6ce68763996c0bfa2f7fd29cc109c610aa0a04d3b093cf2ebbc78c89d:0)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.app.ActivityThread.handleCreateService(ActivityThread.java:5664)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.app.ActivityThread.-$$Nest$mhandleCreateService(ActivityThread.java:0)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2807)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.os.Handler.dispatchMessageImpl(Handler.java:142)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.os.Handler.dispatchMessage(Handler.java:125)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.os.Looper.loopOnce(Looper.java:296)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.os.Looper.loop(Looper.java:397)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.app.ActivityThread.main(ActivityThread.java:9570)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at java.lang.reflect.Method.invoke(Native Method)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:578)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)\n09-16 14:12:39.410  3603  3603 E CameraMotorController: Caused by: android.system.ErrnoException: open failed: EACCES (Permission denied)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.Linux.open(Native Method)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.ForwardingOs.open(ForwardingOs.java:579)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.ForwardingOs.open(ForwardingOs.java:579)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at android.app.AndroidForwardingOs.open(AndroidForwardingOs.java:120)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         at libcore.io.IoBridge.open(IoBridge.java:560)\n09-16 14:12:39.410  3603  3603 E CameraMotorController:         ... 15 more",
+      "parentUuid": "b5610b47_facc4336",
+      "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

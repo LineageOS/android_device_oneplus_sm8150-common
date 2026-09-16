@@ -1,2 +1,5 @@
+# Init
+/(odm|vendor/odm)/bin/init\.oplus\.hall\.sh    u:object_r:vendor_qti_init_shell_exec:s0
+
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors@2\.1-service\.oneplus_msmnile    u:object_r:hal_sensors_default_exec:s0

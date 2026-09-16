@@ -67,6 +67,11 @@ service oplus-sh /odm/bin/init.oplus.sh
     group root
     oneshot
 
+service oplus-hall-sh /odm/bin/init.oplus.hall.sh
+    class system
+    user system
+    oneshot
+
 service oplus-wifi-sh /odm/bin/init.oplus.wifi.sh
     class core
     user root

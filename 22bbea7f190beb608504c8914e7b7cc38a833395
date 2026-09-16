@@ -34,6 +34,24 @@
       "parentUuid": "ed10c9b1_0b95e862",
       "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5610b47_facc4336",
+        "filename": "sepolicy/private/camera_helper_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-09-16T10:56:34Z",
+      "side": 1,
+      "message": "yes, but can you verify that CAMERA_PERSIST_HALL_CALIBRATION can be read by the app instead of guessing that it\u0027s alright.",
+      "parentUuid": "d422d1f3_d1f84c69",
+      "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

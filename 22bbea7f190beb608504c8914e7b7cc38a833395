@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed10c9b1_0b95e862",
+        "filename": "sepolicy/private/camera_helper_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-09-16T10:43:19Z",
+      "side": 1,
+      "message": "are you sure it\u0027s able to access this w/o search above?",
+      "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

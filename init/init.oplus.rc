@@ -40,7 +40,6 @@ on boot
     # Motor
     chown system system /sys/class/motor/direction
     chown system system /sys/class/motor/enable
-    chown system system /sys/class/motor/hall_calibration
     chown system system /sys/class/motor/position
 
     # Sensors
@@ -65,6 +64,11 @@ on property:sys.boot_completed=1
 service oplus-sh /odm/bin/init.oplus.sh
     user root
     group root
+    oneshot
+
+service oplus-hall-sh /odm/bin/init.oplus.hall.sh
+    class system
+    user system
     oneshot
 
 service oplus-wifi-sh /odm/bin/init.oplus.wifi.sh

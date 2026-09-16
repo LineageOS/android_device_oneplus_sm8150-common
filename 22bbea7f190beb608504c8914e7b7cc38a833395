@@ -16,6 +16,24 @@
       "message": "are you sure it\u0027s able to access this w/o search above?",
       "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d422d1f3_d1f84c69",
+        "filename": "sepolicy/private/camera_helper_app.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2026-09-16T10:55:35Z",
+      "side": 1,
+      "message": "This line causes an error during compilation. Removing it does not affect the camera’s functionality. According to my tests, all modes work. While the camera is running, I don’t see any additional SELinux restrictions.",
+      "parentUuid": "ed10c9b1_0b95e862",
+      "revId": "22bbea7f190beb608504c8914e7b7cc38a833395",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

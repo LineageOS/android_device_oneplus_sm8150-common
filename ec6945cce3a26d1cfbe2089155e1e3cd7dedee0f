@@ -34,6 +34,23 @@
       "parentUuid": "70247f6d_a05680f7",
       "revId": "ec6945cce3a26d1cfbe2089155e1e3cd7dedee0f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c3c984_191f5e48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9760
+      },
+      "writtenOn": "2026-09-17T07:08:05Z",
+      "side": 1,
+      "message": "We also have these kinds of denials. Should we ignore them?\n\n[   24.462731] type\u003d1400 audit(1789628335.109:6): avc:  denied  { search } for  comm\u003d\"os.camerahelper\" name\u003d\"data\" dev\u003d\"dm-52\" ino\u003d339 scontext\u003du:r:camera_helper_app:s0 tcontext\u003du:object_r:system_data_file:s0:c512,c768 tclass\u003ddir permissive\u003d0\n\nI know it’s not right to write this here, but I don’t have any other communication from Russia.\n\nThere is such a denial in the kernel logs. The file exists. I don’t know how to fix it.\n[   36.206222] type\u003d1400 audit(1789628346.853:42): avc:  denied  { getattr } for  comm\u003d\"gpuservice\" path\u003d\"/sys/fs/bpf/map_gpuWork_gpu_work_map\" dev\u003d\"bpf\" ino\u003d17769 scontext\u003du:r:gpuservice:s0 tcontext\u003du:object_r:fs_bpf:s0 tclass\u003dfile permissive\u003d0",
+      "revId": "ec6945cce3a26d1cfbe2089155e1e3cd7dedee0f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

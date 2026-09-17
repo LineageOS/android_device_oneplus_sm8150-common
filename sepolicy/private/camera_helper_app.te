@@ -1,4 +1,4 @@
-type camera_helper_app, domain, coredomain;
+type camera_helper_app, domain, coredomain, mlstrustedsubject;
 
 app_domain(camera_helper_app)
 

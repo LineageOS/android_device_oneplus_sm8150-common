@@ -4,7 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+import os
+import zipfile
+
 from extract_utils.fixups_blob import (
+    BlobFixupCtx,
+    File,
     blob_fixup,
     blob_fixups_user_type,
 )
@@ -16,6 +21,39 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+
+
+def blob_align_zip(
+    ctx: BlobFixupCtx,
+    file: File,
+    file_path: str,
+    *args,
+    **kwargs,
+):
+    page = 4096
+    tmp_path = file_path + '.aligned'
+
+    with zipfile.ZipFile(file_path) as zin, zipfile.ZipFile(tmp_path, 'w') as zout:
+        for info in zin.infolist():
+            data = zin.read(info.filename)
+
+            out = zipfile.ZipInfo(info.filename, date_time=info.date_time)
+            out.external_attr = info.external_attr
+            out.internal_attr = info.internal_attr
+            out.create_system = info.create_system
+
+            if info.filename.endswith('.so'):
+                out.compress_type = zipfile.ZIP_STORED
+                base = zout.fp.tell() + 30 + len(out.filename.encode('utf-8'))
+                pad = (-(base + 4)) % page
+                out.extra = b'\x9d\x99' + pad.to_bytes(2, 'little') + b'\x00' * pad
+            else:
+                out.compress_type = zipfile.ZIP_DEFLATED
+
+            zout.writestr(out, data)
+
+    os.replace(tmp_path, file_path)
+
 
 namespace_imports = [
     'device/oneplus/sm8150-common',
@@ -66,6 +104,8 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('blob-patches/oplus-ims-ext.patch'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
+    'vendor/etc/faceunlock/resources.zip': blob_fixup()
+        .call(blob_align_zip),
     'vendor/etc/sensors/sns_reg_config': blob_fixup()
         .regex_replace('version=8', 'version=9'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()

@@ -187,6 +187,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.target.power.rc \
     init.target.rc \
+    ueventd.oplus.rc \
     ueventd.qcom.rc
 
 # Input
@@ -204,7 +205,7 @@ PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/mmi_charging_enable)
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/oplus_chg/battery/mmi_charging_enable)
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

@@ -5,6 +5,12 @@
 -->
 <resources>
     <string name="close">關閉</string>
+    <string name="raise_the_camera">升起相機</string>
     <string name="retry">重試</string>
     <string name="warning">警告</string>
+    <string name="free_fall_detected_title">偵測到自由落體</string>
+    <string name="free_fall_detected_message">已收回相機以保護前置鏡頭。您是否要再次使用前置鏡頭？</string>
+    <string name="motor_cannot_go_down_message">前置鏡頭無法收回，請確保沒有任何阻礙。</string>
+    <string name="motor_cannot_go_up_message">前置鏡頭無法彈出，請確保沒有任何阻礙。</string>
+    <string name="motor_press_message">強行按下前置鏡頭可能會損壞馬達。請避免這樣做。</string>
 </resources>
